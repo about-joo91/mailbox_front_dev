@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+    background: linear-gradient(90deg, #F0F0E6 50%, #FFFFFF 50%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+* {
+    font-family: 'Gamja Flower', cursive;
+    ;
+}
+.nav_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+}
+
+.nc_sub_container{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: space-between
+}
+.nc_modal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    margin-left: 80px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.nc_nav {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-right: 80px;
+    margin-top: 40px;
+}
+.nc_nav p{
+    font-size: 23px;
+}
+
+.nc_mongle {
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.nc_profile {
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+@media (max-width: 780px) {
+    .nc_nav {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 560px) {
+    .nc_nav {
+        margin-right: 10px;
+    }
+    .nc_modal {
+        margin-left: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .nc_profile {
+        width: 50px;
+        height: 50px;
+    }
+    .nc_mongle {
+        width: 50px;
+        height: 50px;
+    }
+    .nc_nav p {
+        font-size: 20px;
+    }
+    .nc_modal {
+        margin-left: 30px;
+    }
+}
