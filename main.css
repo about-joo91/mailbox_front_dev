@@ -1,0 +1,318 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+    background-color: #f98866cb;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.name {
+    font-size: 30px;
+    margin-right: 20px;
+
+}
+
+.dolchuwrap {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.dolchuimg {
+    width: 230px;
+}
+
+.mainfoodwrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.mainfood_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainfoodtext {
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 20px;
+    writing-mode: vertical-lr;
+    margin-right: 10px;
+}
+
+.mainfoodtext h1 {
+    font-family: 'NanumGiBbeumBarkEum';
+    font-size: 70px;
+}
+
+.mainfoodtext p {
+    font-family: 'NanumGiBbeumBarkEum';
+    color: #F9AB5E;
+    text-align: end;
+    padding-bottom: 20px;
+    font-size: 40px;
+}
+
+.mainfoodimgs {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+}
+
+.mainfoodimg {
+    /* position: relative; */
+    width: 500px;
+    /* max-width: 800px;
+    max-height: 400px;
+    min-width: 350px; */
+    opacity: 0.8;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.category>div {
+    display: flex;
+    margin: 0px 0px;
+    justify-content: center;
+}
+
+.kfoodimg {
+    font-size: 70px;
+}
+
+.kfoodtext {
+    font-size: 30px;
+}
+
+.food {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 70px;
+    margin: 0px 10px;
+}
+
+.listwrap {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0px;
+}
+
+.list {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(255, 243, 107);
+    margin: 0 25px;
+    font-size: 30px;
+    font-weight: bold;
+    filter: drop-shadow(5px 25px 25px rgba(0, 0, 0, 0.25));
+    transition: all .2s ease-in-out;
+}
+
+.list:hover {
+    color: #F9AB5E;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#d_list:hover > .dolchu_guide {
+    display: block;
+}
+
+.dolchu_guide {
+    display: none;
+    position: absolute;
+    width: 300px;
+    max-height: 120px;
+    left: -100px;
+    top: -140px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+}
+
+.m-storelist div img {
+    width: 200px;
+    height: 200px;
+}
+
+#m-storelist {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.m-storelist {
+    margin: 30px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(5px 25px 25px rgba(0, 0, 0, 0.25)); 
+    border-radius: 25px;
+}
+
+.m-storelist div{
+    filter: drop-shadow(5px 25px 25px rgba(0, 0, 0, 0.25));
+    border-radius: 25px;
+    margin: 0px 50px;
+}
+
+.storeimg {
+    border-radius: 60%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.storedetail {
+    background-color: bisque;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
+    width: 400px;
+    align-items: center;
+    margin-left: 20px;
+    filter: drop-shadow(5px 25px 25px rgba(0, 0, 0, 0.25));
+}
+
+.d-storelist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.storename {
+    color: #ff420e;
+}
+
+.notstar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.notstar div{
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bold;
+    width: 60%;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    background: #89da59;
+    padding: 30px;
+}
+.category button{
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+    color: #FFFFFF;
+}
+
+@media (max-width:870px) {
+    .food {
+        flex-basis: 20%;
+    }
+
+    .kfoodimg {
+        font-size: 30px;
+    }
+
+    .category {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+
+    .kfoodtext {
+        font-size: 20px;
+    }
+
+    .dolchu_guide {
+    width: 220px;
+    max-height: 150px;
+    left: -100px;
+    top: -120px;
+    padding: 10px;
+    font-size: 15px;
+    }
+    
+    .m-storelist div img {
+        width: 100px;
+        height: 100px;
+        margin: 0px 15px;
+    }
+
+    .storedetail {
+        font-size: 12px;
+    }
+
+    .list {
+        font-size: 17px;
+    }
+
+    .m-storelist div {
+        margin: 0px;
+    }
+
+    .mainfoodtext {
+        padding: 30px 70px;
+        font-size: 15px;
+    }
+
+    .mainfoodimg {
+        width: 350px;
+    }
+}
+
+@media (max-width:470px) {
+    .storedetail {
+        width: 260px;
+    }
+}
+
+@media (max-width: 811px) {
+    .notstar div {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 435px) {
+    .notstar div {
+        font-size: 20px;
+    }
+    .food{
+        margin: 0px 2px;
+    }
+}
