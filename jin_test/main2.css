@@ -1,0 +1,336 @@
+body{
+    margin: 0;
+    background: #F0F0E6;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+* {
+    font-family: 'Gamja Flower', cursive;
+    ;
+}
+.nav_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: F0F0E6;
+}
+
+.nc_sub_container{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: space-between
+}
+.nc_sb_modal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    margin-left: 80px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+.nc_sb_nav {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-right: 80px;
+    margin-top: 40px;
+}
+.nc_sb_nav p{
+    font-size: 23px;
+
+}
+
+.nc_mongle {
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.nc_profile {
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.main_container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 1100px;
+}
+.mc_sub_container{
+    width: 50%;
+}
+
+.mc_sb_letter_bar{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: rgba(176, 170, 109, 0.8)    
+}
+.mc_sb_menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(226, 202, 155, 1);
+    border-radius: 20px;
+    width: 100%;
+    height: 1000px;
+}
+.mc_sb_letter_bar span{ 
+    font-size: 40px;
+    color: white;
+}
+.mc_sb_letter_bar p{
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+}
+
+.mc_sb_catebox{
+    flex-direction: column;
+    overflow: auto;
+    display: flex;
+    width: 32%;
+    max-height: 90%;
+}
+.mc_sb_catebox::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    position: relative;
+}
+
+.mc_sb_reviewbox{
+    position: relative;
+    left: -1%;
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    height: 80%;
+}
+
+.mc_sb_rankbox{
+    background-color: #F0F0E6;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 80%;
+    overflow: auto;
+}
+
+.mb_sb_cb_title{
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 5%;
+}
+.mb_sb_cb_title p{
+    position: relative;
+    top: -70%;
+    font-size: 30px;    
+}
+.mb_sb_rb_title p{
+    position: relative;
+    top: -70%;
+    font-size: 30px;    
+}
+.mc_sb_rankbox p{
+    position: relative;
+    top: -70%;
+    font-size: 30px;    
+}
+
+.mb_sb_rb_title{
+
+    margin-bottom: 10px;
+    width: 100%;
+    height: 5%;
+}
+
+.mb_sb_rk_title{
+    background-color: rgba(226, 202, 155, 1);
+    margin-bottom: 10px;
+    width: 100%;
+    height: 5%;
+}
+
+.mb_sb_cb_item {
+    cursor: pointer;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    height: 30%;
+    margin-bottom: 20px;
+    background-color: rgba(240, 240, 230, 1)
+}
+.mb_sb_cb_item_title{
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+    background-color: rgba(240, 240, 230, 1)
+}
+.mb_sb_cb_item_title span{
+    margin-top: 5px;
+    margin-left: 20px;
+    font-size: 20px
+}
+.mb_sb_cb_item_title p{
+    margin-top: 7px;
+    margin-right: 16px;
+    font-size: 15px
+}
+
+
+.mb_sb_cb_item_line {
+    position: relative;
+    width: 90%;
+    border: 1px dashed gray;
+    margin-top: 5px;
+    left: 5%;
+    
+}
+.mb_sb_cb_item_text{
+    font-size: 20px;
+    margin-top: 7%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.mb_sb_rb_rank {
+    border-radius: 10px;
+    background-color: rgba(240, 240, 230, 1);
+    margin-top: 15px;
+    width: 100%;
+    height: 15%;
+    padding: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    overflow-y: auto;
+}
+.mb_sb_rb_rank::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    position: relative;
+}
+
+.mb_sb_rb_rank p{
+    font-size: 18px;
+}
+.mb_sb_rb_all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 7%;
+}
+.mb_sb_rb_text{
+    font-size: 25px;
+}
+.mb_sb_rb_live{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 105.5%;
+    height: 10%;
+    background-color: rgba(240, 240, 230, 1);
+}
+
+.mb_sb_cb_title p {
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.mb_sb_rk_user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    width: 100%;
+    height: 5%;
+}
+.mb_sb_rk_user img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 10px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+        .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 780px) {
+    .nc_sb_nav {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 10px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+}
+@media (max-width: 480px) {
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_sb_nav p {
+        font-size: 20px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 780px) {
+    body {
+        background: #F0F0E6
+    }
+}
