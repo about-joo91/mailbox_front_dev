@@ -119,9 +119,11 @@ body{
     position: relative;
     left: -1%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 32%;
-    height: 80%;
+    height: 90%;
 }
 
 .mc_sb_rankbox{
@@ -175,8 +177,6 @@ body{
     cursor: pointer;
     border-radius: 20px;
     flex-direction: column;
-    display: flex;
-    width: 100%;
     height: 30%;
     margin-bottom: 20px;
     background-color: rgba(240, 240, 230, 1)
@@ -187,7 +187,7 @@ body{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 15%;
+    height: 35%;
     background-color: rgba(240, 240, 230, 1)
 }
 .mb_sb_cb_item_title span{
@@ -211,24 +211,32 @@ body{
     
 }
 .mb_sb_cb_item_text{
+    text-overflow: ellipsis;
+    width: 90%;
+    height: 50px;
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
     font-size: 20px;
     margin-top: 7%;
-    margin-left: 3%;
+    margin-left: 5%;
     margin-right: 3%;
 }
 
 .mb_sb_rb_rank {
+    display: flex;
     border-radius: 10px;
     background-color: rgba(240, 240, 230, 1);
-    margin-top: 15px;
     width: 100%;
     height: 15%;
     padding: 11px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+    padding-top: 0%;
+    margin-bottom: 15px;
     overflow-y: auto;
+
 }
 .mb_sb_rb_rank::-webkit-scrollbar {
     width: 5px;
@@ -237,7 +245,7 @@ body{
 }
 
 .mb_sb_rb_rank p{
-    font-size: 18px;
+    font-size: 20px;
 }
 .mb_sb_rb_all{
     display: flex;
