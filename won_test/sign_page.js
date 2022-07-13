@@ -7,23 +7,31 @@ async function SignUp(){
         nickname : document.getElementById("Nickname").value,
         password : document.getElementById("Password").value,
     }
-    const response = await fetch(`${backend_base_url}/won_test/`, {
-        headers : {
-            "Access-Control-Allow-Origin": "*",
-            Accept: "application/json",
-            "Content-type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify(SignupData)
-    })
-    response_json = await response.json()
-    
-    if (response.status == 200){
-        alert("회원가입 완료!")
-        window.location.replace(`signin.html`);
-    }else {
-        alert(response.status)
+    if (SignupData.username && SignupData.nickname && SignupData.password) {
+        const response = await fetch(`${backend_base_url}/won_test/`, {
+            headers : {
+                "Access-Control-Allow-Origin": "*",
+                Accept: "application/json",
+                "Content-type": "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify(SignupData)
+        })
+
+        response_json = await response.json()
+        
+        if (response.status == 200){
+            alert("회원가입 완료!")
+            window.location.replace(`signin.html`);
+        }else {
+            alert("중복되는 아이디나 닉네임이 있습니다.")
+            location.reload()
+        }
+
+    } else {
+        alert("아이디와 닉네임, 패스워드를 모두 작성해주세요!")
     }
+    
 }
 
 
