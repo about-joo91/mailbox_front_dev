@@ -1,6 +1,7 @@
 
 const backend_base_url = "http://127.0.0.1:8000"
 
+// 회원가입
 async function SignUp(){
     const SignupData = {
         username : document.getElementById("Username").value,
@@ -47,6 +48,7 @@ async function SignUp(){
 }
 
 
+// 로그인
 async function SignIn(){
     const SignupData = {
         username : document.getElementById("Username").value,
@@ -73,4 +75,11 @@ async function SignIn(){
     }else{
         alert(response.status)
     }
+}
+
+
+// 로그아웃
+function LogOut() { 
+    localStorage.clear(); 
+    location.replace('/user/sign_page.html') 
 }
