@@ -23,7 +23,7 @@ async function SignUp(){
         return false;
     }
 
-    const response = await fetch(`${backend_base_url}/`, {
+    const response = await fetch(`${backend_base_url}/user/`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
             Accept: "application/json",
@@ -52,7 +52,7 @@ async function SignIn(){
         username : document.getElementById("Username").value,
         password : document.getElementById("Password").value,
     }
-    const response = await fetch(`${backend_base_url}/login/`, {
+    const response = await fetch(`${backend_base_url}/user/login`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
             Accept: "application/json",
