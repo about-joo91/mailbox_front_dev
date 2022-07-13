@@ -1,0 +1,377 @@
+html{
+    font-size: 62.5%;
+}
+body{
+    margin: 0;
+    background: #F0F0E6;
+}
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+* {
+    font-family: 'Gamja Flower', cursive;
+    ;
+}
+.nav_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    background-color: F0F0E6;
+}
+
+.nc_sub_container{
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    justify-content: space-between
+}
+.nc_sb_modal {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    margin-left: 8rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+.nc_sb_nav {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-right: 8rem;
+    margin-top: 4rem;
+}
+.nc_sb_nav p{
+    font-size: 23px;
+
+}
+
+.nc_mongle {
+    border-radius: 30px;
+    width: 6rem;
+    height: 6rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.nc_profile {
+    border-radius: 30px;
+    width: 6rem;
+    height: 6rem;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+/* 메인시작 */
+.main_container{
+    width: 100%;
+    height: 110rem;
+    background-color: #F0F0E6;
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 익명게시판 타이틀 */
+.mc_board_title{
+    width: 63.7%;
+    height: 10rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    display: flex;
+    background-color: rgba(176, 170, 109, 0.8);;
+    align-items: center;
+}
+.mc_bt_title_text{
+    font-size: 35px;
+    color: white;
+    margin-left: 6.2rem;
+}
+/* 익명게시판 몸체 */
+.mc_board_body{
+    width: 63.7%;
+    height: 80rem;
+    margin-top: 1.4rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E2CA9B;
+}
+.mc_bb_board_lists{  
+    width: 90.9%;
+    height: 70rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.md_bb_bl_board{
+    width: 100%;
+    /* height: 10.5rem; */
+    margin-bottom: 1.4rem;
+    border-radius: 1.5rem;
+    background-color: white;
+}
+/* 익명, 날짜, 코멘트 */
+.md_bb_bl_bd_description{
+    width: 40%;
+    height: 4.65rem;
+    margin-left: 3.6rem;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 1rem;
+
+}
+.md_bb_bl_bd_desc_image_icon{
+    width: 13%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url("/mongle.jpeg");
+    border-radius: 50%;
+}
+.md_bb_bl_bd_middle{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    margin-left: 1rem;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.md_bb_bl_bd_hidden_name{
+    font-size: 2.2rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.md_bb_bl_bd_desc_create_date{
+    font-size: 1.8rem;
+    color: #E2CA9B;
+    margin-left: 1rem;
+}
+.md_bb_bl_bd_desc_comment_icon{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    border: solid 1px #B0AA6D;
+}
+.md_bb_bl_bd_desc_ci_comment_icon{
+    width: 50%;
+    height: 100%;
+    border-right: 1px dotted #A4A457;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bi-chat-dots{
+    font-size: 4rem;
+    margin: auto;
+}
+.md_bb_bl_bd_desc_ci_comment_count{
+    font-size: 2.8rem;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.md_bb_bl_bd_content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.md_bb_bl_bd_ct_left{
+    width: 80%;
+    font-size: 2rem;
+    color: #A4A457;
+    margin-left: 3.6rem;
+}
+.md_bb_bl_bd_ct_right{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.md_bb_bl_bd_ct_rg_border{
+    width: 50%;
+    height: 4.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #B0AA6D;
+}
+.md_bb_bl_bd_ct_right_sun_icon{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px dotted #A4A457;
+}
+.bi-brightness-high{
+    font-size: 4rem;
+    margin: auto;
+}
+.md_bb_bl_bd_ct_right_sun_count{
+    font-size: 2.8rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.open_modal_button{
+    width: 8rem;
+    height: 8rem;
+    position: fixed;
+    top: 81%;
+    left: 88%;
+    cursor: pointer;
+}
+/* 여기부터 모달 */
+.modal_background{
+    background : rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+}
+.small_modal{
+    width: 58%;
+    height: 83rem;
+    border: 1px solid black;
+    position: absolute;
+}
+.sm_title{
+    width: 100%;
+    height: 9rem;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(176, 170, 109, 0.8);;
+    border-radius: 15px;
+}
+.sm_tt_text{
+    font-size: 3.5rem;
+    color: white;
+    margin-left: 5.5rem;
+}
+.sm_tt_title_input{
+    font-size: 3.5rem;
+    width: 70%;
+    height: 6rem;
+    margin-left: 3rem;
+    padding-left: 2rem;
+    border-radius: 15px;
+}
+.sm_body{
+    margin-top: 1.4rem;
+    width: 100%;
+    height: 73rem;
+    border: 1px solid darkblue;
+    background-color: #E2CA9B;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.sm_bd_text{
+    width: 100%;
+    height: 5.5rem;
+    font-size: 3.5rem;
+    color: white;
+    margin-left: 13rem;
+}
+.sm_bd_content{
+    width: 91%;
+    height: 54rem;
+}
+.sm_bd_ct_textarea{
+    width: 93%;
+    height: 93%;
+    resize: none;
+    border-radius: 15px;
+    font-size: 2rem;
+    color: #A4A457;
+    padding: 3%;
+}
+.sm_bd_button{
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sm_bd_submit_button{
+    cursor: pointer;
+    margin-top: 3rem;
+    background-color: rgba(176, 170, 109, 0.8);
+    width: 10%;
+    height: 5rem;
+    color: white;
+    font-size: 2.6rem;
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 780px) {
+    .nc_sb_nav {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 10px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width: 480px) {
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_sb_nav p {
+        font-size: 20px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+
+    }
+
+}
+
+@media (max-width: 780px) {
+    body {
+        background: #F0F0E6
+    }
+}
