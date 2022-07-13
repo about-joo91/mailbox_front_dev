@@ -7,31 +7,42 @@ async function SignUp(){
         nickname : document.getElementById("Nickname").value,
         password : document.getElementById("Password").value,
     }
-    if (SignupData.username && SignupData.nickname && SignupData.password) {
-        const response = await fetch(`${backend_base_url}/won_test/`, {
-            headers : {
-                "Access-Control-Allow-Origin": "*",
-                Accept: "application/json",
-                "Content-type": "application/json"
-            },
-            method: "POST",
-            body: JSON.stringify(SignupData)
-        })
 
-        response_json = await response.json()
-        
-        if (response.status == 200){
-            alert("회원가입 완료!")
-            window.location.replace(`signin.html`);
-        }else {
-            alert("중복되는 아이디나 닉네임이 있습니다.")
-            location.reload()
-        }
+    const regExp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
 
-    } else {
-        alert("아이디와 닉네임, 패스워드를 모두 작성해주세요!")
+    if((SignupData.username == "")|| (SignupData.username.length < 4)){
+        alert('아이디는 4자 이상 작성해야 합니다!')
+        return false;
     }
+    if (SignupData.nickname == ""){
+        alert('닉네임을 작성해주세요!')
+    }
+
+    if((SignupData.password == "")|| (SignupData.password.length < 8)||(!SignupData.password.match(regExp))){
+        alert('비밀번호는 최소 8자 이상, 숫자, 문자 및 특수문자를 포함하여 작성해야 합니다!')
+        return false;
+    }
+
+    const response = await fetch(`${backend_base_url}/won_test/`, {
+        headers : {
+            "Access-Control-Allow-Origin": "*",
+            Accept: "application/json",
+            "Content-type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(SignupData)
+    })
+
+    response_json = await response.json()
     
+    if (response.status == 200){
+        alert("회원가입 완료!")
+        window.location.replace(`signin.html`);
+    }else {
+        alert("중복되는 아이디나 닉네임이 있습니다.")
+        location.reload()
+    }
+
 }
 
 
