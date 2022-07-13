@@ -24,12 +24,20 @@
 https://www.inven.co.kr/webzine/news/?news=198156
 https://scienceon.kisti.re.kr/commons/util/originalView.do?cn=CFKO201924664108493&oCn=NPAP13263940&dbt=CFKO&journal=NPRO00383455
 
+## ERD
+
+![mail_box](https://user-images.githubusercontent.com/101394490/178623485-8189e5c6-a4ea-4aad-b5ae-10b0dc251ae1.png)
+
+## api명세서 
+https://thinkable-sassafras-50a.notion.site/ab237d868d5d46d0a159bc07b523cdb3?v=9442da6f0ae744fea4619ad4f7d6a8f5
+
 ## 컨벤션
 feat/ : 새로운 기능 추가/수정/삭제
 enhan/ : 기존 코드에 기능을 추가하거나 기능을 강화할 때
 refac/ : 코드 리팩토링,버그 수정
 test/ : 테스트 코드/기능 추가
 edit/ : 파일을 수정한 경우(파일위치변경, 파일이름 변경, 삭제)
+
 
 ## 그라운드 룰
 1. 작업 단위로 팀원들에게 공유하기(매일 오후5시) and 하루 일정 공유하기(매일 오전 9시)

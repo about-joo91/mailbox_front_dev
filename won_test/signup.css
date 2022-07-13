@@ -26,8 +26,17 @@ body {
     align-items: center;
     border-radius: 15px;
 }
+.login{
+    height: 40vh;
+}
+
+.mb_title{
+    color: #F0F0E6;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
 .mb_sub{
-    /* background-color: aqua;*/
     width: 72.5%;
     height: 10%;
     display: flex;
@@ -43,7 +52,39 @@ body {
     border: none;
     border-radius: 10px;
 }
+
+input::placeholder{
+    text-align: center;
+    color: black;
+}
+
+
+.mb_sub_4{
+    margin-top: 10%;
+}
+
+
 .btn{
-    margin-top: 50px;
+    background-color: #9D9D58;
+    color: #F0F0E6;
+    width: 33%;
+    height: 7vh;
     border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 80%;
+}
+
+@media (max-width: 780px){
+    .mc_box{
+        background-color: #E2CA9B;
+        width: 90%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+    }
+
 }
