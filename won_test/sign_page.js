@@ -81,5 +81,5 @@ async function SignIn(){
 // 로그아웃
 function LogOut() { 
     localStorage.clear(); 
-    location.replace('/user/sign_page.html') 
+    location.replace('signin.html')
 }
