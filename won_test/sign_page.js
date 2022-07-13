@@ -8,7 +8,7 @@ async function SignUp(){
         password : document.getElementById("Password").value,
     }
 
-    const regExp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
+    const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
     if((SignupData.username == "")|| (SignupData.username.length < 4)){
         alert('아이디는 4자 이상 작성해야 합니다!')
@@ -30,6 +30,7 @@ async function SignUp(){
             "Content-type": "application/json"
         },
         method: "POST",
+        mode: 'cors',
         body: JSON.stringify(SignupData)
     })
 
@@ -58,6 +59,7 @@ async function SignIn(){
             "Content-type": "application/json"
         },
         method: "POST",
+        mode: 'cors',
         body: JSON.stringify(SignupData)
     })
     response_json = await response.json()
