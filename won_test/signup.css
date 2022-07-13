@@ -26,13 +26,17 @@ body {
     align-items: center;
     border-radius: 15px;
 }
+.login{
+    height: 40vh;
+}
 
 .mb_title{
     color: #F0F0E6;
+    font-size: 23px;
+    margin-bottom: 20px;
 }
 
 .mb_sub{
-    /* background-color: aqua;*/
     width: 72.5%;
     height: 10%;
     display: flex;
@@ -54,11 +58,19 @@ input::placeholder{
     color: black;
 }
 
+
+.mb_sub_4{
+    margin-top: 10%;
+}
+
+
 .btn{
     background-color: #9D9D58;
     color: #F0F0E6;
-    width: 24%;
-    /* margin-top: 50px; */
+    width: 33%;
+    height: 7vh;
     border:none;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 80%;
 }
