@@ -65,7 +65,7 @@ body{
 .main_container{
     width: 100%;
     height: 110rem;
-    background-color: #F0F0E6;
+    background-color: aqua;
     margin-top: 0.4rem;
     display: flex;
     flex-direction: column;
@@ -79,15 +79,9 @@ body{
     height: 10rem;
     border: 1px solid black;
     border-radius: 1.5rem;
-    display: flex;
-    background-color: #B0AA6D;
-    align-items: center;
 }
-.mc_bt_title_text{
-    font-size: 35px;
-    color: white;
-    margin-left: 6.2rem;
-}
+
+
 /* 익명게시판 몸체 */
 .mc_board_body{
     width: 63.7%;
@@ -99,7 +93,6 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #E2CA9B;
 }
 .mc_bb_board_lists{  
     width: 90.9%;
@@ -113,122 +106,14 @@ body{
 .md_bb_bl_board{
     width: 100%;
     border: 1px solid red;
-    /* height: 10.5rem; */
+    height: 10.5rem;
     margin-bottom: 1.4rem;
     border-radius: 1.5rem;
-    background-color: white;
 }
-/* 익명, 날짜, 코멘트 */
-.md_bb_bl_bd_description{
-    width: 40%;
-    height: 4.65rem;
-    border: 1px solid black;
-    margin-left: 3.6rem;
-    display: flex;
-    flex-wrap: nowrap;
 
-}
-.md_bb_bl_bd_desc_image_icon{
-    width: 13%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    background-image: url("/mongle.jpeg");
-    border-radius: 50%;
-}
-.md_bb_bl_bd_middle{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    margin-left: 1rem;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-.md_bb_bl_bd_hidden_name{
-    font-size: 2.2rem;
-    display: flex;
-    flex-wrap: nowrap;
-}
-.md_bb_bl_bd_desc_create_date{
-    font-size: 1.8rem;
-    color: #E2CA9B;
-    margin-left: 1rem;
-}
-.md_bb_bl_bd_desc_comment_icon{
-    width: 25%;
-    height: 100%;
-    display: flex;
-    border: solid 1px #B0AA6D;
-}
-.md_bb_bl_bd_desc_ci_comment_icon{
-    width: 50%;
-    height: 100%;
-    border-right: 1px dotted #A4A457;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.bi-chat-dots{
-    font-size: 4rem;
-    margin: auto;
-}
-.md_bb_bl_bd_desc_ci_comment_count{
-    font-size: 2.8rem;
-    width: 50%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.md_bb_bl_bd_content{
-    width: 100%;
-    border: 1px solid green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.md_bb_bl_bd_ct_left{
-    border: 1px solid black;
-    width: 80%;
-    font-size: 2rem;
-    color: #A4A457;
-    margin-left: 3.6rem;
-}
-.md_bb_bl_bd_ct_right{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-}
-.md_bb_bl_bd_ct_rg_border{
-    width: 50%;
-    height: 4.6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px #B0AA6D;
-}
-.md_bb_bl_bd_ct_right_sun_icon{
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px dotted #A4A457;
-}
-.bi-brightness-high{
-    font-size: 4rem;
-    margin: auto;
-}
-.md_bb_bl_bd_ct_right_sun_count{
-    font-size: 2.8rem;
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
+
 
 
 
