@@ -174,7 +174,7 @@ body {
 }
 
 .mpc_c_b_u_rcb_category_box {
-    width: 70%;
+    width: 50%;
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
@@ -188,7 +188,24 @@ body {
     margin-right: 20px;
     margin-bottom: 15px;
 }
-
+.category_style:hover{
+    cursor: pointer;
+}
+.category_plus_btn{
+    border-radius: 100%;
+    background-color: #F0F0E6;
+    color : black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 100%;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+.category_plus_btn:hover{
+    cursor: pointer;
+}
 .mpc_c_body_down {
     padding: 0px 60px 60px 60px;
     font-size: 23px;
