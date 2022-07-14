@@ -116,7 +116,7 @@ body{
 }
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
-    width: 40%;
+    width: 80%;
     height: 4.65rem;
     margin-left: 3.6rem;
     display: flex;
@@ -125,7 +125,7 @@ body{
 
 }
 .md_bb_bl_bd_desc_image_icon{
-    width: 13%;
+    width: 4.5%;
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -149,14 +149,31 @@ body{
 .md_bb_bl_bd_desc_create_date{
     font-size: 1.8rem;
     color: #E2CA9B;
-    margin-left: 1rem;
+    margin-left: 3rem;
 }
 .md_bb_bl_bd_desc_comment_icon{
-    width: 25%;
+    width: 12.5%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.md_bb_bl_bd_desc_edit_delete{
+    width: 30%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.md_bb_bl_bd_desc_ed_edit{
+    width: 30%;
+    color: #8b8862;
+    cursor: pointer;
+}
+.md_bb_bl_bd_desc_ed_delete{
+    cursor: pointer;
+    width: 30%;
+    color : #8b8862;
 }
 .md_bb_bl_bd_desc_ci_comment_icon{
     width: 50%;
@@ -171,13 +188,22 @@ body{
 }
 .md_bb_bl_bd_desc_ci_comment_count{
     font-size: 2.4rem;
-    width: 50%;
+    width: 10%;
     height: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 0.5rem;
+}
+.md_bb_bl_bd_title{
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+.md_bb_bl_bd_tt_text{
+    margin-left: 3.6rem;
+    font-size: 2.2rem;
+    color: #8b8862;
 }
 .md_bb_bl_bd_content{
     width: 100%;
@@ -216,9 +242,13 @@ body{
     font-size: 2rem;
     margin: auto;
 }
+.bi-brightness-high-fill{
+    font-size: 2rem;
+    margin: auto;
+}
 .md_bb_bl_bd_ct_right_sun_count{
     font-size: 2.4rem;
-    width: 50%;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
