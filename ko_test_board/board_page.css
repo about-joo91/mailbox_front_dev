@@ -64,7 +64,7 @@ body{
 /* 메인시작 */
 .main_container{
     width: 100%;
-    height: 110rem;
+    /* height: 110rem; */
     background-color: #F0F0E6;
     margin-top: 1.4rem;
     display: flex;
@@ -90,7 +90,7 @@ body{
 /* 익명게시판 몸체 */
 .mc_board_body{
     width: 63.7%;
-    height: 80rem;
+    /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
     display: flex;
@@ -98,14 +98,34 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #E2CA9B;
+    margin-bottom: 8rem;
 }
 .mc_bb_board_lists{  
     width: 90.9%;
-    height: 70rem;
+    /* height: 70rem; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 5rem;
+}
+.mc_bb_page_number{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.6rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    cursor: pointer;
+}
+.page_number{
+    margin-right: 1.2rem;
+}
+.cur_page{
+    color: blue;
+    font-weight: 600;
+    cursor: pointer;
 }
 .md_bb_bl_board{
     width: 100%;

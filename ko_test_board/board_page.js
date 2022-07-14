@@ -1,5 +1,6 @@
 const BASE_URL = 'http://127.0.0.1:8000';
 
+
 // 쿠키 할당
 function get_cookie(name) {
     let cookie_value = null;
@@ -16,7 +17,6 @@ function get_cookie(name) {
     return cookie_value;
 }
 const csrftoken = get_cookie('csrftoken')
-
 
 const modal_background = document.querySelector('.modal_background');
 const edit_modal_background = document.getElementById('edit_modal_background')
@@ -35,7 +35,6 @@ if (e.target.classList.contains('modal_background')) {
 })
 
 function open_modal(type, title, content, board_id){
-    console.log(title)
     document.getElementById(type + 'modal_background').style.display="block"
     const small_modal = document.getElementById(type + 'small_modal');
     document.body.style.overflow = 'hidden';
@@ -60,7 +59,9 @@ function open_modal(type, title, content, board_id){
 
  window.onload =
     async function get_board() {
-        const result = await fetch(BASE_URL + '/board/' , {
+        const urlParams = new URLSearchParams(window.location.search);
+        const url_page_num = urlParams.get('page_num');
+        const result = await fetch(BASE_URL + '/board/' + url_page_num ,{
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -73,6 +74,7 @@ function open_modal(type, title, content, board_id){
         })
         let res = await result.json()
         if (result.status == 200) {
+            pagenation(res.total_count, 10, 10, url_page_num)
             let tmp_board = ``
             for (let i = 0; i < res.boards.length; i++){
                 // boards에 대한 제목, 내용 등등을 가져오는 코드
@@ -101,8 +103,8 @@ function open_modal(type, title, content, board_id){
                                 <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                             </div> 
                             <div class="md_bb_bl_bd_desc_edit_delete">
-                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal('edit_','${board.title}','${board.content}','${board.id}')">수정</div>
-                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board(${board.id})">삭제</div>
+                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal('edit_','${board.title}','${board.content}','${board.id}', '${url_page_num}')">수정</div>
+                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${board.id}', '${url_page_num}')">삭제</div>
                             </div>
                         </div>
                         <div class="md_bb_bl_bd_title">
@@ -160,10 +162,37 @@ function open_modal(type, title, content, board_id){
     }
 
 
+function pagenation(total_count, bottomSize, listSize, page_num ){
+
+    let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
+
+    let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
+    let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
+    if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
+
+    const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
+    for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
+        if(i==page_num){
+            mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
+        }
+        else {
+            mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
+        }
+    }
+}
+
+async function click_page_num(page_num){
+    location.href = 'board_page.html?page_num=' + page_num
+}
+
+
+
 
 // 모달을 통해서 글을 작성 할 때 실행되는 코드
 
  async function post_board(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const url_page_num = urlParams.get('page_num');
     const boards_title = document.querySelector(".sm_tt_title_input").value;
     const boards_content = document.querySelector(".sm_bd_ct_textarea").value;
     const token = localStorage.getItem('access')
@@ -185,7 +214,7 @@ function open_modal(type, title, content, board_id){
     let res = await result.json()
     if (result.status == 200) {
         alert("게시글을 작성 하였습니다!!")
-        location.replace('board_page.html')
+        location.href = 'board_page.html?page_num=' + url_page_num
     }
     else {
         alert("게시글 작성에 실패하였습니다.")
@@ -222,7 +251,7 @@ async function click_sun(board_id){
 }
 
 // 모달을 통해서 글을 수정하는 로직
-async function edit_board(board_id){
+async function edit_board(board_id, page_num){
     const token = localStorage.getItem('access')
     const edit_title = document.getElementById('edit_sm_tt_title_input').value;
     const edit_content = document.getElementById('edit_sm_bd_ct_textarea').value;
@@ -244,7 +273,7 @@ async function edit_board(board_id){
     let res = await result.json()
     if (result.status == 200) {
         alert(res['message'])
-        location.replace('board_page.html')
+        location.href = 'board_page.html?page_num=' + page_num
     }
     else{
         alert(res['message'])
@@ -252,8 +281,7 @@ async function edit_board(board_id){
 }
 
 // 글을 삭제하는 로직
-async function delete_board(board_id){
-    console.log("board_id : ", board_id)
+async function delete_board(board_id, page_num){
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/board/' + board_id , {
         method: 'DELETE',
@@ -269,7 +297,7 @@ async function delete_board(board_id){
     let res = await result.json()
     if (result.status == 200) {
         alert(res['message'])
-        location.replace('board_page.html')
+        location.href = 'board_page.html?page_num=' + page_num
     }
     else{
         alert(res['message'])
