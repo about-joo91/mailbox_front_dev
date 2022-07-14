@@ -87,7 +87,7 @@ body{
     color: white;
     margin-left: 6.2rem;
 }
-/* 익명게시판 몸체 */
+/* 게시판 몸체 */
 .mc_board_body{
     width: 63.7%;
     /* height: 80rem; */
@@ -131,8 +131,9 @@ body{
 .md_bb_bl_board{
     width: 100%;
     /* height: 10.5rem; */
-    margin-bottom: 1.4rem;
-    border-radius: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
     background-color: white;
 }
 /* 익명, 날짜, 코멘트 */
@@ -275,108 +276,217 @@ body{
     justify-content: center;
     align-items: center;
 }
-.open_modal_button{
-    width: 8rem;
-    height: 8rem;
-    position: fixed;
-    top: 81%;
-    left: 88%;
-    cursor: pointer;
-    text-align: center;
-    background-color: rgba(176, 170, 109, 0.8);
-    border-radius: 100%;
-    color: white;
-    font-size: 5rem;
-    line-height: 8rem;
-}
-/* 여기부터 모달 */
-.modal_background{
-    background : rgba(0, 0, 0, 0.7);
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    display: none;
-}
-.small_modal{
-    width: 58%;
-    height: 83rem;
-    position: absolute;
-}
-.sm_title{
-    width: 100%;
-    height: 9rem;
+/* 댓글 작성하는 창 */
+
+.post_comment{
+    width: 90.9%;
+    height: 7rem;
+    background-color: white;
     display: flex;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.pc_comment_icon{
+    width: 7%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    background-color: rgba(176, 170, 109, 0.8);
-    border-radius: 15px;
 }
-.sm_tt_text{
-    font-size: 2.6rem;
-    color: white;
-    margin-left: 5.5rem;
+.bi-chat-dots-fill{
+    font-size: 3.5rem;
 }
-.sm_tt_title_input{
-    font-size: 2.4rem;
-    width: 70%;
-    height: 5rem;
-    margin-left: 3rem;
-    padding-left: 2rem;
-    border-radius: 15px;
+.pc_input_comment{
+    width: 91%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.sm_body{
-    margin-top: 1.4rem;
+.pc_ic_input{
     width: 100%;
-    height: 73rem;
-    background-color: #E2CA9B;
-    border-radius: 15px;
+    height: 70%;
+    border-radius: 1.5rem;
+    background-color: #F0F0E6;
+}
+.pc_comment_button_box{
+    width: 7%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pc_cbb_button{
+    width: 80%;
+    height: 70%;
+    border-radius: 1.5rem;
+}
+
+/* 댓글이 보여지는 곳 */
+.mc_bb_comment_lists{  
+    width: 90.9%;
+    /* height: 70rem; */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 3rem;
+}
+.mc_bb_page_number{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.6rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+.page_number{
+    margin-right: 1.2rem;
+    cursor: pointer;
+}
+.cur_page{
+    color: clue;
+    font-weight: 600;
+    cursor: pointer;
+}
+.mc_bb_cl_comment{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border-radius: 1.5rem;
+    background-color: white;
+}
+/* 익명, 날짜, 코멘트 */
+.mc_bb_cl_cm_description{
+    width: 80%;
+    height: 4.65rem;
+    margin-left: 7.2rem;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 1rem;
+
+}
+.mc_bb_cl_cm_desc_image_icon{
+    width: 4.5%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-image: url("/mongle.jpeg");
+    border-radius: 50%;
+    border: 3px solid yellowgreen;
+}
+.mc_bb_cl_cm_middle{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    margin-left: 1rem;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.mc_bb_cl_cm_hidden_name{
+    font-size: 2.2rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.mc_bb_cl_cm_desc_create_date{
+    font-size: 1.8rem;
+    color: #E2CA9B;
+    margin-left: 3rem;
+}
+.mc_bb_cl_cm_desc_comment_icon{
+    width: 12.5%;
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
-.sm_bd_text{
-    width: 100%;
-    height: 5.5rem;
-    font-size: 2.6rem;
-    color: white;
-    margin-left: 13rem;
-}
-.sm_bd_content{
-    width: 91%;
-    height: 54rem;
-}
-.sm_bd_ct_textarea{
-    width: 93%;
-    height: 93%;
-    resize: none;
-    border-radius: 15px;
-    font-size: 2rem;
-    color: #A4A457;
-    padding: 3%;
-}
-.sm_bd_button{
-    width: 100%;
-    height: 10rem;
+.mc_bb_cl_cm_desc_edit_delete{
+    width: 30%;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.sm_bd_submit_button{
+.mc_bb_cl_cm_desc_ed_edit{
+    width: 30%;
+    color: #8b8862;
     cursor: pointer;
-    margin-top: 5rem;
-    background-color: rgba(176, 170, 109, 0.8);
-    width: 10%;
-    height: 5rem;
-    color: white;
-    font-size: 2rem;
-    border-radius: 15px;
 }
-
-
+.mc_bb_cl_cm_desc_ed_delete{
+    cursor: pointer;
+    width: 30%;
+    color : #8b8862;
+}
+.mc_bb_cl_cm_desc_ci_comment_icon{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bi-chat-dots{
+    font-size: 2rem;
+    margin: auto;
+}
+.mc_bb_cl_cm_desc_ci_comment_count{
+    font-size: 2.4rem;
+    width: 10%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+.mc_bb_cl_cm_content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mc_bb_cl_cm_ct_left{
+    width: 80%;
+    font-size: 2rem;
+    color: #A4A457;
+    margin-left: 7.2rem;
+    margin-top: 2.5rem;
+}
+.mc_bb_cl_cm_ct_right{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.mc_bb_cl_cm_ct_rg_border{
+    width: 50%;
+    height: 4.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mc_bb_cl_cm_ct_right_sun_icon{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px dotted #A4A457;
+}
+.bi-brightness-high{
+    font-size: 2rem;
+    margin: auto;
+}
+.bi-brightness-high-fill{
+    font-size: 2rem;
+    margin: auto;
+}
+.mc_bb_cl_cm_ct_right_sun_count{
+    font-size: 2.4rem;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

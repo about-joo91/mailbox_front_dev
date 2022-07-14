@@ -34,7 +34,7 @@ if (e.target.classList.contains('modal_background')) {
 }
 })
 
-function open_modal(type, title, content, board_id){
+function open_modal(type, title, content, board_id, page_num){
     document.getElementById(type + 'modal_background').style.display="block"
     const small_modal = document.getElementById(type + 'small_modal');
     document.body.style.overflow = 'hidden';
@@ -47,7 +47,7 @@ function open_modal(type, title, content, board_id){
         // innterText title이 먹지를 않음
         document.getElementById('edit_sm_tt_title_input').innerText = title
         document.getElementById('edit_sm_bd_ct_textarea').innerText = content
-        document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board(${board_id})">작성</button>`
+        document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board('${board_id}','${page_num}')">작성</button>`
     }
 
 }
@@ -60,8 +60,8 @@ function open_modal(type, title, content, board_id){
  window.onload =
     async function get_board() {
         const urlParams = new URLSearchParams(window.location.search);
-        const url_page_num = urlParams.get('page_num');
-        const result = await fetch(BASE_URL + '/board/' + url_page_num ,{
+        const url_page_num = urlParams.get('page_num')
+        const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
             method: 'GET',
             mode: 'cors',
             headers: {
@@ -97,8 +97,8 @@ function open_modal(type, title, content, board_id){
                                 <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                             </div>                         
                             <div class="md_bb_bl_bd_desc_comment_icon">
-                                <i class="bi bi-chat-dots"></i>
-                                <div class="md_bb_bl_bd_desc_ci_comment_count">${board.board_comment.length}</div>
+                                <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
+                                <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                                 <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
                                 <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                             </div> 
@@ -130,8 +130,8 @@ function open_modal(type, title, content, board_id){
                                 <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                             </div>                         
                             <div class="md_bb_bl_bd_desc_comment_icon">
-                                <i class="bi bi-chat-dots"></i>
-                                <div class="md_bb_bl_bd_desc_ci_comment_count">${board.board_comment.length}</div>
+                                <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
+                                <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment_count}</div>
                                 <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
                                 <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                             </div>
@@ -184,7 +184,9 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 async function click_page_num(page_num){
     location.href = 'board_page.html?page_num=' + page_num
 }
-
+async function href_board_detail(board_id){
+    location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + board_id
+}
 
 
 
@@ -220,6 +222,8 @@ async function click_page_num(page_num){
         alert("게시글 작성에 실패하였습니다.")
     }
 }
+
+// 좋아요를 눌렀을 떄 실행되는 코드
 
 async function click_sun(board_id){
     const token = localStorage.getItem('access')
@@ -280,7 +284,7 @@ async function edit_board(board_id, page_num){
     }
 }
 
-// 글을 삭제하는 로직
+// 글을 삭제하는 로직 (cluD)
 async function delete_board(board_id, page_num){
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/board/' + board_id , {
