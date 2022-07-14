@@ -1,5 +1,6 @@
 const BASE_URL = 'http://127.0.0.1:8000';
-
+const urlParams = new URLSearchParams(window.location.search);
+const url_board_id = urlParams.get('board_id');
 
 // 쿠키 할당
 function get_cookie(name) {
@@ -18,11 +19,40 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
+// 글을 작성 할 때 실행되는 로직(Crud)
+async function post_board_comment(){
+    const comment_content = document.querySelector('.pc_ic_input').value;
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/board/comment/' + "?board_id=" + url_board_id ,{
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "content" : comment_content
+        })
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        alert(res['message'])
+        href_board_detail(url_board_id)
+    }
+    else {
+        alert(res['message'])
+        href_board_detail(url_board_id)
+    }
+}
+
+
 // 글을 불러오는 로직 (cRud)
 window.onload =
     async function get_board_comment() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const url_board_id = urlParams.get('board_id')
+        
         const result = await fetch(BASE_URL + '/board/comment'+ '?board_id=' + url_board_id,{
             method: 'GET',
             mode: 'cors',
@@ -46,7 +76,8 @@ window.onload =
                 sun_icon = 'bi-brightness-high'
                 color_class = 'img_heart_icon'
             }
-            // 내가 글의 작성자라면
+            // 내가 선택한 보드에 대한 정보를 가져오는 로직
+            // 내가 글의 작성자라면 수정, 삭제를 추가
             if(board.is_board_writer == true){
                 tmp_board += `
             <div class="md_bb_bl_board" id="md_bb_bl_board_1">
@@ -57,7 +88,7 @@ window.onload =
                         <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                     </div>                         
                     <div class="md_bb_bl_bd_desc_comment_icon">
-                        <i class="bi bi-chat-dots onclick="href_board_detail(${board.id})""></i>
+                        <i class="bi bi-chat-dots onclick="href_board_detail(${board.id})"></i>
                         <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                         <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board})"></i>
                         <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board}">${board.like_count}</div>
@@ -114,14 +145,53 @@ window.onload =
 
 
             // pagenation(res.total_count, 10, 10, url_page_num)
-            
+
+
+            // 보드에 대한 댓글(comment)들을 가져오는 로직 (cRud)
             comment_list = res.board_comments[0].board_comment
             let tmp_comment = ``
             for (let i = 0; i < comment_list.length; i++){
                 const comment_lists = document.querySelector(".mc_bb_comment_lists")
-                // boards에 대한 제목, 내용 등등을 가져오는 코드
+                
                 comment = comment_list[i]
-                tmp_comment += `
+                if(comment.is_comment_writer == true){
+                    tmp_comment += `
+                <div class="mc_bb_cl_comment" id="mc_bb_cl_comment_${comment.id}">
+                    <div class="mc_bb_cl_cm_description">
+                        <div class="mc_bb_cl_cm_desc_image_icon"></div>
+                        <div class="mc_bb_cl_cm_middle">
+                            <div class="mc_bb_cl_cm_hidden_name">익명1</div>
+                            <div class="mc_bb_cl_cm_desc_create_date">${comment.create_date}</div>
+                        </div>
+                        <div class="md_bb_bl_bd_desc_edit_delete">
+                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="edit_comment_input('${comment.id}')">수정</div>
+                            <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${comment.id}')">삭제</div>
+                        </div>
+                    </div>
+                    <div class="mc_bb_cl_cm_content">
+                        <p class="mc_bb_cl_cm_ct_left">
+                            ${comment.content}
+                        </p>
+                        <div class="mc_bb_cl_cm_ct_right">
+                            <div class="mc_bb_cl_cm_ct_rg_border"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edit_comment" id="edit_comment_${comment.id}">
+                    <div class="pc_comment_icon">
+                        <i class="bi bi-chat-dots-fill"></i>
+                    </div>
+                    <div class="pc_input_comment">
+                        <input class="pc_ic_input">
+                    </div>
+                    <div class="pc_comment_button_box">
+                        <button class="pc_cbb_button" onclick="post_board_comment()">작성</button>
+                    </div>
+                </div>
+                `
+                }
+                else {
+                    tmp_comment += `
                 <div class="mc_bb_cl_comment">
                     <div class="mc_bb_cl_cm_description">
                         <div class="mc_bb_cl_cm_desc_image_icon"></div>
@@ -140,10 +210,10 @@ window.onload =
                     </div>
                 </div>
                 `
+                }
+                
                 comment_lists.innerHTML = tmp_comment
             }
-            
-            
         }
         else {
             alert("세션이 만료 되었습니다.")
@@ -151,6 +221,13 @@ window.onload =
         }
     }
 
+
+// 댓글의 수정 버튼을 눌렀을 떄 실행되는 로직
+
+function edit_comment_input(comment_id){
+    const edit_comment_by_id = document.getElementById('edit_comment_' + comment_id);
+    edit_comment_by_id.style.display = "flex"
+}
 
 // 글을 삭제하는 로직 (cluD)
 async function delete_board(board_id, page_num){
@@ -169,10 +246,11 @@ async function delete_board(board_id, page_num){
     let res = await result.json()
     if (result.status == 200) {
         alert(res['message'])
-        location.href = 'board_page.html?page_num=' + page_num
+        href_board_detail(url_board_id)
     }
     else{
         alert(res['message'])
+        href_board_detail(url_board_id)
     }
 }
 
@@ -205,4 +283,11 @@ async function click_sun(board_id){
             alert(res['message'])
             }
     }
+}
+
+function href_board_detail(url_board_id){
+    location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + url_board_id
+}
+function href_board(page_num){
+    location.href = '../../ko_test_board/board_page.html?page_num=' + page_num
 }

@@ -86,6 +86,7 @@ body{
     font-size: 35px;
     color: white;
     margin-left: 6.2rem;
+    cursor: pointer;
 }
 /* 익명게시판 몸체 */
 .mc_board_body{
@@ -178,6 +179,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .md_bb_bl_bd_desc_edit_delete{
     width: 30%;
@@ -185,6 +187,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .md_bb_bl_bd_desc_ed_edit{
     width: 30%;

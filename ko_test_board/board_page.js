@@ -181,16 +181,10 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
     }
 }
 
-async function click_page_num(page_num){
-    location.href = 'board_page.html?page_num=' + page_num
-}
-async function href_board_detail(board_id){
-    location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + board_id
-}
 
 
 
-// 모달을 통해서 글을 작성 할 때 실행되는 코드
+// 모달을 통해서 글을 작성 할 때 실행되는 코드 (Crud)
 
  async function post_board(){
     const urlParams = new URLSearchParams(window.location.search);
@@ -306,4 +300,12 @@ async function delete_board(board_id, page_num){
     else{
         alert(res['message'])
     }
+}
+
+
+function click_page_num(page_num){
+    location.href = 'board_page.html?page_num=' + page_num
+}
+function href_board_detail(board_id){
+    location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + board_id
 }
