@@ -17,7 +17,7 @@ body{
     align-items: center;
     width: 100%;
     height: 10rem;
-    background-color: F0F0E6;
+    background-color: #F0F0E6;
 }
 
 .nc_sub_container{
@@ -64,7 +64,7 @@ body{
 /* 메인시작 */
 .main_container{
     width: 100%;
-    height: 110rem;
+    /* height: 110rem; */
     background-color: #F0F0E6;
     margin-top: 1.4rem;
     display: flex;
@@ -79,7 +79,7 @@ body{
     border: 1px solid black;
     border-radius: 1.5rem;
     display: flex;
-    background-color: rgba(176, 170, 109, 0.8);;
+    background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
 }
 .mc_bt_title_text{
@@ -90,7 +90,7 @@ body{
 /* 익명게시판 몸체 */
 .mc_board_body{
     width: 63.7%;
-    height: 80rem;
+    /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
     display: flex;
@@ -98,14 +98,34 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #E2CA9B;
+    margin-bottom: 8rem;
 }
 .mc_bb_board_lists{  
     width: 90.9%;
-    height: 70rem;
+    /* height: 70rem; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 5rem;
+}
+.mc_bb_page_number{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.6rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+    cursor: pointer;
+}
+.page_number{
+    margin-right: 1.2rem;
+}
+.cur_page{
+    color: blue;
+    font-weight: 600;
+    cursor: pointer;
 }
 .md_bb_bl_board{
     width: 100%;
@@ -116,7 +136,7 @@ body{
 }
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
-    width: 40%;
+    width: 80%;
     height: 4.65rem;
     margin-left: 3.6rem;
     display: flex;
@@ -125,12 +145,13 @@ body{
 
 }
 .md_bb_bl_bd_desc_image_icon{
-    width: 13%;
+    width: 4.5%;
     height: 100%;
     background-position: center;
     background-size: cover;
     background-image: url("/mongle.jpeg");
     border-radius: 50%;
+    border: 3px solid yellowgreen;
 }
 .md_bb_bl_bd_middle{
     width: 50%;
@@ -148,34 +169,61 @@ body{
 .md_bb_bl_bd_desc_create_date{
     font-size: 1.8rem;
     color: #E2CA9B;
-    margin-left: 1rem;
+    margin-left: 3rem;
 }
 .md_bb_bl_bd_desc_comment_icon{
-    width: 25%;
+    width: 12.5%;
     height: 100%;
     display: flex;
-    border: solid 1px #B0AA6D;
+    align-items: center;
+    justify-content: center;
+}
+.md_bb_bl_bd_desc_edit_delete{
+    width: 30%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.md_bb_bl_bd_desc_ed_edit{
+    width: 30%;
+    color: #8b8862;
+    cursor: pointer;
+}
+.md_bb_bl_bd_desc_ed_delete{
+    cursor: pointer;
+    width: 30%;
+    color : #8b8862;
 }
 .md_bb_bl_bd_desc_ci_comment_icon{
     width: 50%;
     height: 100%;
-    border-right: 1px dotted #A4A457;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .bi-chat-dots{
-    font-size: 4rem;
+    font-size: 2rem;
     margin: auto;
 }
 .md_bb_bl_bd_desc_ci_comment_count{
-    font-size: 2.8rem;
-    width: 50%;
+    font-size: 2.4rem;
+    width: 10%;
     height: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 0.5rem;
+}
+.md_bb_bl_bd_title{
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+.md_bb_bl_bd_tt_text{
+    margin-left: 3.6rem;
+    font-size: 2.2rem;
+    color: #8b8862;
 }
 .md_bb_bl_bd_content{
     width: 100%;
@@ -201,7 +249,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid 1px #B0AA6D;
 }
 .md_bb_bl_bd_ct_right_sun_icon{
     width: 50%;
@@ -212,12 +259,16 @@ body{
     border-right: 1px dotted #A4A457;
 }
 .bi-brightness-high{
-    font-size: 4rem;
+    font-size: 2rem;
+    margin: auto;
+}
+.bi-brightness-high-fill{
+    font-size: 2rem;
     margin: auto;
 }
 .md_bb_bl_bd_ct_right_sun_count{
-    font-size: 2.8rem;
-    width: 50%;
+    font-size: 2.4rem;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -230,6 +281,12 @@ body{
     top: 81%;
     left: 88%;
     cursor: pointer;
+    text-align: center;
+    background-color: rgba(176, 170, 109, 0.8);
+    border-radius: 100%;
+    color: white;
+    font-size: 5rem;
+    line-height: 8rem;
 }
 /* 여기부터 모달 */
 .modal_background{
@@ -245,28 +302,26 @@ body{
 .small_modal{
     width: 58%;
     height: 83rem;
-    border: 1px solid black;
     position: absolute;
 }
 .sm_title{
     width: 100%;
     height: 9rem;
-    border: 1px solid blue;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: rgba(176, 170, 109, 0.8);;
+    background-color: rgba(176, 170, 109, 0.8);
     border-radius: 15px;
 }
 .sm_tt_text{
-    font-size: 3.5rem;
+    font-size: 2.6rem;
     color: white;
     margin-left: 5.5rem;
 }
 .sm_tt_title_input{
-    font-size: 3.5rem;
+    font-size: 2.4rem;
     width: 70%;
-    height: 6rem;
+    height: 5rem;
     margin-left: 3rem;
     padding-left: 2rem;
     border-radius: 15px;
@@ -275,7 +330,6 @@ body{
     margin-top: 1.4rem;
     width: 100%;
     height: 73rem;
-    border: 1px solid darkblue;
     background-color: #E2CA9B;
     border-radius: 15px;
     display: flex;
@@ -286,7 +340,7 @@ body{
 .sm_bd_text{
     width: 100%;
     height: 5.5rem;
-    font-size: 3.5rem;
+    font-size: 2.6rem;
     color: white;
     margin-left: 13rem;
 }
@@ -317,7 +371,7 @@ body{
     width: 10%;
     height: 5rem;
     color: white;
-    font-size: 2.6rem;
+    font-size: 2rem;
     border-radius: 15px;
 }
 
