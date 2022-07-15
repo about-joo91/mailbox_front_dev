@@ -25,12 +25,21 @@
             <a class="drawer_text"><i class="fa-solid fa-pencil drawer_icon"></i>&nbsp내가 쓴 리뷰</a>
         </div>
     </div>
+    
     <div class="nav_container">
         <div class="nc_sub_container">
             <div class="nc_sb_modal">
                 <i class="fa-solid fa-bars fa-2x" id="open_drawer"></i>
             </div>
             <div class="nc_sb_nav"></div>
+        </div>
+    </div>
+    <div class="add_cate_modal_wrapper">
+        <div class="add_cate_modal">
+            <select class="acm_body" multiple>
+
+            </select>
+            <div class="acm_accept_btn" onclick="add_my_cate()">확인</div>
         </div>
     </div>
     <div class="main_profile_container">
@@ -40,14 +49,13 @@
                 <div class="mpc_c_b_upper">
                     <img class="mpc_c_b_u_profile_img"/>
                     <div class="mpc_c_b_u_right_content_box">
-                        <div onclick="edit_ready()" class="mpc_c_b_u_rcb_edit_button">
-                            수정하기
-                        </div>
                         <div class="mpc_c_b_u_rcb_name"></div>
                         <div class="mpc_c_b_u_rcb_category_box"></div>
                     </div>
                 </div>
-                <div class="mpc_c_body_down"></div>
+                <div class="mpc_c_body_down"><span onclick="edit_ready()" class="mpc_c_b_u_rcb_edit_button">
+                    수정하기
+                </span></div>
             </div>
         </div>
     </div>
