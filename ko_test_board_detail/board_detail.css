@@ -398,6 +398,13 @@ body{
     flex-wrap: nowrap;
     align-items: center;
 }
+.mc_bb_cl_cm_im_writer{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 2.4rem;
+    font-style: italic;
+    font-weight: 600;
+}
 .mc_bb_cl_cm_hidden_name{
     font-size: 2.2rem;
     display: flex;

@@ -1,6 +1,7 @@
 const BASE_URL = 'http://127.0.0.1:8000';
 
-
+const urlParams = new URLSearchParams(window.location.search);
+const url_page_num = urlParams.get('page_num');
 // 쿠키 할당
 function get_cookie(name) {
     let cookie_value = null;
@@ -18,49 +19,10 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-const modal_background = document.querySelector('.modal_background');
-const edit_modal_background = document.getElementById('edit_modal_background')
-const small_modal = document.querySelector('.small_modal');
 
-modal_background.addEventListener('click', function (e)  {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
-
-edit_modal_background.addEventListener('click', function (e) {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
-
-function open_modal(type, title, content, board_id, page_num){
-    document.getElementById(type + 'modal_background').style.display="block"
-    const small_modal = document.getElementById(type + 'small_modal');
-    document.body.style.overflow = 'hidden';
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
-    if (type=="edit_"){
-        // innterText title이 먹지를 않음
-        document.getElementById('edit_sm_tt_title_input').innerText = title
-        document.getElementById('edit_sm_bd_ct_textarea').innerText = content
-        document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board('${board_id}','${page_num}')">작성</button>`
-    }
-
-}
- function close_modal(){
-    document.querySelector('.modal_background').style.display="none"
-    document.getElementById('edit_modal_background').style.display="none"
-    document.body.style.overflow = 'auto';
-}
-
+// board를 불러오는 로직(cRud)
  window.onload =
     async function get_board() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const url_page_num = urlParams.get('page_num')
         const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
             method: 'GET',
             mode: 'cors',
@@ -93,7 +55,7 @@ function open_modal(type, title, content, board_id, page_num){
                         <div class="md_bb_bl_bd_description">
                             <div class="md_bb_bl_bd_desc_image_icon"></div>
                             <div class="md_bb_bl_bd_middle">
-                                <div class="md_bb_bl_bd_hidden_name">내가작성</div>
+                                <div class="mc_bb_bl_bd_im_writer">내가작성</div>
                                 <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                             </div>                         
                             <div class="md_bb_bl_bd_desc_comment_icon">
@@ -162,33 +124,13 @@ function open_modal(type, title, content, board_id, page_num){
     }
 
 
-function pagenation(total_count, bottomSize, listSize, page_num ){
-
-    let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
-
-    let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
-    let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
-    if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
-
-    const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
-    for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
-        if(i==page_num){
-            mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
-        }
-        else {
-            mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
-        }
-    }
-}
-
 
 
 
 // 모달을 통해서 글을 작성 할 때 실행되는 코드 (Crud)
 
  async function post_board(){
-    const urlParams = new URLSearchParams(window.location.search);
-    const url_page_num = urlParams.get('page_num');
+    
     const boards_title = document.querySelector(".sm_tt_title_input").value;
     const boards_content = document.querySelector(".sm_bd_ct_textarea").value;
     const token = localStorage.getItem('access')
@@ -210,7 +152,7 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
     let res = await result.json()
     if (result.status == 200) {
         alert("게시글을 작성 하였습니다!!")
-        location.href = 'board_page.html?page_num=' + url_page_num
+        click_page_num(1)
     }
     else {
         alert("게시글 작성에 실패하였습니다.")
@@ -249,7 +191,7 @@ async function click_sun(board_id){
 }
 
 // 모달을 통해서 글을 수정하는 로직
-async function edit_board(board_id, page_num){
+async function edit_board(board_id){
     const token = localStorage.getItem('access')
     const edit_title = document.getElementById('edit_sm_tt_title_input').value;
     const edit_content = document.getElementById('edit_sm_bd_ct_textarea').value;
@@ -271,14 +213,14 @@ async function edit_board(board_id, page_num){
     let res = await result.json()
     if (result.status == 200) {
         alert(res['message'])
-        location.href = 'board_page.html?page_num=' + page_num
+        click_page_num()
     }
     else{
         alert(res['message'])
     }
 }
 
-// 글을 삭제하는 로직 (cluD)
+// 글을 삭제하는 로직 (cruD)
 async function delete_board(board_id, page_num){
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/board/' + board_id , {
@@ -301,11 +243,75 @@ async function delete_board(board_id, page_num){
         alert(res['message'])
     }
 }
+const modal_background = document.querySelector('.modal_background');
+const edit_modal_background = document.getElementById('edit_modal_background')
+const small_modal = document.querySelector('.small_modal');
 
 
-function click_page_num(page_num){
-    location.href = 'board_page.html?page_num=' + page_num
+// 모달을 열어주는 함수
+function open_modal(type, title, content, board_id, page_num){
+    document.getElementById(type + 'modal_background').style.display="block"
+    const small_modal = document.getElementById(type + 'small_modal');
+    document.body.style.overflow = 'hidden';
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
+    if (type=="edit_"){
+        // innterText title이 먹지를 않음
+        document.getElementById('edit_sm_tt_title_input').innerText = title
+        document.getElementById('edit_sm_bd_ct_textarea').innerText = content
+        document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board('${board_id}','${page_num}')">작성</button>`
+    }
 }
+// 게시글 작성모달의 외부를 클릭 시
+modal_background.addEventListener('click', function (e)  {
+if (e.target.classList.contains('modal_background')) {
+    close_modal()
+}
+})
+// 게시글 수정모달의 외부를 클릭 시
+edit_modal_background.addEventListener('click', function (e) {
+if (e.target.classList.contains('modal_background')) {
+    close_modal()
+}
+})
+
+// 모달을 닫아주는 함수
+ function close_modal(){
+    document.querySelector('.modal_background').style.display="none"
+    document.getElementById('edit_modal_background').style.display="none"
+    document.body.style.overflow = 'auto';
+}
+
+
+
+// 페이지네이션에 관련된 함수 (window.onload시 로드함)
+function pagenation(total_count, bottomSize, listSize, page_num ){
+
+    let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
+
+    let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
+    let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
+    if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
+
+    const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
+    for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
+        if(i==page_num){
+            mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
+        }
+        else {
+            mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
+        }
+    }
+}
+
+// 하단의 page_num 버튼을 누를 시 링크
+function click_page_num(url_page_num){
+    location.href = 'board_page.html?page_num=' + url_page_num
+}
+// 메세지 버튼을 누를 시 디테일 페이지로 링크
 function href_board_detail(board_id){
     location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + board_id
 }

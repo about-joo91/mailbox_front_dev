@@ -19,7 +19,7 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-// 글을 작성 할 때 실행되는 로직(Crud)
+// 디테일 페이지에 댓글을 작성 할 때 실행되는 로직(Crud)
 async function post_board_comment(){
     const comment_content = document.querySelector('.pc_ic_input').value;
     const token = localStorage.getItem('access')
@@ -84,7 +84,7 @@ window.onload =
                 <div class="md_bb_bl_bd_description">
                     <div class="md_bb_bl_bd_desc_image_icon"></div>
                     <div class="md_bb_bl_bd_middle">
-                        <div class="md_bb_bl_bd_hidden_name">내가작성</div>
+                        <div class="mc_bb_cl_cm_im_writer">나의글</div>
                         <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                     </div>                         
                     <div class="md_bb_bl_bd_desc_comment_icon">
@@ -160,7 +160,7 @@ window.onload =
                     <div class="mc_bb_cl_cm_description">
                         <div class="mc_bb_cl_cm_desc_image_icon"></div>
                         <div class="mc_bb_cl_cm_middle">
-                            <div class="mc_bb_cl_cm_hidden_name">익명1</div>
+                            <div class="mc_bb_cl_cm_im_writer">나의 글</div>
                             <div class="mc_bb_cl_cm_desc_create_date">${comment.create_date}</div>
                         </div>
                         <div class="md_bb_bl_bd_desc_edit_delete">
@@ -182,10 +182,10 @@ window.onload =
                         <i class="bi bi-chat-dots-fill"></i>
                     </div>
                     <div class="pc_input_comment">
-                        <input class="pc_ic_input">
+                        <input class="pc_ic_input" id="pc_ic_input_${comment.id}">
                     </div>
                     <div class="pc_comment_button_box">
-                        <button class="pc_cbb_button" onclick="post_board_comment()">작성</button>
+                        <button class="pc_cbb_button" onclick="edit_board_comment(${comment.id})">작성</button>
                     </div>
                 </div>
                 `
@@ -196,7 +196,7 @@ window.onload =
                     <div class="mc_bb_cl_cm_description">
                         <div class="mc_bb_cl_cm_desc_image_icon"></div>
                         <div class="mc_bb_cl_cm_middle">
-                            <div class="mc_bb_cl_cm_hidden_name">익명1</div>
+                            <div class="mc_bb_cl_cm_hidden_name">익명</div>
                             <div class="mc_bb_cl_cm_desc_create_date">${comment.create_date}</div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@ function edit_comment_input(comment_id){
     edit_comment_by_id.style.display = "flex"
 }
 
-// 글을 삭제하는 로직 (cluD)
+// 현재 내가있는 보드를 삭제하는 로직 (cluD)
 async function delete_board(board_id, page_num){
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/board/' + board_id , {
@@ -284,10 +284,62 @@ async function click_sun(board_id){
             }
     }
 }
+// 내가 클릭한 댓글의 내용을 수정하는 로직 (crUd)
+async function edit_board_comment(comment_id){
+    const token = localStorage.getItem('access')
+    const edit_comment_content = document.getElementById('pc_ic_input_'+ comment_id).value;
+    const result = await fetch(BASE_URL + '/board/comment/' + comment_id , {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "content" : edit_comment_content
+        })
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        alert(res['message'])
+        href_board_detail(url_board_id)
+    }
+    else{
+        alert(res['message'])
+    }
+}
 
+// 내가 클릭한 댓글을 삭제하는 로직 (cruD)
+async function delete_board(comment_id){
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/board/comment/' + comment_id , {
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        alert(res['message'])
+        href_board_detail(url_board_id)
+    }
+    else{
+        alert(res['message'])
+    }
+}
+// 현재 내가 보고있는 보드의 디테일페이지로 이동하는 로직
 function href_board_detail(url_board_id){
     location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + url_board_id
 }
+// 기존의 익명 게시판 목록으로 이동하는 로직
 function href_board(page_num){
     location.href = '../../ko_test_board/board_page.html?page_num=' + page_num
 }
