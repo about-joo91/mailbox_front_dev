@@ -40,6 +40,7 @@ window.onload = async function () {
         nc_sb_nav.innerHTML += `<p>
         나의 몽글 점수: ${response.mongle_grade}
     </p>
+    <img class ="nc_mongle"src="/mongle.jpeg">
     <img class="nc_profile"
         src="${response.profile_img}">`
 
@@ -57,7 +58,7 @@ window.onload = async function () {
         const mpc_c_b_u_rcb_category_box = document.querySelector('.mpc_c_b_u_rcb_category_box');
         mpc_c_b_u_rcb_category_box.innerHTML += cate_html + `<div class="category_plus_btn" onclick="add_my_cate_ready(this)"> + </div>`
         const mpc_c_body_down = document.querySelector('.mpc_c_body_down');
-        mpc_c_body_down.innerHTML = response.description +`<span onclick="edit_ready()" class="mpc_c_bd_edit_button">
+        mpc_c_body_down.innerHTML = response.description +`<span onclick="desc_edit_ready()" class="mpc_c_bd_edit_button">
         수정하기
     </span>`
     }
@@ -192,10 +193,54 @@ async function add_my_cate(){
         Array.from(response).forEach(item =>{
             add_cate_html += `<option class="category_option" value="${item.id}">${item.cate_name}</option>`
         })
-        acm_body.innerHTML = add_cate_html
-        location.reload()
+        acm_body.innerHTML = add_cate_html;
+        alert(response.message);
+        location.reload();
     }else{
         alert(response)
     }
     
+}
+
+const edit_desc_modal_wrapper = document.querySelector('.edit_desc_modal_wrapper');
+const edm_textarea = document.querySelector('.edm_textarea');
+function desc_edit_ready(){
+    edit_desc_modal_wrapper.style.display = 'block';
+}
+edit_desc_modal_wrapper.addEventListener('click', function(e){
+    if(e.target.classList.contains('edit_desc_modal_wrapper')){
+        edm_textarea.value = '';
+        edit_desc_modal_wrapper.style.display = 'none';
+    }
+})
+
+function cancel_edit_desc(){
+    edm_textarea.value = '';
+    edit_desc_modal_wrapper.style.display = 'none';
+}
+
+async function call_edit_desc(){
+    let description = edm_textarea.value;
+    let url = new URL(BASE_URL + 'user/profile')
+    let token = localStorage.getItem('access');
+    const result = await fetch(url,{
+        method: 'put',
+        headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization' : `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "description" : description
+        })
+    });
+    let response = await result.json()
+    if (result.status == 200){
+        alert(response.message)
+        location.reload()
+    }else{
+        alert(response)
+    }
 }
