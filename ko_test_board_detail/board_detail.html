@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="board_page.css">
+    <link rel="stylesheet" href="board_detail.css">
     <title>Document</title>
 </head>
 <body>
@@ -28,51 +28,32 @@
     <!-- 코드 시작 -->
     <div class="main_container">
         <div class="mc_board_title">
-            <div class="mc_bt_title_text" onclick="href_board(1)">익명 게시판</div>
+            <div class="mc_bt_title_text" onclick="href_board(1)">???의 게시판</div>
         </div>
         <div class="mc_board_body">
             <div class="mc_bb_board_lists">
-                
+                <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+                    
+                </div>
+            </div>
+            <div class="post_comment">
+                <div class="pc_comment_icon">
+                    <i class="bi bi-chat-dots-fill"></i>
+                </div>
+                <div class="pc_input_comment">
+                    <input class="pc_ic_input">
+                </div>
+                <div class="pc_comment_button_box">
+                    <button class="pc_cbb_button" onclick="post_board_comment()">작성</button>
+                </div>
+            </div>
+            <div class="mc_bb_comment_lists">
+                <div class="mc_bb_cl_comment">
+                    
+                </div>
             </div>
             <div class="mc_bb_page_number"></div>
         </div>
     </div>
-    <div class="open_modal_button" onclick="open_modal('')">+</div>
-    <div class="modal_background" id="modal_background">
-        <div class="small_modal" id="small_modal">
-            <div class="sm_title">
-                <div class="sm_tt_text">제목 : </div>
-                <input class="sm_tt_title_input">
-            </div>
-            <div class="sm_body">
-                <div class="sm_bd_text">글 작성하기</div>
-                <div class="sm_bd_content">
-                    <textarea class="sm_bd_ct_textarea"></textarea>
-                </div>
-                <div class="sm_bd_button">
-                    <button class="sm_bd_submit_button" onclick="post_board()">작성</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal_background" id="edit_modal_background">
-        <div class="small_modal" id="edit_small_modal">
-            <div class="sm_title">
-                <div class="sm_tt_text">제목 : </div>
-                <input class="sm_tt_title_input" id="edit_sm_tt_title_input">
-            </div>
-            <div class="sm_body">
-                <div class="sm_bd_text">글 수정하기</div>
-                <div class="sm_bd_content">
-                    <textarea class="sm_bd_ct_textarea" id="edit_sm_bd_ct_textarea"></textarea>
-                </div>
-                <div class="sm_bd_button" id ="edit_sm_bd_button">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<script type="text/javascript" src="board_page.js"></script>
+<script type="text/javascript" src="board_detail.js"></script>
 </html>
