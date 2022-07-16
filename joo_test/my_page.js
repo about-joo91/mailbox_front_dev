@@ -17,8 +17,8 @@ function get_cookie(name) {
 const csrftoken = get_cookie('csrftoken');
 
 window.onload = async function () {
-    url = new URL(BASE_URL + 'user/profile');
-    token = localStorage.getItem('access');
+    let url = new URL(BASE_URL + 'user/profile');
+    let token = localStorage.getItem('access');
     const result = await fetch(url, {
         method: 'get',
         headers: {
@@ -35,7 +35,6 @@ window.onload = async function () {
         cate_array.forEach(element =>
             cate_html += `<div id="cate_${element.id}" class="category_style">${element.cate_name}</div>`
         )
-        const main_profile_container = document.querySelector('.main_profile_container');
         const nc_sb_nav = document.querySelector('.nc_sb_nav');
         nc_sb_nav.innerHTML += `<p>
         나의 몽글 점수: ${response.mongle_grade}
