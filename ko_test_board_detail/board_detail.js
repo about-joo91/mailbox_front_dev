@@ -52,7 +52,7 @@ async function post_board_comment(){
 // 글을 불러오는 로직 (cRud)
 window.onload =
     async function get_board_comment() {
-        
+
         const result = await fetch(BASE_URL + '/board/comment'+ '?board_id=' + url_board_id,{
             method: 'GET',
             mode: 'cors',
@@ -90,8 +90,8 @@ window.onload =
                     <div class="md_bb_bl_bd_desc_comment_icon">
                         <i class="bi bi-chat-dots onclick="href_board_detail(${board.id})"></i>
                         <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
-                        <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board})"></i>
-                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board}">${board.like_count}</div>
+                        <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
+                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                     </div> 
                     <div class="md_bb_bl_bd_desc_edit_delete">
                         <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal('edit_','${board.title}','${board.content}','${board.id}', '${url_board_id}')">수정</div>
@@ -124,7 +124,7 @@ window.onload =
                         <i class="bi bi-chat-dots onclick="href_board_detail(${board.id})""></i>
                         <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                         <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
-                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board}">${board.like_count}</div>
+                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                     </div> 
                 </div>
                 <div class="md_bb_bl_bd_title">
@@ -275,11 +275,13 @@ async function click_sun(board_id){
         const sun_count = document.getElementById("md_bb_bl_bd_ct_right_sun_count_" + board_id)
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
+            sun_count.innerText = parseInt(sun_count.innerText) - 1
             alert(res['message'])
             
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
+            sun_count.innerText = parseInt(sun_count.innerText) + 1
             alert(res['message'])
             }
     }

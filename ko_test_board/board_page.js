@@ -22,7 +22,7 @@ const csrftoken = get_cookie('csrftoken')
 
 // board를 불러오는 로직(cRud)
  window.onload =
-    async function get_board() {
+    async function get_board(event, url_page_num=1) {
         const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
             method: 'GET',
             mode: 'cors',
@@ -47,7 +47,7 @@ const csrftoken = get_cookie('csrftoken')
                 } else {
                     sun_icon = 'bi-brightness-high'
                     color_class = 'img_heart_icon'
-                }
+                }                
                 // 내가 글의 작성자라면
                     if(board.is_board_writer == true){
                         tmp_board += `
@@ -65,7 +65,7 @@ const csrftoken = get_cookie('csrftoken')
                                 <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                             </div> 
                             <div class="md_bb_bl_bd_desc_edit_delete">
-                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal('edit_','${board.title}','${board.content}','${board.id}', '${url_page_num}')">수정</div>
+                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_edit_modal(` + '\`' + `${board.title}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
                                 <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${board.id}', '${url_page_num}')">삭제</div>
                             </div>
                         </div>
@@ -180,11 +180,13 @@ async function click_sun(board_id){
         const sun_count = document.getElementById("md_bb_bl_bd_ct_right_sun_count_" + board_id)
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
+            sun_count.innerText = parseInt(sun_count.innerText) - 1
             alert(res['message'])
             
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
+            sun_count.innerText = parseInt(sun_count.innerText) + 1
             alert(res['message'])
             }
     }
@@ -213,7 +215,7 @@ async function edit_board(board_id){
     let res = await result.json()
     if (result.status == 200) {
         alert(res['message'])
-        click_page_num()
+        location.reload()
     }
     else{
         alert(res['message'])
@@ -248,23 +250,34 @@ const edit_modal_background = document.getElementById('edit_modal_background')
 const small_modal = document.querySelector('.small_modal');
 
 
-// 모달을 열어주는 함수
-function open_modal(type, title, content, board_id, page_num){
-    document.getElementById(type + 'modal_background').style.display="block"
-    const small_modal = document.getElementById(type + 'small_modal');
+// 수정모달을 열어주는 함수
+function open_edit_modal(title,content,id){
+    console.log(title,content,id)
+    document.getElementById('edit_modal_background').style.display="block"
+    const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
     let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
     
     small_modal.style.left = modal_left_now + "px";
     small_modal.style.top = modal_top_now + "px";
-    if (type=="edit_"){
-        // innterText title이 먹지를 않음
-        document.getElementById('edit_sm_tt_title_input').innerText = title
-        document.getElementById('edit_sm_bd_ct_textarea').innerText = content
-        document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board('${board_id}','${page_num}')">작성</button>`
-    }
+    document.getElementById('edit_sm_tt_title_input').value = title
+    document.getElementById('edit_sm_bd_ct_textarea').innerText =  content
+    document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board(${id})">작성</button>`
 }
+
+// 모달을 열어주는 함수
+function open_add_modal(){
+    document.getElementById('modal_background').style.display="block"
+    const small_modal = document.getElementById('small_modal');
+    document.body.style.overflow = 'hidden';
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
+}
+
 // 게시글 작성모달의 외부를 클릭 시
 modal_background.addEventListener('click', function (e)  {
 if (e.target.classList.contains('modal_background')) {
