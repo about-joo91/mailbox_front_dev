@@ -147,7 +147,7 @@ body{
 
 }
 .md_bb_bl_bd_desc_image_icon{
-    width: 4.5%;
+    width: 5.5%;
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -162,6 +162,13 @@ body{
     margin-left: 1rem;
     flex-wrap: nowrap;
     align-items: center;
+}
+.mc_bb_bl_bd_im_writer{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 2.4rem;
+    font-style: italic;
+    font-weight: 600;
 }
 .md_bb_bl_bd_hidden_name{
     font-size: 2.2rem;

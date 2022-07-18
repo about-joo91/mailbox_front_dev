@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="worry_board_page.css">
     <title>Document</title>
 </head>
@@ -26,17 +28,47 @@
     <!-- 코드 시작 -->
     <div class="main_container">
         <div class="mc_board_title">
-
+            <div class="mc_bt_title_text" onclick="click_category(1)">고민 리스트</div>
+            <div class="mc_bt_empty"></div>
+            <div class="mc_bt_category_box">
+                <div class="mc_bt_cb_all" onclick="click_category(1)">모두보기</div>
+                <div class="mc_bt_cb_family" onclick="click_category(2)">가족</div>
+                <div class="mc_bt_cb_love" onclick="click_category(3)">연애</div>
+                <div class="mc_bt_cb_relationship" onclick="click_category(4)">인간관계</div>
+                <div class="mc_bt_cb_study" onclick="click_category(5)">학업</div>
+                <div class="mc_bt_cb_parenting" onclick="click_category(6)">육아</div>
+            </div>
         </div>
         <div class="mc_board_body">
             <div class="mc_bb_board_lists">
-                <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+            </div>
+            <div class="mc_bb_page_number"></div>
+        </div>
+    </div>
+    <div class="open_modal_button" onclick="open_modal('')">+</div>
+    <div class="modal_background" id="modal_background">
+        <div class="small_modal" id="small_modal">
+            <div class="sm_title">
+                <div class="sm_tt_text">카테고리</div>
+                <select class="sm_tt_category">
+                    <option value="2">가족</option>
+                    <option value="3">연애</option>
+                    <option value="4">인간 관계</option>
+                    <option value="5">학업</option>
+                    <option value="6">육아</option>
+                </select>
+            </div>
+
+            <div class="sm_body">
+                <div class="sm_bd_text">글 작성하기 (간단하게 3줄로 작성해주세요!)</div>
+                <div class="sm_bd_content">
+                    <textarea class="sm_bd_ct_textarea"></textarea>
                 </div>
-                <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+                <div class="sm_bd_button">
+                    <button class="sm_bd_submit_button" onclick="post_board()">작성</button>
                 </div>
             </div>
         </div>
     </div>
-</body>
 <script type="text/javascript" src="worry_board_page.js"></script>
 </html>
