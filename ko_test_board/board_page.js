@@ -180,11 +180,13 @@ async function click_sun(board_id){
         const sun_count = document.getElementById("md_bb_bl_bd_ct_right_sun_count_" + board_id)
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
+            sun_count.innerText = parseInt(sun_count.innerText) - 1
             alert(res['message'])
             
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
+            sun_count.innerText = parseInt(sun_count.innerText) + 1
             alert(res['message'])
             }
     }

@@ -52,7 +52,7 @@ async function post_board_comment(){
 // 글을 불러오는 로직 (cRud)
 window.onload =
     async function get_board_comment() {
-        
+
         const result = await fetch(BASE_URL + '/board/comment'+ '?board_id=' + url_board_id,{
             method: 'GET',
             mode: 'cors',
@@ -275,11 +275,13 @@ async function click_sun(board_id){
         const sun_count = document.getElementById("md_bb_bl_bd_ct_right_sun_count_" + board_id)
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
+            sun_count.innerText = parseInt(sun_count.innerText) - 1
             alert(res['message'])
             
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
+            sun_count.innerText = parseInt(sun_count.innerText) + 1
             alert(res['message'])
             }
     }
