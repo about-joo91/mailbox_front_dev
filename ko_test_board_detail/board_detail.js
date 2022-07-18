@@ -90,8 +90,8 @@ window.onload =
                     <div class="md_bb_bl_bd_desc_comment_icon">
                         <i class="bi bi-chat-dots onclick="href_board_detail(${board.id})"></i>
                         <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
-                        <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board})"></i>
-                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board}">${board.like_count}</div>
+                        <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
+                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                     </div> 
                     <div class="md_bb_bl_bd_desc_edit_delete">
                         <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal('edit_','${board.title}','${board.content}','${board.id}', '${url_board_id}')">수정</div>
@@ -124,7 +124,7 @@ window.onload =
                         <i class="bi bi-chat-dots onclick="href_board_detail(${board.id})""></i>
                         <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                         <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
-                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board}">${board.like_count}</div>
+                        <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                     </div> 
                 </div>
                 <div class="md_bb_bl_bd_title">
