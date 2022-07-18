@@ -3,6 +3,7 @@ const BASE_URL = 'http://127.0.0.1:8000';
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
 const url_category = urlParams.get('category');
+
 // 쿠키 할당
 
 function get_cookie(name) {
@@ -87,7 +88,7 @@ function href_board_detail(url_board_id){
 
 // 3줄 간단 고민글을 가져오는 로직
 window.onload =
-async function get_board() {
+async function get_board(event, url_category=1, url_page_num=1) {
     const result = await fetch(BASE_URL + '/worry_board/?category=' + url_category + "&page_num=" + url_page_num , {
         method: 'GET',
         mode: 'cors',
@@ -105,26 +106,8 @@ async function get_board() {
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             board = res.boards[i]
-            if (board.category == 2){
-                category_name = "가족"
-            }
-            else if (board.category == 3){
-                category_name = "연애"
-            }
-            else if (board.category == 4){
-                category_name = "인간 관계"
-            }
-            else if (board.category == 5){
-                category_name = "학업"
-            }
-            else if (board.category == 6){
-                category_name = "육아"
-            }
-            else {
-                category_name = "1번은 수정해야 함"
-            }
-            // 3줄 요약 게시글 등등을 가져오는 코드
-            // 내가 글의 작성자라면
+            board.category_list = ['0', '1번은 수정', "가족", "연애", "인간 관계", "학업", "육아"]
+            category_name = board.category_list[board.category]
             if(board.is_board_writer == true){
                 tmp_board += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board_1">

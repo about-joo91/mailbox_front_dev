@@ -22,7 +22,7 @@ const csrftoken = get_cookie('csrftoken')
 
 // board를 불러오는 로직(cRud)
  window.onload =
-    async function get_board() {
+    async function get_board(event, url_page_num=1) {
         const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
             method: 'GET',
             mode: 'cors',
