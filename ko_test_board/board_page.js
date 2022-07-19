@@ -21,107 +21,113 @@ const csrftoken = get_cookie('csrftoken')
 
 
 // board를 불러오는 로직(cRud)
- window.onload =
-    async function get_board(event, url_page_num=1) {
-        const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken,
-                'Authorization': "Bearer " + localStorage.getItem("access")
-            },
-        })
-        let res = await result.json()
-        if (result.status == 200) {
-            pagenation(res.total_count, 10, 10, url_page_num)
-            let tmp_board = ``
-            for (let i = 0; i < res.boards.length; i++){
-                // boards에 대한 제목, 내용 등등을 가져오는 코드
-                board = res.boards[i]
-                if (board.is_liked) {
-                    sun_icon = 'bi-brightness-high-fill'
-                    color_class = 'img_heart_icon_red'
-                } else {
-                    sun_icon = 'bi-brightness-high'
-                    color_class = 'img_heart_icon'
-                }                
-                // 내가 글의 작성자라면
-                    if(board.is_board_writer == true){
-                        tmp_board += `
-                    <div class="md_bb_bl_board" id="md_bb_bl_board_1">
-                        <div class="md_bb_bl_bd_description">
-                            <div class="md_bb_bl_bd_desc_image_icon"></div>
-                            <div class="md_bb_bl_bd_middle">
-                                <div class="mc_bb_bl_bd_im_writer">내가작성</div>
-                                <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                            </div>                         
-                            <div class="md_bb_bl_bd_desc_comment_icon">
-                                <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
-                                <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
-                                <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
-                                <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
-                            </div> 
-                            <div class="md_bb_bl_bd_desc_edit_delete">
-                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_edit_modal(` + '\`' + `${board.title}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
-                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${board.id}', '${url_page_num}')">삭제</div>
-                            </div>
+ window.onload = get_board
+
+async function get_board(event) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let url_page_num = urlParams.get('page_num');
+    if (!url_page_num){
+        url_page_num = 1
+    }
+    const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': "Bearer " + localStorage.getItem("access")
+        },
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        pagenation(res.total_count, 10, 10, url_page_num)
+        let tmp_board = ``
+        for (let i = 0; i < res.boards.length; i++){
+            // boards에 대한 제목, 내용 등등을 가져오는 코드
+            board = res.boards[i]
+            if (board.is_liked) {
+                sun_icon = 'bi-brightness-high-fill'
+                color_class = 'img_heart_icon_red'
+            } else {
+                sun_icon = 'bi-brightness-high'
+                color_class = 'img_heart_icon'
+            }                
+            // 내가 글의 작성자라면
+                if(board.is_board_writer == true){
+                    tmp_board += `
+                <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+                    <div class="md_bb_bl_bd_description">
+                        <div class="md_bb_bl_bd_desc_image_icon"></div>
+                        <div class="md_bb_bl_bd_middle">
+                            <div class="mc_bb_bl_bd_im_writer">내가작성</div>
+                            <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
+                        </div>                         
+                        <div class="md_bb_bl_bd_desc_comment_icon">
+                            <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
+                            <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
+                            <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
+                            <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
+                        </div> 
+                        <div class="md_bb_bl_bd_desc_edit_delete">
+                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_edit_modal(` + '\`' + `${board.title}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
+                            <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${board.id}', '${url_page_num}')">삭제</div>
                         </div>
-                        <div class="md_bb_bl_bd_title">
-                            <div class="md_bb_bl_bd_tt_text">${board.title}</div>
+                    </div>
+                    <div class="md_bb_bl_bd_title">
+                        <div class="md_bb_bl_bd_tt_text">${board.title}</div>
+                    </div>
+                    <div class="md_bb_bl_bd_content">
+                        <p class="md_bb_bl_bd_ct_left">
+                            ${board.content}
+                        </p>
+                        <div class="md_bb_bl_bd_ct_right">
+                            <div class="md_bb_bl_bd_ct_rg_border"></div>
                         </div>
-                        <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left">
-                                ${board.content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
+                    </div>
+                </div>`
+                }
+                else{
+                    tmp_board += `
+                <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+                    <div class="md_bb_bl_bd_description">
+                        <div class="md_bb_bl_bd_desc_image_icon"></div>
+                        <div class="md_bb_bl_bd_middle">
+                            <div class="md_bb_bl_bd_hidden_name">익명1</div>
+                            <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
+                        </div>                         
+                        <div class="md_bb_bl_bd_desc_comment_icon">
+                            <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
+                            <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment_count}</div>
+                            <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
+                            <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                         </div>
-                    </div>`
-                    }
-                    else{
-                        tmp_board += `
-                    <div class="md_bb_bl_board" id="md_bb_bl_board_1">
-                        <div class="md_bb_bl_bd_description">
-                            <div class="md_bb_bl_bd_desc_image_icon"></div>
-                            <div class="md_bb_bl_bd_middle">
-                                <div class="md_bb_bl_bd_hidden_name">익명1</div>
-                                <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                            </div>                         
-                            <div class="md_bb_bl_bd_desc_comment_icon">
-                                <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
-                                <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment_count}</div>
-                                <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
-                                <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
-                            </div>
+                    </div>
+                    <div class="md_bb_bl_bd_title">
+                        <div class="md_bb_bl_bd_tt_text">${board.title}</div>
+                    </div>
+                    <div class="md_bb_bl_bd_content">
+                        <p class="md_bb_bl_bd_ct_left">
+                            ${board.content}
+                        </p>
+                        <div class="md_bb_bl_bd_ct_right">
+                            <div class="md_bb_bl_bd_ct_rg_border"></div>
                         </div>
-                        <div class="md_bb_bl_bd_title">
-                            <div class="md_bb_bl_bd_tt_text">${board.title}</div>
-                        </div>
-                        <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left">
-                                ${board.content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
-                        </div>
-                    </div>`
-                    }
+                    </div>
+                </div>`
+                }
 
 
-                const board_lists = document.querySelector(".mc_bb_board_lists")
-                board_lists.innerHTML = tmp_board
-            }
-        }
-        else {
-            alert("세션이 만료 되었습니다.")
-            location.replace('/user/signin_page.html')
+            const board_lists = document.querySelector(".mc_bb_board_lists")
+            board_lists.innerHTML = tmp_board
         }
     }
+    else {
+        alert("세션이 만료 되었습니다.")
+        location.replace('/user/signin_page.html')
+    }
+}
 
 
 

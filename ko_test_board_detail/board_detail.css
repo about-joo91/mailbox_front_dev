@@ -140,7 +140,7 @@ body{
 }
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
-    width: 80%;
+    width: 100%;
     height: 4.65rem;
     margin-left: 3.6rem;
     display: flex;
@@ -158,7 +158,7 @@ body{
     border: 3px solid yellowgreen;
 }
 .md_bb_bl_bd_middle{
-    width: 50%;
+    width: 70%;
     height: 100%;
     display: flex;
     margin-left: 1rem;
@@ -374,7 +374,7 @@ body{
 }
 /* 익명, 날짜, 코멘트 */
 .mc_bb_cl_cm_description{
-    width: 80%;
+    width: 100%;
     height: 4.65rem;
     margin-left: 7.2rem;
     display: flex;
@@ -392,7 +392,7 @@ body{
     border: 3px solid yellowgreen;
 }
 .mc_bb_cl_cm_middle{
-    width: 50%;
+    width: 70%;
     height: 100%;
     display: flex;
     margin-left: 1rem;

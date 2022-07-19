@@ -98,25 +98,38 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-.mc_bt_cb_all{
+.mc_bt_cb_category{
     font-size: 2.6rem;
+    cursor: pointer;
 }
-.mc_bt_cb_family{
+.mc_bt_cb_category:hover{
+    font-size: 2.7rem;
+    font-weight: 600;
+}
+/* .mc_bt_cb_family{
     font-size: 2.6rem;
+    cursor: pointer;
 }
 .mc_bt_cb_love{
     font-size: 2.6rem;
+    cursor: pointer;
 }
 .mc_bt_cb_relationship{
     font-size: 2.6rem;
+    cursor: pointer;
 }
 .mc_bt_cb_study{
     font-size: 2.6rem;
+    cursor: pointer;
 }
 .mc_bt_cb_parenting{
     font-size: 2.6rem;
+    cursor: pointer;
 }
-
+.mc_bt_cb_daliy{
+    font-size: 2.6rem;
+    cursor: pointer;
+} */
 /* worry_게시판 몸체 */
 .mc_board_body{
     width: 63.7%;
@@ -345,7 +358,7 @@ body{
     width: 8rem;
     height: 8rem;
     position: fixed;
-    top: 81%;
+    top: 88%;
     left: 88%;
     cursor: pointer;
     text-align: center;

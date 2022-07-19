@@ -52,7 +52,9 @@ async function post_board_comment(){
 // 글을 불러오는 로직 (cRud)
 window.onload =
     async function get_board_comment() {
-
+        if (!url_board_id){
+            href_main()
+        }
         const result = await fetch(BASE_URL + '/board/comment'+ '?board_id=' + url_board_id,{
             method: 'GET',
             mode: 'cors',
@@ -76,6 +78,7 @@ window.onload =
                 sun_icon = 'bi-brightness-high'
                 color_class = 'img_heart_icon'
             }
+            
             // 내가 선택한 보드에 대한 정보를 가져오는 로직
             // 내가 글의 작성자라면 수정, 삭제를 추가
             if(board.is_board_writer == true){
@@ -155,12 +158,13 @@ window.onload =
                 
                 comment = comment_list[i]
                 if(comment.is_comment_writer == true){
+                    var detail_writer = ["나의 글", "글쓴이"]
                     tmp_comment += `
                 <div class="mc_bb_cl_comment" id="mc_bb_cl_comment_${comment.id}">
                     <div class="mc_bb_cl_cm_description">
                         <div class="mc_bb_cl_cm_desc_image_icon"></div>
                         <div class="mc_bb_cl_cm_middle">
-                            <div class="mc_bb_cl_cm_im_writer">나의 글</div>
+                            <div class="mc_bb_cl_cm_im_writer">${detail_writer[comment.is_detail_page_writer]}</div>
                             <div class="mc_bb_cl_cm_desc_create_date">${comment.create_date}</div>
                         </div>
                         <div class="md_bb_bl_bd_desc_edit_delete">
@@ -191,12 +195,13 @@ window.onload =
                 `
                 }
                 else {
+                    var detail_writer = ["익명", "글쓴이"]
                     tmp_comment += `
                 <div class="mc_bb_cl_comment">
                     <div class="mc_bb_cl_cm_description">
                         <div class="mc_bb_cl_cm_desc_image_icon"></div>
                         <div class="mc_bb_cl_cm_middle">
-                            <div class="mc_bb_cl_cm_hidden_name">익명</div>
+                            <div class="mc_bb_cl_cm_hidden_name">${detail_writer[comment.is_detail_page_writer]}</div>
                             <div class="mc_bb_cl_cm_desc_create_date">${comment.create_date}</div>
                         </div>
                     </div>
@@ -344,4 +349,8 @@ function href_board_detail(url_board_id){
 // 기존의 익명 게시판 목록으로 이동하는 로직
 function href_board(page_num){
     location.href = '../../ko_test_board/board_page.html?page_num=' + page_num
+}
+// 메인페이지로 이동하는 로직
+function href_main(){
+    location.href = '../../jin_test/main_intro.html'
 }
