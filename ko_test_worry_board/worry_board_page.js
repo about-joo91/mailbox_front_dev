@@ -2,7 +2,7 @@ const BASE_URL = 'http://127.0.0.1:8000';
 
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
-const url_category = urlParams.get('category');
+let url_category = urlParams.get('category');
 
 // 쿠키 할당
 
@@ -74,7 +74,7 @@ async function post_board(){
     let res = await result.json()
     if (result.status == 200) {
         alert("게시글을 작성 하였습니다!!")
-        click_category(1)
+        click_category(0)
     }
     else {
         alert("게시글 작성에 실패하였습니다.")
@@ -87,8 +87,20 @@ function href_board_detail(url_board_id){
 }
 
 // 3줄 간단 고민글을 가져오는 로직
-window.onload =
-async function get_board(event, url_category=1, url_page_num=1) {
+window.onload = get_board
+
+async function get_board() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let url_page_num = urlParams.get('page_num');
+    let url_category = urlParams.get('category');
+
+    if (!url_page_num){
+        url_page_num = 1
+    }
+    if (!url_category){
+        url_category = 0
+    }
+
     const result = await fetch(BASE_URL + '/worry_board/?category=' + url_category + "&page_num=" + url_page_num , {
         method: 'GET',
         mode: 'cors',
@@ -106,7 +118,7 @@ async function get_board(event, url_category=1, url_page_num=1) {
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             board = res.boards[i]
-            board.category_list = ['0', '1번은 수정', "가족", "연애", "인간 관계", "학업", "육아"]
+            board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
             category_name = board.category_list[board.category]
             if(board.is_board_writer == true){
                 tmp_board += `
@@ -169,7 +181,7 @@ async function get_board(event, url_category=1, url_page_num=1) {
     }
     else {
         alert("세션이 만료 되었습니다.")
-        location.replace('/user/signin_page.html')
+        go_sign_in()
     }
 }
 
@@ -185,7 +197,7 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
     const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
     for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
         if(i==page_num){
-            mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
+            mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num(${i})">${i} </span>`)
         }
         else {
             mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
@@ -196,5 +208,11 @@ function click_category(category){
     location.href = '../../ko_test_worry_board/worry_board_page.html?category=' +  category + "&page_num=" + 1
 }
 function click_page_num(page_num){
+    if(!url_category){
+        url_category=1
+    }
     location.href = '../../ko_test_worry_board/worry_board_page.html?category=' +  url_category + "&page_num=" + page_num
+}
+function go_sign_in(){
+    location.href = '../../won_test/signin.html'
 }

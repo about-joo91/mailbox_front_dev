@@ -28,15 +28,16 @@
     <!-- 코드 시작 -->
     <div class="main_container">
         <div class="mc_board_title">
-            <div class="mc_bt_title_text" onclick="click_category(1)">고민 리스트</div>
+            <div class="mc_bt_title_text" onclick="click_category(0)">고민 리스트</div>
             <div class="mc_bt_empty"></div>
             <div class="mc_bt_category_box">
-                <div class="mc_bt_cb_all" onclick="click_category(1)">모두보기</div>
-                <div class="mc_bt_cb_family" onclick="click_category(2)">가족</div>
-                <div class="mc_bt_cb_love" onclick="click_category(3)">연애</div>
-                <div class="mc_bt_cb_relationship" onclick="click_category(4)">인간관계</div>
-                <div class="mc_bt_cb_study" onclick="click_category(5)">학업</div>
-                <div class="mc_bt_cb_parenting" onclick="click_category(6)">육아</div>
+                <div class="mc_bt_cb_category" onclick="click_category(0)">모두보기</div>
+                <div class="mc_bt_cb_category" onclick="click_category(1)">일상</div>
+                <div class="mc_bt_cb_category" onclick="click_category(2)">가족</div>
+                <div class="mc_bt_cb_category" onclick="click_category(3)">연애</div>
+                <div class="mc_bt_cb_category" onclick="click_category(4)">인간관계</div>
+                <div class="mc_bt_cb_category" onclick="click_category(5)">학업</div>
+                <div class="mc_bt_cb_category" onclick="click_category(6)">육아</div>
             </div>
         </div>
         <div class="mc_board_body">
@@ -51,6 +52,7 @@
             <div class="sm_title">
                 <div class="sm_tt_text">카테고리</div>
                 <select class="sm_tt_category">
+                    <option value="1">일상</option>
                     <option value="2">가족</option>
                     <option value="3">연애</option>
                     <option value="4">인간 관계</option>
