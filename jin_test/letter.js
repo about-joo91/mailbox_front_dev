@@ -20,6 +20,10 @@ window.onload = async function(){
     if (!localStorage.hasOwnProperty('access')) {
         location.replace('/won_test/signin.html')
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams == ""){
+        location.replace('/jin_test/main2.html')
+    }
     token = localStorage.getItem('access');
     const myposts = await fetch(BASE_URL + "/jin/" +"main/",{
         method:'GET',

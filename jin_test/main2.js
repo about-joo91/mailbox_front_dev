@@ -38,14 +38,14 @@ window.onload = async function(){
         profile_grade.innerText = `나의 몽글 점수: ${response.profile_grade}`
         porfile_image.src =`${response.porfile_image}`
         const letter_count = document.getElementById('letter_count')
-        letter_count.innerText =`편지가 ${response.letter_count}통 도착 했습니다`
+        letter_count.innerText =`# 편지가 ${response.letter_count}통 도착 했습니다`
         const user_rank = document.getElementById('user_rank')
         for ( let rank = 0; rank < response.rank_list.rank_list.length; rank++){
             user_rank.innerHTML +=
             `
             <div id="user_rank" class="mb_sb_rk_user">
             <img src="${response.rank_list.rank_list[rank].profile_img}">
-            ${response.rank_list.rank_list[rank].user} 님
+            ${response.rank_list.rank_list[rank].user}님</p>
             </div>
             `     
         };
@@ -67,7 +67,7 @@ window.onload = async function(){
             <div class="mb_sb_rb_rank">
             <div class="mb_sb_rb_iconbox">
             <i class="bi ${sun_icon}" id="bi_brightness_high_${review_id}" onclick="review_like(${review_id})"></i>
-                <i class="mb_sb_rb_count">${like_count}</i>
+                <i id="bi_brightness_high_count_${review_id}" class="mb_sb_rb_count">${like_count}</i>
             </div>
             <div class="mb_sb_rb_textbox">
                 <p>${content}</p>
@@ -75,31 +75,6 @@ window.onload = async function(){
             `
         })
 
-        const review_live = document.getElementById('review_live')
-        response.live_review.forEach(function(element){
-            let is_liked = element.is_liked
-            let live_content = element.content
-            let review_id = element.review_id
-            let like_count  =element.like_count
-            if (is_liked==true) {
-                sun_icon = 'bi-brightness-high-fill'
-            } else {
-                sun_icon = 'bi-brightness-high'
-                color_class = 'img_heart_icon'
-            }
-            review_live.innerHTML += `
-            <div class="mb_sb_rb_live">
-                <div class="mb_sb_rb_livebox">
-                    <i class="bi ${sun_icon}" id="bi_brightness_high_${review_id}" onclick="review_like(${review_id})"></i>
-                    <i class="mb_sb_rb_count">${like_count}</i>
-                </div>
-                <div class="mb_sb_rb_livetext">
-                    <p>${live_content}</p>
-                </div>
-            </div>
-            `
-        }
-        )
 
         let daily_category = []
         let love_category =[]
@@ -141,10 +116,7 @@ window.onload = async function(){
             <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
             <div class="mb_sb_cb_item">
                 <div class="mb_sb_cb_item_title">
-                    <span>안녕하세요 저는 이런고민이 있어요</span>
                     <p>${daily_category[i].create_date}</p>
-                </div>
-                <div class="mb_sb_cb_item_line">
                 </div>
                 <p class="mb_sb_cb_item_text">${daily_category[i].content}</p>
             </div>
@@ -157,10 +129,7 @@ window.onload = async function(){
             <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
             <div class="mb_sb_cb_item">
                 <div class="mb_sb_cb_item_title">
-                    <span>안녕하세요 저는 이런고민이 있어요</span>
                     <p>${love_category[i].create_date}</p>
-                </div>
-                <div class="mb_sb_cb_item_line">
                 </div>
                 <p class="mb_sb_cb_item_text">${love_category[i].content}</P>
             </div>
@@ -173,10 +142,7 @@ window.onload = async function(){
             <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
             <div class="mb_sb_cb_item">
                 <div class="mb_sb_cb_item_title">
-                    <span>안녕하세요 저는 이런고민이 있어요</span>
                     <p>${work_category[i].create_date}</p>
-                </div>
-                <div class="mb_sb_cb_item_line">
                 </div>
                 <p class="mb_sb_cb_item_text">${work_category[i].content}</p>
             </div>
@@ -189,10 +155,7 @@ window.onload = async function(){
             <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
             <div class="mb_sb_cb_item">
                 <div class="mb_sb_cb_item_title">
-                    <span>안녕하세요 저는 이런고민이 있어요</span>
                     <p>${family_category[i].create_date}</p>
-                </div>
-                <div class="mb_sb_cb_item_line">
                 </div>
                 <p class="mb_sb_cb_item_text">${family_category[i].content}</P>
             </div>
@@ -205,10 +168,7 @@ window.onload = async function(){
             <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
             <div class="mb_sb_cb_item">
                 <div class="mb_sb_cb_item_title">
-                    <span>안녕하세요 저는 이런고민이 있어요</span>
                     <p>${relation_category[i].create_date}</p>
-                </div>
-                <div class="mb_sb_cb_item_line">
                 </div>
                 <p class="mb_sb_cb_item_text">${relation_category[i].content}</p>
             </div>
@@ -221,10 +181,7 @@ window.onload = async function(){
             <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
             <div class="mb_sb_cb_item">
                 <div class="mb_sb_cb_item_title">
-                    <span>안녕하세요 저는 이런고민이 있어요</span>
                     <p>${paernting_category[i].create_date}</p>
-                </div>
-                <div class="mb_sb_cb_item_line">
                 </div>
                 <p class="mb_sb_cb_item_text">${paernting_category[i].content}</p>
             </div>
@@ -252,27 +209,114 @@ async function review_like(review_id){
     let res = await result.json()
     if (result.status == 200) {
         const sun = document.getElementById("bi_brightness_high_"+ review_id)
+        const sun_count = document.getElementById("bi_brightness_high_count_"+ review_id)
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
             alert(res['message'])
+            sun_count.innerText = parseInt(sun_count.innerText) - 1
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
             alert(res['message'])
+            sun_count.innerText = parseInt(sun_count.innerText) + 1
             }
-        window.location.reload()
     }
 }
-
-function main_modal(){
-    document.getElementById('main_modal').style.visibility ='visible';
-}
-const main = document.getElementById('main_container')
-document.querySelector('.main_container').addEventListener('click', function (e) {
-    document.getElementById('main_modal').style.visibility ='hidden';
-})
 
 function logout() {
     localStorage.clear();
     location.replace('/user/sign_in.html')
 }
+
+async function live_review(){
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + "/jin/" +"main/", {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        const review_live = document.getElementById('review_rank')
+        review_live.innerHTML = ``
+        res.live_review.forEach(function(element){
+            let is_liked = element.is_liked
+            let content = element.content
+            let review_id = element.review_id
+            let like_count  =element.like_count
+            if (is_liked==true) {
+                sun_icon = 'bi-brightness-high-fill'
+            } else {
+                sun_icon = 'bi-brightness-high'
+                color_class = 'img_heart_icon'
+            }
+            review_live.innerHTML += 
+            `
+            <div class="mb_sb_rb_rank">
+            <div class="mb_sb_rb_iconbox">
+            <i class="bi ${sun_icon}" id="bi_brightness_high_${review_id}" onclick="review_like(${review_id})"></i>
+                <i id="bi_brightness_high_count_${review_id}" class="mb_sb_rb_count">${like_count}</i>
+            </div>
+            <div class="mb_sb_rb_textbox">
+                <p>${content}</p>
+            </d
+            `
+            
+        }
+    )
+    }
+    ;
+};
+
+
+async function best_review(){
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + "/jin/" +"main/", {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        const review_live = document.getElementById('review_rank')
+        review_live.innerHTML = ``
+        res.best_review.forEach(function(element){
+            let is_liked = element.is_liked
+            let content = element.content
+            let review_id = element.review_id
+            let like_count  =element.like_count
+            if (is_liked==true) {
+                sun_icon = 'bi-brightness-high-fill'
+            } else {
+                sun_icon = 'bi-brightness-high'
+                color_class = 'img_heart_icon'
+            }
+            review_live.innerHTML += 
+            `
+            <div class="mb_sb_rb_rank">
+            <div class="mb_sb_rb_iconbox">
+            <i class="bi ${sun_icon}" id="bi_brightness_high_${review_id}" onclick="review_like(${review_id})"></i>
+                <i id="bi_brightness_high_count_${review_id}" class="mb_sb_rb_count">${like_count}</i>
+            </div>
+            <div class="mb_sb_rb_textbox">
+                <p>${content}</p>
+            </d
+            `
+            
+        }
+    )
+    }
+    ;
+};
