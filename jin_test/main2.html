@@ -13,11 +13,9 @@
 </head>
 
 <body>
+
     <div class="nav_container">
         <div class="nc_sub_container">
-            <div class="nc_sb_modal">
-                <i onclick="main_modal()" class="fa-solid fa-bars fa-2x"></i>
-            </div>
             <div class="nc_sb_nav">
                 <p id="profile_grade">
                     나의 몽글 점수: 000
@@ -30,109 +28,108 @@
     </div>
 
     <div class="main_container">
+        <div class="drawer_wrapper">
+            <div id="drawer">
+                <div class="d_white_space">
+
+                </div>
+                <a href="/jin_test/main2.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
+                <a class="drawer_text"><i class="fa-solid fa-envelope drawer_icon"></i>&nbsp편지 쓰기</a>
+                <a href="/ko_test_board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+                <a href="my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+                <a href="/joo_test/my_letter_page.html?page_name=my_recieved_letter" class="drawer_text"><i class="fa-solid fa-inbox drawer_icon"></i>&nbsp내가 받은 편지</a>
+                <a href="/joo_test/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지</a>
+                <a class="drawer_text"><i class="fa-solid fa-pencil drawer_icon"></i>&nbsp내가 쓴 리뷰</a>
+            </div>
+        </div>
         <div class="mc_sub_container">
             <div class="mc_sb_letter_bar">
-                <span id="letter_count"># 편지가 2통 도착 했습니다</span>
+                <a href="http://127.0.0.1:5500/joo_test/my_letter_page.html?page_name=my_recieved_letter" class="my_letter_link"><span id="letter_count"># 편지가 2통 도착 했습니다</span></a>
                 <a class="letter_link" href="*"><p>확인하러 가기</p></a>
             </div>
 
             <div class="mc_sb_menu">
-                <div class="mc_sb_catebox">
-                    <div>
-                        <div class="mb_sb_cb_title">
-                            <p class="mb_sc_cb_cate">#일상</p>
-                        </div>
-                        <div id ="worry_list1">
-                            <div class="mb_sb_cb_item">
-                                
+                <div class="mb_sb_main_container">
+                    <div class="mc_sb_catebox">
+                            <div class="mb_sb_cate"> 
+                                <div class="mb_sb_cb_title">
+                                    <p class="mb_sc_cb_cate">#일상</p>
+                                </div>
+                                <div id ="worry_list1">
+                                </div>
+                            </div>
+
+                            <div class="mb_sb_cate"> 
+                                <div class="mb_sb_cb_title">
+                                    <p class="mb_sc_cb_cate">#연애</p>
+                                </div>
+                                <div id ="worry_list2">
+                                </div>
+                            </div>
+
+                            <div class="mb_sb_cate"> 
+                                <div class="mb_sb_cb_title">
+                                    <p class="mb_sc_cb_cate">#학업</p>
+                                </div>
+                                <div id ="worry_list3">
+                                    <div class="mb_sb_cb_item">
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="mb_sb_cb_title">
-                            <p class="mb_sc_cb_cate">#연애</p>
-                        </div>
-                        <div id ="worry_list2">
-                            <div class="mb_sb_cb_item">
-                                
+                        <div class="mb_sb_catebox2">
+                            <div class="mb_sb_cate"> 
+                                <div class="mb_sb_cb_title">
+                                    <p class="mb_sc_cb_cate">#가족</p>
+                                </div>
+                                <div id ="worry_list4">
+                                    <div class="mb_sb_cb_item">
+                                        
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb_sb_cb_title">
-                            <p class="mb_sc_cb_cate">#학업</p>
-                        </div>
-                        <div id ="worry_list3">
-                            <div class="mb_sb_cb_item">
-                                
+
+                            <div class="mb_sb_cate"> 
+                                <div class="mb_sb_cb_title">
+                                    <p class="mb_sc_cb_cate"># 인간관계</p>
+                                </div>
+                                <div id ="worry_list5">
+                                    <div class="mb_sb_cb_item">
+                                        
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb_sb_cb_title">
-                            <p class="mb_sc_cb_cate">#가족</p>
-                        </div>
-                        <div id ="worry_list4">
-                            <div class="mb_sb_cb_item">
-                                
-                            </div>
-                        </div>
-                        <div class="mb_sb_cb_title">
-                            <p class="mb_sc_cb_cate"># 인간관계</p>
-                        </div>
-                        <div id ="worry_list5">
-                            <div class="mb_sb_cb_item">
-                                
-                            </div>
-                        </div>
-                        <div class="mb_sb_cb_title">
-                            <p class="mb_sc_cb_cate"># 육아</p>
-                        </div>
-                        <div id ="worry_list6">
-                            <div class="mb_sb_cb_item">
-                            </div>
+
+                            <div class="mb_sb_cate"> 
+                                <div class="mb_sb_cb_title">
+                                    <p class="mb_sc_cb_cate"># 육아</p>
+                                </div>
+                                <div id ="worry_list6">
+                                    <div class="mb_sb_cb_item">
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="mc_sb_reviewbox">
                     <div class="mb_sb_rb_title">
                         <p># 리뷰 랭킹</p>
+                    <div class="mb_sb_rb_text_box">
+                        <button onclick="best_review()">랭킨순</button>
+                        <button onclick="live_review()">실시간</button>
+                    </div>
                     </div>
                     <div id="review_rank">
                     </div>
-                    <div class="mb_sb_rb_all">
-                        <sapn class="mb_sb_rb_text"># 실시간 리뷰 </span>
-                    </div>
-                    <div id='review_live'>
-                    </div>
-                </div>
-                <div id="user_rank" class="mc_sb_rankbox">
-                    <div class="mb_sb_rk_title">
-                        <p># 실시간 랭킹</p>
-                    </div>
                 </div>
             </div>
+            
         </div>
-
-        <div id="main_modal"class ="modal_box">
-            <div class="mb_myletter">
-                내게 온 편지
-                <div class="mb_line">
-                </div>
-            </div>
-            <div class="mb_write">
-                편지쓰기
-                <div class="mb_line">
-                </div>
-            </div>
-            <div class="mb_category">
-                카테고리
-                <div class="mb_line">
-                </div>
-            </div>
-            <div class="mb_worry_board">
-                익명 게시판
-                <div class="mb_line">
-                </div>
-            </div>
-            <div onclick="logout()"class="mb_logout">
-                로그 아웃
-                <div class="mb_line">
+        <div class="mc_sb_rankbox">
+            <div id="user_rank" class="mc_sb_rb_box">
+                <div class="mb_sb_rk_title">
+                    <span># 온 기 랭 킹</span>
                 </div>
             </div>
         </div>
