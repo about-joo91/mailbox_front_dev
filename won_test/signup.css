@@ -32,7 +32,7 @@ body {
 
 .mb_title{
     color: #F0F0E6;
-    font-size: 23px;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
@@ -51,9 +51,11 @@ body {
     height: 100%;
     border: none;
     border-radius: 10px;
+    text-align: center;
 }
 
 input::placeholder{
+    font-size: 1rem;
     text-align: center;
     color: black;
 }
@@ -67,15 +69,16 @@ input::placeholder{
 .btn{
     background-color: #9D9D58;
     color: #F0F0E6;
-    width: 33%;
+    display: inline-block;
     height: 7vh;
     border:none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 80%;
+    font-size: 1.2rem;
+    white-space : nowrap;
 }
 
-@media (max-width: 780px){
+@media (max-width: 800px){
     .mc_box{
         background-color: #E2CA9B;
         width: 90%;
