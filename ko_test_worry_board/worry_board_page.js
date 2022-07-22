@@ -22,22 +22,43 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-// 간단 고민글 작성 모달
-function open_modal(type, title, content, board_id, page_num){
-    document.getElementById(type + 'modal_background').style.display="block"
-    const small_modal = document.getElementById(type + 'small_modal');
+
+// request모달을 열어주는 함수
+function open_request_modal(id, content){
+    document.getElementById('edit_modal_background').style.display="block"
+    const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
     let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
     
     small_modal.style.left = modal_left_now + "px";
     small_modal.style.top = modal_top_now + "px";
-    if (type=="edit_"){
-        // innterText title이 먹지를 않음
-        document.getElementById('edit_sm_tt_title_input').innerText = title
-        document.getElementById('edit_sm_bd_ct_textarea').innerText = content
-        document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board('${board_id}','${page_num}')">작성</button>`
-    }
+
+    
+    const content_box = document.querySelector('.sm_bd_target_content')
+    const sm_bd_content = document.getElementById('sm_bd_content')
+    sm_bd_content.innerHTML = `<textarea class="sm_bd_ct_textarea" id="edit_sm_bd_ct_textarea_${id}"></textarea>`
+    document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="request_message(${id})">작성</button>`
+}
+//  request 모달의 외부를 클릭 시
+edit_modal_background.addEventListener('click', function (e) {
+if (e.target.classList.contains('modal_background')) {
+    close_modal()
+}
+})
+
+
+
+// 고민글 작성 모달을 열어주는 함수
+function open_modal(){
+    document.getElementById('modal_background').style.display="block"
+    document.body.style.overflow = 'hidden';
+    const small_modal = document.getElementById('small_modal');
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
 }
 // 게시글 작성모달의 외부를 클릭 시
 modal_background.addEventListener('click', function (e)  {
@@ -80,6 +101,36 @@ async function post_board(){
         alert("게시글 작성에 실패하였습니다.")
     }
 }
+
+// 요청 모달을 통해서 게시물에 대한 요청을 작성하는 로직
+async function request_message(board_id){
+    const request_message_text = document.getElementById('edit_sm_bd_ct_textarea_' + board_id).value;
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/worry_board/' + board_id + '/request' ,{
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "request_message": request_message_text
+        })
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        alert(res['message'])
+        click_category(0)
+    }
+    else {
+        alert(res['message'])
+    }
+}
+
+
 
 // 현재 내가 보고있는 보드의 디테일페이지로 이동하는 로직
 function href_board_detail(url_board_id){
@@ -144,7 +195,7 @@ async function get_board() {
                     </div>
                 </div>
                 <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button">요청</button>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal(${board.id})">요청</button>
                 </div>
             </div>`
             }
@@ -157,7 +208,7 @@ async function get_board() {
                         <div class="md_bb_bl_bd_middle">
                             <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
                             <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                        </div>                         
+                        </div>
                     </div>
                     <div class="md_bb_bl_bd_content">
                         <p class="md_bb_bl_bd_ct_left">
@@ -169,7 +220,7 @@ async function get_board() {
                     </div>
                 </div>
                 <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button">요청</button>
+                <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal('${board.id}', '${board.content}')">요청</button>
                 </div>
             </div>`
             }
@@ -187,11 +238,11 @@ async function get_board() {
 
 // 페이지네이션에 관련된 함수 (window.onload시 로드함)
 function pagenation(total_count, bottomSize, listSize, page_num ){
+    // (백엔드에서 보내주는 전체 데이터 수, 하단에 생성한 숫자의 최대 수, 한 화면에 보여줄 포스트의 수, 현재 페이지)
+    let totalPageSize = Math.ceil(total_count / listSize)  //하단 버튼의 수
 
-    let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
-
-    let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
-    let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
+    let firstBottomNumber = page_num - page_num % bottomSize + 1;  //지금 화면에서 보여지는 하단 최초 시작 숫자
+    let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //지금 화면에서 보여지는 하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
 
     const mc_bb_page_number = document.querySelector('.mc_bb_page_number')

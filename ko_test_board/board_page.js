@@ -258,7 +258,6 @@ const small_modal = document.querySelector('.small_modal');
 
 // 수정모달을 열어주는 함수
 function open_edit_modal(title,content,id){
-    console.log(title,content,id)
     document.getElementById('edit_modal_background').style.display="block"
     const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';

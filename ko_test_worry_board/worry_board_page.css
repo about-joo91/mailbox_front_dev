@@ -380,7 +380,7 @@ body{
     display: none;
 }
 .small_modal{
-    width: 58%;
+    width: 40%;
     height: 83rem;
     position: absolute;
 }
@@ -399,7 +399,7 @@ body{
     margin-left: 5.5rem;
 }
 .sm_tt_category{
-    width: 10%;
+    width: 14%;
     height: 50%;
     border-radius: 15px;
     margin-left: 2rem;
@@ -420,7 +420,7 @@ body{
 .sm_body{
     margin-top: 1.4rem;
     width: 100%;
-    height: 50rem;
+    /* height: 50rem; */
     background-color: #E2CA9B;
     border-radius: 15px;
     display: flex;
@@ -434,6 +434,7 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 13rem;
+    padding-top: 2.5rem;
 }
 .sm_bd_content{
     width: 91%;
@@ -454,6 +455,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.5rem ;
 }
 .sm_bd_submit_button{
     cursor: pointer;
@@ -465,7 +467,25 @@ body{
     font-size: 2rem;
     border-radius: 15px;
 }
-
+/* request 모달 */
+.sm_bd_target_text{
+    width: 100%;
+    height: 5.5rem;
+    font-size: 2.6rem;
+    color: white;
+    margin-left: 13rem;
+    padding-top: 2.5rem;
+}
+.sm_bd_target_content{
+    width: 91%;
+    height: 15rem;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 2rem;
+    color: #A4A457;
+    border: 1px solid gray;
+}
+}
 
 
 
