@@ -35,7 +35,9 @@ function open_request_modal(id, content){
     small_modal.style.top = modal_top_now + "px";
 
     
+    const worry_board_content = document.getElementById('md_bb_bl_bd_ct_left_' + id);
     const content_box = document.querySelector('.sm_bd_target_content')
+    content_box.innerHTML = worry_board_content.innerText
     const sm_bd_content = document.getElementById('sm_bd_content')
     sm_bd_content.innerHTML = `<textarea class="sm_bd_ct_textarea" id="edit_sm_bd_ct_textarea_${id}"></textarea>`
     document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="request_message(${id})">작성</button>`
@@ -103,10 +105,10 @@ async function post_board(){
 }
 
 // 요청 모달을 통해서 게시물에 대한 요청을 작성하는 로직
-async function request_message(board_id){
-    const request_message_text = document.getElementById('edit_sm_bd_ct_textarea_' + board_id).value;
+async function request_message(worry_board_id){
+    const request_message_text = document.getElementById('edit_sm_bd_ct_textarea_' + worry_board_id).value;
     const token = localStorage.getItem('access')
-    const result = await fetch(BASE_URL + '/worry_board/' + board_id + '/request' ,{
+    const result = await fetch(BASE_URL + '/worry_board/' + worry_board_id + '/request' ,{
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -169,24 +171,22 @@ async function get_board() {
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             board = res.boards[i]
+            console.log(board)
             board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
             category_name = board.category_list[board.category]
-            if(board.is_board_writer == true){
+            if(board.is_worry_board_writer == true){
                 tmp_board += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board_1">
                 <div class="md_bb_bl_board_box">
                     <div class="md_bb_bl_bd_description">
                         <div class="md_bb_bl_bd_desc_image_icon"></div>
                         <div class="md_bb_bl_bd_middle">
-                            <div class="md_bb_bl_bd_hidden_name">${board.category}</div>
+                            <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
                             <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                         </div>                         
                     </div>
-                    <div class="md_bb_bl_bd_title">
-                        <div class="md_bb_bl_bd_tt_text">${board.category}</div>
-                    </div>
                     <div class="md_bb_bl_bd_content">
-                        <p class="md_bb_bl_bd_ct_left">
+                        <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
@@ -195,7 +195,7 @@ async function get_board() {
                     </div>
                 </div>
                 <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal(${board.id})">요청</button>
+                <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal('${board.id}', '${board.content}')">요청</button>
                 </div>
             </div>`
             }
@@ -211,7 +211,7 @@ async function get_board() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_content">
-                        <p class="md_bb_bl_bd_ct_left">
+                        <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
@@ -267,3 +267,4 @@ function click_page_num(page_num){
 function go_sign_in(){
     location.href = '../../won_test/signin.html'
 }
+
