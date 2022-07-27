@@ -5,7 +5,6 @@ let url_page_num = urlParams.get('page_num');
 if (!url_page_num){
     url_page_num = 1
 }
-
 // 쿠키 할당
 function get_cookie(name) {
     let cookie_value = null;
@@ -24,7 +23,6 @@ function get_cookie(name) {
 const csrftoken = get_cookie('csrftoken')
 
 function open_request_modal(worry_board_content){
-    console.log(worry_board_content)
     document.getElementById('modal_background').style.display="block"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
@@ -54,7 +52,7 @@ function close_modal(){
 window.onload = get_request_messages
 
 async function get_request_messages() {
-    const result = await fetch(BASE_URL + '/worry_board/request/sended' , {
+    const result = await fetch(BASE_URL + '/worry_board/request/recieved' , {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -70,9 +68,7 @@ async function get_request_messages() {
         pagenation(res.total_count, 10, 10, url_page_num)
         let tmp_request_message = ``
         for (let i = 0; i < res.request_message.length; i++){
-            console.log(res.request_message[i])
             request_message = res.request_message[i]
-            console.log(request_message.worry_board_content)
             tmp_request_message += `
             <div class="md_bb_bl_board" id="md_bb_bl_board">
                 <div class="md_bb_bl_board_box">
@@ -83,7 +79,7 @@ async function get_request_messages() {
                             <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
                         </div>    
                         <div class="md_bb_bl_bd_desc_edit_delete">
-                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit" onclick="open_edit_modal('${request_message.request_message}','${request_message.id}')">수정</div>
+                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit" onclick="agree_to_message()">수락</div>
                             <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete" onclick="delete_request_message(${request_message.id})">삭제</div>
                         </div>                           
                     </div>
@@ -111,26 +107,6 @@ async function get_request_messages() {
     }
 }
 
-function open_edit_modal(content,request_message_id){
-    document.getElementById('edit_modal_background').style.display="block"
-    const small_modal = document.getElementById('edit_small_modal');
-    document.body.style.overflow = 'hidden';
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
-    document.getElementById('edit_sm_bd_ct_textarea').innerText =  content
-    document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_request_message(${request_message_id})">수정</button>`
-}
-
-// 게시글 수정모달의 외부를 클릭 시
-edit_modal_background.addEventListener('click', function (e) {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
-    
 
 // 모달을 통해서 request_message를 수정하는 로직
 async function edit_request_message(request_message_id){
@@ -184,7 +160,6 @@ async function delete_request_message(request_message_id){
     }
 }
 
-
 // 페이지네이션에 관련된 함수 (window.onload시 로드함)
 function pagenation(total_count, bottomSize, listSize, page_num ){
 
@@ -207,5 +182,5 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
 // 하단의 page_num 버튼을 누를 시 링크
 function click_page_num(url_page_num){
-    location.href = 'send_request_messages.html?page_num=' + url_page_num
+    location.href = 'recieved_request_messages.html?page_num=' + url_page_num
 }
