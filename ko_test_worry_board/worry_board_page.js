@@ -171,7 +171,6 @@ async function get_board() {
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             board = res.boards[i]
-            console.log(board)
             board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
             category_name = board.category_list[board.category]
             if(board.is_worry_board_writer == true){
