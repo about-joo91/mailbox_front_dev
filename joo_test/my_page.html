@@ -12,24 +12,9 @@
 </head>
 
 <body>
-    <div class="drawer_wrapper">
-        <div id="drawer">
-            <br>
-            <br>
-            <a href="/jin_test/main2.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
-            <a class="drawer_text"><i class="fa-solid fa-envelope drawer_icon"></i>&nbsp편지 쓰기</a>
-            <a href="/ko_test_board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
-            <a href="my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
-            <a href="/joo_test/my_letter_page.html?page_name=my_recieved_letter" class="drawer_text"><i class="fa-solid fa-inbox drawer_icon"></i>&nbsp내가 받은 편지</a>
-            <a href="/joo_test/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지</a>
-            <a class="drawer_text"><i class="fa-solid fa-pencil drawer_icon"></i>&nbsp내가 쓴 리뷰</a>
-        </div>
-    </div>
-    
     <div class="nav_container">
         <div class="nc_sub_container">
             <div class="nc_sb_modal">
-                <i class="fa-solid fa-bars fa-2x" id="open_drawer"></i>
             </div>
             <div class="nc_sb_nav"></div>
         </div>
@@ -57,17 +42,35 @@
         </div>
     </div>
     <div class="main_profile_container">
-        <div class="mpc_card">
-            <div class="mpc_c_header"></div>
-            <div class="mpc_c_body">
-                <div class="mpc_c_b_upper">
-                    <img class="mpc_c_b_u_profile_img"/>
-                    <div class="mpc_c_b_u_right_content_box">
-                        <div class="mpc_c_b_u_rcb_name"></div>
-                        <div class="mpc_c_b_u_rcb_category_box"></div>
-                    </div>
+        <div class="drawer_wrapper">
+            <div id="drawer">
+                <div class="d_white_space">
                 </div>
-                <div class="mpc_c_body_down"></div>
+                <a href="/jin_test/main2.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
+                <a class="drawer_text"><i class="fa-solid fa-envelope drawer_icon"></i>&nbsp편지 쓰기</a>
+                <a href="/ko_test_board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+                <a href="my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+                <a href="/joo_test/my_letter_page.html?page_name=my_recieved_letter" class="drawer_text"><i class="fa-solid fa-inbox drawer_icon"></i>&nbsp내가 받은 편지</a>
+                <a href="/joo_test/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지</a>
+                <a class="drawer_text"><i class="fa-solid fa-pencil drawer_icon"></i>&nbsp내가 쓴 리뷰</a>
+            </div>
+        </div>
+        <div class="main_card_container">
+            <div class="mpc_card">
+                <div class="mpc_c_header"></div>
+                <div class="mpc_c_body">
+                    <div class="mpc_c_b_upper">
+                        <div class="mpc_c_b_u_profile_img_wrapper">
+                            <div class="mpc_c_b_u_profile_img">
+                            </div>
+                        </div>
+                        <div class="mpc_c_b_u_right_content_box">
+                            <div class="mpc_c_b_u_rcb_name"></div>
+                            <div class="mpc_c_b_u_rcb_category_box"></div>
+                        </div>
+                    </div>
+                    <div class="mpc_c_body_down"></div>
+                </div>
             </div>
         </div>
     </div>
