@@ -101,7 +101,6 @@ const letters_exist = (response) => {
     const lm_header = document.querySelector('.lm_header');
     const lm_body = document.querySelector('.lm_body');
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
-    const lm_b_paging_box = document.querySelector('.lm_b_paging_box');
     let user_info;
     lm_new_letter_box.innerHTML = ''
     lm_whole_letter_box.innerHTML = ''
@@ -111,8 +110,8 @@ const letters_exist = (response) => {
             user_info = response.letter.letter_author
             break;
         case "my_not_read_letter":
-            user_info = response.letter.received_user
-            push_before_buttn()
+            user_info = response.letter.received_user;
+            push_before_buttn();
             break;
         case "my_recieved_letter":
             user_info = response.letter.received_user
@@ -128,45 +127,58 @@ const letters_exist = (response) => {
     </p>
     <div class ="nc_mongle" style="background-image:url(`+user_info.monglegrade.mongle +`)"></div>
     <div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"><div>`
-    let letter_cnt = response.letter_cnt
     let letter = response.letter
     lm_header.innerText = letter.title
     let letter_content_html = `<div class="letter_content">
         ${letter.content}
     </div>`
     lm_body.innerHTML = letter_content_html
+    if (page_name == "my_not_read_letter") {
+        make_page_num_for_new_letter(response.letter_cnt)
+    }else{
+        make_page_num(response.letter_cnt)
+    }
+}
+
+const make_page_num_for_new_letter = (letter_cnt) => {
+    const lm_b_paging_box = document.querySelector('.lm_b_paging_box');
+
+    let letter_under_page_html = ``
+    if (letter_cnt > 1){
+        letter_under_page_html += `
+        <div class="lm_b_pb_white_space"></div>
+        <a href="?page_name=${page_name}&letter_num=0" class="lm_b_pb_page_num lm_b_pb_page_others"> next </a>
+        <div class="lm_b_pb_next_more">${letter_cnt-1}개 더 있어요</div>
+        `
+
+    }
+    lm_b_paging_box.innerHTML = letter_under_page_html
+}
+
+const make_page_num = (letter_cnt) => {
+    const lm_b_paging_box = document.querySelector('.lm_b_paging_box');
     let page_cnt = 5
     let start_page = parseInt(letter_num / page_cnt) * page_cnt
     let last_page = start_page + page_cnt
-    let limit_page = letter_cnt > last_page ? last_page : letter_cnt;
+    let limit_page = letter_cnt >= last_page ? last_page : letter_cnt;
     let letter_under_page_html = ``
     if (start_page > 0){
         letter_under_page_html += `<a href="?page_name=${page_name}&letter_num=${parseInt(start_page)-page_cnt}" class="lm_b_pb_page_num lm_b_pb_page_others"> prev </a>`
     }
-    if (letter_num === start_page){
-        for (let i = 0; i< limit_page; i++){
-            if (letter_num == i){
-                letter_under_page_html += `<div class"lm_b_pb_page_num">${parseInt(letter_num)+1}</div>`
-                continue
+    let iter_start_num = (letter_num == start_page && start_page == 0) ? 0 : start_page
+    for (let i = iter_start_num; i< limit_page; i++){
+        if (letter_num == i){
+            letter_under_page_html += `<div class"lm_b_pb_page_num">${parseInt(i)+1}</div>`
+            continue
             }
-            letter_under_page_html += `<a href="?page_name=${page_name}&letter_num=${i}" class="lm_b_pb_page_others lm_b_pb_page_num">${i+1}</a>`
+        letter_under_page_html += `<a href="?page_name=${page_name}&letter_num=${i}" class="lm_b_pb_page_others lm_b_pb_page_num">${i+1}</a>`
         }
-    }else{
-        for (let i = start_page; i<limit_page; i++){
-            if (letter_num == i){
-                letter_under_page_html += `<div class="lm_b_pb_page_num">${parseInt(letter_num)+1}</div>`
-                continue
-            }else{
-                letter_under_page_html += `<a href="?page_name=${page_name}&letter_num=${i}" class="lm_b_pb_page_others lm_b_pb_page_num">${i+1}</a>`
-            }
-        }
-    }
+    
     if (letter_cnt > last_page){
         letter_under_page_html += `<a href="?page_name=${page_name}&letter_num=${parseInt(start_page)+page_cnt}" class="lm_b_pb_page_num lm_b_pb_page_others"> next </a>`
     }
-    lm_b_paging_box.innerHTML = letter_under_page_html 
+    lm_b_paging_box.innerHTML = letter_under_page_html
 }
-
 // 편지 모달을 불러오는 부분
 const letter_modal_in = () => {
     letter_modal_wrapper.style.display = 'flex';
@@ -182,14 +194,12 @@ letter_modal_wrapper.addEventListener('click', (e) => {
 const change_query_params = (param_string) => {
     return new Promise((resolve, reject)=> {
         urlParams.set("page_name", param_string);
-        let newRelativePathQuery = window.location.pathname + '?' + urlParams.toString();
-        history.pushState(null, '', newRelativePathQuery);
         resolve(urlParams.get('page_name'))
     } )
 }
 const get_letter_by_params = async (param_string) => {
     let changed_page_name = await change_query_params(param_string);
-    let url = new URL(BASE_URL + `my_page/${changed_page_name}?letter_num=0`);
+    let url = new URL(BASE_URL + `my_page/${changed_page_name}?letter_num=${letter_num}`);
     let token = localStorage.getItem('access');
     const result = await fetch(url ,{
         method:'get',

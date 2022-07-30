@@ -361,3 +361,14 @@ body,html{
 .lb_under_username{
     z-index: 6;
 }
+.lm_b_pb_white_space{
+    width: 100px;
+}
+.lm_b_pb_next_more{
+    color: rgba(80, 80, 80, 1);
+    font-size: 14px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
