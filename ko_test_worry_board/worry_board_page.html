@@ -64,6 +64,7 @@
         </div>
     </div>
     <div class="open_modal_button" onclick="open_modal('')">+</div>
+    <!-- 고민 작성 모달 -->
     <div class="modal_background" id="modal_background">
         <div class="small_modal" id="small_modal">
             <div class="sm_title">
@@ -89,8 +90,9 @@
             </div>
         </div>
     </div>
-    <div class="modal_background" id="edit_modal_background">
-        <div class="small_modal" id="edit_small_modal">
+    <!--요청 버튼 누를 시 모달 -->
+    <div class="modal_background" id="request_modal_background">
+        <div class="small_modal" id="request_small_modal">
             <div class="sm_title">
                 <div class="sm_tt_text">이 글에 대해서 쪽지를 요청 하시겠습니까?</div>
             </div>
@@ -99,13 +101,41 @@
                 <div class="sm_bd_target_content"></div>
                 <div class="sm_bd_text">나의 어필</div>
                 <div class="sm_bd_content" id="sm_bd_content">
-                    <!-- <textarea class="sm_bd_ct_textarea" id="edit_sm_bd_ct_textarea"></textarea> -->
+                    
                 </div>
-                <div class="sm_bd_button" id ="edit_sm_bd_button">
+                <div class="sm_bd_button" id ="request_sm_bd_button">
                     
                 </div>
             </div>
         </div>
     </div>
+    <!-- 수정 버튼 누를 시 모달 -->
+    <div class="modal_background" id="edit_modal_background">
+        <div class="small_modal" id="edit_small_modal">
+            <div class="sm_title">
+                <div class="sm_tt_text">내 WorryBoard 글 수정하기</div>
+            </div>
+            <div class="sm_body">
+                <div class="sm_bd_text">수정 할 내용</div>
+                    <div class="sm_bd_content" id="sm_bd_edit_content">
+                </div>
+                    <div class="sm_bd_button" id ="edit_sm_bd_button">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 요청 취소 누를 시 모달 -->
+    <div class="modal_background" id="cancle_request_modal_background">
+        <div class="cancle_request_small_modal" id="cancle_request_small_modal">
+            <div class="cr_sm_body">
+                <div class="sm_bd_text">정말로 보낸 요청을 취소 하시겠습니까??</div>
+                <div class="cr_sm_bd_button" id ="cr_sm_bd_button">
+                    <div class="cr_sm_bd_yes_button" id ="edit_sm_bd_button">네</div>
+                    <div class="cr_sm_bd_no_button" id ="edit_sm_bd_button">아니요</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script type="text/javascript" src="worry_board_page.js"></script>
 </html>

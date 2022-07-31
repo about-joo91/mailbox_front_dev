@@ -24,7 +24,6 @@ function get_cookie(name) {
 const csrftoken = get_cookie('csrftoken')
 
 function open_request_modal(worry_board_content){
-    console.log(worry_board_content)
     document.getElementById('modal_background').style.display="block"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
@@ -70,9 +69,7 @@ async function get_request_messages() {
         pagenation(res.total_count, 10, 10, url_page_num)
         let tmp_request_message = ``
         for (let i = 0; i < res.request_message.length; i++){
-            console.log(res.request_message[i])
             request_message = res.request_message[i]
-            console.log(request_message.worry_board_content)
             tmp_request_message += `
             <div class="md_bb_bl_board" id="md_bb_bl_board">
                 <div class="md_bb_bl_board_box">

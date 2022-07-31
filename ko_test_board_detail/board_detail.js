@@ -39,11 +39,11 @@ async function post_board_comment(){
     })
     let res = await result.json()
     if (result.status == 200) {
-        alert(res['message'])
+        alert(res['detail'])
         href_board_detail(url_board_id)
     }
     else {
-        alert(res['message'])
+        alert(res['detail'])
         href_board_detail(url_board_id)
     }
 }
@@ -250,11 +250,11 @@ async function delete_board(board_id, page_num){
     })
     let res = await result.json()
     if (result.status == 200) {
-        alert(res['message'])
+        alert(res['detail'])
         href_board_detail(url_board_id)
     }
     else{
-        alert(res['message'])
+        alert(res['detail'])
         href_board_detail(url_board_id)
     }
 }
@@ -281,13 +281,13 @@ async function click_sun(board_id){
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
             sun_count.innerText = parseInt(sun_count.innerText) - 1
-            alert(res['message'])
+            alert(res['detail'])
             
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
             sun_count.innerText = parseInt(sun_count.innerText) + 1
-            alert(res['message'])
+            alert(res['detail'])
             }
     }
 }
@@ -311,11 +311,11 @@ async function edit_board_comment(comment_id){
     })
     let res = await result.json()
     if (result.status == 200) {
-        alert(res['message'])
+        alert(res['detail'])
         href_board_detail(url_board_id)
     }
     else{
-        alert(res['message'])
+        alert(res['detail'])
     }
 }
 
@@ -335,11 +335,11 @@ async function delete_board(comment_id){
     })
     let res = await result.json()
     if (result.status == 200) {
-        alert(res['message'])
+        alert(res['detail'])
         href_board_detail(url_board_id)
     }
     else{
-        alert(res['message'])
+        alert(res['detail'])
     }
 }
 // 현재 내가 보고있는 보드의 디테일페이지로 이동하는 로직
