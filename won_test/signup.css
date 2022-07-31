@@ -32,7 +32,7 @@ body {
 
 .mb_title{
     color: #F0F0E6;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
@@ -55,7 +55,7 @@ body {
 }
 
 input::placeholder{
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
     color: black;
 }
@@ -74,20 +74,75 @@ input::placeholder{
     border:none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1rem;
     white-space : nowrap;
 }
 
-@media (max-width: 800px){
+@media (max-width: 950px){
+    .main_container{
+        background-color: #F0F0E6;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .mc_box{
         background-color: #E2CA9B;
-        width: 90%;
+        width: 50%;
         height: 50vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         border-radius: 15px;
+    }
+
+}
+
+@media (max-width: 450px){
+    .main_container{
+        background-color: #F0F0E6;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mc_box{
+        background-color: #E2CA9B;
+        width: 80%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+    }
+
+    .mb_title{
+        color: #F0F0E6;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    input::placeholder{
+        font-size: 0.7rem;
+        text-align: center;
+        color: black;
+    }
+
+    .btn{
+        background-color: #9D9D58;
+        color: #F0F0E6;
+        display: inline-block;
+        height: 7vh;
+        border:none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.7rem;
+        white-space : nowrap;
     }
 
 }
