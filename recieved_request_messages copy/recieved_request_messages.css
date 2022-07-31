@@ -61,6 +61,7 @@ body{
     margin-left: 1rem;
     cursor: pointer;
 }
+
 /* 메인시작 */
 .main_container{
     width: 100%;
@@ -71,7 +72,9 @@ body{
     flex-direction: column;
     align-items: center;
 }
+
 /* 옆에 링크바 */
+
 
 .drawer_wrapper{
     position: fixed;
@@ -84,7 +87,6 @@ body{
     text-align: center;
     width: 100%;
     margin-left: 5px;
-    /* margin-bottom: 30px; */
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
@@ -120,7 +122,6 @@ body{
     height: 100vh;
     position: relative;
     width: 300px;
-    /* background:rgba(240, 240, 240, 1); */
     font-size: 22px;
     flex-direction: column;
 }
@@ -134,8 +135,6 @@ body{
 }
 
 
-
-
 /* 익명게시판 타이틀 */
 .mc_board_title{
     width: 63.7%;
@@ -146,13 +145,30 @@ body{
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
 }
+.mc_bt_empty{
+    width: 20%;
+}
 .mc_bt_title_text{
     font-size: 35px;
     color: white;
     margin-left: 6.2rem;
     cursor: pointer;
 }
-/* 익명게시판 몸체 */
+.mc_bt_category_box{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mc_bt_cb_category{
+    font-size: 2.6rem;
+    cursor: pointer;
+}
+.mc_bt_cb_category:hover{
+    font-size: 2.7rem;
+    font-weight: 600;
+}
 .mc_board_body{
     width: 63.7%;
     /* height: 80rem; */
@@ -164,6 +180,12 @@ body{
     justify-content: center;
     background-color: #E2CA9B;
     margin-bottom: 8rem;
+}
+.mc_bt_title_text{
+    font-size: 35px;
+    color: white;
+    margin-left: 6.2rem;
+    cursor: pointer;
 }
 .mc_bb_board_lists{  
     width: 90.9%;
@@ -198,7 +220,13 @@ body{
     /* height: 10.5rem; */
     margin-bottom: 1.4rem;
     border-radius: 1.5rem;
+    display: flex;
     background-color: white;
+    justify-items: center;
+    align-items: center;
+}
+.md_bb_bl_board_box{
+    width: 90%;
 }
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
@@ -211,7 +239,7 @@ body{
 
 }
 .md_bb_bl_bd_desc_image_icon{
-    width: 5.5%;
+    width: 4.5%;
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -220,7 +248,7 @@ body{
     border: 3px solid yellowgreen;
 }
 .md_bb_bl_bd_middle{
-    width: 70%;
+    width: 80%;
     height: 100%;
     display: flex;
     margin-left: 1rem;
@@ -349,6 +377,24 @@ body{
     justify-content: center;
     align-items: center;
 }
+.md_bb_bl_bd_request{
+    width: 15%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+}
+.md_bb_bl_bd_request_button{
+    width: 70%;
+    height: 4rem;
+    border-radius: 10px;
+    background-color: rgba(176, 170, 109, 0.8);
+    color: white;
+    font-size: 2.4rem;
+}
+.md_bb_bl_bd_request_button:hover{
+    cursor: pointer;
+}
 .open_modal_button{
     width: 8rem;
     height: 8rem;
@@ -375,7 +421,7 @@ body{
     display: none;
 }
 .small_modal{
-    width: 58%;
+    width: 40%;
     height: 83rem;
     position: absolute;
 }
@@ -393,9 +439,20 @@ body{
     color: white;
     margin-left: 5.5rem;
 }
+.sm_tt_category{
+    width: 14%;
+    height: 50%;
+    border-radius: 15px;
+    margin-left: 2rem;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .sm_tt_title_input{
     font-size: 2.4rem;
-    width: 80%;
+    width: 70%;
     height: 5rem;
     margin-left: 3rem;
     padding-left: 2rem;
@@ -404,7 +461,7 @@ body{
 .sm_body{
     margin-top: 1.4rem;
     width: 100%;
-    height: 73rem;
+    /* height: 50rem; */
     background-color: #E2CA9B;
     border-radius: 15px;
     display: flex;
@@ -418,36 +475,66 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 13rem;
+    padding-top: 2.5rem;
 }
 .sm_bd_content{
     width: 91%;
-    height: 54rem;
 }
 .sm_bd_ct_textarea{
     width: 93%;
-    height: 93%;
+    height: 20rem;
     resize: none;
     border-radius: 15px;
     font-size: 2rem;
     color: #A4A457;
     padding: 3%;
 }
-.sm_bd_button{
+.sm_bd_ct_text{
+    width: 93%;
+    height: 40rem;
+    resize: none;
+    border-radius: 15px;
+    font-size: 2rem;
+    color: #A4A457;
+    padding: 3%;
+    margin-bottom: 4rem;
+    background-color: white;
+}
+.sm_bd_button {
     width: 100%;
-    height: 10rem;
+    height: 7rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0.5rem;
 }
 .sm_bd_submit_button{
     cursor: pointer;
-    margin-top: 5rem;
     background-color: rgba(176, 170, 109, 0.8);
     width: 10%;
     height: 5rem;
     color: white;
     font-size: 2rem;
     border-radius: 15px;
+}
+/* request 모달 */
+.sm_bd_target_text{
+    width: 100%;
+    height: 5.5rem;
+    font-size: 2.6rem;
+    color: white;
+    margin-left: 13rem;
+    padding-top: 2.5rem;
+}
+.sm_bd_target_content{
+    width: 86%;
+    height: 15rem;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 2rem;
+    color: #A4A457;
+    border: 1px solid gray;
+    padding: 2rem 0 0 3rem;
 }
 
 

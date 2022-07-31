@@ -187,13 +187,13 @@ async function click_sun(board_id){
         if(sun.classList.contains("bi-brightness-high-fill")){
             sun.classList.replace("bi-brightness-high-fill", "bi-brightness-high");
             sun_count.innerText = parseInt(sun_count.innerText) - 1
-            alert(res['message'])
+            alert(res['detail'])
             
         }
         else{
             sun.classList.replace("bi-brightness-high", "bi-brightness-high-fill");
             sun_count.innerText = parseInt(sun_count.innerText) + 1
-            alert(res['message'])
+            alert(res['detail'])
             }
     }
 }
@@ -220,11 +220,11 @@ async function edit_board(board_id){
     })
     let res = await result.json()
     if (result.status == 200) {
-        alert(res['message'])
+        alert(res['detail'])
         location.reload()
     }
     else{
-        alert(res['message'])
+        alert(res['detail'])
     }
 }
 
@@ -244,11 +244,11 @@ async function delete_board(board_id, page_num){
     })
     let res = await result.json()
     if (result.status == 200) {
-        alert(res['message'])
+        alert(res['detail'])
         location.href = 'board_page.html?page_num=' + page_num
     }
     else{
-        alert(res['message'])
+        alert(res['detail'])
     }
 }
 const modal_background = document.querySelector('.modal_background');
@@ -258,7 +258,6 @@ const small_modal = document.querySelector('.small_modal');
 
 // 수정모달을 열어주는 함수
 function open_edit_modal(title,content,id){
-    console.log(title,content,id)
     document.getElementById('edit_modal_background').style.display="block"
     const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
