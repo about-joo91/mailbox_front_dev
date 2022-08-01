@@ -110,7 +110,7 @@ body,html{
 }
 .drawer_text{
     padding: 20px 0px;
-    border-radius: 15px;
+    border-radius: .4em;
     text-align: center;
     width: 100%;
     margin-left: 5px;
@@ -197,6 +197,52 @@ body,html{
     -webkit-animation-name: letter_animate;
     animation-name: letter_animate;
 }
+/* 삭제여부를 물어보는 모달 */
+.delete_check_modal_wrapper{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.delete_check_modal{
+    width: 20%;
+    height: 20%;
+    z-index: 11;
+    background-color: white;
+    border-radius: 0.4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.dcm_btn_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.dcm_bb_btn{
+    padding: .4em .8em;
+    border-radius: .4em;
+}
+.dcm_bb_btn:hover{
+    cursor: pointer;
+    background-color: rgba(80, 80, 80, 1);
+    color: white;
+}
+.cancel{
+    color: red;
+}
+.cancel:hover{
+    color: white;
+    background-color: red !important;
+}
+/* 편지를 보내는 모달 */
 .letter_modal_wrapper{
     width: 100%;
     height: 100vh;
@@ -213,7 +259,7 @@ body,html{
     width: 86.12%;
     height: 7%;
     background-color: rgba(176, 170, 109, 0.8);
-    border-radius: 15px;
+    border-radius: .4em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -237,7 +283,7 @@ body,html{
     top: 3%;
     left: 94.5%;
     color: #FEAA4B;
-    border-radius: 10px;
+    border-radius: .4em;
     font-size: 23px;
 }
 
@@ -254,7 +300,7 @@ body,html{
     top: 9%;
     left: 85%;
     background: #FEAA4B;
-    border-radius: 0.4em;
+    border-radius: .4em;
     padding: 10px;
 }
 .lm_bubble::after{
@@ -276,20 +322,19 @@ body,html{
     position: relative;
     justify-content: center;
     align-items: center;
-    width: 63%;
+    width: 60%;
     height: 80%;
     background-color: #E2CA9B;
-    opacity: 0.9;
     flex-direction: column;
     padding: 10px 0;
-    border-radius: 10px;
+    border-radius: .4em;
 }
 
 .lm_body{
     width: 80%;
     height: 80%;
     background-color: #F0F0E6;
-    border-radius: 15px;
+    border-radius: .4em;
     padding: 0 3%;
     font-size: 18px;
 }
@@ -360,4 +405,134 @@ body,html{
 }
 .lb_under_username{
     z-index: 6;
+}
+.lm_b_pb_white_space{
+    width: 100px;
+}
+.lm_b_pb_next_more{
+    color: rgba(80, 80, 80, 1);
+    font-size: 14px;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lm_b_under{
+    width: 80%;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+/* 리뷰 모달 부분 */
+.lm_b_review_btn{
+    position: absolute;
+    left: 93%;
+    top: 25%;
+    font-size: 20px;
+    width: 8%;
+}
+.lm_b_review_btn:hover{
+    cursor: pointer;
+}
+.lm_review_modal_wrapper{
+    position: relative;
+}
+.lm_review_modal{
+	position: absolute;
+	background: rgba(176, 170, 109, 0.8);
+	border-radius: .4em;
+    left: 50.5%;
+    top: 50%;
+    width: 45%;
+    height: 35%;
+    padding: 1em;
+    display: none;
+    flex-direction: column;
+}
+
+.lm_review_modal:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 70%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: rgba(176, 170, 109, 0.8);
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: -10px;
+	margin-bottom: -20px;
+}
+
+.lm_rm_mongle_grade{
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+.lm_rm_content{
+    background-color: white;
+    height: 75%;
+    border-radius: .4em;
+    padding: 1em;
+}
+.lm_rm_textarea{
+    background-color: white;
+    height: 75%;
+    border-radius: .4em;
+    padding: 1em;
+    border: none;
+    outline: none;
+}
+
+.lm_rm_btn_box{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+.lm_rm_bb_white_space{
+    width: 4em;
+}
+.lm_rm_mongle{
+    background-image: url('/mongle.png');
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 0 3px;
+}
+.lm_rm_mongle_edit{
+    background-image: url('/mongle.png');
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 0 3px;
+}
+.lm_rm_mongle_edit:hover{
+    cursor: pointer;
+}
+.mongle_color_filter{
+    filter:grayscale(1)
+}
+.lm_rm_mg_box{
+    display: flex;
+}
+.lm_rm_btn{
+    cursor: pointer;
+    color:white;
+    padding: 5px 15px;
+    border-radius: .4em;
+}
+.lm_rm_btn:hover{
+    cursor: pointer;
+    color:rgba(176, 170, 109, 0.8);
+    background-color: white;
 }
