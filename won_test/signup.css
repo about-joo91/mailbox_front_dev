@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Square+Peg&display=swap');
+
+
 * {
     font-family: 'Gamja Flower', cursive;
 }
@@ -15,7 +18,35 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+.mc_mongle{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.8rem;
+}
+
+.mc_mongle_logo{
+    /* background-color: red; */
+    font-size: 3.2rem;
+    color:#FEAA4B;
+    font-weight: bold;
+    font-family: 'Square Peg', cursive;
+}
+
+.mc_mongle_char{
+    background-image: url("/mongle_with_letter.png");
+    background-size: cover;
+    background-position: center;
+    width: 80px;
+    height: 80px;
+    margin-top: .7em;
+}
+
+
 .mc_box{
     background-color: #E2CA9B;
     width: 54%;
@@ -86,6 +117,7 @@ input::placeholder{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
 
     .mc_box{
@@ -99,6 +131,16 @@ input::placeholder{
         border-radius: 15px;
     }
 
+
+    .mc_mongle_char{
+        background-image: url("/mongle_with_letter.png");
+        background-size: cover;
+        background-position: center;
+        width: 60px;
+        height: 60px;
+        margin-top: .7em;
+    }
+
 }
 
 @media (max-width: 450px){
@@ -109,10 +151,11 @@ input::placeholder{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
     }
     .mc_box{
         background-color: #E2CA9B;
-        width: 80%;
+        width: 85%;
         height: 50vh;
         display: flex;
         flex-direction: column;
