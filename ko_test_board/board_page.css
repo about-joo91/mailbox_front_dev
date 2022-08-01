@@ -657,6 +657,7 @@ body{
     .open_modal_button {
         left: 75%;
     }
+
 }
 @media (max-width: 474px) {
     .mc_bb_bl_bd_im_writer{
@@ -675,6 +676,9 @@ body{
     }
     .small_modal{
         width: 99%;
+    }
+    .main_container {
+        margin-top: 20px;
     }
 
 }
