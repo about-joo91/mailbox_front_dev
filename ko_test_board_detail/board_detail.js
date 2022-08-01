@@ -18,7 +18,6 @@ function get_cookie(name) {
     }
     return cookie_value;
 }
-import {get_cookie} from "../ko_test_board/board_page.js"
 
 const csrftoken = get_cookie('csrftoken')
 

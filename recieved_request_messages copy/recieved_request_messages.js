@@ -22,7 +22,7 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-function open_request_modal(worry_board_content){
+function open_request_modal(worry_board_content, request_message_id){
     document.getElementById('modal_background').style.display="block"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
@@ -34,6 +34,10 @@ function open_request_modal(worry_board_content){
 
     const modal_text = document.querySelector(".sm_bd_ct_text")
     modal_text.innerText = worry_board_content
+    document.getElementById('sm_bd_button').innerHTML = `
+    <div class="sm_bd_bt_accept" id ="sm_bd_bt_accept">수락</div>
+    <div class="sm_bd_bt_disaccept" onclick ="delete_request_message('${request_message_id}')">거절</div>
+    `
 }
 //  모달의 외부를 클릭 시
 modal_background.addEventListener('click', function (e) {
@@ -64,9 +68,9 @@ async function get_request_messages() {
         },
     })
     let res = await result.json()
+
     switch (result.status){
         case 200:
-
             pagenation(res.total_count, 10, 10, url_page_num)
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
@@ -80,10 +84,6 @@ async function get_request_messages() {
                                 <div class="md_bb_bl_bd_hidden_name">${request_message.worry_board_category}</div>
                                 <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
                             </div>    
-                            <div class="md_bb_bl_bd_desc_edit_delete">
-                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit" onclick="agree_to_message()">수락</div>
-                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete" onclick="delete_request_message(${request_message.id})">삭제</div>
-                            </div>                           
                         </div>
                         <div class="md_bb_bl_bd_content">
                             <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
@@ -95,13 +95,13 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}')">고민 글</button>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">고민 글</button>
                     </div>
                 </div>`
 
-                const board_lists = document.querySelector(".mc_bb_board_lists")
-                board_lists.innerHTML = tmp_request_message
-            }
+                    const board_lists = document.querySelector(".mc_bb_board_lists")
+                    board_lists.innerHTML = tmp_request_message
+                }
             break;
         default:
             alert("세션이 만료 되었습니다.")
@@ -129,6 +129,7 @@ async function edit_request_message(request_message_id){
         })
     })
     let res = await result.json()
+<<<<<<< HEAD
     switch (result.status){
         case 200:
             alert(res['message'])
@@ -136,6 +137,14 @@ async function edit_request_message(request_message_id){
             break;
         default:
             alert(res['message'])
+=======
+    if (result.status == 200) {
+        alert(res['detail'])
+        location.reload()
+    }
+    else{
+        alert(res['detail'])
+>>>>>>> 44ccf933b86a38e1e23448ef8b11762eadfcbae1
     }
 }
 
@@ -154,6 +163,7 @@ async function delete_request_message(request_message_id){
         },
     })
     let res = await result.json()
+<<<<<<< HEAD
     switch(result.status){
         case 200:
             alert(res['message'])
@@ -161,6 +171,14 @@ async function delete_request_message(request_message_id){
             break;
         default:
             alert(res['message'])
+=======
+    if (result.status == 200) {
+        alert(res['detail'])
+        click_page_num(0)
+    }
+    else{
+        alert(res['detail'])
+>>>>>>> 44ccf933b86a38e1e23448ef8b11762eadfcbae1
     }
 }
 

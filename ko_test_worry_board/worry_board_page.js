@@ -180,7 +180,7 @@ async function request_message(worry_board_id){
 }
 
 // 요청 취소 버튼을 눌를 시 나오는 수정 모달
-function open_request_modal_cancle_request(none,id){
+function open_request_modal_cancle_request(none,worry_board_id, request_message_id){
     document.getElementById('cancle_request_modal_background').style.display="block"
     const small_modal = document.getElementById('cancle_request_small_modal');
     document.body.style.overflow = 'hidden';
@@ -190,7 +190,7 @@ function open_request_modal_cancle_request(none,id){
     small_modal.style.left = modal_left_now + "px";
     small_modal.style.top = modal_top_now + "px";
     document.getElementById('cr_sm_bd_button').innerHTML = `
-    <button class="cr_sm_bd_yes_button" onclick="cancle_request_button(${id})">네</button>
+    <button class="cr_sm_bd_yes_button" onclick="cancle_request_button(${request_message_id})">네</button>
     <button class="cr_sm_bd_no_button" onclick="close_modal()">아니요</button>
     `
 
@@ -201,6 +201,31 @@ cancle_request_modal_background.addEventListener('click', function (e) {
         close_modal()
     }
 })
+// cancle_request 모달을 통해서 request_message 대한 요청을 취소하는 로직
+async function cancle_request_button(request_message_id){
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/worry_board/request/pd/' + request_message_id ,{
+        method: 'DELETE',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    let res = await result.json()
+    if (result.status == 200) {
+        alert(res['detail'])
+        click_category(0)
+    }
+    else {
+        alert(res['detail'])
+    }
+}
+
+
 
 
 // 각 모달들을 닫아주는 함수
@@ -256,7 +281,6 @@ async function get_worry_board() {
     if (!url_category){
         url_category = 0
     }
-
     const result = await fetch(BASE_URL + '/worry_board/?category=' + url_category + "&page_num=" + url_page_num , {
         method: 'GET',
         mode: 'cors',
@@ -275,18 +299,22 @@ async function get_worry_board() {
             let tmp_board = ``
             for (let i = 0; i < res.boards.length; i++){
                 board = res.boards[i]
-                request_status_list = ["", "요청", "요청취소", "수락됨", "반려됨"]
                 board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
-                const request_button_tmp_html = [
-                    "",
-                    "do_request",
-                    "cancle_request",
-                    "accepted_request",
-                    "disaccepted_request"
-                ]
-                console.log(request_button_tmp_html[board.request_status])
+                console.log(board)
+                let request_button_type = ""
+                if(board.request_status == "요청"){
+                    request_button_type = "do_request"
+                }
+                else if (board.request_status == "요청취소"){
+                    request_button_type = "cancle_request"
+                }
+                else if (board.request_status == "수락됨"){
+                    request_button_type = "accepted_request"
+                }
+                else{
+                    request_button_type = "disaccepted_request"
+                }
                 category_name = board.category_list[board.category]
-                request_status = request_status_list[board.request_status]
                 if(board.is_worry_board_writer == true){
                     tmp_board += `
                     <div class="md_bb_bl_board" id="md_bb_bl_board_1">
@@ -302,47 +330,38 @@ async function get_worry_board() {
                                 <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_worry_board('${board.id}', '${url_page_num}')">삭제</div>
                             </div>
                         </div>
-                        <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                                ${board.content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
+                        <div class="md_bb_bl_bd_request">
+                            <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${request_status}</button>
+                        </div>
+                    </div>`
+                    }
+                    else{
+                        tmp_board += `
+                        <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+                        <div class="md_bb_bl_board_box">
+                            <div class="md_bb_bl_bd_description">
+                                <div class="md_bb_bl_bd_desc_image_icon"></div>
+                                <div class="md_bb_bl_bd_middle">
+                                    <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
+                                    <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
+                                </div>
+                            </div>
+                            <div class="md_bb_bl_bd_content">
+                                <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                                    ${board.content}
+                                </p>
+                                <div class="md_bb_bl_bd_ct_right">
+                                    <div class="md_bb_bl_bd_ct_rg_border"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${request_status}</button>
-                    </div>
-                </div>`
-                }
-                else{
-                    tmp_board += `
-                    <div class="md_bb_bl_board" id="md_bb_bl_board_1">
-                    <div class="md_bb_bl_board_box">
-                        <div class="md_bb_bl_bd_description">
-                            <div class="md_bb_bl_bd_desc_image_icon"></div>
-                            <div class="md_bb_bl_bd_middle">
-                                <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
-                                <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                            </div>
-                        </div>
-                        <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                                ${board.content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal_${request_button_tmp_html[board.request_status]}('${board.id}', '${board.content}')">${request_status}</button>
+                        <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${board.request_status}</button>
                     </div>
                 </div>`
                 }
             }
-
             const board_lists = document.querySelector(".mc_bb_board_lists")
             board_lists.innerHTML = tmp_board
             break;
