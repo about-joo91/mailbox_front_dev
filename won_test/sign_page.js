@@ -9,21 +9,6 @@ async function SignUp(){
         password : document.getElementById("Password").value,
     }
 
-    const regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
-
-    if((SignupData.username == "")|| (SignupData.username.length < 4)){
-        alert('아이디는 4자 이상 작성해야 합니다!')
-        return false;
-    }
-    if (SignupData.nickname == ""){
-        alert('닉네임을 작성해주세요!')
-    }
-
-    if((SignupData.password == "")|| (SignupData.password.length < 8)||(!SignupData.password.match(regExp))){
-        alert('비밀번호는 최소 8자 이상, 숫자, 문자 및 특수문자를 포함하여 작성해야 합니다!')
-        return false;
-    }
-
     const response = await fetch(`${backend_base_url}/user/`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
@@ -35,14 +20,16 @@ async function SignUp(){
         body: JSON.stringify(SignupData)
     })
 
-    response_json = await response.json()
-    
-    if (response.status == 200){
-        alert("회원가입 완료!")
-        window.location.replace(`signin.html`);
-    }else {
-        alert("중복되는 아이디나 닉네임이 있습니다.")
-        location.reload()
+    const response_json = await response.json();
+    switch(response.status){
+        case 200:
+            alert(response_json.detail);
+            window.location.replace(`signin.html`);
+            break;
+        case 400:
+            alert(response_json.detail);
+            location.reload()
+            break;
     }
 
 }
@@ -64,17 +51,24 @@ async function SignIn(){
         mode: 'cors',
         body: JSON.stringify(SignupData)
     })
-    response_json = await response.json()
-
-    if (response.status ==200){
-        alert("로그인 완료!")
-        localStorage.setItem("access", response_json.access)
-        localStorage.setItem("refresh", response_json.refresh)
-        window.location.replace(`../jin_test/main_intro.html`);
-
-    }else{
-        alert(response.status)
+    const response_json = await response.json()
+    switch(response.status){
+        case 200:
+            alert("로그인이 완료되었습니다!");
+            localStorage.setItem("access", response_json.access);
+            localStorage.setItem("refresh", response_json.refresh);
+            window.location.replace(`../jin_test/main_intro.html`);
+            break;
+        case 401:
+            alert(response_json.detail);
+            location.reload();
+            break;
+        case 400:
+            alert("로그인을 실패하였습니다. 다시 입력해주세요");
+            location.reload();
+            break;
     }
+
 }
 
 
