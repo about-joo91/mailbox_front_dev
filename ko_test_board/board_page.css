@@ -12,35 +12,26 @@ body{
     ;
 }
 .nav_container {
+    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 10rem;
-    background-color: #F0F0E6;
+    height: 100px;
+    background-color: F0F0E6;
 }
 
 .nc_sub_container{
     display: flex;
+    justify-content: end;
     width: 100%;
-    height: 10rem;
-    justify-content: space-between
-}
-.nc_sb_modal {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    cursor: pointer;
-    margin-left: 8rem;
-    margin-top: 4rem;
-    margin-bottom: 3rem;
+    height: 100px;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 8rem;
-    margin-top: 4rem;
+    margin-right: 80px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -48,46 +39,45 @@ body{
 }
 
 .nc_mongle {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-size: cover;
     border-radius: 30px;
-    width: 6rem;
-    height: 6rem;
-    margin-left: 1rem;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 .nc_profile {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-size: cover;
     border-radius: 30px;
-    width: 6rem;
-    height: 6rem;
-    margin-left: 1rem;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
-}
-/* 메인시작 */
-.main_container{
-    width: 100%;
-    /* height: 110rem; */
-    background-color: #F0F0E6;
-    margin-top: 1.4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/* 옆에 링크바 */
+    margin-left: -15px;
 
-.drawer_wrapper{
-    position: fixed;
-    left: 0%;
-    top: 16.5%;
+}
+
+
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    width: 30px;
+    height: 142px;
 }
 .drawer_text{
     padding: 20px 0px;
     border-radius: 15px;
     text-align: center;
-    width: 100%;
+    width: 96%;
     margin-left: 5px;
-    /* margin-bottom: 30px; */
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
+
 }
 .drawer_text:hover{
     cursor: pointer;
@@ -106,21 +96,35 @@ body{
 
 .drawer_wrapper_after{
     position: fixed;
-    width: 100%;
     display: flex;
 }
 .d_white_space{
-    margin-top: 170px;
+    margin-top: -500px;
+}
+.drawer_wrapper{
+    display: flex;
+    position: fixed;
+    min-width: 220px;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 15%;
+    position: fixed;
+    font-size: 22px;
+    flex-direction: column;
+    background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
-    top: -150px;
     z-index: 5;
     display: flex;
     height: 100vh;
-    position: relative;
-    width: 300px;
-    /* background:rgba(240, 240, 240, 1); */
+    justify-content: center;
+    position: fixed;
+    width: 15%;
+    min-width: 220px;
+    left: 0;
+    top: 0;
     font-size: 22px;
     flex-direction: column;
 }
@@ -133,14 +137,37 @@ body{
     background-color: rgba(80, 80, 80, 1);
 }
 
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    width: 30px;
+    height: 142px;
+}
+/* 메인시작 */
+.main_container{
+    width: 100%;   
+    margin-top: 100px;
+    margin-left: 180px;
+    /* height: 110rem; */
+    background-color: #F0F0E6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 
 
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 63.7%;
+    width: 50%;
     height: 10rem;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 1.5rem;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
@@ -154,7 +181,7 @@ body{
 }
 /* 익명게시판 몸체 */
 .mc_board_body{
-    width: 63.7%;
+    width: 50%;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -164,6 +191,7 @@ body{
     justify-content: center;
     background-color: #E2CA9B;
     margin-bottom: 8rem;
+    border: 1px solid gray;
 }
 .mc_bb_board_lists{  
     width: 90.9%;
@@ -189,7 +217,7 @@ body{
     cursor: pointer;
 }
 .cur_page{
-    color: blue;
+    color: white;
     font-weight: 600;
     cursor: pointer;
 }
@@ -208,11 +236,12 @@ body{
     display: flex;
     flex-wrap: nowrap;
     padding-top: 1rem;
+    align-items: center;
 
 }
 .md_bb_bl_bd_desc_image_icon{
-    width: 5.5%;
-    height: 100%;
+    width:50px;
+    height: 40px;
     background-position: center;
     background-size: cover;
     background-image: url("/mongle.jpeg");
@@ -254,6 +283,7 @@ body{
 }
 .md_bb_bl_bd_desc_edit_delete{
     width: 30%;
+    margin-right: 10px;
     font-size: 18px;
     display: flex;
     justify-content: center;
@@ -261,13 +291,14 @@ body{
     cursor: pointer;
 }
 .md_bb_bl_bd_desc_ed_edit{
-    width: 30%;
+    max-width: 30%;
+    margin-right: 10px;
     color: #8b8862;
     cursor: pointer;
 }
 .md_bb_bl_bd_desc_ed_delete{
     cursor: pointer;
-    width: 30%;
+    max-width: 30%;
     color : #8b8862;
 }
 .md_bb_bl_bd_desc_ci_comment_icon{
@@ -279,13 +310,13 @@ body{
 }
 .bi-chat-dots{
     font-size: 2rem;
-    margin: auto;
+    margin-right: 5px;
 }
 .md_bb_bl_bd_desc_ci_comment_count{
     font-size: 2.4rem;
     width: 10%;
     height: 100%;
-    margin: auto;
+    margin-right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -335,11 +366,11 @@ body{
 }
 .bi-brightness-high{
     font-size: 2rem;
-    margin: auto;
+    margin-right: 5px;
 }
 .bi-brightness-high-fill{
     font-size: 2rem;
-    margin: auto;
+    margin-right: 5px;
 }
 .md_bb_bl_bd_ct_right_sun_count{
     font-size: 2.4rem;
@@ -369,37 +400,42 @@ body{
     position: fixed;
     left: 0;
     top: 0;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
     z-index: 2;
     display: none;
 }
 .small_modal{
-    width: 58%;
+    width: 50%;
     height: 83rem;
-    position: absolute;
 }
 .sm_title{
     width: 100%;
     height: 9rem;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    background-color: rgba(176, 170, 109, 0.8);
+    justify-content: center;
+    background-color: rgba(176, 170, 109, 1);
     border-radius: 15px;
 }
 .sm_tt_text{
     font-size: 2.6rem;
     color: white;
-    margin-left: 5.5rem;
 }
 .sm_tt_title_input{
+    outline: none;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid white;
     font-size: 2.4rem;
-    width: 80%;
-    height: 5rem;
-    margin-left: 3rem;
-    padding-left: 2rem;
-    border-radius: 15px;
+    width: 70%;
+    height: 4rem;
+    padding: 10px;
+    margin-left: 30px;
 }
 .sm_body{
     margin-top: 1.4rem;
@@ -424,12 +460,13 @@ body{
     height: 54rem;
 }
 .sm_bd_ct_textarea{
+    outline: none;
     width: 93%;
     height: 93%;
     resize: none;
     border-radius: 15px;
     font-size: 2rem;
-    color: #A4A457;
+    color: rgba(80, 80, 80, 1);
     padding: 3%;
 }
 .sm_bd_button{
@@ -453,12 +490,6 @@ body{
 
 
 
-
-
-
-
-
-
 @media (max-width: 780px) {
     .nc_sb_nav {
         margin-bottom: 30px;
@@ -474,11 +505,13 @@ body{
     .nc_profile {
         width: 40px;
         height: 40px;
+        margin-left: 0px;
     }
     .nc_mongle {
         width: 40px;
         height: 40px;
     }
+
 }
 @media (max-width: 480px) {
     .nc_profile {
@@ -493,14 +526,236 @@ body{
         font-size: 20px;
     }
     .nc_sb_modal {
-        margin-left: 30px;
+        margin-left: 15px;
 
     }
 
 }
 
-@media (max-width: 780px) {
-    body {
-        background: #F0F0E6
+
+
+
+@media (max-width: 2250px) {
+    .main_container {
+        margin-left: 150px;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 1800px) {
+    .main_container {
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 1550px) {
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 41%;
+    }
+    .main_container {
+        margin-left: 110px;
+    }
+}
+
+
+@media (max-width: 961px) {
+    .sm_tt_title_input {
+        width: 55%;
+    }
+}
+
+
+
+
+@media (max-width: 950px) {
+    .drawer_wrapper{
+        display: none;
+        background: rgb(235 233 215 / 100%);
+    }
+    .main_container{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .mc_board_title{
+        width: 99%;
+    }
+    .mc_board_body{
+        width: 99%;
+    }
+    .nc_sb_nav {
+        margin-right: 30px;
+        margin-bottom: 0px;
+        height: 113px;
+    }
+    .nc_sb_modal {
+        height: 113px;
+    }
+    .mc_board_title{
+        justify-content: center;
+    }
+    .mc_bt_title_text{
+        margin-left: 0px;
+    }
+    .sm_bd_submit_button {
+        width: 13%;
+    }
+}
+
+
+@media (max-width: 730px) {
+    .small_modal{
+        width: 70%;
+    }
+    .sm_bd_submit_button {
+        width: 15.3%;
+    }
+    .sm_tt_title_input {
+        margin-left: 11px;
+    }
+}
+
+
+@media (max-width: 730px) {
+    .open_modal_button {
+        left: 80%;
+    }
+    .md_bb_bl_bd_desc_comment_icon{
+        width: 20.5%;
+    }
+    .md_bb_bl_bd_desc_image_icon {
+        width: 40px;
+        height: 30px;
+        
+    }
+    .mc_bb_bl_bd_im_writer{
+        font-size: 23px;
+    }
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 38%;
+    }
+    .md_bb_bl_bd_desc_create_date {
+        margin-left: 15px;
+    }
+    .open_modal_button{
+        left: 85%;
+    }
+
+}
+
+@media (max-width: 570px) {
+    .md_bb_bl_bd_description  {
+        width: 95%;
+    }
+}
+
+@media (max-width: 570px) {
+    .open_modal_button {
+        left: 75%;
+    }
+
+}
+@media (max-width: 474px) {
+    .mc_bb_bl_bd_im_writer{
+        font-size: 20px;
+    }
+    .md_bb_bl_bd_desc_ed_delete, .md_bb_bl_bd_desc_ed_edit {
+        max-width: 38%;
+    }
+}
+@media (max-width: 450px) {
+    .sm_title{
+        height: 7rem;
+    }
+    .sm_tt_title_input {
+        height: 2rem;
+    }
+    .small_modal{
+        width: 99%;
+    }
+    .main_container {
+        margin-top: 20px;
+    }
+
+}
+
+
+
+
+@media (max-width: 435px) {
+    .md_bb_bl_bd_description{
+        width: 93%;
+    }
+    .md_bb_bl_bd_description{
+        margin-left: 23px;
+    }
+    .md_bb_bl_bd_desc_image_icon{
+        width: 30px;
+        height: 20px;
+    }
+    .mc_bb_bl_bd_im_writer{
+        font-size: 16px;
+    }
+    .md_bb_bl_bd_desc_create_date{
+        font-size: 15px;
+        margin-top: -2px;
+    }
+    .bi-chat-dots, .bi-brightness-high,.md_bb_bl_bd_desc_ci_comment_count, .md_bb_bl_bd_ct_right_sun_count,.md_bb_bl_bd_desc_edit_delete{
+        font-size: 15px;
+    }
+    .open_modal_button {
+        left: 70%;
+    }
+    .mc_bt_title_text{
+        font-size: 28px;
+    }
+}
+
+
+@media (max-height: 896px) {
+    #drawer{
+        top: 14%;
+    }
+    .main_container{
+        margin-top: 20px;
+    }
+    .open_modal_button {
+        width: 5rem;
+        height: 5rem;
+        top: 92%;
+        left: 80%;
+        line-height: 5rem;
+    }
+    .small_modal{
+        height: 50rem;
+    }
+    .sm_body {
+        height: 40rem;
+    }
+    .sm_bd_submit_button{
+        height: 37px;
+        margin-top: 0px;
+    }
+    .sm_bd_text{
+        font-size: 2.3rem;
+    }
+}
+
+@media (max-height: 844px) {
+    .open_modal_button {
+        width: 5rem;
+        height: 5rem;
+        top: 92%;
+        left: 80%;
+        line-height: 5rem;
+    }
+}
+@media (max-height: 667px) {
+    #drawer{
+        top: 35%;
     }
 }

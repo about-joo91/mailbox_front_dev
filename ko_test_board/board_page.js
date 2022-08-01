@@ -19,9 +19,8 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-
 // board를 불러오는 로직(cRud)
- window.onload = get_board
+window.onload = get_board
 
 async function get_board(event) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -42,6 +41,7 @@ async function get_board(event) {
     })
     let res = await result.json()
     if (result.status == 200) {
+
         pagenation(res.total_count, 10, 10, url_page_num)
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
@@ -135,7 +135,7 @@ async function get_board(event) {
 
 // 모달을 통해서 글을 작성 할 때 실행되는 코드 (Crud)
 
- async function post_board(){
+async function post_board(){
     
     const boards_title = document.querySelector(".sm_tt_title_input").value;
     const boards_content = document.querySelector(".sm_bd_ct_textarea").value;
@@ -258,7 +258,7 @@ const small_modal = document.querySelector('.small_modal');
 
 // 수정모달을 열어주는 함수
 function open_edit_modal(title,content,id){
-    document.getElementById('edit_modal_background').style.display="block"
+    document.getElementById('edit_modal_background').style.display="flex"
     const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
@@ -273,7 +273,7 @@ function open_edit_modal(title,content,id){
 
 // 모달을 열어주는 함수
 function open_add_modal(){
-    document.getElementById('modal_background').style.display="block"
+    document.getElementById('modal_background').style.display="flex"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
@@ -297,7 +297,7 @@ if (e.target.classList.contains('modal_background')) {
 })
 
 // 모달을 닫아주는 함수
- function close_modal(){
+function close_modal(){
     document.querySelector('.modal_background').style.display="none"
     document.getElementById('edit_modal_background').style.display="none"
     document.body.style.overflow = 'auto';
@@ -333,3 +333,23 @@ function click_page_num(url_page_num){
 function href_board_detail(board_id){
     location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + board_id
 }
+
+
+function main_modal(){
+    document.getElementById('drawer').style.display ='flex';
+    document.querySelector('.drawer_wrapper').style.display ='flex';
+}
+
+document.querySelector('.main_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 950){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    }
+})
+document.querySelector('.nav_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 950){
+        document.getElementById('drawer').style.display ='none';
+        document.querySelector('.drawer_wrapper').style.display ='none';
+        }
+})
+
