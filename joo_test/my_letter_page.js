@@ -6,6 +6,7 @@ let letter_num = 0;
 const letter_modal_wrapper = document.querySelector('.letter_modal_wrapper');
 const letter_modal = document.querySelector('.letter_modal');
 const lm_body = document.querySelector('.lm_body');
+const MONGLE_LIMIT = 5
 if (urlParams.get('letter_num')) {
     letter_num = urlParams.get('letter_num');
     letter_modal_wrapper.style.display = 'flex';
@@ -89,11 +90,12 @@ const letters_not_exist = (response) => {
 }
 const lm_new_letter_box = document.querySelector('.lm_new_letter_box');
 const lm_whole_letter_box = document.querySelector('.lm_whole_letter_box');
+
 const push_new_letter_button = (response) => {
     lm_new_letter_box.innerHTML = `<i class="fa-solid fa-exclamation new_letter_icon" onclick="get_letter_by_params('my_not_read_letter')"></i>
     <div class="lm_bubble">${response.not_read_letter_cnt}개의 읽지않은 편지가 있습니다.</div>`;
 }
-const push_before_buttn = () => {
+const push_before_button = () => {
     lm_whole_letter_box.innerHTML = `<i class="fa-solid fa-arrow-left whole_letter_icon" onclick="get_letter_by_params('my_recieved_letter')"></i>`
 }
 const letters_exist = (response) => {
@@ -101,6 +103,7 @@ const letters_exist = (response) => {
     const lm_header = document.querySelector('.lm_header');
     const lm_body = document.querySelector('.lm_body');
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
+    const lm_b_under = document.querySelector('.lm_b_under');
     let user_info;
     lm_new_letter_box.innerHTML = ''
     lm_whole_letter_box.innerHTML = ''
@@ -111,7 +114,7 @@ const letters_exist = (response) => {
             break;
         case "my_not_read_letter":
             user_info = response.letter.received_user;
-            push_before_buttn();
+            push_before_button();
             break;
         case "my_recieved_letter":
             user_info = response.letter.received_user
@@ -138,6 +141,30 @@ const letters_exist = (response) => {
     }else{
         make_page_num(response.letter_cnt)
     }
+    
+    let review_data = letter.review_data
+    const lm_review_modal = document.querySelector('.lm_review_modal');
+    let lm_b_under_html = ``
+    let lm_review_modal_html = ``
+    if (review_data.is_reviewed){
+        lm_b_under_html = `<div class="lm_b_review_btn" onclick="review_modal_in()">리뷰보기</div>`
+        lm_review_modal_html += `
+        <div class="lm_rm_mongle_grade">몽글 점수 : `
+        for (let i = 0; i < review_data.review.grade; i++){
+            lm_review_modal_html += `<div class="lm_rm_mongle"></div>`
+        }
+        lm_review_modal_html += `</div>
+        <p class="lm_rm_content">${review_data.review.content}</p>
+        <div class="lm_rm_btn_box">
+            <div class="lm_rm_btn" onclick="edit_ready(${review_data.review.id})">수정</div>
+            <div class="lm_rm_bb_white_space"></div>
+            <div class="lm_rm_btn" onclick="delete_ready(${review_data.review.id})">삭제</div>
+        </div>`
+        lm_review_modal.innerHTML = lm_review_modal_html;
+    }else{
+        lm_b_under_html = `<div class="lm_b_review_btn" onclick="write_ready(${letter.id})">리뷰쓰기</div>`
+    }
+    lm_b_under.innerHTML += lm_b_under_html
 }
 
 const make_page_num_for_new_letter = (letter_cnt) => {
@@ -232,6 +259,171 @@ const get_letter_by_params = async (param_string) => {
             break;
         default:
             default_page(response);
+            break;
+    }
+}
+
+// 리뷰 모달을 여는 함수
+const review_modal_in = () => {
+    const lm_review_modal = document.querySelector('.lm_review_modal');
+    const lm_b_review_btn = document.querySelector('.lm_b_review_btn');
+    lm_review_modal.style.display = 'flex';
+    lm_b_review_btn.innerText = '리뷰끄기'
+    lm_b_review_btn.onclick = review_modal_out
+}
+const review_modal_out = () => {
+    const lm_review_modal = document.querySelector('.lm_review_modal');
+    const lm_b_review_btn = document.querySelector('.lm_b_review_btn');
+    lm_review_modal.style.display = 'none';
+    lm_b_review_btn.innerText = "리뷰보기"
+    lm_b_review_btn.onclick = review_modal_in
+}
+
+// 수정시 몽글 점수를 클릭했을 때
+const edit_mongle_grade =(mongle_num) => {
+    let mongle_grade;
+    for (let i = 0; i< mongle_num+1; i++){
+        mongle_grade = document.getElementById('lm_rm_mongle_'+i)
+        mongle_grade.classList.remove('mongle_color_filter')
+    }
+    for (let i =mongle_num+1; i<5; i++){
+        mongle_grade = document.getElementById('lm_rm_mongle_'+i)
+        mongle_grade.classList.add('mongle_color_filter')
+    }
+    
+}
+// 쓰기 버튼을 눌렀을 때
+const write_ready = (letter_id) => {
+    const lm_review_modal = document.querySelector('.lm_review_modal');
+    lm_review_modal.style.display = 'flex';
+    let lm_review_modal_html = ``
+    lm_review_modal_html += `
+    <div class="lm_rm_mongle_grade">몽글 점수 : `
+    for (let i = 0; i < 5; i++){
+        lm_review_modal_html += `<div id="lm_rm_mongle_${i}" class="lm_rm_mongle_edit" onclick="edit_mongle_grade(${i})"></div>`
+    }
+    lm_review_modal_html += `</div>
+    <textarea placeholder="여기에 리뷰 내용을 작성하시면 됩니다!" class="lm_rm_textarea"></textarea>
+    <div class="lm_rm_btn_box">
+        <div class="lm_rm_btn" onclick="create_review(${letter_id})">확인</div>
+        <div class="lm_rm_bb_white_space"></div>
+        <div class="lm_rm_btn" onclick="cancel_relaod()">취소</div>
+    </div>`
+    lm_review_modal.innerHTML = lm_review_modal_html;
+}
+// 수정버튼을 눌렀을 때
+const edit_ready = (letter_review_id) =>{
+    const lm_review_modal = document.querySelector('.lm_review_modal');
+    const currunt_content = document.querySelector('.lm_rm_content').innerText;
+    let lm_review_modal_html = ``
+    lm_review_modal_html += `
+    <div class="lm_rm_mongle_grade">몽글 점수 : `
+    for (let i = 0; i < 5; i++){
+        lm_review_modal_html += `<div id="lm_rm_mongle_${i}" class="lm_rm_mongle_edit" onclick="edit_mongle_grade(${i})"></div>`
+    }
+    lm_review_modal_html += `</div>
+    <textarea class="lm_rm_textarea">${currunt_content}</textarea>
+    <div class="lm_rm_btn_box">
+        <div class="lm_rm_btn" onclick="edit_review(${letter_review_id})">확인</div>
+        <div class="lm_rm_bb_white_space"></div>
+        <div class="lm_rm_btn" onclick="cancel_relaod()">취소</div>
+    </div>`
+    lm_review_modal.innerHTML = lm_review_modal_html;
+}
+const cancel_relaod = () => {
+    location.reload()
+}
+// 리뷰를 수정하는 api
+const edit_review = async(letter_review_id) => {
+    let url = new URL(BASE_URL + `my_page/letter_review?letter_review_id=`+letter_review_id);
+    let uncolored_mongle_len = document.querySelectorAll('.mongle_color_filter').length;
+    let edit_content = document.querySelector('.lm_rm_textarea').value;
+    let token = localStorage.getItem('access');
+    const result = await fetch(url ,{
+        method:'put',
+        headers:{
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`
+        },
+        body:JSON.stringify({
+            'grade' : parseInt(MONGLE_LIMIT - uncolored_mongle_len),
+            'content' : edit_content
+        })
+    });
+    const response = await result.json()
+    switch(result.status){
+        case 203:
+            alert(response.detail)
+            location.replace('/joo_test/my_letter_page.html')
+            break;
+        default:
+            alert(response.detail)
+            location.reload()
+            break;
+    }
+}
+// 리뷰를 작성하는 api
+const create_review = async(letter_id) => {
+    let url = new URL(BASE_URL + `my_page/letter_review?letter_id=`+letter_id);
+    let uncolored_mongle_len = document.querySelectorAll('.mongle_color_filter').length;
+    let review_content = document.querySelector('.lm_rm_textarea').value;
+    let token = localStorage.getItem('access');
+    const result = await fetch(url ,{
+        method:'post',
+        headers:{
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`
+        },
+        body:JSON.stringify({
+            'grade' : parseInt(MONGLE_LIMIT - uncolored_mongle_len),
+            'content' : review_content
+        })
+    });
+    const response = await result.json()
+    switch(result.status){
+        case 203:
+            alert(response.detail)
+            location.replace('/joo_test/my_letter_page.html')
+            break;
+        default:
+            alert(response.detail)
+            location.reload()
+            break;
+    }
+}
+// 리뷰를 삭제하는 api
+const delete_ready = (letter_review_id) => {
+    const delete_check_modal_wrapper = document.querySelector('.delete_check_modal_wrapper');
+    delete_check_modal_wrapper.style.display = 'flex';
+    const dcm_btn_box = document.querySelector('.dcm_btn_box');
+    dcm_btn_box.innerHTML = `<div class="dcm_bb_btn" onclick="delete_review(${letter_review_id})">확인</div>
+    <div class="dcm_bb_btn cancel">취소</div>`
+}
+const delete_review = async(letter_review_id) => {
+    let url = new URL(BASE_URL + `my_page/letter_review?letter_review_id=`+letter_review_id);
+    let token = localStorage.getItem('access');
+    const result = await fetch(url ,{
+        method:'delete',
+        headers:{
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization' : `Bearer ${token}`
+        }
+    });
+    const response = await result.json()
+    switch(result.status){
+        case 203:
+            alert(response.detail)
+            location.replace('/joo_test/my_letter_page.html')
+            break;
+        default:
+            alert(response.detail)
+            location.reload()
             break;
     }
 }
