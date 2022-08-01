@@ -25,14 +25,9 @@ const csrftoken = get_cookie('csrftoken')
 
 // 고민글 작성 모달을 열어주는 함수
 function open_modal(){
-    document.getElementById('modal_background').style.display="block"
+    document.getElementById('modal_background').style.display="flex"
     document.body.style.overflow = 'hidden';
     const small_modal = document.getElementById('small_modal');
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
 }
 // 게시글 작성모달의 외부를 클릭 시
 modal_background.addEventListener('click', function (e)  {
@@ -74,14 +69,10 @@ async function post_board(){
 
 // 수정버튼을 눌를 시 나오는 수정 모달
 function open_edit_modal(content,id){
-    document.getElementById('edit_modal_background').style.display="block"
+    document.getElementById('edit_modal_background').style.display="flex"
     const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
+
     const edit_text_area = document.getElementById('sm_bd_edit_content');
     edit_text_area.innerHTML = `<textarea class="sm_bd_ct_textarea" id="edit_sm_bd_ct_edit_textarea_${id}">${content}</textarea>`
     document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_worry_board(${id})">작성</button>`
@@ -125,14 +116,10 @@ async function edit_worry_board(worry_board_id){
 
 // request모달을 열어주는 함수
 function open_request_modal_do_request(id, content){
-    document.getElementById('request_modal_background').style.display="block"
+    document.getElementById('request_modal_background').style.display="flex"
     const small_modal = document.getElementById('request_small_modal');
     document.body.style.overflow = 'hidden';
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
+
 
     
     const worry_board_content = document.getElementById('md_bb_bl_bd_ct_left_' + id);
@@ -179,14 +166,10 @@ async function request_message(worry_board_id){
 
 // 요청 취소 버튼을 눌를 시 나오는 수정 모달
 function open_request_modal_cancle_request(none,worry_board_id, request_message_id){
-    document.getElementById('cancle_request_modal_background').style.display="block"
+    document.getElementById('cancle_request_modal_background').style.display="flex"
     const small_modal = document.getElementById('cancle_request_small_modal');
     document.body.style.overflow = 'hidden';
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
+
     document.getElementById('cr_sm_bd_button').innerHTML = `
     <button class="cr_sm_bd_yes_button" onclick="cancle_request_button(${request_message_id})">네</button>
     <button class="cr_sm_bd_no_button" onclick="close_modal()">아니요</button>

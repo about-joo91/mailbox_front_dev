@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    background: linear-gradient(90deg, #F0F0E6 50%, #FFFFFF 50%);
+    background: linear-gradient(90deg, #F0F0E6 55%, #FFFFFF 45%);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -10,30 +10,20 @@ body{
     ;
 }
 .nav_container {
+    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: white;
+    background-color: F0F0E6;
 }
-
-
 
 .nc_sub_container{
     display: flex;
+    justify-content: end;
     width: 100%;
     height: 100px;
-    justify-content: space-between
-}
-.nc_sb_modal {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    cursor: pointer;
-    margin-left: 80px;
-    margin-top: 40px;
-    margin-bottom: 30px;
 }
 .nc_sb_nav {
     justify-content: center;
@@ -44,22 +34,119 @@ body{
 }
 .nc_sb_nav p{
     font-size: 23px;
+
 }
 
 .nc_mongle {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-size: cover;
     border-radius: 30px;
-    width: 60px;
-    height: 60px;
-    margin-left: 10px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 .nc_profile {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-size: cover;
     border-radius: 30px;
-    width: 60px;
-    height: 60px;
-    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    margin-left: -15px;
+
+}
+
+
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    width: 30px;
+    height: 142px;
+}
+.drawer_text{
+    padding: 20px 0px;
+    border-radius: 15px;
+    text-align: center;
+    width: 96%;
+    margin-left: 5px;
+    letter-spacing: 1.5px;
+    color: rgba(80, 80, 80, 1);
+    text-decoration: none;
+
+}
+.drawer_text:hover{
     cursor: pointer;
 }
+
+.drawer_icon{
+    color: rgba(80, 80, 80, 1);
+}
+.mpc_c_bd_edit_button{
+    color: #F0F0E6;
+    font-size: 18px;
+}
+.mpc_c_bd_edit_button:hover{
+    cursor: pointer;
+}
+
+.drawer_wrapper_after{
+    position: fixed;
+    display: flex;
+}
+.d_white_space{
+    margin-top: -500px;
+}
+.drawer_wrapper{
+    display: flex;
+    position: fixed;
+    min-width: 220px;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 15%;
+    position: fixed;
+    font-size: 22px;
+    flex-direction: column;
+    background: rgb(235 233 215 / 80%);
+}
+
+#drawer {
+    z-index: 5;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: fixed;
+    width: 15%;
+    min-width: 220px;
+    left: 0;
+    top: 0;
+    font-size: 22px;
+    flex-direction: column;
+}
+.drawer_text:hover{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+.drawer_text:hover i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    width: 30px;
+    height: 142px;
+}
+
 
 .main_container {
     display: flex;
@@ -68,6 +155,7 @@ body{
     width: 100%;
     height: 1229px;
 }
+
 
 .mc_sub_container {
     display: flex;
@@ -94,68 +182,74 @@ body{
     height: 620px;
 }
 
-.modal_box{
-    visibility: hidden;
-    position: absolute;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    left: 3%;
-    top: 6%;
-    width: 200px;
-    height: 220px;
-    border-radius: 20px;
-    background-color: #A4A457;
 
-}
-.mb_myletter{
-    margin-bottom: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    color: white;
-}
 
-.mb_write{
-    cursor: pointer;
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: white;
-
-}
-.mb_category{
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: white;
-}
-.mb_worry_board{
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: white;
-}
-.mb_logout{
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: white;
-
-}
-
-.mb_line{
-    margin-top: 3px;
-    width: 150px;
-    height: 0.5px;
-    background-color: white;
-}
-
-@media (max-width: 780px) {
-    .nc_sb_nav {
-        margin-bottom: 30px;
+@media (max-width: 1414px) {
+    .drawer_wrapper{
+        display: none;
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .drawer_wrapper{
+        background: rgb(235 233 215);
+    }
+    .nc_mongle, .nc_profile{
+        width: 70px;
+        height: 70px;
+    
+    }
+    .nc_sb_nav{
+        margin-top: 31px;
+        margin-right: 40px;
     }
 }
+
+
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 25px;
+    }
+    .nc_profile {
+        width: 80px;
+        height: 80px;
+    }
+    .nc_mongle {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 450px) {
+    .drawer_wrapper{
+        position: absolute;
+        min-width: 250px;
+        height: 500px;
+        left: 10%;
+        top: 7%;
+        border-radius: 20px;
+    }
+    #drawer{
+        position: absolute;
+        top: -21.5%;
+        min-width: 250px;
+    }
+    .nc_sb_nav{
+        margin-right: 20px;
+    }
+    .nc_mongle, .nc_profile {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+
+
+
+/* 여기부터는 메인페이지내용 */
 
 @media (max-width: 780px) {
     body {
@@ -171,31 +265,6 @@ body{
         margin-bottom: 25px;
     }
 }
-@media (max-width: 560px) {
-    .nc_sb_nav {
-        margin-right: 10px;
-    }
-    .nc_sb_modal {
-        margin-left: 30px;
-    }
-    
-}
-@media (max-width: 480px) {
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-    }
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-    }
-    .nc_sb_nav p {
-        font-size: 20px;
-    }
-    .nc_sb_modal {
-        margin-left: 30px;
-    }
-}
 
 @media (max-width: 1125px) {
     .mc_sub_container{
@@ -205,6 +274,30 @@ body{
     .mc_sb_letter img {
         width: 90%;
         height: 550px;
+    }
+}
+
+@media (max-width: 950px) {
+    .drawer_wrapper{
+        display: none;
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .drawer_wrapper{
+        background: rgb(235 233 215);
+    }
+
+    .nc_mongle, .nc_profile{
+        width: 70px;
+        height: 70px;
+    
+    }
+    .nc_sb_nav{
+        margin-top: 31px;
+        margin-right: 40px;
     }
 }
 
@@ -226,5 +319,53 @@ body{
     .main_container {
         height: 50%;
     }
+    .drawer_wrapper{
+        position: absolute;
+        min-width: 250px;
+        height: 500px;
+        left: 10%;
+        top: 8%;
+        border-radius: 20px;
+        z-index: 5;
+    }
+    #drawer{
+        top: 1.5%;
+    }
 
+}
+
+@media (max-width: 450px) {
+    .nc_sb_nav{
+        margin-right: 20px;
+    }
+
+    .nc_mongle, .nc_profile {
+        width: 60px;
+        height: 60px;
+    }
+}
+@media (max-height: 896px) {
+    .drawer_wrapper {
+        top: 11.5%;
+    }
+    #drawer{
+        top: 10.5%;
+    }
+}
+@media (max-height: 844px) {
+    .drawer_wrapper {
+        top: 11.5%;
+    }
+    #drawer{
+        top: 13.5%;
+    }
+}
+
+@media (max-height: 670px) {
+    .drawer_wrapper {
+        top: 14.5%;
+    }
+    #drawer{
+        top: 33.5%;
+    }
 }
