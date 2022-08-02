@@ -279,6 +279,7 @@ async function get_worry_board() {
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
+
             let tmp_board = ``
             for (let i = 0; i < res.boards.length; i++){
                 board = res.boards[i]
@@ -297,7 +298,10 @@ async function get_worry_board() {
                 else{
                     request_button_type = "disaccepted_request"
                 }
+                console.log(board.is_worry_board_writer)
+        
                 category_name = board.category_list[board.category]
+
                 if(board.is_worry_board_writer == true){
                     tmp_board += `
                     <div class="md_bb_bl_board" id="md_bb_bl_board_1">
@@ -313,29 +317,12 @@ async function get_worry_board() {
                                 <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_worry_board('${board.id}', '${url_page_num}')">삭제</div>
                             </div>
                         </div>
-                        <div class="md_bb_bl_bd_request">
-                            <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${board.request_status}</button>
-                        </div>
-                    </div>`
-                    }
-                    else{
-                        tmp_board += `
-                        <div class="md_bb_bl_board" id="md_bb_bl_board_1">
-                        <div class="md_bb_bl_board_box">
-                            <div class="md_bb_bl_bd_description">
-                                <div class="md_bb_bl_bd_desc_image_icon"></div>
-                                <div class="md_bb_bl_bd_middle">
-                                    <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
-                                    <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                                </div>
-                            </div>
-                            <div class="md_bb_bl_bd_content">
-                                <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                                    ${board.content}
-                                </p>
-                                <div class="md_bb_bl_bd_ct_right">
-                                    <div class="md_bb_bl_bd_ct_rg_border"></div>
-                                </div>
+                        <div class="md_bb_bl_bd_content">
+                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                                ${board.content}
+                            </p>
+                            <div class="md_bb_bl_bd_ct_right">
+                                <div class="md_bb_bl_bd_ct_rg_border"></div>
                             </div>
                         </div>
                     </div>
@@ -344,6 +331,31 @@ async function get_worry_board() {
                     </div>
                 </div>`
                 }
+                else{
+                    tmp_board += `
+                    <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+                    <div class="md_bb_bl_board_box">
+                        <div class="md_bb_bl_bd_description">
+                            <div class="md_bb_bl_bd_desc_image_icon"></div>
+                            <div class="md_bb_bl_bd_middle">
+                                <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
+                                <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
+                            </div>
+                        </div>
+                        <div class="md_bb_bl_bd_content">
+                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                                ${board.content}
+                            </p>
+                            <div class="md_bb_bl_bd_ct_right">
+                                <div class="md_bb_bl_bd_ct_rg_border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md_bb_bl_bd_request">
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal_${request_button_type}('${board.id}', '${board.content}', '${board.request_message_id}')">${board.request_status}</button>
+                    </div>
+                </div>`
+            }
             }
             const board_lists = document.querySelector(".mc_bb_board_lists")
             board_lists.innerHTML = tmp_board
@@ -389,3 +401,22 @@ function click_page_num(page_num){
 function go_sign_in(){
     location.href = '../../user/signin.html'
 }
+
+function main_modal(){
+    document.querySelector('.drawer_wrapper').style.display ='flex';
+    document.getElementById('drawer').style.display ='flex';
+}
+
+document.querySelector('.main_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 950){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    }
+})
+
+document.querySelector('.nav_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 950){
+        document.getElementById('drawer').style.display ='none';
+        document.querySelector('.drawer_wrapper').style.display ='none';
+        }
+})

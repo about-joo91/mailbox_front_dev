@@ -245,10 +245,12 @@ body{
     background-color: white;
     justify-items: center;
     align-items: center;
-    flex-direction: column;
 }
 .md_bb_bl_board_box{
     width: 90%;
+}
+.md_bb_bl_bd_request_button {
+    border: none;
 }
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
@@ -734,10 +736,13 @@ body{
     .open_modal_button{
         left: 80%;
     }
+    .md_bb_bl_bd_request_button {
+        height: 3rem;
+    }
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .mc_bt_title_text    {
         font-size: 24px;
     }
@@ -823,6 +828,9 @@ body{
     .nc_sb_modal {
         margin-left: 30px;
 
+    }
+    .md_bb_bl_bd_description{
+        width: 110%;
     }
 
 }
