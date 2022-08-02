@@ -314,7 +314,7 @@ async function get_worry_board() {
                             </div>
                         </div>
                         <div class="md_bb_bl_bd_request">
-                            <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${request_status}</button>
+                            <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${board.request_status}</button>
                         </div>
                     </div>`
                     }
@@ -389,4 +389,3 @@ function click_page_num(page_num){
 function go_sign_in(){
     location.href = '../../user/signin.html'
 }
-
