@@ -127,7 +127,7 @@ window.onload = async function(){
             daily_html.innerHTML += 
             `
             <div class="mb_sb_cb_item">
-            <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
+            <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html?category=1">
                 <div class="mb_sb_cb_item_title">
                     <p>${daily_category[i].create_date}</p>
                 </div>
@@ -141,7 +141,7 @@ window.onload = async function(){
             love_html.innerHTML += 
             `
             <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
+                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html?category=2">
                     <div class="mb_sb_cb_item_title">
                         <p>${love_category[i].create_date}</p>
                     </div>
@@ -154,7 +154,7 @@ window.onload = async function(){
             work_html.innerHTML += 
             `
             <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
+                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html?category=3">
                     <div class="mb_sb_cb_item_title">
                         <p>${work_category[i].create_date}</p>
                     </div>
@@ -167,7 +167,7 @@ window.onload = async function(){
             family_html.innerHTML += 
             `
             <div class="mb_sb_cb_item">
-            <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
+            <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html?category=4">
                 <div class="mb_sb_cb_item_title">
                     <p>${family_category[i].create_date}</p>
                 </div>
@@ -180,7 +180,7 @@ window.onload = async function(){
             relation_html.innerHTML += 
             `
             <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
+                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html?category=5">
                     <div class="mb_sb_cb_item_title">
                         <p>${relation_category[i].create_date}</p>
                     </div>
@@ -193,7 +193,7 @@ window.onload = async function(){
             paernting_html.innerHTML += 
             `
             <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html">
+                <a class="worry_link" href="http://127.0.0.1:5500/ko_test_worry_board/worry_board_page.html?category=6">
                 <div class="mb_sb_cb_item_title">
                     <p>${paernting_category[i].create_date}</p>
                 </div>
