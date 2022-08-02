@@ -477,6 +477,7 @@ body{
     align-items: center;
 }
 .sm_bd_submit_button{
+    border: none;
     cursor: pointer;
     margin-top: 5rem;
     background-color: rgba(176, 170, 109, 0.8);
