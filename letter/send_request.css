@@ -151,7 +151,7 @@ body{
     width: 100%;
     /* height: 110rem; */
     background-color: #F0F0E6;
-    margin-top: 1.4rem;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -413,7 +413,7 @@ body{
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.5);
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-left: 10px;
     border: none;
 }
@@ -429,7 +429,7 @@ body{
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.8);
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     border: none;
 }
 .md_bb_bl_bd_request_button:hover{
@@ -650,8 +650,202 @@ body{
 
 }
 
+@media (max-width: 950px) {
+    .drawer_wrapper{
+        display: none;
+        background: rgb(235 233 215 / 100%);
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .nc_sb_nav {
+        margin-right: 30px;
+        margin-bottom: 0px;
+        height: 113px;
+    }
+    .nc_sb_modal {
+        height: 113px;
+    }
+}
+
+
+@media (max-width: 2300px) {
+    .main_container {
+        margin-left: 130px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .main_container {
+        margin-left: 100px;
+    }
+}
+
+
+
+@media (max-width: 1500px) {
+    .md_bb_bl_bd_post_button, .md_bb_bl_bd_request_button {
+        font-size: 1.2rem;
+        width: 35%;
+    }
+}
+
+@media (max-width: 950px) {
+
+    .drawer_wrapper{
+        display: none;
+        background: rgb(235 233 215 / 100%);
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .nc_sb_nav {
+        margin-right: 30px;
+        margin-bottom: 0px;
+        height: 113px;
+    }
+    .nc_sb_modal {
+        height: 113px;
+    }
+    .main_container{
+        margin-left: 0px;
+
+    }
+    .mc_board_title,.mc_board_body{
+        width: 99%;
+    }
+
+}
+
+
 @media (max-width: 780px) {
-    body {
-        background: #F0F0E6
+    .md_bb_bl_bd_post_button,.md_bb_bl_bd_request_button {
+        height: 3rem;
+        width: 60px;
+    }
+    .md_bb_bl_bd_request,.md_bb_bl_bd_desc_ed_delete  {
+        width: 40%;
+    }
+    .md_bb_bl_bd_desc_ed_edit {
+        width: 45%;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .nc_sb_nav {
+        margin-bottom: 30px;
+    }
+
+}
+
+
+
+
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 10px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 35px;
+        height: 40px;
+    }
+    .md_bb_bl_bd_request{
+        margin-top: 40px;
+        margin-right: 30px;
+    }
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 40%;
+    }
+    .md_bb_bl_bd_description{
+        width: 140%;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .main_container{
+        margin-top: 0px;
+    }
+    .md_bb_bl_bd_request_button  {
+        height: 3rem;
+    }
+    .md_bb_bl_bd_request  {
+        width: 30%;
+    }
+    .mc_bt_title_text {
+        font-size: 25px;
+    }
+    .mc_board_title{
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .md_bb_bl_bd_hidden_name {
+        font-size: 2rme;
+    }
+    .md_bb_bl_bd_request_button{
+        font-size: 1rem;
+    }
+    .mc_board_title{
+        height: 6rem;
+    }
+    .md_bb_bl_board{
+        height: 10rem;
+    }
+    .md_bb_bl_bd_hidden_name{
+        font-size: 2rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+        margin-left: 1px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+
+    }
+    .nc_sb_nav p {
+        font-size: 20px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+
+    }
+
+}
+
+@media (max-height: 896px) {
+    #drawer{
+        position: relative;
+        top: 15%;
+    }
+}
+
+@media (max-height: 845px) {
+    #drawer{
+        top: 19%;
+    }
+}
+
+@media (max-height: 667px) {
+    #drawer{
+        top: 35%;
     }
 }

@@ -151,21 +151,23 @@ body{
     width: 100%;
     /* height: 110rem; */
     background-color: #F0F0E6;
-    margin-top: 1.4rem;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 170px;
 }
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 63.7%;
+    width: 50%;
     height: 10rem;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 1.5rem;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
+
 }
 .mc_bt_empty{
     width: 20%;
@@ -192,7 +194,8 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
-    width: 63.7%;
+    width: 50%;
+    border: 1px solid gray;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -233,7 +236,7 @@ body{
     cursor: pointer;
 }
 .cur_page{
-    color: blue;
+    color: white;
     font-weight: 600;
     cursor: pointer;
 }
@@ -407,12 +410,13 @@ body{
     display: flex;
 }
 .md_bb_bl_bd_request_button{
+    border: none;
     width: 70%;
     height: 4rem;
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.8);
     color: white;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
 }
 .md_bb_bl_bd_request_button:hover{
     cursor: pointer;
@@ -611,11 +615,76 @@ body{
 }
 
 
+@media (max-width: 2300px) {
+    .main_container {
+        margin-left: 130px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .main_container {
+        margin-left: 100px;
+    }
+}
+
+
+@media (max-width: 1570px) {
+    .md_bb_bl_bd_request_button {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .md_bb_bl_bd_request_button {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 950px) {
+
+    .drawer_wrapper{
+        display: none;
+        background: rgb(235 233 215 / 100%);
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .nc_sb_nav {
+        margin-right: 30px;
+        margin-bottom: 0px;
+        height: 113px;
+    }
+    .nc_sb_modal {
+        height: 113px;
+    }
+    .main_container{
+        margin-left: 0px;
+
+    }
+    .mc_board_title,.mc_board_body{
+        width: 99%;
+    }
+
+}
+
+
 @media (max-width: 780px) {
     .nc_sb_nav {
         margin-bottom: 30px;
     }
 }
+
+@media (max-width: 700px) {
+    .md_bb_bl_bd_post_button {
+        margin-bottom: 30px;
+    }
+}
+
+
+
 @media (max-width: 560px) {
     .nc_sb_nav {
         margin-right: 10px;
@@ -632,6 +701,46 @@ body{
         height: 40px;
     }
 }
+
+@media (max-width: 500px) {
+    .md_bb_bl_bd_request  {
+        width: 18%;
+        height: 3.5rem;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .md_bb_bl_bd_request_button  {
+        height: 3rem;
+    }
+    .md_bb_bl_bd_request  {
+        width: 22%;
+    }
+    .mc_bt_title_text {
+        font-size: 25px;
+    }
+    .mc_board_title{
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .md_bb_bl_bd_hidden_name {
+        font-size: 2rme;
+    }
+    .main_container{
+        margin-top: 0px;
+    }
+    .mc_board_title {
+        height: 6rem;
+    }
+    .md_bb_bl_board{
+        height: 10rem;
+    }
+    
+}
+
+
 @media (max-width: 480px) {
     .nc_profile {
         width: 40px;
@@ -653,8 +762,21 @@ body{
 
 }
 
-@media (max-width: 780px) {
-    body {
-        background: #F0F0E6
+@media (max-height: 896px) {
+    #drawer{
+        position: relative;
+        top: 15%;
+    }
+}
+
+@media (max-height: 845px) {
+    #drawer{
+        top: 19%;
+    }
+}
+
+@media (max-height: 667px) {
+    #drawer{
+        top: 35%;
     }
 }

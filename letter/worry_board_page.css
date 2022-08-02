@@ -835,11 +835,6 @@ body{
 
 }
 
-@media (max-width: 780px) {
-    body {
-        background: #F0F0E6
-    }
-}
 
 @media (max-height: 896px) {
     .open_modal_button {
@@ -873,4 +868,22 @@ body{
         width: 99%;
     }
 
+}
+@media (max-height: 896px) {
+    #drawer{
+        position: relative;
+        top: 15%;
+    }
+}
+
+@media (max-height: 845px) {
+    #drawer{
+        top: 19%;
+    }
+}
+
+@media (max-height: 667px) {
+    #drawer{
+        top: 35%;
+    }
 }
