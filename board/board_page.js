@@ -124,7 +124,7 @@ async function get_board(event) {
             break;
         default:
             alert("세션이 만료 되었습니다.")
-            location.replace('/user/signin_page.html')
+            location.replace('/user/signin.html')
     }
 }
 
@@ -331,7 +331,7 @@ function click_page_num(url_page_num){
 }
 // 메세지 버튼을 누를 시 디테일 페이지로 링크
 function href_board_detail(board_id){
-    location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + board_id
+    location.href = '../../board/board_detail.html?board_id=' + board_id
 }
 
 

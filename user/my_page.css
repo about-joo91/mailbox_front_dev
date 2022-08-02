@@ -273,10 +273,11 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .mpc_card {
     max-width: 830px;
     position: relative;
-    width: 60%;
+    width: 75%;
     height: 70%;
     left: -5%;
 }

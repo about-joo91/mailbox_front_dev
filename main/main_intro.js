@@ -2,7 +2,7 @@ const BASE_URL = 'http://127.0.0.1:8000';
 
 window.onload = async function(){
     if (!localStorage.hasOwnProperty('access')) {
-        location.replace('/won_test/signin.html')
+        location.replace('/user/signin.html')
     }
 
     token = localStorage.getItem('access');
@@ -48,7 +48,3 @@ document.querySelector('.nav_container').addEventListener('click', function (e) 
 
 
 
-function logout() {
-    localStorage.clear();
-    location.replace('/user/sign_in.html')
-}

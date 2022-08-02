@@ -247,7 +247,7 @@ async function delete_worry_board(worry_board_id){
 
 // 현재 내가 보고있는 보드의 디테일페이지로 이동하는 로직
 function href_board_detail(url_board_id){
-    location.href = '../../ko_test_worry_board/worry_board_page.html?board_id=' + url_board_id
+    location.href = '../../letter/worry_board_page.html?board_id=' + url_board_id
 }
 
 // 3줄 간단 고민글을 가져오는 로직
@@ -378,15 +378,15 @@ function request_to_my_worry_board(){
 }
 
 function click_category(category){
-    location.href = '../../ko_test_worry_board/worry_board_page.html?category=' +  category + "&page_num=" + 1
+    location.href = '../../letter/worry_board_page.html?category=' +  category + "&page_num=" + 1
 }
 function click_page_num(page_num){
     if(!url_category){
         url_category=1
     }
-    location.href = '../../ko_test_worry_board/worry_board_page.html?category=' +  url_category + "&page_num=" + page_num
+    location.href = '../../letter/worry_board_page.html?category=' +  url_category + "&page_num=" + page_num
 }
 function go_sign_in(){
-    location.href = '../../won_test/signin.html'
+    location.href = '../../user/signin.html'
 }
 

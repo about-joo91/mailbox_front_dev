@@ -18,11 +18,11 @@ const csrftoken = get_cookie('csrftoken')
 
 window.onload = async function(){
     if (!localStorage.hasOwnProperty('access')) {
-        location.replace('/won_test/signin.html')
+        location.replace('/user/signin.html')
     }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams == ""){
-        location.replace('/jin_test/main2.html')
+        location.replace('/main/main2.html')
     }
     token = localStorage.getItem('access');
     const myposts = await fetch(BASE_URL + "/main_page/" +"main/",{
@@ -69,11 +69,11 @@ async function letter_post(){
     })
     if (result.status == 200) {
         alert("편지를 보냈습니다!")
-        location.replace("http://127.0.0.1:5500/jin_test/main2.html")
+        location.replace("http://127.0.0.1:5500/main/main2.html")
     }
     else{
         alert("이미 편지를 쓰셨습니다!")
-        location.replace("http://127.0.0.1:5500/jin_test/main2.html")
+        location.replace("http://127.0.0.1:5500/main/main2.html")
     }
 }    
 
@@ -99,8 +99,3 @@ document.querySelector('.nav_container').addEventListener('click', function (e) 
 
 
 
-
-function logout() {
-    localStorage.clear();
-    location.replace('/user/sign_in.html')
-}

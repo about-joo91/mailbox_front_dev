@@ -129,7 +129,6 @@ async function edit_request_message(request_message_id){
         })
     })
     let res = await result.json()
-<<<<<<< HEAD
     switch (result.status){
         case 200:
             alert(res['message'])
@@ -137,14 +136,6 @@ async function edit_request_message(request_message_id){
             break;
         default:
             alert(res['message'])
-=======
-    if (result.status == 200) {
-        alert(res['detail'])
-        location.reload()
-    }
-    else{
-        alert(res['detail'])
->>>>>>> 44ccf933b86a38e1e23448ef8b11762eadfcbae1
     }
 }
 
@@ -163,22 +154,13 @@ async function delete_request_message(request_message_id){
         },
     })
     let res = await result.json()
-<<<<<<< HEAD
     switch(result.status){
         case 200:
             alert(res['message'])
-            location.href = 'send_request_messages.html'
+            click_page_num(0)
             break;
         default:
             alert(res['message'])
-=======
-    if (result.status == 200) {
-        alert(res['detail'])
-        click_page_num(0)
-    }
-    else{
-        alert(res['detail'])
->>>>>>> 44ccf933b86a38e1e23448ef8b11762eadfcbae1
     }
 }
 

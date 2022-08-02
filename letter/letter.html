@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/letter/letter.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nc_sb_modal">
+        <i onclick="main_modal()" class="fa-solid fa-bars"></i>
+    </div>
+    <div class="nav_container">
+        <div class="nc_sub_container">
+            <div class="nc_sb_nav">
+                <p id="profile_grade">
+                    나의 몽글 점수: 000
+                </p>
+                <div id="mongle_img"class="nc_mongle">
+
+                </div>
+                <a href="http://127.0.0.1:5500/user/my_page.html" >
+                    <div id="profile_image" class="nc_profile">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="drawer_wrapper">
+        <div id="drawer">
+            <div class="d_white_space">
+
+            </div>
+            <a href="/main/main2.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
+            <a href ="/letter/letter.html?page_num=2"class="drawer_text"><i class="fa-solid fa-envelope drawer_icon"></i>&nbsp편지 쓰기</a>
+            <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+            <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+            <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-inbox drawer_icon"></i>&nbsp내가 받은 편지</a>
+            <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지</a>
+            <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket drawer_icon"></i>&nbsp로그아웃</a>
+        </div>
+    </div>
+    <div class="main_container">
+        <div class="drawer_wrapper">
+            <div id="drawer">
+                <div class="d_white_space">
+                </div>
+                <a href="/main/main2.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
+                <a href ="/letter/letter.html?page_num=2"class="drawer_text"><i class="fa-solid fa-envelope drawer_icon"></i>&nbsp편지 쓰기</a>
+                <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+                <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+                <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-inbox drawer_icon"></i>&nbsp내가 받은 편지</a>
+                <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지</a>
+                <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket drawer_icon"></i>&nbsp로그아웃</a>
+        </div>
+        <div class="mc_sub_container">
+            <diV class="mc_sb_title_box">
+                <input class="mb_sb_title"  type="txtt" id="title_text" placeholder="제목을 입력 해주세요."></input>
+            </diV>
+            <div class="mc_sb_letter_box">
+                <textarea class="mb_sb_content" type="text" id="content_text" placeholder="내용을 입력해주세요!"></textarea>
+            </div>
+            <div class="mc_sb_btn_box">
+                <button class ="cancel_btn">취소</button>
+                <button onclick="letter_post()"class="post_btn">온달 보내기</button>
+            </div>
+        </div>
+    </div>
+    <script src="letter.js"></script>
+</body>
+</html>

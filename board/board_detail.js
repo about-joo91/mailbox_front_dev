@@ -2,7 +2,6 @@ const BASE_URL = 'http://127.0.0.1:8000';
 const urlParams = new URLSearchParams(window.location.search);
 const url_board_id = urlParams.get('board_id');
 
-
 // 쿠키 할당
 function get_cookie(name) {
     let cookie_value = null;
@@ -18,7 +17,6 @@ function get_cookie(name) {
     }
     return cookie_value;
 }
-
 const csrftoken = get_cookie('csrftoken')
 
 
@@ -41,8 +39,19 @@ async function post_board_comment(){
         })
     })
     let res = await result.json()
-    alert(res['detail'])
-    href_board_detail(url_board_id)
+    switch (result.status){
+        case 200:
+            alert(res['detail'])
+            href_board_detail(url_board_id)
+            break;
+        case 401:
+            alert(response.detail)
+            location.replace('/user/signin.html');
+            break;
+        default:
+            alert(res['detail'])
+            href_board_detail(url_board_id)
+    }
 }
 
 
@@ -144,10 +153,6 @@ window.onload =
                 const board_lists = document.querySelector(".mc_bb_board_lists")
                 board_lists.innerHTML = tmp_board
 
-
-                // pagenation(res.total_count, 10, 10, url_page_num)
-
-
                 // 보드에 대한 댓글(comment)들을 가져오는 로직 (cRud)
                 comment_list = res.board_comments[0].board_comment
                 let tmp_comment = ``
@@ -220,7 +225,7 @@ window.onload =
                 break;
             default:
                 alert("세션이 만료 되었습니다.")
-                location.replace('/user/signin_page.html')
+                location.replace('/user/signin.html')
         }
     }
 
@@ -232,7 +237,7 @@ function edit_comment_input(comment_id){
     edit_comment_by_id.style.display = "flex"
 }
 
-// 현재 내가있는 보드를 삭제하는 로직 (cluD)
+// 현재 내가있는 보드를 삭제하는 로직 (cruD)
 async function delete_board(board_id, page_num){
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/board/' + board_id , {
@@ -260,7 +265,6 @@ async function delete_board(board_id, page_num){
 }
 
 // 좋아요를 눌렀을 떄 실행되는 코드
-
 async function click_sun(board_id){
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/board/like/' + board_id , {
@@ -292,6 +296,7 @@ async function click_sun(board_id){
             break;
     }
 }
+
 // 내가 클릭한 댓글의 내용을 수정하는 로직 (crUd)
 async function edit_board_comment(comment_id){
     const token = localStorage.getItem('access')
@@ -348,17 +353,16 @@ async function delete_board(comment_id){
 
 // 현재 내가 보고있는 보드의 디테일페이지로 이동하는 로직
 function href_board_detail(url_board_id){
-    location.href = '../../ko_test_board_detail/board_detail.html?board_id=' + url_board_id
+    location.href = '../../board/board_detail.html?board_id=' + url_board_id
 }
 // 기존의 익명 게시판 목록으로 이동하는 로직
 function href_board(page_num){
-    location.href = '../../ko_test_board/board_page.html?page_num=' + page_num
+    location.href = '../../board/board_page.html?page_num=' + page_num
 }
 // 메인페이지로 이동하는 로직
 function href_main(){
-    location.href = '../../jin_test/main_intro.html'
+    location.href = '../../main/main_intro.html'
 }
-
 
 function main_modal(){
     document.querySelector('.drawer_wrapper').style.display ='flex';
@@ -378,3 +382,4 @@ document.querySelector('.nav_container').addEventListener('click', function (e) 
         document.querySelector('.drawer_wrapper').style.display ='none';
         }
 })
+

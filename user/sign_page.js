@@ -57,7 +57,7 @@ async function SignIn(){
             alert("로그인이 완료되었습니다!");
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
-            window.location.replace(`../jin_test/main_intro.html`);
+            window.location.replace(`../main/main_intro.html`);
             break;
         case 401:
             alert(response_json.detail);
@@ -73,7 +73,8 @@ async function SignIn(){
 
 
 // 로그아웃
-function LogOut() { 
-    localStorage.clear(); 
-    location.replace('signin.html')
+function logout() {
+    alert("로그아웃 되었습니다");
+    localStorage.clear();
+    location.replace('/user/signin.html');
 }
