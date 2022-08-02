@@ -7,6 +7,72 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
+@media (max-width: 950px) {
+    body{
+        background: #F0F0E6
+    }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+    }
+    .drawer_wrapper{
+        display: none !important;
+    }
+    #drawer{
+        background: rgb(235 233 215 / 100%);
+        width: 35%! important;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
+    .letter_modal{
+        width: 100% !important;
+    }
+    .mpc_card{
+        width: 100% !important;
+        left: 0 !important;
+        min-width: none !important;
+    }
+    .nc_sb_nav{
+        margin-top: 0 !important;
+        margin-right: 40px !important;
+    }
+
+}
+@media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    .open_drawer{
+        margin: 0 0 0 20px !important;
+    }
+    .nav_container{
+        height: 40px !important;
+    }
+    .nc_sub_container{
+        align-items: flex-start !important;
+        height: 40px !important;
+        align-items: baseline !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .d_white_space {
+        margin-top: 60px !important;
+    }
+    .mpc_c_b_u_rcb_category_box {
+        width: 100% !important;
+        margin: 10px auto auto 10px !important;
+    }
+
+}
+
 * {
     font-family: 'Gamja Flower', cursive;
     ;
@@ -51,7 +117,9 @@ body {
 }
 
 .nc_mongle {
-    border-radius: 30px;
+    background-position: center;
+    background-size:cover;
+    border-radius: 100%;
     width: 60px;
     height: 60px;
     margin-left: 10px;
@@ -68,59 +136,6 @@ body {
     cursor: pointer;
 }
 
-@media (max-width: 780px) {
-    .nc_sb_nav {
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 560px) {
-    .nc_sb_nav {
-        margin-right: 10px;
-    }
-
-    .nc_sb_modal {
-        margin-left: 30px;
-    }
-
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-    }
-
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-    }
-
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-    }
-
-    .nc_sb_nav p {
-        font-size: 20px;
-    }
-
-    .nc_sb_modal {
-        margin-left: 30px;
-
-    }
-
-}
-
-@media (max-width: 780px) {
-    body {
-        background: #F0F0E6
-    }
-}
 /* 카테고리를 더하는 모달 */
 .add_cate_modal_wrapper{
     width: 100%;
@@ -131,25 +146,31 @@ body {
     top: 0;
     z-index: 2;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 .add_cate_modal{
+    max-width: 500px;
     z-index: 3;
-    width: 300px;
-    height: 300px;
-    border-radius: 15px;
+    width: 50%;
+    height: 30%;
+    border-radius: .4em;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 }
-.acm_body{
+.acm_body {
     display: flex;
     flex-direction: row;
-    width: 300px;
-    height: 300px;
-    border-radius: 15px;
+    width: 100%;
+    height: 90%;
     text-align: center;
     background-color: #F0F0E6;
-
+    border: 0;
+    outline: none;
+    border-radius: 0.4em;
 }
 .acm_body::-webkit-scrollbar{
     display: none;
@@ -158,17 +179,22 @@ body {
     display: none;
 }
 .category_option{
+    padding: 10px 0;
     font-size: 20px;
 }
 .acm_accept_btn{
-    margin-right: 20px;
+    width: 100%;
+    font-size: 20px;
     background-color: #F0F0E6;
-    padding: 5px;
-    border-radius: 5px;
-    margin-top: 5px;
+    border-radius: .2em;
+    text-align: center;
+    padding: 10px 0;
 }
+
 .acm_accept_btn:hover{
     cursor: pointer;
+    color: white;
+    background-color: rgba(80, 80, 80, 1);
 }
 
 /* 자기소개 수정 모달 */
@@ -181,45 +207,51 @@ body {
     top: 0;
     z-index: 2;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 .edit_desc_modal{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 625px;
+    width: 60%;
     height: 40%;
-    position: absolute;
-    top:calc(50% - 200px);
-    left: calc(50% - 200px);
     z-index: 3;
+    background-color: #E2CA9B;
+    border-radius: .4em;
 }
 .edm_announce{
     font-size: 20px;
     color: #F0F0E6;
     background-color: rgba(176, 170, 109, 0.8);
-    width: 100%;
-    border-radius: 10px;
-    line-height: 50px;
+    width: calc(100% - 10px);
+    border-radius: 0.4em;
     text-align: center;
+    padding: 5px;
+    height: 15%;
+    margin-bottom: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .edm_textarea{
+    background-color: #E2CA9B;
     border: none;
     outline: none;
-    font-size: 23px;
-    background-color: #E2CA9B;
-    border-radius: 15px;
+    font-size: 20px;
+    border-radius: .4em;
     padding: 5px;
+    width: calc(100% - 10px);
+    height: 90%;
 }
 .edm_btn_box{
-    width: 625px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .edm_btn{
     margin-top: 5px;
-    padding: 5px 15px;
-    background-color: rgb(70, 70, 70);
+    padding: 15px 10px;
+    background-color: #E2CA9B;
     border-radius: 5px;
     color: #F0F0E6;
     font-size: 18px;
@@ -242,7 +274,7 @@ body {
     align-items: center;
 }
 .mpc_card {
-    max-width: 760px;
+    max-width: 830px;
     position: relative;
     width: 60%;
     height: 70%;
@@ -252,7 +284,7 @@ body {
 .mpc_c_header {
     background-color: rgba(176, 170, 109, 0.8);
     height: 8%;
-    border-radius: 15px;
+    border-radius: .4em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,7 +295,7 @@ body {
 .mpc_c_body {
     background-color: rgba(226, 202, 155, 0.9);
     height: 80%;
-    border-radius: 15px;
+    border-radius: .4em;
 }
 
 .mpc_c_b_upper {
@@ -273,7 +305,7 @@ body {
 }
 .mpc_c_b_u_profile_img_wrapper{
     width: 45%;
-    border-radius: 15px;
+    border-radius: .4em;
 }
 .mpc_c_b_u_profile_img {
     background-size: cover;
@@ -305,7 +337,7 @@ body {
     font-size: 20px;
     background-color: #F0F0E6;
     padding: 5px 10px;
-    border-radius: 15px;
+    border-radius: .4em;
     margin-right: 20px;
     margin-bottom: 15px;
 }
@@ -320,11 +352,11 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0 10px;
-    border-radius: 100%;
     margin-right: 20px;
     margin-bottom: 15px;
 }
 .category_x_btn{
+    position: absolute;
     background-color: #F0F0E6;
     border-radius: 100%;
     width: 20px;
@@ -350,7 +382,7 @@ body {
 }
 .drawer_text{
     padding: 20px 0px;
-    border-radius: 15px;
+    border-radius: .4em;
     text-align: center;
     width: 100%;
     margin-left: 5px;
@@ -358,6 +390,10 @@ body {
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
+}
+.open_drawer {
+    display: none;
+    font-size: 20px;
 }
 .drawer_text:hover{
     cursor: pointer;
@@ -374,24 +410,33 @@ body {
     cursor: pointer;
 }
 
+.drawer_wrapper{
+    height: 100vh;
+    width: 25%;
+    max-width: 350px;
+}
 .drawer_wrapper_after{
-    position: fixed;
-    width: 100%;
-    display: flex;
+    padding-top: 150px;
+    width: 100vw !important;
+    top: -150px;
+    height: calc(100% + 150px) !important;
+    display: block !important;
+    position: absolute;
+    max-width: none;
 }
 .d_white_space{
     margin-top: 170px;
 }
 
 #drawer {
-    top: -150px;
     z-index: 5;
     display: flex;
     height: 100vh;
     position: relative;
-    width: 300px;
+    width: 100%;
     font-size: 22px;
     flex-direction: column;
+    min-width: 220px;
 }
 .drawer_text:hover{
     color: #F0F0E6;
