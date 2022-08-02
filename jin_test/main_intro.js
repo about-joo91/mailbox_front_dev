@@ -48,9 +48,6 @@ document.querySelector('.nav_container').addEventListener('click', function (e) 
 
 
 
-
-
-
 function logout() {
     localStorage.clear();
     location.replace('/user/sign_in.html')
