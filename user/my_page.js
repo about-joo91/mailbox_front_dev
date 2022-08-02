@@ -43,7 +43,7 @@ window.onload = async () => {
 }
 const unauthorized = (response) => {
     alert(response.detail)
-    location.replace('/won_test/signin.html');
+    location.replace('/user/signin.html');
 }
 const my_profile_exist = (response) =>{
     my_profile_desc = response.description;
@@ -168,7 +168,7 @@ const delete_my_cate = async (cate_num) => {
             break;
         case 401:
             alert(response['detail'])
-            location.replace('/won_test/signin.html');
+            location.replace('/user/signin.html');
             break;
         case 404:
             alert(response['detail'])

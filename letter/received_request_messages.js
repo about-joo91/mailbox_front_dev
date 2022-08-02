@@ -68,42 +68,44 @@ async function get_request_messages() {
         },
     })
     let res = await result.json()
-    if (result.status == 200) {
-        pagenation(res.total_count, 10, 10, url_page_num)
-        let tmp_request_message = ``
-        for (let i = 0; i < res.request_message.length; i++){
-            request_message = res.request_message[i]
-            tmp_request_message += `
-            <div class="md_bb_bl_board" id="md_bb_bl_board">
-                <div class="md_bb_bl_board_box">
-                    <div class="md_bb_bl_bd_description">
-                        <!-- <div class="md_bb_bl_bd_desc_image_icon"></div> -->
-                        <div class="md_bb_bl_bd_middle">
-                            <div class="md_bb_bl_bd_hidden_name">${request_message.worry_board_category}</div>
-                            <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
-                        </div>    
-                    </div>
-                    <div class="md_bb_bl_bd_content">
-                        <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
-                            ${request_message.request_message}
-                        </p>
-                        <div class="md_bb_bl_bd_ct_right">
-                            <div class="md_bb_bl_bd_ct_rg_border"></div>
+
+    switch (result.status){
+        case 200:
+            pagenation(res.total_count, 10, 10, url_page_num)
+            let tmp_request_message = ``
+            for (let i = 0; i < res.request_message.length; i++){
+                request_message = res.request_message[i]
+                tmp_request_message += `
+                <div class="md_bb_bl_board" id="md_bb_bl_board">
+                    <div class="md_bb_bl_board_box">
+                        <div class="md_bb_bl_bd_description">
+                            <!-- <div class="md_bb_bl_bd_desc_image_icon"></div> -->
+                            <div class="md_bb_bl_bd_middle">
+                                <div class="md_bb_bl_bd_hidden_name">${request_message.worry_board_category}</div>
+                                <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
+                            </div>    
+                        </div>
+                        <div class="md_bb_bl_bd_content">
+                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                                ${request_message.request_message}
+                            </p>
+                            <div class="md_bb_bl_bd_ct_right">
+                                <div class="md_bb_bl_bd_ct_rg_border"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="md_bb_bl_bd_request">
-                <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">고민 글</button>
-                </div>
-            </div>`
+                    <div class="md_bb_bl_bd_request">
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">고민 글</button>
+                    </div>
+                </div>`
 
-            const board_lists = document.querySelector(".mc_bb_board_lists")
-            board_lists.innerHTML = tmp_request_message
-        }
-    }
-    else {
-        alert("세션이 만료 되었습니다.")
-        go_sign_in()
+                    const board_lists = document.querySelector(".mc_bb_board_lists")
+                    board_lists.innerHTML = tmp_request_message
+                }
+            break;
+        default:
+            alert("세션이 만료 되었습니다.")
+            go_sign_in()       
     }
 }
 
@@ -127,12 +129,13 @@ async function edit_request_message(request_message_id){
         })
     })
     let res = await result.json()
-    if (result.status == 200) {
-        alert(res['detail'])
-        location.reload()
-    }
-    else{
-        alert(res['detail'])
+    switch (result.status){
+        case 200:
+            alert(res['message'])
+            location.reload()
+            break;
+        default:
+            alert(res['message'])
     }
 }
 
@@ -151,12 +154,13 @@ async function delete_request_message(request_message_id){
         },
     })
     let res = await result.json()
-    if (result.status == 200) {
-        alert(res['detail'])
-        click_page_num(0)
-    }
-    else{
-        alert(res['detail'])
+    switch(result.status){
+        case 200:
+            alert(res['message'])
+            click_page_num(0)
+            break;
+        default:
+            alert(res['message'])
     }
 }
 

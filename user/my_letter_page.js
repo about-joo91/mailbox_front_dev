@@ -55,7 +55,7 @@ window.onload = onload_page()
 
 // onload에 묶인 함수들
 const when_whole_letter_is_not_read = ()=> {
-    location.replace('/joo_test/my_letter_page.html?page_name=my_not_read_letter')
+    location.replace('/user/my_letter_page.html?page_name=my_not_read_letter')
 }
 const default_page = (response) => {
     const lm_header = document.querySelector('.lm_header');
@@ -77,14 +77,14 @@ const default_page = (response) => {
 }
 const unauthorized = (response) => {
     alert(response.detail)
-    location.replace('/won_test/signin.html');
+    location.replace('/user/signin.html');
 }
 const letters_not_exist = (response) => {
     if (page_name === "my_not_read_letter"){
-        location.replace('/joo_test/my_letter_page.html?page_name=my_recieved_letter')
+        location.replace('/user/my_letter_page.html?page_name=my_received_letter')
     }else{
         alert(response['detail'])
-        location.href = '/ko_test_worry_board/worry_board_page.html'
+        location.href = '/letter/worry_board_page.html'
     }
     
 }
@@ -96,7 +96,7 @@ const push_new_letter_button = (response) => {
     <div class="lm_bubble">${response.not_read_letter_cnt}개의 읽지않은 편지가 있습니다.</div>`;
 }
 const push_before_button = () => {
-    lm_whole_letter_box.innerHTML = `<i class="fa-solid fa-arrow-left whole_letter_icon" onclick="get_letter_by_params('my_recieved_letter')"></i>`
+    lm_whole_letter_box.innerHTML = `<i class="fa-solid fa-arrow-left whole_letter_icon" onclick="get_letter_by_params('my_received_letter')"></i>`
 }
 const letters_exist = (response) => {
     page_name = urlParams.get("page_name");
@@ -116,7 +116,7 @@ const letters_exist = (response) => {
             user_info = response.letter.received_user;
             push_before_button();
             break;
-        case "my_recieved_letter":
+        case "my_received_letter":
             user_info = response.letter.received_user
             if (is_read_letter_exists) push_new_letter_button(response)
             break;
@@ -359,7 +359,7 @@ const edit_review = async(letter_review_id) => {
     switch(result.status){
         case 203:
             alert(response.detail)
-            location.replace('/joo_test/my_letter_page.html')
+            location.replace('/user/my_letter_page.html')
             break;
         default:
             alert(response.detail)
@@ -390,7 +390,7 @@ const create_review = async(letter_id) => {
     switch(result.status){
         case 203:
             alert(response.detail)
-            location.replace('/joo_test/my_letter_page.html')
+            location.replace('/user/my_letter_page.html')
             break;
         default:
             alert(response.detail)
@@ -422,7 +422,7 @@ const delete_review = async(letter_review_id) => {
     switch(result.status){
         case 203:
             alert(response.detail)
-            location.replace('/joo_test/my_letter_page.html')
+            location.replace('/user/my_letter_page.html')
             break;
         default:
             alert(response.detail)
