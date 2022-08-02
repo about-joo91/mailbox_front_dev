@@ -188,3 +188,23 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 function click_page_num(url_page_num){
     location.href = 'recieved_request_messages.html?page_num=' + url_page_num
 }
+
+function main_modal(){
+    document.querySelector('.drawer_wrapper').style.display ='flex';
+    document.getElementById('drawer').style.display ='flex';
+}
+
+document.querySelector('.main_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 850){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    }
+})
+
+document.querySelector('.nav_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 850){
+        document.getElementById('drawer').style.display ='none';
+        document.querySelector('.drawer_wrapper').style.display ='none';
+        }
+})
+
