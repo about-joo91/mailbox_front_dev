@@ -67,12 +67,13 @@ async function get_request_messages() {
     let res = await result.json()
     switch(result.status){
         case 200:
+            console.log(res)
             pagenation(res.total_count, 10, 10, url_page_num)
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
                 tmp_request_message += `
-                <div class="md_bb_bl_board" id="md_bb_bl_board">
+                <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
                     <div class="md_bb_bl_board_box">
                         <div class="md_bb_bl_bd_description">
                             <!-- <div class="md_bb_bl_bd_desc_image_icon"></div> -->
@@ -95,7 +96,8 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}')">고민 글</button>
+                    <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button">편지 쓰기<button id="md_bb_bl_bd_post_button"></button></a>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">수락 대기</button>
                     </div>
                 </div>`
 
@@ -209,6 +211,10 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 function click_page_num(url_page_num){
     location.href = 'send_request_messages.html?page_num=' + url_page_num
 }
+
+
+
+
 
 function main_modal(){
     document.querySelector('.drawer_wrapper').style.display ='flex';
