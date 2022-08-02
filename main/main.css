@@ -332,7 +332,7 @@ display: none;
     align-items: center;
     margin-bottom: 10px;
     font-size: 25px;
-    min-width: 100%;
+    min-width: 83%;
     height: 40px;
     border-radius: 10px;
     padding: 10px 0px 10px 30px;
@@ -687,13 +687,13 @@ display: none;
 @media (max-height: 896px) {
     #drawer{
         position: relative;
-        top: 5%;
+        top: 15%;
     }
 }
 
 @media (max-height: 845px) {
     #drawer{
-        top: 10%;
+        top: 15%;
     }
 }
 
