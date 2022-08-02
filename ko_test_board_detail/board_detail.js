@@ -247,8 +247,16 @@ async function delete_board(board_id, page_num){
         },
     })
     let res = await result.json()
-    alert(res['detail'])
-    href_board_detail(url_board_id)
+    switch (result.status){
+        case 200:
+            alert(res['detail'])
+            href_board_detail(url_board_id)
+            break;
+        default:
+            alert(res['detail'])
+            href_board_detail(url_board_id)
+    }
+
 }
 
 // 좋아요를 눌렀을 떄 실행되는 코드
