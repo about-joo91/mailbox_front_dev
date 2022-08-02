@@ -276,95 +276,107 @@ async function get_worry_board() {
         },
     })
     let res = await result.json()
+    var check_recommended = (res.recommended_cnt > 0)
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
-
-            let tmp_board = ``
-            for (let i = 0; i < res.boards.length; i++){
-                board = res.boards[i]
-                board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
-                console.log(board)
-                let request_button_type = ""
-                if(board.request_status == "요청"){
-                    request_button_type = "do_request"
-                }
-                else if (board.request_status == "요청취소"){
-                    request_button_type = "cancle_request"
-                }
-                else if (board.request_status == "수락됨"){
-                    request_button_type = "accepted_request"
-                }
-                else{
-                    request_button_type = "disaccepted_request"
-                }
-                console.log(board.is_worry_board_writer)
-        
-                category_name = board.category_list[board.category]
-
-                if(board.is_worry_board_writer == true){
-                    tmp_board += `
-                    <div class="md_bb_bl_board" id="md_bb_bl_board_1">
-                    <div class="md_bb_bl_board_box">
-                        <div class="md_bb_bl_bd_description">
-                            <div class="md_bb_bl_bd_desc_image_icon"></div>
-                            <div class="md_bb_bl_bd_middle">
-                                <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
-                                <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                            </div>                         
-                            <div class="md_bb_bl_bd_desc_edit_delete">
-                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_edit_modal(` + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
-                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_worry_board('${board.id}', '${url_page_num}')">삭제</div>
-                            </div>
-                        </div>
-                        <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                                ${board.content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${board.request_status}</button>
-                    </div>
-                </div>`
-                }
-                else{
-                    tmp_board += `
-                    <div class="md_bb_bl_board" id="md_bb_bl_board_1">
-                    <div class="md_bb_bl_board_box">
-                        <div class="md_bb_bl_bd_description">
-                            <div class="md_bb_bl_bd_desc_image_icon"></div>
-                            <div class="md_bb_bl_bd_middle">
-                                <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
-                                <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
-                            </div>
-                        </div>
-                        <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                                ${board.content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal_${request_button_type}('${board.id}', '${board.content}', '${board.request_message_id}')">${board.request_status}</button>
-                    </div>
-                </div>`
+            worry_board_list(res.boards)
+            if (check_recommended){
+                let tmp_board = `<div class="mc_bt_cb_category" onclick="click_category(7)">추천</div>`
+                const board_lists = document.querySelector(".mc_bt_category_box")
+                board_lists.insertAdjacentHTML("afterbegin",tmp_board)
             }
-            }
-            const board_lists = document.querySelector(".mc_bb_board_lists")
-            board_lists.innerHTML = tmp_board
             break;
         default:
             alert("세션이 만료 되었습니다.")
             go_sign_in()
     }
 }
+
+
+function worry_board_list(boards){
+    let tmp_board = ``
+    for (let i = 0; i < boards.length; i++){
+        board = boards[i]
+        board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
+
+        let request_button_type = ""
+        switch (board.request_status){
+            case "요청":
+                request_button_type = "do_request"
+                break;
+            case "요청취소":
+                request_button_type = "cancle_request"
+                break;
+            case "수락됨":
+                request_button_type = "accepted_request"
+                break;
+            default:
+                request_button_type = "disaccepted_request"
+        } 
+        category_name = board.category_list[board.category]
+
+        if(board.is_worry_board_writer == true){
+            tmp_board += `
+            <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+            <div class="md_bb_bl_board_box">
+                <div class="md_bb_bl_bd_description">
+                    <div class="md_bb_bl_bd_desc_image_icon"></div>
+                    <div class="md_bb_bl_bd_middle">
+                        <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
+                        <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
+                    </div>                         
+                    <div class="md_bb_bl_bd_desc_edit_delete">
+                        <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_edit_modal(` + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
+                        <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_worry_board('${board.id}', '${url_page_num}')">삭제</div>
+                    </div>
+                </div>
+                <div class="md_bb_bl_bd_content">
+                    <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                        ${board.content}
+                    </p>
+                    <div class="md_bb_bl_bd_ct_right">
+                        <div class="md_bb_bl_bd_ct_rg_border"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="md_bb_bl_bd_request">
+                <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${board.request_status}</button>
+            </div>
+        </div>`
+        }
+        else{
+            tmp_board += `
+            <div class="md_bb_bl_board" id="md_bb_bl_board_1">
+            <div class="md_bb_bl_board_box">
+                <div class="md_bb_bl_bd_description">
+                    <div class="md_bb_bl_bd_desc_image_icon"></div>
+                    <div class="md_bb_bl_bd_middle">
+                        <div class="md_bb_bl_bd_hidden_name">${category_name}</div>
+                        <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
+                    </div>
+                </div>
+                <div class="md_bb_bl_bd_content">
+                    <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                        ${board.content}
+                    </p>
+                    <div class="md_bb_bl_bd_ct_right">
+                        <div class="md_bb_bl_bd_ct_rg_border"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="md_bb_bl_bd_request">
+                <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal_${request_button_type}('${board.id}', '${board.content}', '${board.request_message_id}')">${board.request_status}</button>
+            </div>
+        </div>`
+    }
+    }
+    const board_lists = document.querySelector(".mc_bb_board_lists")
+    board_lists.innerHTML = tmp_board
+}
+
+
+
 
 // 페이지네이션에 관련된 함수 (window.onload시 로드함)
 function pagenation(total_count, bottomSize, listSize, page_num ){

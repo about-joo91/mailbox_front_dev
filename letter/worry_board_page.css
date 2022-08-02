@@ -180,7 +180,7 @@ body{
     cursor: pointer;
 }
 .mc_bt_category_box{
-    width: 60%;
+    width: 65%;
     height: 100%;
     display: flex;
     justify-content: space-between;
