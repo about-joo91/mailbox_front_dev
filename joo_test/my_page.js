@@ -32,37 +32,34 @@ window.onload = async () => {
     const response = await result.json();
     switch(result.status){
         case 200:
-            letters_exist(response)
-            break;
-        case 303:
-            letters_not_exist(response);
+            my_profile_exist(response)
             break;
         case 401:
             unauthorized(response)
             break;
+        default:
+            alert(response['detail'])
         }
 }
 const unauthorized = (response) => {
     alert(response.detail)
     location.replace('/won_test/signin.html');
 }
-const letters_not_exist = (response) => {
-    alert(response['detail'])
-    location.href = '/ko_test_worry_board/worry_board_page.html'
-}
-const letters_exist = (response) =>{
+const my_profile_exist = (response) =>{
     my_profile_desc = response.description;
     let cate_html = ``
     let cate_array = response.categories
+    let mongle = response.mongle_grade
     cate_array.forEach(element =>
         cate_html += `<div id="cate_${element.id}" class="category_style">${element.cate_name}</div>`
     )
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
-    nc_sb_nav.innerHTML += `<p>
-    나의 몽글 점수: ${response.mongle_grade}
-</p>
-<img class ="nc_mongle"src="/mongle.jpeg">
-<div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"><div>`
+    nc_sb_nav.innerHTML += `
+    <p>
+    나의 몽글 점수: ${mongle.grade}
+    </p>
+    <div class ="nc_mongle" style="background-image:url(`+ mongle.mongle +`)"></div>
+    <div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"></div>`
 
     const mpc_c_header = document.querySelector('.mpc_c_header');
     mpc_c_header.innerHTML += `${response.user}님의 프로필`
@@ -73,10 +70,10 @@ const letters_exist = (response) =>{
     const mpc_c_b_u_rcb_name = document.querySelector('.mpc_c_b_u_rcb_name');
     mpc_c_b_u_rcb_name.innerHTML = `
     <div>${response.fullname}</div>
-    <div>${response.mongle_level}레벨</div>
+    <div>${mongle.level}레벨</div>
     `
     const mpc_c_b_u_rcb_category_box = document.querySelector('.mpc_c_b_u_rcb_category_box');
-    mpc_c_b_u_rcb_category_box.innerHTML += cate_html + `<div class="category_plus_btn" onclick="add_my_cate_ready(this)"> + </div>`
+    mpc_c_b_u_rcb_category_box.innerHTML += cate_html + `<div class="category_plus_btn" ontouchstart="add_my_cate_ready()" onclick="add_my_cate_ready()"> + </div>`
     const mpc_c_body_down = document.querySelector('.mpc_c_body_down');
     mpc_c_body_down.innerHTML = response.description +`<span onclick="desc_edit_ready()" class="mpc_c_bd_edit_button">
     수정하기
@@ -100,16 +97,47 @@ category_box.addEventListener('mouseup', () => {
         let cur_top=0
         let cur_width=0
         category_style.forEach(element => {
+            console.log(element)
             let cate_id = element.id.split('_')[1]
             let offset = element.getBoundingClientRect()
             cur_top = offset.top;
             cur_left = offset.left;
             cur_width = offset.width;
             category_x_btn += `<div id="category_x_btn_${cate_id}" 
-            style="position:absolute;top:${cur_top-20}px;
-            left:${cur_left + cur_width -10}px" class="category_x_btn" onclick="delete_my_cate(${cate_id})"> x </div>`
+            style="top:${cur_top- 15}px; left:${cur_left + cur_width}px" class="category_x_btn" onclick="delete_my_cate(${cate_id})"> x </div>`
         })
-        category_box.innerHTML+= category_x_btn;
+        document.body.innerHTML+= category_x_btn;
+        second_cnt = 0
+    }else{
+        second_cnt = 0
+    }
+})
+category_box.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    sec_cnt_interval = setInterval(() => {
+        second_cnt++
+    }, 10);
+})
+category_box.addEventListener('touchend', () => {
+    clearInterval(sec_cnt_interval);
+    if (second_cnt > 40){
+        const category_style = document.querySelectorAll('.category_style');
+        let category_x_btn = ``
+        let cur_left=0
+        let cur_top=0
+        let cur_width=0
+        category_style.forEach(element => {
+            console.log(element)
+            let cate_id = element.id.split('_')[1]
+            let offset = element.getBoundingClientRect()
+            cur_top = offset.top;
+            cur_left = offset.left;
+            cur_width = offset.width;
+            console.log(cur_top, cur_left)
+            category_x_btn += `<div id="category_x_btn_${cate_id}" 
+            style="top:${cur_top- 15}px; left:${cur_left + cur_width}px" class="category_x_btn" onclick="delete_my_cate(${cate_id})"> x </div>`
+        })
+        document.body.innerHTML+= category_x_btn;
         second_cnt = 0
     }else{
         second_cnt = 0
@@ -148,11 +176,12 @@ const delete_my_cate = async (cate_num) => {
     }
 }
 
+
 // 카테고리를 더하는 모달
 const add_cate_modal_wrapper = document.querySelector('.add_cate_modal_wrapper');
 const add_cate_modal = document.querySelector('.add_cate_modal');
 const acm_body = document.querySelector('.acm_body');
-const add_my_cate_ready = async (element) => {
+const add_my_cate_ready = async () => {
     let url = new URL(BASE_URL + 'user/profile/category')
     let token = localStorage.getItem('access');
     const result = await fetch(url,{
@@ -172,14 +201,9 @@ const add_my_cate_ready = async (element) => {
             add_cate_html += `<option class="category_option" value="${item.id}">${item.cate_name}</option>`
         })
         acm_body.innerHTML = add_cate_html
+        add_cate_modal_wrapper.style.display = 'flex';
     }
-    this_el_rect = element.getBoundingClientRect()
-    let modal_left = this_el_rect.left + this_el_rect.width
-    let modal_top = this_el_rect.top
-    add_cate_modal_wrapper.style.display = 'block';
-    add_cate_modal.style.position = 'absolute';
-    add_cate_modal.style.left = modal_left +'px';
-    add_cate_modal.style.top = modal_top +'px';
+    
 }
 
 add_cate_modal_wrapper.addEventListener('click',function(e){
@@ -228,7 +252,7 @@ const edit_desc_modal_wrapper = document.querySelector('.edit_desc_modal_wrapper
 const edm_textarea = document.querySelector('.edm_textarea');
 const desc_edit_ready = () => {
     edm_textarea.innerText = my_profile_desc;
-    edit_desc_modal_wrapper.style.display = 'block';
+    edit_desc_modal_wrapper.style.display = 'flex';
 }
 edit_desc_modal_wrapper.addEventListener('click', function(e){
     if(e.target.classList.contains('edit_desc_modal_wrapper')){
@@ -265,14 +289,14 @@ const call_edit_desc = async() => {
         alert(response)
     }
 }
-// 오픈 드라워 추후 미디어 쿼리에 적용 예정
-// const open_drawer = document.getElementById('open_drawer');
-// const drawer_wrapper = document.querySelector('.drawer_wrapper');
-// open_drawer.addEventListener('click', function(){
-//     drawer_wrapper.classList.toggle("drawer_wrapper_after")
-// })
-// drawer_wrapper.addEventListener('click',function(e){
-//     if(e.target.classList.contains('drawer_wrapper')){
-//         drawer_wrapper.classList.toggle("drawer_wrapper_after")
-//     }
-// })
+// 메뉴바 오픈 
+const open_drawer = document.querySelector('.open_drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+open_drawer.addEventListener('click', function(){
+    drawer_wrapper.classList.toggle("drawer_wrapper_after")
+})
+drawer_wrapper.addEventListener('click',function(e){
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer_wrapper.classList.toggle("drawer_wrapper_after")
+    }
+})

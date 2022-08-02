@@ -358,3 +358,23 @@ function href_board(page_num){
 function href_main(){
     location.href = '../../jin_test/main_intro.html'
 }
+
+
+function main_modal(){
+    document.querySelector('.drawer_wrapper').style.display ='flex';
+    document.getElementById('drawer').style.display ='flex';
+}
+
+document.querySelector('.main_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 950){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    }
+})
+
+document.querySelector('.nav_container').addEventListener('click', function (e) {
+    if (window.innerWidth <= 950){
+        document.getElementById('drawer').style.display ='none';
+        document.querySelector('.drawer_wrapper').style.display ='none';
+        }
+})

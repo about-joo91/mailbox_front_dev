@@ -12,35 +12,26 @@ body{
     ;
 }
 .nav_container {
+    z-index: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 10rem;
-    background-color: #F0F0E6;
+    height: 100px;
+    background-color: F0F0E6;
 }
 
 .nc_sub_container{
     display: flex;
+    justify-content: end;
     width: 100%;
-    height: 10rem;
-    justify-content: space-between
-}
-.nc_sb_modal {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    cursor: pointer;
-    margin-left: 8rem;
-    margin-top: 4rem;
-    margin-bottom: 3rem;
+    height: 100px;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 8rem;
-    margin-top: 4rem;
+    margin-right: 80px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -48,48 +39,45 @@ body{
 }
 
 .nc_mongle {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-size: cover;
     border-radius: 30px;
-    width: 6rem;
-    height: 6rem;
-    margin-left: 1rem;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
 }
 .nc_profile {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-size: cover;
     border-radius: 30px;
-    width: 6rem;
-    height: 6rem;
-    margin-left: 1rem;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
+    margin-left: -15px;
+
 }
 
-/* 메인시작 */
-.main_container{
-    width: 100%;
-    /* height: 110rem; */
-    background-color: #F0F0E6;
-    margin-top: 1.4rem;
-    display: flex;
-    flex-direction: column;
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
     align-items: center;
-}
-
-/* 옆에 링크바 */
-
-
-.drawer_wrapper{
-    position: fixed;
-    left: 0%;
-    top: 16.5%;
+    width: 30px;
+    height: 142px;
 }
 .drawer_text{
     padding: 20px 0px;
     border-radius: 15px;
     text-align: center;
-    width: 100%;
+    width: 96%;
     margin-left: 5px;
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
+}
+.drawer_text:hover{
     cursor: pointer;
 }
 
@@ -99,26 +87,42 @@ body{
 .mpc_c_bd_edit_button{
     color: #F0F0E6;
     font-size: 18px;
+}
+.mpc_c_bd_edit_button:hover{
     cursor: pointer;
 }
 
-
 .drawer_wrapper_after{
     position: fixed;
-    width: 100%;
     display: flex;
 }
 .d_white_space{
-    margin-top: 170px;
+    margin-top: -500px;
+}
+.drawer_wrapper{
+    display: flex;
+    position: fixed;
+    min-width: 220px;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 15%;
+    position: fixed;
+    font-size: 22px;
+    flex-direction: column;
+    background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
-    top: -150px;
     z-index: 5;
     display: flex;
     height: 100vh;
-    position: relative;
-    width: 300px;
+    justify-content: center;
+    position: fixed;
+    width: 15%;
+    min-width: 220px;
+    left: 0;
+    top: 0;
     font-size: 22px;
     flex-direction: column;
 }
@@ -131,16 +135,41 @@ body{
     background-color: rgba(80, 80, 80, 1);
 }
 
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    width: 30px;
+    height: 142px;
+}
+
+
+
+.main_container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    position: relative;
+    left: 32%;
+}
+
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 63.7%;
+    width: 50%;
     height: 10rem;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 1.5rem;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
+    justify-content: space-around;
 }
 .mc_bt_empty{
     width: 20%;
@@ -148,7 +177,6 @@ body{
 .mc_bt_title_text{
     font-size: 35px;
     color: white;
-    margin-left: 6.2rem;
     cursor: pointer;
 }
 .mc_bt_category_box{
@@ -167,7 +195,7 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
-    width: 63.7%;
+    width: 50%;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -177,13 +205,9 @@ body{
     justify-content: center;
     background-color: #E2CA9B;
     margin-bottom: 8rem;
+    border: 1px solid gray;
 }
-.mc_bt_title_text{
-    font-size: 35px;
-    color: white;
-    margin-left: 6.2rem;
-    cursor: pointer;
-}
+
 .mc_bb_board_lists{  
     width: 90.9%;
     /* height: 70rem; */
@@ -208,7 +232,7 @@ body{
     cursor: pointer;
 }
 .cur_page{
-    color: blue;
+    color: white;
     font-weight: 600;
     cursor: pointer;
 }
@@ -233,11 +257,12 @@ body{
     display: flex;
     flex-wrap: nowrap;
     padding-top: 1rem;
+    align-items: center;
 
 }
 .md_bb_bl_bd_desc_image_icon{
-    width: 4.5%;
-    height: 100%;
+    width: 50px;
+    height: 40px;
     background-position: center;
     background-size: cover;
     background-image: url("/mongle.jpeg");
@@ -387,8 +412,9 @@ body{
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.8);
     color: white;
-    font-size: 2.4rem;
+    font-size: 20px;
     cursor: pointer;
+
 }
 
 .open_modal_button{
@@ -415,11 +441,12 @@ body{
     height: 100%;
     z-index: 2;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 .small_modal{
     width: 40%;
     height: 83rem;
-    position: absolute;
 }
 
 .sm_title{
@@ -428,7 +455,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: rgba(176, 170, 109, 0.8);
+    background-color: rgba(176, 170, 109, 1);
     border-radius: 15px;
 }
 
@@ -439,7 +466,7 @@ body{
     margin-left: 5.5rem;
 }
 .sm_tt_category{
-    width: 14%;
+    width: 20%;
     height: 50%;
     border-radius: 15px;
     margin-left: 2rem;
@@ -448,6 +475,7 @@ body{
     justify-content: center;
     align-items: center;
     text-align: center;
+    outline: none;
 }
 .sm_tt_title_input{
     font-size: 2.4rem;
@@ -469,12 +497,13 @@ body{
     justify-content: center;
 }
 .sm_bd_text{
-    width: 100%;
-    height: 5.5rem;
-    font-size: 2.6rem;
+    width: 80%;
+    height: 7.5rem;
+    font-size: 2.5rem;
     color: white;
-    margin-left: 13rem;
-    padding-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .sm_bd_content{
     width: 91%;
@@ -484,9 +513,10 @@ body{
     width: 93%;
     height: 93%;
     resize: none;
+    outline: none;
     border-radius: 15px;
     font-size: 2rem;
-    color: #A4A457;
+    color: rgba(80, 80, 80, 1);
     padding: 3%;
 }
 .sm_bd_button{
@@ -495,18 +525,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.5rem ;
+    margin-top: 10px;
 }
 
 .sm_bd_submit_button{
     cursor: pointer;
-    margin-top: 5rem;
     background-color: rgba(176, 170, 109, 0.8);
-    width: 10%;
+    width: 14%;
     height: 5rem;
     color: white;
     font-size: 2rem;
     border-radius: 15px;
+    border: none;
 }
 
 /* request 모달 */
@@ -529,8 +559,9 @@ body{
     padding: 2rem 0 0 3rem;
 }
 .my_worry_board{
-    background-color: lightgray;
-    color: black;
+    background-color: #F0F0E6;
+    color: rgb(80, 80, 80);
+    border: none;
 }
 /* cancle_request 모달 */
 .cancle_request_small_modal{
@@ -567,7 +598,7 @@ body{
     width: 100%;
     /* height: 10rem; */
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-c;
     align-items: center;
     margin-bottom: 1.5rem;
 }
@@ -596,11 +627,162 @@ body{
     border-radius: 15px;
 }
 
+@media (max-width: 1750px) {
+    .my_worry_board  {
+        font-size: 17px;
+    }
+    .md_bb_bl_bd_desc_image_icon{
+        width: 40px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 1530px) {
+    .mc_bt_cb_category   {
+        font-size: 2.4rem;
+    }
+    .md_bb_bl_bd_desc_image_icon{
+        width: 40px;
+        height: 30px;
+    }
+    .md_bb_bl_bd_request_button {
+        width: 90%;
+    }
+    .mc_bt_title_text {
+        font-size: 30px;
+    }
+}
 
 
+@media (max-width: 1380px) {
+    .mc_board_title, .mc_board_body   {
+        width: 60%;
+    }
+    .main_container {
+        left: 29%;
+    }
+    .sm_bd_text {
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 980px) {
+    .mc_bt_cb_category   {
+        font-size: 2.3rem;
+    }
+}
 
 
+@media (max-width: 950px) {
+    .mc_bt_cb_category   {
+        font-size: 2.3rem;
+    }
+    .drawer_wrapper{
+        display: none;
+        background: rgb(235 233 215 / 100%);
+    }
+    .nc_sb_modal{
+        display: flex;
+        height: 130px;
+        left: 7%;
+    }
+    .nc_sb_nav {
+        margin-right: 30px;
+        margin-bottom: 0px;
+        height: 113px;
+    }
+    .nc_sb_modal {
+        height: 113px;
+    }
+    .main_container{
+        align-items: center;
+        position: unset;
+        left: unset;
+        top: unset;
+    }
+    .mc_board_title,.mc_board_body{
+        width: 99%;
+    }
+    .small_modal {
+        width: 70%;
+    }
+    .sm_bd_text {
+        font-size: 22px;
+    }
+    .open_modal_button{
+        width: 7rem;
+        height: 7rem;
+        line-height: 7rem;
+    }
+}
 
+@media (max-width: 650px) {
+    .mc_bt_title_text    {
+        font-size: 27px;
+    }
+    .mc_bt_cb_category {
+        font-size: 2rem;
+    }
+    .md_bb_bl_bd_request_button {
+        width: 80%;
+    }
+    .my_worry_board{
+        font-size: 14px;
+    }
+    .open_modal_button{
+        left: 80%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .mc_bt_title_text    {
+        font-size: 24px;
+    }
+    .mc_bt_cb_category {
+        font-size: 1.7rem;
+    }
+    .md_bb_bl_bd_request_button {
+        width: 90%;
+    }
+    .my_worry_board{
+        font-size: 13px;
+    }
+    .md_bb_bl_bd_desc_edit_delete{
+        width: 44%;
+    }
+}
+
+@media (max-width: 450px) {
+    .main_container{
+        margin-top: 0px;
+    }
+    .mc_bt_cb_category{
+        max-width: 20px;
+    }
+    .md_bb_bl_bd_desc_image_icon {
+        width: 30px;
+        height: 20px;
+    }
+    .md_bb_bl_bd_request {
+        margin-bottom: -20px;
+        width: 25%;
+        margin-right: 4px;
+    }
+    .md_bb_bl_bd_desc_ed_delete{
+        margin-left: 10px;
+    }
+    .md_bb_bl_bd_desc_create_date {
+        margin-left: 1rem;
+    }
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 65%;
+    }
+    .md_bb_bl_bd_hidden_name{
+        font-size: 2.05rem;    
+    }
+}
 
 
 @media (max-width: 780px) {
@@ -628,6 +810,7 @@ body{
     .nc_profile {
         width: 40px;
         height: 40px;
+        margin-left: 1px;
     }
     .nc_mongle {
         width: 40px;
@@ -647,4 +830,38 @@ body{
     body {
         background: #F0F0E6
     }
+}
+
+@media (max-height: 896px) {
+    .open_modal_button {
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        top: 90%;
+    }
+    .small_modal {
+        height: 59rem;
+    }
+    .sm_bd_text {
+        font-size: 19px;
+    }
+    .sm_tt_category{
+        width: 20%;
+        font-size: 1.5rem;
+    }
+    .sm_bd_submit_button {
+        width: 20%;
+        height: 4rem;
+    }
+    .sm_tt_text{
+        font-size: 2.3rem;
+
+    }
+    #drawer{
+        top: 129px;
+    }
+    .small_modal{
+        width: 99%;
+    }
+
 }

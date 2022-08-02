@@ -129,7 +129,7 @@ const letters_exist = (response) => {
     나의 몽글 점수: ${user_info.monglegrade.grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+user_info.monglegrade.mongle +`)"></div>
-    <div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"><div>`
+    <div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"></div>`
     let letter = response.letter
     lm_header.innerText = letter.title
     let letter_content_html = `<div class="letter_content">
@@ -210,11 +210,14 @@ const make_page_num = (letter_cnt) => {
 const letter_modal_in = () => {
     letter_modal_wrapper.style.display = 'flex';
     letter_modal.classList.add('letter_animate');
+    drawer_wrapper.style.display = 'none';
+    
 }
 
 letter_modal_wrapper.addEventListener('click', (e) => {
     if(e.target.classList.contains('letter_modal_wrapper')){
         letter_modal_wrapper.style.display = 'none';
+        drawer_wrapper.style.display = 'block';
     }
 })
 
@@ -427,14 +430,14 @@ const delete_review = async(letter_review_id) => {
             break;
     }
 }
-// 메뉴바를 오픈하는 부분 추후에 media 쿼리 때 쓸 예정
-// const open_drawer = document.getElementById('open_drawer');
-// const drawer_wrapper = document.querySelector('.drawer_wrapper');
-// open_drawer.addEventListener('click', function(){
-//     drawer_wrapper.classList.toggle("drawer_wrapper_after")
-// })
-// drawer_wrapper.addEventListener('click',function(e){
-//     if(e.target.classList.contains('drawer_wrapper')){
-//         drawer_wrapper.classList.toggle("drawer_wrapper_after")
-//     }
-// })
+// 메뉴바 오픈 
+const open_drawer = document.querySelector('.open_drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+open_drawer.addEventListener('click', function(){
+    drawer_wrapper.classList.toggle("drawer_wrapper_after")
+})
+drawer_wrapper.addEventListener('click',function(e){
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer_wrapper.classList.toggle("drawer_wrapper_after")
+    }
+})
