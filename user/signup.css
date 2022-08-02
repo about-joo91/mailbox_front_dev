@@ -63,7 +63,7 @@ body {
 
 .mb_title{
     color: #F0F0E6;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
@@ -83,6 +83,8 @@ body {
     border: none;
     border-radius: 10px;
     text-align: center;
+    outline: none;
+    font-size: 20px;
 }
 
 input::placeholder{
