@@ -32,6 +32,12 @@ body,html{
         margin-top: 0 !important;
         margin-right: 40px !important;
     }
+    .nc_mongle, .nc_profile{
+        
+        width: 70px !important;
+        height: 70px !important;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -136,20 +142,20 @@ body,html{
 
 .nc_mongle {
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
-    margin-left: 10px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     background-position: center;
     background-size: cover;
 }
 .nc_profile {
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     background-position: center;
     background-size: cover;
+    margin-left: -15px;
 }
 
 .open_drawer {
