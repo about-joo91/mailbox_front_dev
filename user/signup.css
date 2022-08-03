@@ -14,6 +14,7 @@ body {
 .main_container{
     background-color: #F0F0E6;
     width: 54%;
+    max-width: 60rem;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,7 +23,6 @@ body {
 }
 
 .mc_mongle{
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,8 +30,7 @@ body {
 }
 
 .mc_mongle_logo{
-    /* background-color: red; */
-    font-size: 3.2rem;
+    font-size: 3.4rem;
     color:#FEAA4B;
     font-weight: bold;
     font-family: 'Square Peg', cursive;
@@ -41,9 +40,10 @@ body {
     background-image: url("/mongle_with_letter.png");
     background-size: cover;
     background-position: center;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-top: .7em;
+    
 }
 
 
@@ -89,9 +89,9 @@ body {
 }
 
 input::placeholder{
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
-    color: black;
+    color:rgba(80, 80, 80, 1);
 }
 
 
@@ -109,20 +109,20 @@ input::placeholder{
 .btn{
     background-color: #9D9D58;
     color: #F0F0E6;
-    display: inline-block;
+    display: inline;
     height: 4.5vh;
     border:none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     white-space : nowrap;
 }
 
-.ms_sign_in_btn{
-    margin-right:8px;
-}
-.ms_sign_in_page_btn{
-    margin-left : 8px;
+
+.mb_page_link{
+    color: rgb(63, 63, 63);
+    margin-top: 20px;
+    font-size: 1rem;
 }
 
 @media (max-width: 950px){
@@ -147,6 +147,13 @@ input::placeholder{
         border-radius: 15px;
     }
 
+    .mc_mongle_logo{
+        font-size: 3rem;
+        color:#FEAA4B;
+        font-weight: bold;
+        font-family: 'Square Peg', cursive;
+    }
+
 
     .mc_mongle_char{
         background-image: url("/mongle_with_letter.png");
@@ -155,6 +162,12 @@ input::placeholder{
         width: 60px;
         height: 60px;
         margin-top: .7em;
+    }
+
+    .mb_page_link{
+        color: rgb(63, 63, 63);
+        margin-top: 20px;
+        font-size: 0.9rem;
     }
 
 }
@@ -182,12 +195,12 @@ input::placeholder{
 
     .mb_title{
         color: #F0F0E6;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin-bottom: 20px;
     }
 
     input::placeholder{
-        font-size: 0.7rem;
+        font-size: 0.9rem;
         text-align: center;
         color: black;
     }
@@ -195,13 +208,19 @@ input::placeholder{
     .btn{
         background-color: #9D9D58;
         color: #F0F0E6;
-        display: inline-block;
-        height: 7vh;
+        display: inline;
+        height: 4vh;
         border:none;
         border-radius: 5px;
         cursor: pointer;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         white-space : nowrap;
+    }
+
+    .mb_page_link{
+        color: rgb(63, 63, 63);
+        margin-top: 20px;
+        font-size: 0.8rem;
     }
 
 }
