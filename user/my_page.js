@@ -247,6 +247,7 @@ const add_my_cate = async() => {
 // 수정모달
 const edit_desc_modal_wrapper = document.querySelector('.edit_desc_modal_wrapper');
 const edm_textarea = document.querySelector('.edm_textarea');
+const edm_name = document.querySelector('.edm_name');
 const desc_edit_ready = () => {
     edm_textarea.innerText = my_profile_desc;
     edit_desc_modal_wrapper.style.display = 'flex';
@@ -263,6 +264,7 @@ const cancel_edit_desc = () => {
 
 const call_edit_desc = async() => {
     let description = edm_textarea.value;
+    let full_name = edm_name.value;
     let url = new URL(BASE_URL + 'user/profile')
     let token = localStorage.getItem('access');
     const result = await fetch(url,{
@@ -275,6 +277,7 @@ const call_edit_desc = async() => {
                 'Authorization' : `Bearer ${token}`
         },
         body: JSON.stringify({
+            "fullname" : full_name,
             "description" : description
         })
     });
@@ -295,5 +298,61 @@ open_drawer.addEventListener('click', function(){
 drawer_wrapper.addEventListener('click',function(e){
     if(e.target.classList.contains('drawer_wrapper')){
         drawer_wrapper.classList.toggle("drawer_wrapper_after")
+    }
+})
+
+const image_edit_btn = document.querySelector('.image_edit_btn');
+const pem_icon = document.querySelector('.pem_icon');
+const pem_image_input = document.querySelector('.pem_image_input');
+const pem_confim_btn = document.querySelector('.pem_confim_btn');
+const profile_edit_modal_wrapper = document.querySelector('.profile_edit_modal_wrapper');
+
+image_edit_btn.addEventListener('click', () => {
+    profile_edit_modal_wrapper.style.display = 'flex';
+})
+pem_icon.addEventListener('click', () => {
+    pem_image_input.click();
+})
+pem_image_input.addEventListener('change', () => {
+    const pem_preview_img = document.querySelector('.pem_preview_img');
+    const pem_row_box = document.querySelector('.pem_row_box');
+    const data = pem_image_input.files[0];
+    const mpc_c_b_u_profile_img = document.querySelector('.mpc_c_b_u_profile_img');
+    const image_rect = mpc_c_b_u_profile_img.getClientRects()[0];
+    const img_width = image_rect.width;
+    const img_height = image_rect.height;
+    const reader = new FileReader();
+    reader.onload = () => {
+        pem_row_box.style.display = 'none';
+        pem_preview_img.style.backgroundImage = `url(`+ reader.result +`)`
+    }
+    reader.readAsDataURL(data)
+    pem_preview_img.style.width = img_width +"px";
+    pem_preview_img.style.height = img_height + "px";
+    pem_preview_img.style.marginTop = "40px";
+
+})
+
+pem_confim_btn.addEventListener('click', async() => {
+    let token = localStorage.getItem('access');
+    form_data = new FormData;
+    form_data.append('image', pem_image_input.files[0])
+    let url = new URL( BASE_URL + "my_page/profile_img")
+    const result = await fetch(url,{
+        method: 'post',
+        headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Accept': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization' : `Bearer ${token}`
+        },
+        body: form_data
+    });
+    let response = await result.json()
+    if (result.status == 200){
+        alert(response['detail'])
+        location.reload()
+    }else{
+        alert("파일 업로드에 실패했습니다.")
     }
 })
