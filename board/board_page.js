@@ -73,9 +73,6 @@ async function get_board(event) {
                             <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                         </div>
                         <div class="md_bb_bl_bd_desc_comment_icon">
-                    
-                            <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
-                            <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                             <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
                             <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                         </div>
@@ -92,9 +89,8 @@ async function get_board(event) {
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
-                            <div class="md_bb_bl_bd_ct_rg_border">
-
-                            </div>
+                        <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
+                        <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                         </div>
                     </div>
                 </div>`
@@ -109,8 +105,6 @@ async function get_board(event) {
                             <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                         </div>
                         <div class="md_bb_bl_bd_desc_comment_icon">
-                            <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
-                            <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment_count}</div>
                             <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
                             <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                         </div>
@@ -126,6 +120,8 @@ async function get_board(event) {
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
+                        <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
+                            <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment_count}</div>
                         </div>
                     </div>
                 </div>`
@@ -145,7 +141,6 @@ async function get_board(event) {
 // 모달을 통해서 글을 작성 할 때 실행되는 코드 (Crud)
 
 async function post_board(){
-    
     const boards_title = document.querySelector(".sm_tt_title_input").value;
     const boards_content = document.querySelector(".sm_bd_ct_textarea").value;
     const token = localStorage.getItem('access')
@@ -362,21 +357,6 @@ async function report_post(author_id){
             break;
     }
 }
-
-
-
-// 게시글 작성모달의 외부를 클릭 시
-modal_background.addEventListener('click', function (e)  {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
-// 게시글 수정모달의 외부를 클릭 시
-edit_modal_background.addEventListener('click', function (e) {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
 
 // 모달을 닫아주는 함수
 function close_modal(){

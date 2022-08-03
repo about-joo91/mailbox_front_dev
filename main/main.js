@@ -27,6 +27,7 @@ window.onload = async () => {
     });
     const response = await result.json();
 
+    
 const unauthorized = (response) => {
     alert(response.detail)
     location.replace('/user/signin.html');
@@ -57,18 +58,15 @@ const main_page_data = (response) =>{
             let content = element.content
             let review_id = element.review_id
             let like_count  =element.like_count
-            if (letter_review_like_id==null) {
+            if (letter_review_like_id== null) {
                 sun_icon = 'bi-brightness-high'
-                color_class = 'img_heart_icon'
                 like_onclick = "review_like(" + review_id + ")";
                 review_or_like_id = review_id
-
             } else {
                 sun_icon = 'bi-brightness-high-fill'
                 like_onclick = "review_like_delete(" + letter_review_like_id + ")";
                 review_or_like_id = letter_review_like_id
             }
-
             review_rank.innerHTML +=
             `
             <div class="mb_sb_rb_rank">
@@ -235,7 +233,6 @@ const review_like = async(letter_review_like_id) =>{
             sweetAlert({
             text:   res['detail'],
             className: ".sweet-button",
-
             });
             sun_count.innerText = parseInt(sun_count.innerText) + 1
             const review_live = document.getElementById('review_rank')
@@ -299,7 +296,7 @@ const review_like = async(letter_review_like_id) =>{
                             'X-CSRFToken': csrftoken,
                             'Authorization': `Bearer ${token}`
                         }
-                    
+                
                     })
                     let res = await reviews_get.json()
                     res.live_review.forEach(function (element) {
@@ -307,7 +304,7 @@ const review_like = async(letter_review_like_id) =>{
                         let content = element.content
                         let review_id = element.review_id
                         let like_count = element.like_count
-                        if (letter_review_like_id==null) {
+                        if (letter_review_like_id == null) {
                             sun_icon = 'bi-brightness-high'
                             color_class = 'img_heart_icon'
                             like_onclick = "review_like(" + review_id + ")";
@@ -388,7 +385,7 @@ const review_like_delete= async(letter_review_like_id) => {
                         let content = element.content
                         let review_id = element.review_id
                         let like_count = element.like_count
-                        if (letter_review_like_id==null) {
+                        if (letter_review_like_id == null) {
                             sun_icon = 'bi-brightness-high'
                             color_class = 'img_heart_icon'
                             like_onclick = "review_like(" + review_id + ")";
@@ -434,7 +431,7 @@ const review_like_delete= async(letter_review_like_id) => {
                             let content = element.content
                             let review_id = element.review_id
                             let like_count = element.like_count
-                            if (letter_review_like_id==null) {
+                            if (letter_review_like_id == null ) {
                                 sun_icon = 'bi-brightness-high'
                                 color_class = 'img_heart_icon'
                                 like_onclick = "review_like(" + review_id + ")";
@@ -488,12 +485,10 @@ const live_review = async() => {
             let content = element.content
             let review_id = element.review_id
             let like_count  =element.like_count
-            if (letter_review_like_id==null) {
+            if (letter_review_like_id == null) {
                 sun_icon = 'bi-brightness-high'
-                color_class = 'img_heart_icon'
                 like_onclick = "review_like(" + review_id + ")";
                 review_or_like_id = review_id
-
             } else {
                 sun_icon = 'bi-brightness-high-fill'
                 like_onclick = "review_like_delete(" + letter_review_like_id + ")";

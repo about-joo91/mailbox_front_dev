@@ -34,7 +34,6 @@ async function SignUp(){
 
 }
 
-
 // 로그인
 async function SignIn(){
     const SignupData = {

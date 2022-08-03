@@ -493,6 +493,25 @@ body{
     padding-left: 2rem;
     border-radius: 15px;
 }
+.recieve_modal_empty_box{
+    width: 56%;
+}
+.close_button_div {
+    height: 100%;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1.5rem 0 1.5rem;
+}
+.x_button{
+    width: 100%;
+    font-size: 46px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
 .sm_body{
     margin-top: 1.4rem;
     width: 100%;
