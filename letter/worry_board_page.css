@@ -500,10 +500,10 @@ body{
     border-radius: 15px;
 }
 .empty_box{
-    width: 46%;
+    width: 50%;
 }
 .request_modal_empty_box{
-    width: 28%;
+    width: 39%;
 }
 .edit_modal_empty_box{
     width: 43%;

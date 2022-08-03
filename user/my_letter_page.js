@@ -14,6 +14,7 @@ if (urlParams.get('letter_num')) {
 
 
 const onload_page = async () => {
+    console.log(page_name)
     let url = new URL(BASE_URL + "my_page/"+page_name+"?letter_num=" + letter_num);
     let token = localStorage.getItem('access');
     const result = await fetch(url ,{

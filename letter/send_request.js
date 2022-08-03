@@ -1,9 +1,10 @@
 const BASE_URL = 'http://127.0.0.1:8000';
-
+const DEFAULT_NUMBER = 1
+const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
 let url_page_num = urlParams.get('page_num');
 if (!url_page_num){
-    url_page_num = 1
+    url_page_num = DEFAULT_NUMBER
 }
 
 // 쿠키 할당
@@ -13,7 +14,7 @@ function get_cookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            if (cookie.substring(0, name.length + DEFAULT_NUMBER) === (name + '=')) {
                 cookie_value = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }
@@ -229,12 +230,12 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
-    if (firstBottomNumber < 0){
-        firstBottomNumber = 1
+    if (firstBottomNumber < ZERO){
+        firstBottomNumber = DEFAULT_NUMBER
     }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
-    if(page_num%10==0 & page_num != 0){
+    if(page_num%10==ZERO & page_num != ZERO){
         firstBottomNumber = firstBottomNumber - 10;
         lastBottomNumber = page_num;
     }
@@ -259,8 +260,8 @@ function click_page_num(url_page_num, total_page_num){
     if (url_page_num > total_page_num){
         url_page_num=total_page_num
     }
-    else if (url_page_num < 0){
-        url_page_num = 1
+    else if (url_page_num < ZERO){
+        url_page_num = DEFAULT_NUMBER
     }
     location.href = 'send_request.html?page_num=' + url_page_num
 }
