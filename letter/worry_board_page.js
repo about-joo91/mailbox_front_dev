@@ -264,12 +264,12 @@ async function get_worry_board() {
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
-            const profile_grade = document.getElementById('profile_grade')
-            const porfile_image = document.getElementById('profile_image')
-            const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.boards[0].user_profile_data.grade}`
-            porfile_image.style.backgroundImage =`url(${res.boards[0].user_profile_data.profile_img})`
-            mongle_image.style.backgroundImage = `url(${res.boards[0].user_profile_data.mongle_img})`
+            // const profile_grade = document.getElementById('profile_grade')
+            // const porfile_image = document.getElementById('profile_image')
+            // const mongle_image = document.getElementById('mongle_img')
+            // profile_grade.innerText = `나의 몽글 점수: ${res.boards[0].user_profile_data.grade}`
+            // porfile_image.style.backgroundImage =`url(${res.boards[0].user_profile_data.profile_img})`
+            // mongle_image.style.backgroundImage = `url(${res.boards[0].user_profile_data.mongle_img})`
             worry_board_list(res.boards)
             if (check_recommended){
                 let tmp_board = `<div class="mc_bt_cb_category" onclick="click_category(7)">추천</div>`
