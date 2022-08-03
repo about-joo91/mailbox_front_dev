@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,20 @@
 </head>
 
 <body>
+    <div class="profile_edit_modal_wrapper">
+        <div class="profile_edit_modal">
+            <div class="pem_preview_img"></div>
+            <div class="pem_row_box">
+                <input type="file" name="pem_image_input" id="pem_image_input" class="pem_image_input">
+                <i class="bi bi-image pem_icon"></i>
+            <div>클릭해서 파일을 선택하세요</div>
+            </div>
+            <div class="pem_confim_btn">
+                확인
+            </div>
+        </div>
+
+    </div>
     <div class="nav_container">
         <div class="nc_sub_container">
             <i class="fa-solid fa-bars open_drawer"></i>
@@ -31,13 +46,21 @@
     <div class="edit_desc_modal_wrapper">
         <div class="edit_desc_modal">
             <div class="edm_announce">
-                자기소개를 입력해주세요.
-            </div>            
+                프로필을 수정합니다.
+            </div>
+            <div class="edm_announce_white_space"></div>
+            <div class="edm_name_box">
+                <div class="edm_name_header">이름 : </div><input class="edm_name">
+            </div>
+            <div class="edm_name_white_space"></div>
+            <div class="edm_textarea_box">
+                <div class="edm_textarea_header">자기소개 : </div>
                 <textarea class="edm_textarea"></textarea>
-                <div class="edm_btn_box">
-                    <div class="edm_btn" onclick="cancel_edit_desc()">취소</div>
-                    <div class="edm_btn" onclick="call_edit_desc()">작성</div>
-                </div>
+            </div>
+            <div class="edm_btn_box">
+                <div class="edm_btn" onclick="cancel_edit_desc()">취소</div>
+                <div class="edm_btn" onclick="call_edit_desc()">작성</div>
+            </div>
         </div>
     </div>
     <div class="main_profile_container">
@@ -61,6 +84,7 @@
                 <div class="mpc_c_header"></div>
                 <div class="mpc_c_body">
                     <div class="mpc_c_b_upper">
+                        <div class="image_edit_btn">편집</div>
                         <div class="mpc_c_b_u_profile_img_wrapper">
                             <div class="mpc_c_b_u_profile_img">
                             </div>
