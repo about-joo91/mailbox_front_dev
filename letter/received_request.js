@@ -22,6 +22,7 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
+// request 모달을 여는 함수
 function open_request_modal(worry_board_content, request_message_id){
     document.getElementById('modal_background').style.display="block"
     const small_modal = document.getElementById('small_modal');
@@ -47,8 +48,7 @@ if (e.target.classList.contains('modal_background')) {
 })
 // worry_board의 모달을 닫는 함수
 function close_modal(){
-    document.querySelector('.modal_background').style.display="none"
-    document.getElementById('edit_modal_background').style.display="none"
+    document.querySelector('.modal_background').style.display="none";
     document.body.style.overflow = 'auto';
 }
 
@@ -80,6 +80,7 @@ async function get_request_messages() {
             mongle_image.style.backgroundImage = `url(${res.request_message[0].user_profile_data.mongle_img})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
+                request_status_list = ["","", "고민글", "수락됨", "반려됨"]
                 request_message = res.request_message[i]
                 tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board">
@@ -101,7 +102,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">고민 글</button>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
 
@@ -132,11 +133,11 @@ async function accept_request_message(request_message_id){
     let res = await result.json()
     switch (result.status){
         case 200:
-            alert(res['message'])
+            alert(res['detail'])
             location.reload()
             break;
         default:
-            alert(res['message'])
+            alert(res['detail'])
             break;
     }
 }
@@ -158,11 +159,11 @@ async function disaccept_request_message(request_message_id){
     let res = await result.json()
     switch (result.status){
         case 200:
-            alert(res['message'])
+            alert(res['detail'])
             location.reload()
             break;
         default:
-            alert(res['message'])
+            alert(res['detail'])
             break;
     }
 }
@@ -188,11 +189,11 @@ async function edit_request_message(request_message_id){
     let res = await result.json()
     switch (result.status){
         case 200:
-            alert(res['message'])
+            alert(res['detail'])
             location.reload()
             break;
         default:
-            alert(res['message'])
+            alert(res['detail'])
     }
 }
 
