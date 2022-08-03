@@ -67,16 +67,22 @@ async function get_request_messages() {
     let res = await result.json()
     switch(result.status){
         case 200:
-            console.log(res)
             pagenation(res.total_count, 10, 10, url_page_num)
+            const profile_grade = document.getElementById('profile_grade')
+            const porfile_image = document.getElementById('profile_image')
+            const mongle_image = document.getElementById('mongle_img')
+            profile_grade.innerText = `나의 몽글 점수: ${res.request_message[0].user_profile_data.grade}`
+            porfile_image.style.backgroundImage =`url(${res.request_message[0].user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.request_message[0].user_profile_data.mongle_img})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
+                request_status_list = ["", "요청", "수락대기", "수락함", "반려함"]
                 tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
                     <div class="md_bb_bl_board_box">
                         <div class="md_bb_bl_bd_description">
-                            <!-- <div class="md_bb_bl_bd_desc_image_icon"></div> -->
+                            
                             <div class="md_bb_bl_bd_middle">
                                 <div class="md_bb_bl_bd_hidden_name">${request_message.worry_board_category}</div>
                                 <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
@@ -96,13 +102,16 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button">편지 쓰기<button id="md_bb_bl_bd_post_button"></button></a>
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">수락 대기</button>
+                    <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기<button id="md_bb_bl_bd_post_button"></button></a>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
 
                 const board_lists = document.querySelector(".mc_bb_board_lists")
                 board_lists.innerHTML = tmp_request_message
+                if (request_message.request_status == 3){
+                    document.getElementById('md_bb_bl_bd_post_button_' + request_message.id).style.display = "flex";
+                }
             }
             break;
         default:
@@ -179,7 +188,7 @@ async function delete_request_message(request_message_id){
     switch(result.status){
         case 200:
             alert(res['message'])
-            location.href = 'send_request_messages.html'
+            location.href = 'send_request.html'
             break;
         default:
             alert(res['message'])
@@ -191,12 +200,20 @@ async function delete_request_message(request_message_id){
 function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
-
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
+    if (firstBottomNumber < 0){
+        firstBottomNumber = 1
+    }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
+    if(page_num%10==0 & page_num != 0){
+        firstBottomNumber = firstBottomNumber - 10;
+        lastBottomNumber = page_num;
+    }
 
     const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(1)"><<</button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(${parseInt(firstBottomNumber) - 10})"><</button>`
     for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
         if(i==page_num){
             mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
@@ -205,11 +222,19 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
             mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
         }
     }
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${parseInt(lastBottomNumber) + 1}', '${totalPageSize}')">></button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${totalPageSize}', '${totalPageSize}')">>></button>`
 }
 
 // 하단의 page_num 버튼을 누를 시 링크
-function click_page_num(url_page_num){
-    location.href = 'send_request_messages.html?page_num=' + url_page_num
+function click_page_num(url_page_num, total_page_num){
+    if (url_page_num > total_page_num){
+        url_page_num=total_page_num
+    }
+    else if (url_page_num < 0){
+        url_page_num = 1
+    }
+    location.href = 'send_request.html?page_num=' + url_page_num
 }
 
 

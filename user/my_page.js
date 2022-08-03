@@ -97,7 +97,6 @@ category_box.addEventListener('mouseup', () => {
         let cur_top=0
         let cur_width=0
         category_style.forEach(element => {
-            console.log(element)
             let cate_id = element.id.split('_')[1]
             let offset = element.getBoundingClientRect()
             cur_top = offset.top;
@@ -127,13 +126,11 @@ category_box.addEventListener('touchend', () => {
         let cur_top=0
         let cur_width=0
         category_style.forEach(element => {
-            console.log(element)
             let cate_id = element.id.split('_')[1]
             let offset = element.getBoundingClientRect()
             cur_top = offset.top;
             cur_left = offset.left;
             cur_width = offset.width;
-            console.log(cur_top, cur_left)
             category_x_btn += `<div id="category_x_btn_${cate_id}" 
             style="top:${cur_top- 15}px; left:${cur_left + cur_width}px" class="category_x_btn" onclick="delete_my_cate(${cate_id})"> x </div>`
         })

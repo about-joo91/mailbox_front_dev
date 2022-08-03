@@ -234,12 +234,12 @@ body{
 .md_bb_bl_bd_description{
     width: 100%;
     height: 4.65rem;
-    margin-left: 3.6rem;
     display: flex;
     flex-wrap: nowrap;
     padding-top: 1rem;
     justify-content: center;
     align-items: center;
+    margin-left: 4rem;
 }
 .md_bb_bl_bd_desc_image_icon{
     width: 50px;
@@ -316,6 +316,7 @@ body{
 .md_bb_bl_bd_title{
     margin-top: 2.5rem;
     font-weight: 600;
+    margin-left: 3%;
 }
 .md_bb_bl_bd_tt_text{
     margin-left: 3.6rem;
@@ -327,6 +328,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 3%;
 }
 .md_bb_bl_bd_ct_left{
     width: 80%;

@@ -120,9 +120,6 @@ function open_request_modal_do_request(id, content){
     document.getElementById('request_modal_background').style.display="flex"
     const small_modal = document.getElementById('request_small_modal');
     document.body.style.overflow = 'hidden';
-
-
-    
     const worry_board_content = document.getElementById('md_bb_bl_bd_ct_left_' + id);
     const content_box = document.querySelector('.sm_bd_target_content')
     content_box.innerHTML = worry_board_content.innerText
@@ -261,6 +258,9 @@ async function get_worry_board() {
     if (!url_page_num){
         url_page_num = 1
     }
+    else if (url_page_num < 0){
+        url_page_num = 1
+    }
     if (!url_category){
         url_category = 0
     }
@@ -280,6 +280,12 @@ async function get_worry_board() {
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
+            const profile_grade = document.getElementById('profile_grade')
+            const porfile_image = document.getElementById('profile_image')
+            const mongle_image = document.getElementById('mongle_img')
+            profile_grade.innerText = `나의 몽글 점수: ${res.boards[0].user_profile_data.grade}`
+            porfile_image.style.backgroundImage =`url(${res.boards[0].user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.boards[0].user_profile_data.mongle_img})`
             worry_board_list(res.boards)
             if (check_recommended){
                 let tmp_board = `<div class="mc_bt_cb_category" onclick="click_category(7)">추천</div>`
@@ -384,10 +390,19 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
     let totalPageSize = Math.ceil(total_count / listSize)  //하단 버튼의 수
 
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //지금 화면에서 보여지는 하단 최초 시작 숫자
+    if (firstBottomNumber < 0){
+        firstBottomNumber = 1
+    }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //지금 화면에서 보여지는 하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
+    if(page_num%10==0 & page_num != 0){
+        firstBottomNumber = firstBottomNumber - 10;
+        lastBottomNumber = page_num;
+    }
 
     const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(1)"><<</button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(${parseInt(firstBottomNumber) - 10})"><</button>`
     for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
         if(i==page_num){
             mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num(${i})">${i} </span>`)
@@ -396,6 +411,8 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
             mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
         }
     }
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${parseInt(lastBottomNumber) + 1}', '${totalPageSize}')">></button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${totalPageSize}', '${totalPageSize}')">>></button>`
 }
 function request_to_my_worry_board(){
     alert("내가 작성한 게시물에는 요청을 보낼 수 없습니다.")
@@ -404,9 +421,15 @@ function request_to_my_worry_board(){
 function click_category(category){
     location.href = '../../letter/worry_board_page.html?category=' +  category + "&page_num=" + 1
 }
-function click_page_num(page_num){
+function click_page_num(page_num, total_page_num){
     if(!url_category){
-        url_category=1
+        url_category=0
+    }
+    if (page_num > total_page_num){
+        page_num=total_page_num
+    }
+    else if (page_num < 0){
+        page_num = 1
     }
     location.href = '../../letter/worry_board_page.html?category=' +  url_category + "&page_num=" + page_num
 }

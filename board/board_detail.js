@@ -77,6 +77,12 @@ window.onload =
         let tmp_board = ``
         switch (result.status){
             case 200:
+                const profile_grade = document.getElementById('profile_grade')
+                const porfile_image = document.getElementById('profile_image')
+                const mongle_image = document.getElementById('mongle_img')
+                profile_grade.innerText = `나의 몽글 점수: ${res.board_comments[0].user_profile_data.grade}`
+                porfile_image.style.backgroundImage =`url(${res.board_comments[0].user_profile_data.profile_img})`
+                mongle_image.style.backgroundImage = `url(${res.board_comments[0].user_profile_data.mongle_img})`
                 board = res.board_comments[0]   
                 if (board.is_liked) {
                     sun_icon = 'bi-brightness-high-fill'
@@ -85,7 +91,6 @@ window.onload =
                     sun_icon = 'bi-brightness-high'
                     color_class = 'img_heart_icon'
                 }
-                
                 // 내가 선택한 보드에 대한 정보를 가져오는 로직
                 // 내가 글의 작성자라면 수정, 삭제를 추가
                 if(board.is_board_writer == true){
