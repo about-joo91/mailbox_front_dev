@@ -78,7 +78,8 @@ async function get_request_messages() {
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
                 request_status_list = ["", "요청", "수락대기", "수락함", "반려함"]
-                tmp_request_message += `
+                if (request_message.request_status == 3){
+                    tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
                     <div class="md_bb_bl_board_box">
                         <div class="md_bb_bl_bd_description">
@@ -102,17 +103,44 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기<button id="md_bb_bl_bd_post_button"></button></a>
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
+                        <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
-
-                const board_lists = document.querySelector(".mc_bb_board_lists")
-                board_lists.innerHTML = tmp_request_message
-                if (request_message.request_status == 3){
-                    document.getElementById('md_bb_bl_bd_post_button_' + request_message.id).style.display = "flex";
                 }
+                else {
+                    tmp_request_message += `
+                <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
+                    <div class="md_bb_bl_board_box">
+                        <div class="md_bb_bl_bd_description">
+                            
+                            <div class="md_bb_bl_bd_middle">
+                                <div class="md_bb_bl_bd_hidden_name">${request_message.worry_board_category}</div>
+                                <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
+                            </div>    
+                            <div class="md_bb_bl_bd_desc_edit_delete">
+                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit" onclick="open_edit_modal('${request_message.request_message}','${request_message.id}')">수정</div>
+                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete" onclick="delete_request_message(${request_message.id})">삭제</div>
+                            </div>                           
+                        </div>
+                        <div class="md_bb_bl_bd_content">
+                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                                ${request_message.request_message}
+                            </p>
+                            <div class="md_bb_bl_bd_ct_right">
+                                <div class="md_bb_bl_bd_ct_rg_border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md_bb_bl_bd_request">
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
+                    </div>
+                </div>`
+                }
+                
             }
+            const board_lists = document.querySelector(".mc_bb_board_lists")
+            board_lists.innerHTML = tmp_request_message
             break;
         default:
             alert("세션이 만료 되었습니다.")
