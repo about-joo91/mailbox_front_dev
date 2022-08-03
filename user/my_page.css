@@ -37,6 +37,9 @@ body {
         margin-top: 0 !important;
         margin-right: 40px !important;
     }
+    .mpc_c_b_upper{
+        padding: 0px !important;
+    }
 
 }
 @media (max-width: 450px) {
@@ -70,7 +73,17 @@ body {
         width: 100% !important;
         margin: 10px auto auto 10px !important;
     }
-
+    .category_style{
+        margin-right: 5px !important;
+        margin-bottom: 5px !important;
+    }
+    .image_edit_btn{
+        left: 31% !important;
+        top: 34% !important;
+    }
+    .mpc_c_b_upper{
+        padding: 15px 0 0 0 !important;
+    }
 }
 
 * {
@@ -152,7 +165,7 @@ body {
 .add_cate_modal{
     max-width: 500px;
     z-index: 3;
-    width: 50%;
+    width: 25%;
     height: 30%;
     border-radius: .4em;
     display: flex;
@@ -213,11 +226,13 @@ body {
 .edit_desc_modal{
     display: flex;
     flex-direction: column;
+    max-width: 700px;
     width: 60%;
     height: 40%;
     z-index: 3;
     background-color: #E2CA9B;
     border-radius: .4em;
+    align-items: center;
 }
 .edm_announce{
     font-size: 20px;
@@ -227,21 +242,55 @@ body {
     border-radius: 0.4em;
     text-align: center;
     padding: 5px;
-    height: 15%;
+    height: 10%;
     margin-bottom: 0.5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.edm_textarea{
-    background-color: #E2CA9B;
-    border: none;
+.edm_announce_white_space{
+    height: .8em;
+}
+.edm_name_box{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.edm_name_header{
+    padding: .4em;
+}
+.edm_name {
     outline: none;
-    font-size: 20px;
+    border: 0;
+    border-bottom: .8px solid white;
+    background-color: #E2CA9B;
+    width: 50%;
+    padding: .4em;
+    text-align: center;
+}
+.edm_name_white_space{
+    height: .8em;
+}
+.edm_textarea_box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+.edm_textarea_header{
+    padding: 0.4em;
+    align-self: baseline;
+}
+.edm_textarea{
+    width: 50%;
+    background-color: #E2CA9B;
+    outline: none;
     border-radius: .4em;
-    padding: 5px;
-    width: calc(100% - 10px);
-    height: 90%;
+    padding:.4em;
+    height: 80%;
+    border: white 1px solid;
 }
 .edm_btn_box{
     width: 100%;
@@ -313,14 +362,24 @@ body {
     background-position: center;
     width: 100%;
     height: 75%;
+    border-radius: .4em;
 }
-
 .mpc_c_b_u_right_content_box {
     width: 70%;
     font-size: 23px;
     justify-content: center;
 }
-
+.image_edit_btn{
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    width: 50px;
+    left: 32%;
+    top: 36%;
+}
+.image_edit_btn:hover{
+    cursor: pointer;
+}
 .mpc_c_b_u_rcb_name {
     display: flex;
     justify-content: space-around;
@@ -453,4 +512,59 @@ body {
 }
 .mpc_c_bd_edit_button:hover{
     cursor: pointer;
+}
+
+/* 프로필 수정 모달 */
+.profile_edit_modal_wrapper{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_edit_modal{
+    background-color: rgb(230,230,230);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    width: 40%;
+    max-width: 500px;
+    height: 30%;
+    max-height: 500px;
+    border-radius: .4em;
+}
+.pem_icon{
+    font-size: 3em;
+}
+.pem_row_box{
+    text-align: center;
+}
+.pem_image_input{
+    display: none;
+}
+.pem_confim_btn{
+    margin-top: 18%;
+    margin-bottom: 5%;
+    padding: 0.4em;
+    width: 20%;
+    text-align: center;
+    border-radius: .4em;
+}
+.pem_confim_btn:hover{
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+.pem_preview_img{
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: .4em;
 }
