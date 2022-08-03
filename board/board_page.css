@@ -210,11 +210,19 @@ body{
     font-size: 2.6rem;
     padding-top: 1rem;
     padding-bottom: 3rem;
-
 }
 .page_number{
-    margin-right: 1.2rem;
+    margin: 0 0.6rem 0 0.6rem;
     cursor: pointer;
+}
+.page_num_button:hover{
+    color: whitesmoke;
+}
+.page_num_button{
+    background-color: #E2CA9B;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
 }
 .cur_page{
     color: white;
@@ -283,6 +291,7 @@ body{
 }
 .md_bb_bl_bd_desc_edit_delete{
     width: 30%;
+    height: 80%;
     margin-right: 10px;
     font-size: 18px;
     display: flex;
@@ -492,7 +501,7 @@ body{
 .report_btn{
     border: none;
     border-radius: 5px;
-    width: 60%;
+    width: 40%;
     height: 80%;
     cursor: pointer;
     color: rgba(80, 80, 80, 1);
@@ -560,13 +569,16 @@ body{
         margin-left: 120px;
     }
     .report_btn{    
-        width: 100%;
+        width: 40%;
     }
 }
 
 @media (max-width: 1550px) {
     .md_bb_bl_bd_desc_edit_delete {
         width: 41%;
+    }
+    .report_btn{
+        width: 40%;
     }
     .main_container {
         margin-left: 110px;

@@ -35,8 +35,8 @@ function open_request_modal(worry_board_content, request_message_id){
     const modal_text = document.querySelector(".sm_bd_ct_text")
     modal_text.innerText = worry_board_content
     document.getElementById('sm_bd_button').innerHTML = `
-    <div class="sm_bd_bt_accept" id ="sm_bd_bt_accept">수락</div>
-    <div class="sm_bd_bt_disaccept" onclick ="delete_request_message('${request_message_id}')">거절</div>
+    <div class="sm_bd_bt_accept" onclick ="accept_request_message(${request_message_id})">수락</div>
+    <div class="sm_bd_bt_disaccept" onclick ="disaccept_request_message('${request_message_id}')">거절</div>
     `
 }
 //  모달의 외부를 클릭 시
@@ -56,7 +56,7 @@ function close_modal(){
 window.onload = get_request_messages
 
 async function get_request_messages() {
-    const result = await fetch(BASE_URL + '/worry_board/request/recieved' , {
+    const result = await fetch(BASE_URL + '/worry_board/request/received' , {
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -72,6 +72,12 @@ async function get_request_messages() {
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
+            const profile_grade = document.getElementById('profile_grade')
+            const porfile_image = document.getElementById('profile_image')
+            const mongle_image = document.getElementById('mongle_img')
+            profile_grade.innerText = `나의 몽글 점수: ${res.request_message[0].user_profile_data.grade}`
+            porfile_image.style.backgroundImage =`url(${res.request_message[0].user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.request_message[0].user_profile_data.mongle_img})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
@@ -109,6 +115,57 @@ async function get_request_messages() {
     }
 }
 
+// request 모달을 통해서 request_message를 수락하는 로직
+async function accept_request_message(request_message_id){
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/worry_board/request/accept/' + request_message_id +"/accept", {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    let res = await result.json()
+    switch (result.status){
+        case 200:
+            alert(res['message'])
+            location.reload()
+            break;
+        default:
+            alert(res['message'])
+            break;
+    }
+}
+
+// request 모달을 통해 request_message를 거절하는 로직
+async function disaccept_request_message(request_message_id){
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/worry_board/request/accept/' + request_message_id +"/disaccept", {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    let res = await result.json()
+    switch (result.status){
+        case 200:
+            alert(res['message'])
+            location.reload()
+            break;
+        default:
+            alert(res['message'])
+            break;
+    }
+}
 
 // 모달을 통해서 request_message를 수정하는 로직
 async function edit_request_message(request_message_id){
@@ -139,41 +196,23 @@ async function edit_request_message(request_message_id){
     }
 }
 
-// 글을 삭제하는 로직 (cruD)
-async function delete_request_message(request_message_id){
-    const token = localStorage.getItem('access')
-    const result = await fetch(BASE_URL + '/worry_board/request/pd/' + request_message_id , {
-        method: 'DELETE',
-        mode: 'cors',
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken,
-            'Authorization': `Bearer ${token}`
-        },
-    })
-    let res = await result.json()
-    switch(result.status){
-        case 200:
-            alert(res['message'])
-            click_page_num(0)
-            break;
-        default:
-            alert(res['message'])
-    }
-}
-
 // 페이지네이션에 관련된 함수 (window.onload시 로드함)
 function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
-
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
+    if (firstBottomNumber < 0){
+        firstBottomNumber = 1
+    }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
-
+    if(page_num%10==0 & page_num != 0){
+        firstBottomNumber = firstBottomNumber - 10;
+        lastBottomNumber = page_num;
+    }
     const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(1)"><<</button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(${parseInt(firstBottomNumber) - 10})"><</button>`
     for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
         if(i==page_num){
             mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
@@ -182,11 +221,19 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
             mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
         }
     }
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${parseInt(lastBottomNumber) + 1}', '${totalPageSize}')">></button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${totalPageSize}', '${totalPageSize}')">>></button>`
 }
 
 // 하단의 page_num 버튼을 누를 시 링크
-function click_page_num(url_page_num){
-    location.href = 'recieved_request_messages.html?page_num=' + url_page_num
+function click_page_num(url_page_num, total_page_num){
+    if (url_page_num > total_page_num){
+        url_page_num=total_page_num
+    }
+    else if (url_page_num < 0){
+        url_page_num = 1
+    }
+    location.href = 'received_request.html?page_num=' + url_page_num
 }
 
 function main_modal(){

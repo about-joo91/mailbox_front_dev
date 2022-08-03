@@ -64,7 +64,6 @@ const letter_post = async() => {
     const content = document.getElementById('content_text').value
     const urlParams = new URLSearchParams(window.location.search);
     const worry_board_id = urlParams.get('board_id');
-    console.log(worry_board_id)
 
     const result = await fetch(BASE_URL + '/main_page/letter/', {
         method: 'POST',

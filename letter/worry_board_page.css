@@ -225,11 +225,19 @@ body{
     font-size: 2.6rem;
     padding-top: 1rem;
     padding-bottom: 3rem;
-
 }
 .page_number{
-    margin-right: 1.2rem;
+    margin: 0 0.6rem 0 0.6rem;
     cursor: pointer;
+}
+.page_num_button:hover{
+    color: whitesmoke;
+}
+.page_num_button{
+    background-color: #E2CA9B;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
 }
 .cur_page{
     color: white;

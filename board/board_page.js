@@ -44,6 +44,12 @@ async function get_board(event) {
     switch(result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
+            const profile_grade = document.getElementById('profile_grade')
+            const porfile_image = document.getElementById('profile_image')
+            const mongle_image = document.getElementById('mongle_img')
+            profile_grade.innerText = `나의 몽글 점수: ${res.boards[0].user_profile_data.grade}`
+            porfile_image.style.backgroundImage =`url(${res.boards[0].user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.boards[0].user_profile_data.mongle_img})`
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             // boards에 대한 제목, 내용 등등을 가져오는 코드
@@ -87,7 +93,7 @@ async function get_board(event) {
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
                             <div class="md_bb_bl_bd_ct_rg_border">
-                            <button onclick="open_report_modal(2)"class="report_btn">신고하기</button>
+
                             </div>
                         </div>
                     </div>
@@ -108,6 +114,9 @@ async function get_board(event) {
                             <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
                             <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                         </div>
+                        <div class="md_bb_bl_bd_desc_edit_delete">
+                            <button onclick="open_report_modal(${board.user_id})" class="report_btn">신고하기</button>
+                        </div>
                     </div>
                     <div class="md_bb_bl_bd_title">
                         <div class="md_bb_bl_bd_tt_text">${board.title}</div>
@@ -117,9 +126,6 @@ async function get_board(event) {
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
-                            <div class="md_bb_bl_bd_ct_rg_border">
-                            <button onclick="open_report_modal(2)" class="report_btn">신고하기</button>
-                            </div>
                         </div>
                     </div>
                 </div>`
@@ -339,16 +345,20 @@ async function report_post(author_id){
     let res = await result.json()
     switch(result.status){
             case 200:
-                alert(res["detail"])
+                alert("게시물 작성자를 신고하였습니다.")
+                location.reload()
                 break;
             case 400:
                 alert(res["detail"])
+                location.reload()
                 break;
             case 404:
                 alert(res["detail"])
+                location.reload()
                 break;
         default:
             alert(res["detail"])
+            location.reload()
             break;
     }
 }
@@ -381,12 +391,20 @@ function close_modal(){
 function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
-
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
+    if (firstBottomNumber < 0){
+        firstBottomNumber = 1
+    }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
+    if(page_num%10==0 & page_num != 0){
+        firstBottomNumber = firstBottomNumber - 10;
+        lastBottomNumber = page_num;
+    }
 
     const mc_bb_page_number = document.querySelector('.mc_bb_page_number')
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(1)"><<</button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num(${parseInt(firstBottomNumber) - 10})"><</button>`
     for(let i = firstBottomNumber ; i <= lastBottomNumber; i++){
         if(i==page_num){
             mc_bb_page_number.innerHTML += (`<span class="page_number cur_page" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`)
@@ -395,10 +413,18 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
             mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
         }
     }
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${parseInt(lastBottomNumber) + 1}', '${totalPageSize}')">></button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${totalPageSize}', '${totalPageSize}')">>></button>`
 }
 
 // 하단의 page_num 버튼을 누를 시 링크
-function click_page_num(url_page_num){
+function click_page_num(url_page_num, total_page_num){
+    if (url_page_num > total_page_num){
+        url_page_num=total_page_num
+    }
+    else if (url_page_num < 0){
+        url_page_num = 1
+    }
     location.href = 'board_page.html?page_num=' + url_page_num
 }
 // 메세지 버튼을 누를 시 디테일 페이지로 링크
