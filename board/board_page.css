@@ -483,6 +483,16 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 13rem;
+    display: flex;
+    align-items: center;
+}
+.reqort_empty_box{
+    width: 77%;
+}
+.report_close_button{
+    color: black;
+    font-size: 40px;
+    cursor: pointer;
 }
 .sm_bd_content{
     width: 91%;
