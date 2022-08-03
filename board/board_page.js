@@ -60,12 +60,14 @@ async function get_board(event) {
                     tmp_board += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board_1">
                     <div class="md_bb_bl_bd_description">
+                    
                         <div class="md_bb_bl_bd_desc_image_icon"></div>
                         <div class="md_bb_bl_bd_middle">
                             <div class="mc_bb_bl_bd_im_writer">내가작성</div>
                             <div class="md_bb_bl_bd_desc_create_date">${board.create_date}</div>
                         </div>
                         <div class="md_bb_bl_bd_desc_comment_icon">
+                    
                             <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
                             <div class="md_bb_bl_bd_desc_ci_comment_count" onclick="href_board_detail(${board.id})">${board.board_comment.length}</div>
                             <i class="bi ${sun_icon}"  id="bi_brightness_high_${board.id}" onclick="click_sun(${board.id})"></i>
@@ -84,7 +86,9 @@ async function get_board(event) {
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
-                            <div class="md_bb_bl_bd_ct_rg_border"></div>
+                            <div class="md_bb_bl_bd_ct_rg_border">
+                            <button onclick="open_report_modal(2)"class="report_btn">신고하기</button>
+                            </div>
                         </div>
                     </div>
                 </div>`
@@ -113,7 +117,9 @@ async function get_board(event) {
                             ${board.content}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
-                            <div class="md_bb_bl_bd_ct_rg_border"></div>
+                            <div class="md_bb_bl_bd_ct_rg_border">
+                            <button onclick="open_report_modal(2)" class="report_btn">신고하기</button>
+                            </div>
                         </div>
                     </div>
                 </div>`
@@ -271,6 +277,20 @@ function open_edit_modal(title,content,id){
     document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board(${id})">작성</button>`
 }
 
+function open_edit_modal(title,content,id){
+    document.getElementById('edit_modal_background').style.display="flex"
+    const small_modal = document.getElementById('edit_small_modal');
+    document.body.style.overflow = 'hidden';
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
+    document.getElementById('edit_sm_tt_title_input').value = title
+    document.getElementById('edit_sm_bd_ct_textarea').innerText =  content
+    document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board(${id})">작성</button>`
+}
+
 // 모달을 열어주는 함수
 function open_add_modal(){
     document.getElementById('modal_background').style.display="flex"
@@ -278,10 +298,62 @@ function open_add_modal(){
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
     let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
     small_modal.style.left = modal_left_now + "px";
     small_modal.style.top = modal_top_now + "px";
 }
+
+// 리포트 모달1
+function open_report_modal(author_id){
+    document.getElementById('modal_background').style.display ="flex"
+    document.getElementById('sm_title').style.display= "none"
+    document.querySelector('.sm_bd_submit_button').setAttribute("onClick",`report_post(${author_id})`)
+    document.querySelector('.sm_bd_text').textContent ="신고하기"
+    const small_modal = document.getElementById('small_modal');
+    document.body.style.overflow = 'hidden';
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
+}
+
+async function report_post(author_id){
+    const report_reason = document.querySelector(".sm_bd_ct_textarea").value;
+    const target_user_id = author_id
+    const token = localStorage.getItem('access')
+    const result = await fetch(BASE_URL + '/user/report' ,{
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "target_user_id": target_user_id,
+            "report_reason" : report_reason
+        })
+    })
+
+    let res = await result.json()
+    switch(result.status){
+            case 200:
+                alert(res["detail"])
+                break;
+            case 400:
+                alert(res["detail"])
+                break;
+            case 404:
+                alert(res["detail"])
+                break;
+        default:
+            alert(res["detail"])
+            break;
+    }
+}
+
+
 
 // 게시글 작성모달의 외부를 클릭 시
 modal_background.addEventListener('click', function (e)  {

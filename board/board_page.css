@@ -489,6 +489,15 @@ body{
 }
 
 
+.report_btn{
+    border: none;
+    border-radius: 5px;
+    width: 60%;
+    height: 80%;
+    cursor: pointer;
+    color: rgba(80, 80, 80, 1);
+    background-color: rgba(176, 170, 109, 0.3);
+}
 
 
 @media (max-width: 780px) {
@@ -532,8 +541,11 @@ body{
     }
 
 }
-
-
+@media (max-width: 2100px) {
+    .report_btn {
+        width: 80%;
+    }
+}
 
 
 @media (max-width: 2250px) {
@@ -547,6 +559,9 @@ body{
     .main_container {
         margin-left: 120px;
     }
+    .report_btn{    
+        width: 100%;
+    }
 }
 
 @media (max-width: 1550px) {
@@ -555,6 +570,12 @@ body{
     }
     .main_container {
         margin-left: 110px;
+    }
+    .md_bb_bl_bd_middle {
+        width: 60%;
+    }
+    .md_bb_bl_bd_ct_rg_border {
+        width: 75%;
     }
 }
 
@@ -681,13 +702,20 @@ body{
     .main_container {
         margin-top: 20px;
     }
+    .md_bb_bl_bd_desc_image_icon {
+        width: 30px;
+        height: 25px;
+    }
+    .md_bb_bl_bd_ct_right {
+        width: 30%;
+    }
 
 }
 
 
 
 
-@media (max-width: 435px) {
+@media (max-width: 440px) {
     .md_bb_bl_bd_description{
         width: 93%;
     }
@@ -699,7 +727,7 @@ body{
         height: 20px;
     }
     .mc_bb_bl_bd_im_writer{
-        font-size: 16px;
+        font-size: 13px;
     }
     .md_bb_bl_bd_desc_create_date{
         font-size: 15px;
@@ -714,9 +742,11 @@ body{
     .mc_bt_title_text{
         font-size: 28px;
     }
+    .md_bb_bl_bd_ct_rg_border{
+        width: 85%;
+        margin-right: 15px;
+    }
 }
-
-
 @media (max-height: 896px) {
     #drawer{
         top: 14%;
@@ -743,6 +773,9 @@ body{
     }
     .sm_bd_text{
         font-size: 2.3rem;
+    }
+    .mc_board_title{
+        height: 6rem;
     }
 }
 
