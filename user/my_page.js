@@ -16,6 +16,7 @@ const get_cookie = (name) => {
 }
 const csrftoken = get_cookie('csrftoken');
 let my_profile_desc = '';
+let my_profile_name = '';
 
 window.onload = async () => {
     let url = new URL(BASE_URL + 'user/profile');
@@ -47,6 +48,7 @@ const unauthorized = (response) => {
 }
 const my_profile_exist = (response) =>{
     my_profile_desc = response.description;
+    my_profile_name = response.fullname;
     let cate_html = ``
     let cate_array = response.categories
     let mongle = response.mongle_grade
@@ -249,7 +251,9 @@ const edit_desc_modal_wrapper = document.querySelector('.edit_desc_modal_wrapper
 const edm_textarea = document.querySelector('.edm_textarea');
 const edm_name = document.querySelector('.edm_name');
 const desc_edit_ready = () => {
+    edm_name.value = my_profile_name;
     edm_textarea.innerText = my_profile_desc;
+
     edit_desc_modal_wrapper.style.display = 'flex';
 }
 edit_desc_modal_wrapper.addEventListener('click', function(e){
@@ -310,6 +314,9 @@ const profile_edit_modal_wrapper = document.querySelector('.profile_edit_modal_w
 image_edit_btn.addEventListener('click', () => {
     profile_edit_modal_wrapper.style.display = 'flex';
 })
+profile_edit_modal_wrapper.addEventListener('click', (e) => {
+
+})
 pem_icon.addEventListener('click', () => {
     pem_image_input.click();
 })
@@ -330,7 +337,7 @@ pem_image_input.addEventListener('change', () => {
     pem_preview_img.style.width = img_width +"px";
     pem_preview_img.style.height = img_height + "px";
     pem_preview_img.style.marginTop = "40px";
-
+    pem_preview_img.style.display = 'block';
 })
 
 pem_confim_btn.addEventListener('click', async() => {
@@ -355,4 +362,15 @@ pem_confim_btn.addEventListener('click', async() => {
     }else{
         alert("파일 업로드에 실패했습니다.")
     }
+})
+
+const pem_cancel_btn = document.querySelector('.pem_cancel_btn');
+pem_cancel_btn.addEventListener('click', () => {
+    const pem_preview_img = document.querySelector('.pem_preview_img');
+    const pem_row_box = document.querySelector('.pem_row_box');
+    profile_edit_modal_wrapper.style.display = 'none';
+    pem_image_input.value = null;
+    pem_preview_img.style.display = 'none';
+    pem_row_box.style.display = 'block';
+    
 })
