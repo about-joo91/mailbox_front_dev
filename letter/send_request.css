@@ -428,7 +428,7 @@ body{
     border: none;
 }
 .md_bb_bl_bd_post_button{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -445,9 +445,7 @@ body{
 .md_bb_bl_bd_request_button:hover{
     cursor: pointer;
 }
-#md_bb_bl_bd_post_button{
-    display: none;
-}
+
 .open_modal_button{
 
     width: 8rem;

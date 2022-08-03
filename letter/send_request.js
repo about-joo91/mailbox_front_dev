@@ -1,9 +1,10 @@
 const BASE_URL = 'http://127.0.0.1:8000';
-
+const DEFAULT_NUMBER = 1
+const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
 let url_page_num = urlParams.get('page_num');
 if (!url_page_num){
-    url_page_num = 1
+    url_page_num = DEFAULT_NUMBER
 }
 
 // 쿠키 할당
@@ -13,7 +14,7 @@ function get_cookie(name) {
         const cookies = document.cookie.split(';');
         for (let i = 0; i < cookies.length; i++) {
             const cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            if (cookie.substring(0, name.length + DEFAULT_NUMBER) === (name + '=')) {
                 cookie_value = decodeURIComponent(cookie.substring(name.length + 1));
                 break;
             }
@@ -78,7 +79,8 @@ async function get_request_messages() {
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
                 request_status_list = ["", "요청", "수락대기", "수락함", "반려함"]
-                tmp_request_message += `
+                if (request_message.request_status == 3){
+                    tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
                     <div class="md_bb_bl_board_box">
                         <div class="md_bb_bl_bd_description">
@@ -102,17 +104,44 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기<button id="md_bb_bl_bd_post_button"></button></a>
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
+                        <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
-
-                const board_lists = document.querySelector(".mc_bb_board_lists")
-                board_lists.innerHTML = tmp_request_message
-                if (request_message.request_status == 3){
-                    document.getElementById('md_bb_bl_bd_post_button_' + request_message.id).style.display = "flex";
                 }
+                else {
+                    tmp_request_message += `
+                <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
+                    <div class="md_bb_bl_board_box">
+                        <div class="md_bb_bl_bd_description">
+                            
+                            <div class="md_bb_bl_bd_middle">
+                                <div class="md_bb_bl_bd_hidden_name">${request_message.worry_board_category}</div>
+                                <div class="md_bb_bl_bd_desc_create_date">${request_message.create_date}</div>
+                            </div>    
+                            <div class="md_bb_bl_bd_desc_edit_delete">
+                                <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit" onclick="open_edit_modal('${request_message.request_message}','${request_message.id}')">수정</div>
+                                <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete" onclick="delete_request_message(${request_message.id})">삭제</div>
+                            </div>                           
+                        </div>
+                        <div class="md_bb_bl_bd_content">
+                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                                ${request_message.request_message}
+                            </p>
+                            <div class="md_bb_bl_bd_ct_right">
+                                <div class="md_bb_bl_bd_ct_rg_border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md_bb_bl_bd_request">
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
+                    </div>
+                </div>`
+                }
+                
             }
+            const board_lists = document.querySelector(".mc_bb_board_lists")
+            board_lists.innerHTML = tmp_request_message
             break;
         default:
             alert("세션이 만료 되었습니다.")
@@ -201,12 +230,12 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
-    if (firstBottomNumber < 0){
-        firstBottomNumber = 1
+    if (firstBottomNumber < ZERO){
+        firstBottomNumber = DEFAULT_NUMBER
     }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
-    if(page_num%10==0 & page_num != 0){
+    if(page_num%10==ZERO & page_num != ZERO){
         firstBottomNumber = firstBottomNumber - 10;
         lastBottomNumber = page_num;
     }
@@ -231,8 +260,8 @@ function click_page_num(url_page_num, total_page_num){
     if (url_page_num > total_page_num){
         url_page_num=total_page_num
     }
-    else if (url_page_num < 0){
-        url_page_num = 1
+    else if (url_page_num < ZERO){
+        url_page_num = DEFAULT_NUMBER
     }
     location.href = 'send_request.html?page_num=' + url_page_num
 }
