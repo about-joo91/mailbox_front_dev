@@ -1,6 +1,6 @@
 const BASE_URL = 'http://127.0.0.1:8000';
 
-function get_cookie(name) {
+const  get_cookie = (name)  => {
     let cookie_value = null;
     if (document.cookie && document.cookie !== '') {
         const cookies = document.cookie.split(';');
@@ -16,26 +16,22 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-window.onload = async function(){
-    if (!localStorage.hasOwnProperty('access')) {
-        location.replace('/user/signin.html')
-    }
-
+window.onload = async () => {
     token = localStorage.getItem('access');
-    const myposts = await fetch(BASE_URL + "/main_page/" +"main/",{
-        method:'GET',
+    const result = await fetch(BASE_URL + "/main_page/" +"main/",{
+        method:'get',
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Authorization": `Bearer ${token}`,
         }
-    })
+    });
+    const response = await result.json();
 
-    let response = await myposts.json()
-    
-    if (myposts.status==401) {
-        location.replace('/user/signin.html')
-    }
-    if (myposts.status==200){
+const unauthorized = (response) => {
+    alert(response.detail)
+    location.replace('/user/signin.html');
+}
+const main_page_data = (response) =>{
         const profile_grade = document.getElementById('profile_grade')
         const porfile_image = document.getElementById('profile_image')
         const mongle_image = document.getElementById('mongle_img')
@@ -54,7 +50,6 @@ window.onload = async function(){
             </div>
             `     
         };
-        
         const review_rank = document.getElementById('review_rank')
         review_rank.innerHTML == ``
         response.best_review.forEach(function(element) {
@@ -87,8 +82,6 @@ window.onload = async function(){
             </div
             `
         })
-
-
         let daily_category = []
         let love_category =[]
         let work_category =[]
@@ -202,12 +195,23 @@ window.onload = async function(){
             </div>
             `
         }
+        }
+        switch(result.status){
+            case 200:
+                main_page_data(response)
+                break;
+            case 401:
+                unauthorized(response)
+                break;
+            default:
+                alert(response['detail'])
+            }
     };
-};
 
 
 
-async function review_like(letter_review_like_id) {
+
+const review_like = async(letter_review_like_id) =>{
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/main_page/review_like' + letter_review_like_id, {
         method: 'POST',
@@ -336,7 +340,7 @@ async function review_like(letter_review_like_id) {
 
 
 
-async function review_like_delete(letter_review_like_id) {
+const review_like_delete= async(letter_review_like_id) => {
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/main_page/review_like' + letter_review_like_id, {
         method: 'DELETE',
@@ -462,7 +466,7 @@ async function review_like_delete(letter_review_like_id) {
 
 
 
-async function live_review(){
+const live_review = async() => {
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + "/main_page/" +"main/", {
         method: 'GET',
@@ -476,7 +480,7 @@ async function live_review(){
         },
     })
     let res = await result.json()
-    if (result.status == 200) {
+    const review_data = () => {
         const review_live = document.getElementById('review_rank')
         review_live.innerHTML = ``
         res.live_review.forEach(function(element){
@@ -512,11 +516,24 @@ async function live_review(){
         }
         )
     }
+        const unauthorized = (response) => {
+        alert(response.detail)
+        location.replace('/user/signin.html');
+    }
+    switch(result.status){
+        case 200:
+            review_data()
+            break;
+        case 401:
+            unauthorized(response)
+            break;
+        default:
+            alert(response['detail'])
+        }
     ;
 }
 
-
-async function best_review() {
+const best_review = async() => {
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + "/main_page/" + "main/", {
         method: 'GET',
@@ -530,7 +547,7 @@ async function best_review() {
         },
     })
     let res = await result.json()
-    if (result.status == 200) {
+    const review_data = () => {
         const review_live = document.getElementById('review_rank')
         review_live.innerHTML = ``
         res.best_review.forEach(function (element) {
@@ -565,11 +582,26 @@ async function best_review() {
             `
         }
         )
+        
     }
+    const unauthorized = (response) => {
+        alert(response.detail)
+        location.replace('/user/signin.html');
+    }
+    switch(result.status){
+        case 200:
+            review_data()
+            break;
+        case 401:
+            unauthorized(response)
+            break;
+        default:
+            alert(response['detail'])
+        }
     ;
 }
 
-function main_modal(){
+const main_modal= () => {
     document.getElementById('drawer').style.display ='flex';
     document.querySelector('.drawer_wrapper').style.display ='flex';
 }
