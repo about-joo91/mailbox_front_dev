@@ -18,7 +18,7 @@ body{
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: #F0F0E6;
+    background-color: F0F0E6;
 }
 
 .nc_sub_container{
@@ -66,7 +66,7 @@ body{
     position: absolute;
     align-items: center;
     width: 30px;
-    height: 106px;
+    height: 142px;
 }
 .drawer_text{
     padding: 20px 0px;
@@ -137,12 +137,23 @@ body{
     background-color: rgba(80, 80, 80, 1);
 }
 
+.nc_sb_modal {
+    display: none;
+    font-size: 25px;
+    left: 8%;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    width: 30px;
+    height: 142px;
+}
+
 
 /* 메인시작 */
 .main_container{
     width: 100%;
-    position: relative;
     left: 7.5%;
+    margin-left: 150px;
     /* height: 110rem; */
     background-color: #F0F0E6;
     margin-top: 100px;
