@@ -57,6 +57,7 @@ body {
     align-items: center;
     border-radius: 15px;
 }
+
 .login{
     height: 40vh;
 }
@@ -96,6 +97,12 @@ input::placeholder{
 
 .mb_sub_4{
     margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -103,12 +110,16 @@ input::placeholder{
     background-color: #9D9D58;
     color: #F0F0E6;
     display: inline-block;
-    height: 7vh;
+    height: 4.5vh;
     border:none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     white-space : nowrap;
+}
+
+.ms_sign_in_btn{
+    margin-right:8px;
 }
 
 @media (max-width: 950px){
