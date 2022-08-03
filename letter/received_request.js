@@ -40,12 +40,6 @@ function open_request_modal(worry_board_content, request_message_id){
     <div class="sm_bd_bt_disaccept" onclick ="disaccept_request_message('${request_message_id}')">거절</div>
     `
 }
-//  모달의 외부를 클릭 시
-modal_background.addEventListener('click', function (e) {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
 // worry_board의 모달을 닫는 함수
 function close_modal(){
     document.querySelector('.modal_background').style.display="none";

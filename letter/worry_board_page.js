@@ -29,11 +29,6 @@ function open_modal(){
     document.body.style.overflow = 'hidden';
     const small_modal = document.getElementById('small_modal');
 }
-// 게시글 작성모달의 외부를 클릭 시
-modal_background.addEventListener('click', function (e)  {
-    if (e.target.classList.contains('modal_background')) {
-        close_modal()
-}})
 
 // 작성 모달을 통해서 간단 고민글 작성하는 로직
 async function post_board(){
@@ -78,12 +73,7 @@ function open_edit_modal(content,id){
     document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_worry_board(${id})">작성</button>`
 
 }
-//  edit 모달의 외부를 클릭했을 때
-edit_modal_background.addEventListener('click', function (e) {
-    if (e.target.classList.contains('modal_background')) {
-        close_modal()
-    }
-})
+
 
 // edit 모달을 통해서 worry_board를 수정하는 로직
 async function edit_worry_board(worry_board_id){
@@ -127,12 +117,6 @@ function open_request_modal_do_request(id, content){
     sm_bd_content.innerHTML = `<textarea class="sm_bd_ct_textarea" id="request_sm_bd_ct_textarea_${id}"></textarea>`
     document.getElementById('request_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="request_message(${id})">작성</button>`
 }
-//  request 모달의 외부를 클릭 시
-request_modal_background.addEventListener('click', function (e) {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
 
 // request 모달을 통해서 게시물에 대한 요청을 작성하는 로직
 async function request_message(worry_board_id){
@@ -156,7 +140,7 @@ async function request_message(worry_board_id){
     switch (result.status){
         case 200:
             alert(res['detail'])
-            click_category(0)
+            location.reload()
             break;
         default:
             alert(res['detail'])
@@ -198,7 +182,7 @@ async function cancle_request_button(request_message_id){
     let res = await result.json()
     if (result.status == 200) {
         alert(res['detail'])
-        click_category(0)
+        location.reload()
     }
     else {
         alert(res['detail'])
@@ -235,7 +219,7 @@ async function delete_worry_board(worry_board_id){
     switch (result.status){
         case 200:
             alert(res['detail'])
-            click_category(0)
+            location.reload()
             break;
         default:
             alert(res['detail'])
