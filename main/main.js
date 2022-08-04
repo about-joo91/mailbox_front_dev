@@ -87,12 +87,7 @@ const main_page_data = (response) =>{
             </div
             `
         })
-        let daily_category = []
-        let love_category =[]
-        let work_category =[]
-        let family_category =[]
-        let relation_category =[]
-        let paernting_category=[]
+
 
         const daily_html = document.getElementById('worry_list1')
         const love_html = document.getElementById('worry_list2')
