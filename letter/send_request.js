@@ -68,6 +68,11 @@ async function get_request_messages() {
     let res = await result.json()
     switch(result.status){
         case 200:
+            if(res.request_message == 0){
+                alert("보낸 요청이 없네요. 요청을 작성하러 가볼까요?")
+                location.href = "/board/board_page.html"
+            }
+
             pagenation(res.total_count, 10, 10, url_page_num)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
@@ -104,7 +109,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.id}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
+                        <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.worry_board}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
                         <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
@@ -191,11 +196,11 @@ async function edit_request_message(request_message_id){
     let res = await result.json()
     switch (result.status){
         case 200:
-            alert(res['message'])
+            alert(res['detail'])
             location.reload()
             break;
         default:
-            alert(res['message'])
+            alert(res['detail'])
     }
 }
 
@@ -216,11 +221,11 @@ async function delete_request_message(request_message_id){
     let res = await result.json()
     switch(result.status){
         case 200:
-            alert(res['message'])
+            alert(res['detail'])
             location.href = 'send_request.html'
             break;
         default:
-            alert(res['message'])
+            alert(res['detail'])
     }
 }
 

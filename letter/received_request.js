@@ -67,6 +67,11 @@ async function get_request_messages() {
 
     switch (result.status){
         case 200:
+            if(res.request_message == 0){
+                alert("받은 요청이 없네요. 요청을 작성하러 가볼까요?")
+                location.href = "/board/board_page.html"
+            }
+
             pagenation(res.total_count, 10, 10, url_page_num)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
