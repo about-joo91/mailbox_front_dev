@@ -139,23 +139,24 @@ body,html{
 .nc_sb_nav p{
     font-size: 23px;
 }
-
 .nc_mongle {
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;
-    background-size: cover;
+    background-size:100px;
+    border-radius: 100%;
+    width: 60px;
+    height:60px;
+    cursor: pointer;
 }
+
 .nc_profile {
-    border-radius: 100%;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;
-    background-size: cover;
-    margin-left: -15px;
+    background-size:100px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
 }
 
 .open_drawer {

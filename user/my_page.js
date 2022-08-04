@@ -61,7 +61,7 @@ const my_profile_exist = (response) =>{
     나의 몽글 점수: ${mongle.grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+ mongle.mongle +`)"></div>
-    <div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"></div>`
+    <a href="/user/my_page.html"><div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"></div></a>`
 
     const mpc_c_header = document.querySelector('.mpc_c_header');
     mpc_c_header.innerHTML += `${response.user}님의 프로필`
