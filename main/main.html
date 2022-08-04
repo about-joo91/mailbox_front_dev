@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main/main.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Document</title>
+    <link rel="icon" href="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
+    <title>메인페이지</title>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
                 <div id="mongle_img"class="nc_mongle">
 
                 </div>
-                <a href="http://127.0.0.1:5500/user/my_page.html" >
+                <a href="/user/my_page.html" >
                     <div id="profile_image" class="nc_profile">
                     </div>
                 </a>
@@ -40,8 +41,8 @@
             <a href="/main/main.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
             <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
             <a href="/letter/worry_board_page.html?category=0&page_num=1" class="drawer_text"><i class="fa-solid fa-face-sad-tear"></i>&nbsp고민게시판</a>
-            <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 편지</a>
-            <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지</a>
+            <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 몽글</a>
+            <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 몽글</a>
             <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
             <a href="/letter/received_request.html" class="drawer_text"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp내가 받은 요청</a>
             <a href="/letter/send_request.html" class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp내가 보낸 요청</a>
@@ -52,7 +53,7 @@
     <div class="main_container">
         <div class="mc_sub_container">
             <div class="mc_sb_letter_bar">
-                <a href="http://127.0.0.1:5500/user/my_letter_page.html?page_name=my_received_letter" class="my_letter_link"><span id="letter_count"># 편지가 0개 도착 했습니다</span></a>
+                <a href="/user/my_letter_page.html?page_name=my_not_read_letter" class="my_letter_link"><span id="letter_count"># 편지가 0개 도착 했습니다</span></a>
                 <a class="letter_link" href="/user/my_letter_page.html?page_name=my_received_letter"><p>확인하러 가기</p></a>
             </div>
 
@@ -61,7 +62,7 @@
                     <div class="mc_sb_catebox">
                             <div class="mb_sb_cate"> 
                                 <div class="mb_sb_cb_title">
-                                    <p class="mb_sc_cb_cate">#일상</p>
+                                    <p class="mb_sc_cb_cate"># 일상</p>
                                 </div>
                                 <div id ="worry_list1" class="worry_list_item">
                                 </div>
@@ -69,7 +70,7 @@
 
                             <div class="mb_sb_cate"> 
                                 <div class="mb_sb_cb_title">
-                                    <p class="mb_sc_cb_cate2">#연애</p>
+                                    <p class="mb_sc_cb_cate2"># 가족</p>
                                 </div>
                                 <div id ="worry_list2" class="worry_list_item">
                                 </div>
@@ -77,7 +78,7 @@
 
                             <div class="mb_sb_cate"> 
                                 <div class="mb_sb_cb_title">
-                                    <p class="mb_sc_cb_cate2">#학업</p>
+                                    <p class="mb_sc_cb_cate2"># 연애</p>
                                 </div>
                                 <div id ="worry_list3" class="worry_list_item">
                                 </div>
@@ -86,7 +87,7 @@
                         <div class="mb_sb_catebox2">
                             <div class="mb_sb_cate"> 
                                 <div class="mb_sb_cb_title">
-                                    <p class="mb_sc_cb_cate">#가족</p>
+                                    <p class="mb_sc_cb_cate"># 인간관계</p>
                                 </div>
                                 <div id ="worry_list4" class="worry_list_item">
                                 </div>
@@ -94,7 +95,7 @@
 
                             <div class="mb_sb_cate"> 
                                 <div class="mb_sb_cb_title">
-                                    <p class="mb_sc_cb_cate2"># 인간관계</p>
+                                    <p class="mb_sc_cb_cate2"># 학업</p>
                                 </div>
                                 <div id ="worry_list5" class="worry_list_item">
                                 </div>
