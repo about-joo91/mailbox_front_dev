@@ -37,7 +37,7 @@ body {
 }
 
 .mc_mongle_char{
-    background-image: url("/mongle_with_letter.png");
+    background-image: url("/images/mongle_with_letter.png");
     background-size: cover;
     background-position: center;
     width: 100px;
@@ -156,7 +156,7 @@ input::placeholder{
 
 
     .mc_mongle_char{
-        background-image: url("/mongle_with_letter.png");
+        background-image: url("/images/mongle_with_letter.png");
         background-size: cover;
         background-position: center;
         width: 60px;
