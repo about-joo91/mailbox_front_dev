@@ -90,10 +90,10 @@ const main_page_data = (response) =>{
 
 
         const daily_html = document.getElementById('worry_list1')
-        const love_html = document.getElementById('worry_list2')
-        const work_html = document.getElementById('worry_list3')
-        const family_html = document.getElementById('worry_list4')
-        const relation_html = document.getElementById('worry_list5')
+        const family_html = document.getElementById('worry_list2')
+        const love_html = document.getElementById('worry_list3')
+        const relation_html = document.getElementById('worry_list4')
+        const work_html = document.getElementById('worry_list5')
         const paernting_html = document.getElementById('worry_list6')
 
         const inner_html_by_category = (js_dom, worry_board, category_num) => {
