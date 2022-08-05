@@ -1,4 +1,11 @@
 const BASE_URL = 'http://127.0.0.1:8000';
+const DAILY_CATEGORY_NUM = 1;
+const FAMILY_CATEGORY_NUM = 2;
+const LOVE_CATEGORY_NUM = 3;
+const RELATION_CATEGORY_NUM = 4;
+const WORK_CATEGORY_NUM = 5;
+const PARENTING_CATEGORY_NUM = 6;
+
 
 const  get_cookie = (name)  => {
     let cookie_value = null;
@@ -80,118 +87,49 @@ const main_page_data = (response) =>{
             </div
             `
         })
-        let daily_category = []
-        let love_category =[]
-        let work_category =[]
-        let family_category =[]
-        let relation_category =[]
-        let paernting_category=[]
+
 
         const daily_html = document.getElementById('worry_list1')
-        const love_html = document.getElementById('worry_list2')
-        const work_html = document.getElementById('worry_list3')
-        const family_html = document.getElementById('worry_list4')
-        const relation_html = document.getElementById('worry_list5')
+        const family_html = document.getElementById('worry_list2')
+        const love_html = document.getElementById('worry_list3')
+        const relation_html = document.getElementById('worry_list4')
+        const work_html = document.getElementById('worry_list5')
         const paernting_html = document.getElementById('worry_list6')
-        for (let i = 0; i < response.order_by_cate_worry_list.length; i++){
-            if(response.order_by_cate_worry_list[i].category == 1){
-                daily_category.push(response.order_by_cate_worry_list[i])
-            }
-            else if(response.order_by_cate_worry_list[i].category == 2){
-                love_category.push(response.order_by_cate_worry_list[i])
-            }
-            else if(response.order_by_cate_worry_list[i].category == 3){
-                work_category.push(response.order_by_cate_worry_list[i])
-            }
-            else if(response.order_by_cate_worry_list[i].category == 4){
-                family_category.push(response.order_by_cate_worry_list[i])
-            }
-            else if(response.order_by_cate_worry_list[i].category == 5){
-                relation_category.push(response.order_by_cate_worry_list[i])
-            }
-            else if(response.order_by_cate_worry_list[i].category == 6){
-                paernting_category.push(response.order_by_cate_worry_list[i])
-            }
-            
-        }
-        for (let i = 0; i < daily_category.length; i++){
-            daily_html.innerHTML += 
-            `
+
+        const inner_html_by_category = (js_dom, worry_board, category_num) => {
+            js_dom.innerHTML += `
             <div class="mb_sb_cb_item">
-            <a class="worry_link" href="http://127.0.0.1:5500/letter/worry_board_page.html?category=1">
+            <a class="worry_link" href="/letter/worry_board_page.html?category=${category_num}">
                 <div class="mb_sb_cb_item_title">
-                    <p>${daily_category[i].create_date}</p>
+                    <p>${worry_board.create_date}</p>
                 </div>
-                <p class="mb_sb_cb_item_text">${daily_category[i].content}</p>
+                <p class="mb_sb_cb_item_text">${worry_board.content}</p>
                 </a>
             </div>
             <div class="mb_sb_cb_item_space"> </div>
             `
         }
-        for (let i = 0; i < love_category.length; i++){
-            love_html.innerHTML += 
-            `
-            <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/letter/worry_board_page.html?category=2">
-                    <div class="mb_sb_cb_item_title">
-                        <p>${love_category[i].create_date}</p>
-                    </div>
-                    <p class="mb_sb_cb_item_text">${love_category[i].content}</P>
-                    </div>
-                </a>
-            `
-        }
-        for (let i = 0; i < work_category.length; i++){
-            work_html.innerHTML += 
-            `
-            <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/letter/worry_board_page.html?category=3">
-                    <div class="mb_sb_cb_item_title">
-                        <p>${work_category[i].create_date}</p>
-                    </div>
-                    <p class="mb_sb_cb_item_text">${work_category[i].content}</p>
-                </a>
-            </div>
-            `
-        }
-        for (let i = 0; i < family_category.length; i++){
-            family_html.innerHTML += 
-            `
-            <div class="mb_sb_cb_item">
-            <a class="worry_link" href="http://127.0.0.1:5500/letter/worry_board_page.html?category=4">
-                <div class="mb_sb_cb_item_title">
-                    <p>${family_category[i].create_date}</p>
-                </div>
-                <p class="mb_sb_cb_item_text">${family_category[i].content}</P>
-                </a>
-            </div>
-            `
-        }
-        for (let i = 0; i < relation_category.length; i++){
-            relation_html.innerHTML += 
-            `
-            <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/letter/worry_board_page.html?category=5">
-                    <div class="mb_sb_cb_item_title">
-                        <p>${relation_category[i].create_date}</p>
-                    </div>
-                    <p class="mb_sb_cb_item_text">${relation_category[i].content}</p>
-                </a>
-            </div>
-            `
-        }
-        for (let i = 0; i < paernting_category.length; i++){
-            paernting_html.innerHTML += 
-            `
-            <div class="mb_sb_cb_item">
-                <a class="worry_link" href="http://127.0.0.1:5500/letter/worry_board_page.html?category=6">
-                <div class="mb_sb_cb_item_title">
-                    <p>${paernting_category[i].create_date}</p>
-                </div>
-                <p class="mb_sb_cb_item_text">${paernting_category[i].content}</p>
-                </a>
-            </div>
-            `
+        for (let i = 0; i < response.order_by_cate_worry_list.length; i++){
+            switch(response.order_by_cate_worry_list[i].category){
+                case DAILY_CATEGORY_NUM:
+                    inner_html_by_category(daily_html, response.order_by_cate_worry_list[i], DAILY_CATEGORY_NUM)
+                    break;
+                case FAMILY_CATEGORY_NUM:
+                    inner_html_by_category(family_html, response.order_by_cate_worry_list[i], FAMILY_CATEGORY_NUM)
+                    break;
+                case LOVE_CATEGORY_NUM:
+                    inner_html_by_category(love_html, response.order_by_cate_worry_list[i], LOVE_CATEGORY_NUM)
+                    break;
+                case RELATION_CATEGORY_NUM:
+                    inner_html_by_category(relation_html, response.order_by_cate_worry_list[i], RELATION_CATEGORY_NUM)
+                    break;
+                case WORK_CATEGORY_NUM:
+                    inner_html_by_category(work_html, response.order_by_cate_worry_list[i], WORK_CATEGORY_NUM)
+                    break;
+                case PARENTING_CATEGORY_NUM:
+                    inner_html_by_category(paernting_html, response.order_by_cate_worry_list[i], PARENTING_CATEGORY_NUM)
+                    break;
+            }
         }
         }
         switch(result.status){

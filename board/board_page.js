@@ -1,4 +1,6 @@
 const BASE_URL = 'http://127.0.0.1:8000';
+const DEFAULT_NUMBER = 1
+const ZERO = 0
 
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
@@ -309,6 +311,7 @@ function open_report_modal(author_id){
     document.getElementById('sm_title').style.display= "none"
     document.querySelector('.sm_bd_submit_button').setAttribute("onClick",`report_post(${author_id})`)
     document.querySelector('.sm_bd_text').textContent ="신고하기"
+    document.querySelector('.sm_bd_text').innerHTML += '<div class = "reqort_empty_box"></div><div class="report_close_button" onclick="close_modal()">x</div>'
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
@@ -372,12 +375,12 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
-    if (firstBottomNumber < 0){
-        firstBottomNumber = 1
+    if (firstBottomNumber < ZERO){
+        firstBottomNumber = DEFAULT_NUMBER
     }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
-    if(page_num%10==0 & page_num != 0){
+    if(page_num%10==ZERO & page_num != ZERO){
         firstBottomNumber = firstBottomNumber - 10;
         lastBottomNumber = page_num;
     }
@@ -402,8 +405,8 @@ function click_page_num(url_page_num, total_page_num){
     if (url_page_num > total_page_num){
         url_page_num=total_page_num
     }
-    else if (url_page_num < 0){
-        url_page_num = 1
+    else if (url_page_num < ZERO){
+        url_page_num = DEFAULT_NUMBER
     }
     location.href = 'board_page.html?page_num=' + url_page_num
 }

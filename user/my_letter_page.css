@@ -32,6 +32,12 @@ body,html{
         margin-top: 0 !important;
         margin-right: 40px !important;
     }
+    .nc_mongle, .nc_profile{
+        
+        width: 70px !important;
+        height: 70px !important;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -133,23 +139,24 @@ body,html{
 .nc_sb_nav p{
     font-size: 23px;
 }
-
 .nc_mongle {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-position: center;
+    background-size:100px;
     border-radius: 100%;
     width: 60px;
-    height: 60px;
-    margin-left: 10px;
+    height:60px;
     cursor: pointer;
-    background-position: center;
-    background-size: cover;
 }
+
 .nc_profile {
+    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-position: center;
+    background-size:100px;
     border-radius: 100%;
     width: 60px;
     height: 60px;
     cursor: pointer;
-    background-position: center;
-    background-size: cover;
 }
 
 .open_drawer {
@@ -436,7 +443,7 @@ body,html{
     padding: 20px 40px;
 }
 .lb_letter_img{
-    background-image: url("../Group 55.png");
+    background-image: url("/images/Group 55.png");
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -558,7 +565,7 @@ body,html{
     width: 4em;
 }
 .lm_rm_mongle{
-    background-image: url('/mongle.png');
+    background-image: url('/images/mongle.png');
     background-size: cover;
     background-position: center;
     width: 40px;
@@ -567,7 +574,7 @@ body,html{
     margin: 0 3px;
 }
 .lm_rm_mongle_edit{
-    background-image: url('/mongle.png');
+    background-image: url('/images/mongle.png');
     background-size: cover;
     background-position: center;
     width: 40px;

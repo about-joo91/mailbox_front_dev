@@ -1,5 +1,6 @@
 const BASE_URL = 'http://127.0.0.1:8000';
-
+const DEFAULT_NUMBER = 1
+const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
 let url_category = urlParams.get('category');
@@ -54,7 +55,7 @@ async function post_board(){
     switch (result.status){
         case 200:
             alert("게시글을 작성 하였습니다!!")
-            click_category(0)
+            click_category(ZERO)
             break;
         default:
             alert("게시글 작성에 실패하였습니다.")
@@ -97,7 +98,7 @@ async function edit_worry_board(worry_board_id){
     switch (result.status){
         case 200:
             alert(res['detail'])
-            click_category(0)
+            click_category(ZERO)
             break;
         default:
             alert(res['detail'])
@@ -240,13 +241,13 @@ async function get_worry_board() {
     let url_category = urlParams.get('category');
 
     if (!url_page_num){
-        url_page_num = 1
+        url_page_num = DEFAULT_NUMBER
     }
-    else if (url_page_num < 0){
-        url_page_num = 1
+    else if (url_page_num < ZERO){
+        url_page_num = DEFAULT_NUMBER
     }
     if (!url_category){
-        url_category = 0
+        url_category = ZERO
     }
     const result = await fetch(BASE_URL + '/worry_board/?category=' + url_category + "&page_num=" + url_page_num , {
         method: 'GET',
@@ -374,12 +375,12 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
     let totalPageSize = Math.ceil(total_count / listSize)  //하단 버튼의 수
 
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //지금 화면에서 보여지는 하단 최초 시작 숫자
-    if (firstBottomNumber < 0){
-        firstBottomNumber = 1
+    if (firstBottomNumber < ZERO){
+        firstBottomNumber = DEFAULT_NUMBER
     }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //지금 화면에서 보여지는 하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
-    if(page_num%10==0 & page_num != 0){
+    if(page_num%10==0 & page_num != ZERO){
         firstBottomNumber = firstBottomNumber - 10;
         lastBottomNumber = page_num;
     }
@@ -395,7 +396,7 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
             mc_bb_page_number.innerHTML += `<span class="page_number" id="page_num_${i}" onclick="click_page_num('${i}')">${i} </span>`
         }
     }
-    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${parseInt(lastBottomNumber) + 1}', '${totalPageSize}')">></button>`
+    mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${parseInt(lastBottomNumber) + DEFAULT_NUMBER}', '${totalPageSize}')">></button>`
     mc_bb_page_number.innerHTML += `<button class="page_num_button" onclick="click_page_num('${totalPageSize}', '${totalPageSize}')">>></button>`
 }
 function request_to_my_worry_board(){
@@ -407,13 +408,13 @@ function click_category(category){
 }
 function click_page_num(page_num, total_page_num){
     if(!url_category){
-        url_category=0
+        url_category=ZERO
     }
     if (page_num > total_page_num){
         page_num=total_page_num
     }
-    else if (page_num < 0){
-        page_num = 1
+    else if (page_num < ZERO){
+        page_num = DEFAULT_NUMBER
     }
     location.href = '../../letter/worry_board_page.html?category=' +  url_category + "&page_num=" + page_num
 }

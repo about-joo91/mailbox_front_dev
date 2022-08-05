@@ -1,9 +1,11 @@
 const BASE_URL = 'http://127.0.0.1:8000';
 
 const urlParams = new URLSearchParams(window.location.search);
+const DEFAULT_NUMBER = 1
+const ZERO = 0
 let url_page_num = urlParams.get('page_num');
 if (!url_page_num){
-    url_page_num = 1
+    url_page_num = DEFAULT_NUMBER
 }
 // 쿠키 할당
 function get_cookie(name) {
@@ -65,6 +67,11 @@ async function get_request_messages() {
 
     switch (result.status){
         case 200:
+            if(res.request_message == 0){
+                alert("받은 요청이 없네요. 요청을 작성하러 가볼까요?")
+                location.href = "/board/board_page.html"
+            }
+
             pagenation(res.total_count, 10, 10, url_page_num)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
@@ -196,8 +203,8 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
     let totalPageSize = Math.ceil(total_count / listSize)  //한 화면에 보여줄 갯수에서 구한 하단 총 갯수 
     let firstBottomNumber = page_num - page_num % bottomSize + 1;  //하단 최초 숫자
-    if (firstBottomNumber < 0){
-        firstBottomNumber = 1
+    if (firstBottomNumber < ZERO){
+        firstBottomNumber = DEFAULT_NUMBER
     }
     let lastBottomNumber = page_num - page_num % bottomSize + bottomSize;  //하단 마지막 숫자
     if(lastBottomNumber > totalPageSize) lastBottomNumber = totalPageSize  //총 갯수보다 큰 경우 방지
@@ -225,8 +232,8 @@ function click_page_num(url_page_num, total_page_num){
     if (url_page_num > total_page_num){
         url_page_num=total_page_num
     }
-    else if (url_page_num < 0){
-        url_page_num = 1
+    else if (url_page_num < ZERO){
+        url_page_num = DEFAULT_NUMBER
     }
     location.href = 'received_request.html?page_num=' + url_page_num
 }

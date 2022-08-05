@@ -14,6 +14,7 @@ if (urlParams.get('letter_num')) {
 
 
 const onload_page = async () => {
+    console.log(page_name)
     let url = new URL(BASE_URL + "my_page/"+page_name+"?letter_num=" + letter_num);
     let token = localStorage.getItem('access');
     const result = await fetch(url ,{
@@ -129,7 +130,8 @@ const letters_exist = (response) => {
     나의 몽글 점수: ${user_info.monglegrade.grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+user_info.monglegrade.mongle +`)"></div>
-    <div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"></div>`
+    <a href="/user/my_page.html" ><div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"></div>
+    </a>`
     let letter = response.letter
     lm_header.innerText = letter.title
     let letter_content_html = `<div class="letter_content">

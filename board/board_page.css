@@ -18,7 +18,7 @@ body{
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: F0F0E6;
+    background-color: #F0F0E6;
 }
 
 .nc_sub_container{
@@ -40,23 +40,23 @@ body{
 
 .nc_mongle {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
-    background-size: cover;
-    border-radius: 30px;
-    width: 100px;
-    height: 100px;
+    background-position: center;
+    background-size:100px;
+    border-radius: 100%;
+    width: 60px;
+    height:60px;
     cursor: pointer;
 }
+
 .nc_profile {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
-    background-size: cover;
-    border-radius: 30px;
-    width: 100px;
-    height: 100px;
+    background-position: center;
+    background-size:100px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    margin-left: -15px;
-
 }
-
 
 .nc_sb_modal {
     display: none;
@@ -253,7 +253,7 @@ body{
     height: 40px;
     background-position: center;
     background-size: cover;
-    background-image: url("/mongle.jpeg");
+    background-image: url("/images/mongle.jpeg");
     border-radius: 50%;
     border: 3px solid yellowgreen;
 }
@@ -483,6 +483,16 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 13rem;
+    display: flex;
+    align-items: center;
+}
+.reqort_empty_box{
+    width: 77%;
+}
+.report_close_button{
+    color: black;
+    font-size: 40px;
+    cursor: pointer;
 }
 .sm_bd_content{
     width: 91%;
