@@ -226,20 +226,10 @@ input::placeholder{
 }
 
 @media (max-height: 530px){
-    .mc_box{
-        background-color: #E2CA9B;
-        width: 85%;
-        height: 50vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 15px;
-    }
     .mb_title{
         color: #F0F0E6;
         font-size: 1.3rem;
-        margin-bottom: 5px;
+        margin-bottom: 3px;
     }
 
     .mb_sub{
