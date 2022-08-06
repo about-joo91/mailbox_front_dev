@@ -77,9 +77,9 @@ async function get_request_messages() {
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.request_message[0].user_profile_data.grade}`
-            porfile_image.style.backgroundImage =`url(${res.request_message[0].user_profile_data.profile_img})`
-            mongle_image.style.backgroundImage = `url(${res.request_message[0].user_profile_data.mongle_img})`
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]

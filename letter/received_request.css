@@ -278,7 +278,7 @@ body{
     height: 100%;
     background-position: center;
     background-size: cover;
-    background-image: url("/mongle.jpeg");
+    background-image: url("/mongle.png");
     border-radius: 50%;
     border: 3px solid yellowgreen;
 }
