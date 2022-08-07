@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DAILY_CATEGORY_NUM = 1;
 const FAMILY_CATEGORY_NUM = 2;
 const LOVE_CATEGORY_NUM = 3;
@@ -43,9 +43,9 @@ const main_page_data = (response) =>{
         const profile_grade = document.getElementById('profile_grade')
         const porfile_image = document.getElementById('profile_image')
         const mongle_image = document.getElementById('mongle_img')
-        profile_grade.innerText = `나의 몽글 점수: ${response.main_page_data_and_user_profile.user_profile_data.grade}`
+        profile_grade.innerText = `나의 몽글 점수: ${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.grade}`
         porfile_image.style.backgroundImage =`url(${response.main_page_data_and_user_profile.user_profile_data.profile_img})`
-        mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_img})`
+        mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.mongle_image})`
         const letter_count = document.getElementById('letter_count')
         letter_count.innerText =`# 편지가 ${response.letter_count}개 도착 했습니다`
         const user_rank = document.getElementById('user_rank')

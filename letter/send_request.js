@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://localhost:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -77,9 +77,9 @@ async function get_request_messages() {
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
-            porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
-            mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
@@ -109,7 +109,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <a href="http://127.0.0.1:5500/letter/letter.html?board_id=${request_message.worry_board}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
+                        <a href="/letter/letter.html?board_id=${request_message.worry_board}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
                         <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`

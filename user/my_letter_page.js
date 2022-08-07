@@ -1,4 +1,4 @@
-const BASE_URL = "https://www.api-mongle.shop/";
+const BASE_URL = 'http://127.0.0.1:8000/';
 const urlParams = new URL(document.location).searchParams;
 let page_name = "my_letter"
 page_name = urlParams.get('page_name');
@@ -59,13 +59,14 @@ const when_whole_letter_is_not_read = ()=> {
     location.replace('/user/my_letter_page.html?page_name=my_not_read_letter')
 }
 const default_page = (response) => {
+    
     const lm_header = document.querySelector('.lm_header');
     const lm_body = document.querySelector('.lm_body');
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
     nc_sb_nav.innerHTML += `<p>
-    나의 몽글 점수: ${response.monglegrade.grade}
+    나의 몽글 점수: ${response.mongle_grade.grade}
     </p>
-    <div class ="nc_mongle" style="background-image:url(`+response.monglegrade.mongle +`)"></div>
+    <div class ="nc_mongle" style="background-image:url(`+response.mongle_grade.mongle_image +`)"></div>
     <div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"><div>`
 
     lm_header.innerText = `안녕하세요 ${response.nickname}님 몽글을 찾아주셔서 감사합니다.`
@@ -100,6 +101,7 @@ const push_before_button = () => {
     lm_whole_letter_box.innerHTML = `<i class="fa-solid fa-arrow-left whole_letter_icon" onclick="get_letter_by_params('my_received_letter')"></i>`
 }
 const letters_exist = (response) => {
+    console.log(response)
     page_name = urlParams.get("page_name");
     const lm_header = document.querySelector('.lm_header');
     const lm_body = document.querySelector('.lm_body');
@@ -127,11 +129,10 @@ const letters_exist = (response) => {
     }
     nc_sb_nav.innerHTML = `
     <p>
-    나의 몽글 점수: ${user_info.monglegrade.grade}
+    나의 몽글 점수: ${user_info.mongle_grade.grade}
     </p>
-    <div class ="nc_mongle" style="background-image:url(`+user_info.monglegrade.mongle +`)"></div>
-    <a href="/user/my_page.html" ><div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"></div>
-    </a>`
+    <div class ="nc_mongle" style="background-image:url(`+user_info.mongle_grade.mongle_image +`)"></div>
+    <div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"></div>`
     let letter = response.letter
     lm_header.innerText = letter.title
     let letter_content_html = `<div class="letter_content">

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 
@@ -50,9 +50,9 @@ async function get_board(event) {
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
-            porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
-            mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             // boards에 대한 제목, 내용 등등을 가져오는 코드
@@ -298,6 +298,8 @@ function open_edit_modal(title,content,id){
 // 모달을 열어주는 함수
 function open_add_modal(){
     document.getElementById('modal_background').style.display="flex"
+    document.querySelector('.sm_bd_text').style.display ="none"
+    document.getElementById('sm_title').style.display= "flex"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
@@ -310,6 +312,7 @@ function open_add_modal(){
 function open_report_modal(author_id){
     document.getElementById('modal_background').style.display ="flex"
     document.getElementById('sm_title').style.display= "none"
+    document.querySelector('.sm_bd_text').style.display ="flex"
     document.querySelector('.sm_bd_submit_button').setAttribute("onClick",`report_post(${author_id})`)
     document.querySelector('.sm_bd_text').textContent ="신고하기"
     document.querySelector('.sm_bd_text').innerHTML += '<div class="report_close_button" onclick="close_modal()">x</div>'

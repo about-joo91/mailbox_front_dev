@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 
 const get_cookie = (name) => {
     let cookie_value = null;
@@ -37,9 +37,9 @@ window.onload = async () => {
         const profile_grade = document.getElementById('profile_grade')
         const porfile_image = document.getElementById('profile_image')
         const mongle_image = document.getElementById('mongle_img')
-        profile_grade.innerText = `나의 몽글 점수: ${response.main_page_data_and_user_profile.user_profile_data.grade}`
+        profile_grade.innerText = `나의 몽글 점수: ${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.grade}`
         porfile_image.style.backgroundImage =`url(${response.main_page_data_and_user_profile.user_profile_data.profile_img})`
-        mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_img})`
+        mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.mongle_image})`
     }
     const unauthorized = (response) => {
         alert(response.detail)
@@ -84,7 +84,7 @@ const letter_post = async() => {
 
     const unauthorized = (response) => {
         alert(response['detail'])
-        location.replace('/user/signin.html');
+        location.replace('../index.html');
     }
     const overlap = (response) =>{
         alert(response['detail'])
@@ -93,6 +93,7 @@ const letter_post = async() => {
     switch(result.status){
         case 200:
             alert(response['detail'])
+            location.href='/main/main.html'
             break;
         case 401:
             unauthorized(response)

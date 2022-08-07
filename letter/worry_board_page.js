@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -57,8 +57,13 @@ async function post_board(){
             alert("게시글을 작성 하였습니다!!")
             click_category(ZERO)
             break;
+        case 401:
+            alert(res['detail'])
+            go_sign_in()
+            break;
         default:
-            alert("게시글 작성에 실패하였습니다.")
+            alert(res['detail'])
+            break;
     }
 }
 
@@ -100,8 +105,13 @@ async function edit_worry_board(worry_board_id){
             alert(res['detail'])
             click_category(ZERO)
             break;
+        case 401:
+            alert(res['detail'])
+            go_sign_in()
+            break;
         default:
             alert(res['detail'])
+            break;
     }
 }
 
@@ -143,8 +153,13 @@ async function request_message(worry_board_id){
             alert(res['detail'])
             location.reload()
             break;
+        case 401:
+            alert(res['detail'])
+            go_sign_in()
+            break;
         default:
             alert(res['detail'])
+            break;
     }
 }
 
@@ -181,12 +196,18 @@ async function cancle_request_button(request_message_id){
         },
     })
     let res = await result.json()
-    if (result.status == 200) {
-        alert(res['detail'])
-        location.reload()
-    }
-    else {
-        alert(res['detail'])
+    switch(result.status){
+        case 200:
+            alert(res['detail'])
+            location.reload()
+            break;
+        case 401:
+            alert(res['detail'])
+            go_sign_in()
+            break;
+        default:
+            alert(res['detail'])
+            break;
     }
 }
 
@@ -222,9 +243,14 @@ async function delete_worry_board(worry_board_id){
             alert(res['detail'])
             location.reload()
             break;
+        case 401:
+            alert(res['detail'])
+            go_sign_in()
+            break;
         default:
             alert(res['detail'])
-    }
+            break;
+        }
 }
 
 // 현재 내가 보고있는 보드의 디테일페이지로 이동하는 로직
@@ -262,15 +288,16 @@ async function get_worry_board() {
     })
     let res = await result.json()
     var check_recommended = (res.recommended_cnt > 0)
+    console.log(res)
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)
-            // const profile_grade = document.getElementById('profile_grade')
-            // const porfile_image = document.getElementById('profile_image')
-            // const mongle_image = document.getElementById('mongle_img')
-            // profile_grade.innerText = `나의 몽글 점수: ${res.boards[0].user_profile_data.grade}`
-            // porfile_image.style.backgroundImage =`url(${res.boards[0].user_profile_data.profile_img})`
-            // mongle_image.style.backgroundImage = `url(${res.boards[0].user_profile_data.mongle_img})`
+            const profile_grade = document.getElementById('profile_grade')
+            const porfile_image = document.getElementById('profile_image')
+            const mongle_image = document.getElementById('mongle_img')
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
             worry_board_list(res.boards)
             if (check_recommended){
                 let tmp_board = `<div class="mc_bt_cb_category" onclick="click_category(7)">추천</div>`
@@ -278,9 +305,13 @@ async function get_worry_board() {
                 board_lists.insertAdjacentHTML("afterbegin",tmp_board)
             }
             break;
-        default:
-            alert("세션이 만료 되었습니다.")
+        case 401:
+            alert(res['detail'])
             go_sign_in()
+            break;
+        default:
+            alert(res['detail'])
+            break;
     }
 }
 
@@ -420,7 +451,7 @@ function click_page_num(page_num, total_page_num){
     location.href = '../../letter/worry_board_page.html?category=' +  url_category + "&page_num=" + page_num
 }
 function go_sign_in(){
-    location.href = '../../user/signin.html'
+    location.href = '/'
 }
 
 function main_modal(){
