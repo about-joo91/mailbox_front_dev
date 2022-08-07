@@ -677,6 +677,9 @@ body{
     .cancle_request_small_modal{
         width: 23%;
     }
+    .sm_tt_text{
+        width: 20%;
+    }
 }
 
 @media (max-width: 1530px) {
@@ -722,6 +725,12 @@ body{
     .cancle_request_small_modal{
         width: 36%;
     }
+    .sm_tt_text{
+        width: 40%;
+    }
+    .sm_tt_category{
+        width: 35%;
+    }
 }
 
 @media (max-width: 1120px) {
@@ -730,6 +739,12 @@ body{
     }
     .md_bb_bl_bd_request_button {
         width: 100%;
+    }
+    .sm_tt_text{
+        width: 45%;
+    }
+    .sm_tt_category{
+        width: 50%;
     }
 }
 
@@ -745,6 +760,12 @@ body{
     }
     .md_bb_bl_board_box {
         width: 80%;
+    }
+    .sm_tt_text{
+        width: 60%;
+    }
+    .sm_tt_category{
+        width: 60%;
     }
 }
 
@@ -877,6 +898,12 @@ body{
     }
     .md_bb_bl_bd_request{
         width: 17.5%;
+    }
+    .sm_tt_text{
+        width: 80%;
+    }
+    .sm_tt_category{
+        width: 80%;
     }
 }
 
