@@ -45,13 +45,14 @@ async function get_board(event) {
     let res = await result.json()
     switch(result.status){
         case 200:
+            console.log(res)
             pagenation(res.total_count, 10, 10, url_page_num)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.boards[0].user_profile_data.grade}`
-            porfile_image.style.backgroundImage =`url(${res.boards[0].user_profile_data.profile_img})`
-            mongle_image.style.backgroundImage = `url(${res.boards[0].user_profile_data.mongle_img})`
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
         let tmp_board = ``
         for (let i = 0; i < res.boards.length; i++){
             // boards에 대한 제목, 내용 등등을 가져오는 코드
@@ -134,7 +135,7 @@ async function get_board(event) {
             break;
         default:
             alert("세션이 만료 되었습니다.")
-            location.replace('/user/signin.html')
+            location.replace('/index.html')
     }
 }
 
