@@ -372,6 +372,11 @@ body {
     font-size: 23px;
     justify-content: center;
 }
+.mpc_c_b_u_desc{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px
+}
 .image_edit_btn{
     font-size: 20px;
     color: white;
@@ -488,12 +493,9 @@ body {
     position: absolute;
     max-width: none;
 }
-.d_white_space{
-    margin-top: 170px;
-}
 
 #drawer {
-    top: 8%;
+    top: 2.8%;
     z-index: 5;
     display: flex;
     height: 100vh;
