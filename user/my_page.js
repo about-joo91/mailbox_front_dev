@@ -72,7 +72,7 @@ const my_profile_exist = (response) =>{
     const mpc_c_b_u_rcb_name = document.querySelector('.mpc_c_b_u_rcb_name');
     mpc_c_b_u_rcb_name.innerHTML = `
     <div>${response.fullname}</div>
-    <div>${mongle.level}레벨</div>
+    <div>${mongle_grade.level}레벨</div>
     `
     const mpc_c_b_u_rcb_category_box = document.querySelector('.mpc_c_b_u_rcb_category_box');
     mpc_c_b_u_rcb_category_box.innerHTML += cate_html + `<div class="category_plus_btn" ontouchstart="add_my_cate_ready()" onclick="add_my_cate_ready()"> + </div>`

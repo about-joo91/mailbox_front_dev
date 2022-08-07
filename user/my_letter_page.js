@@ -402,12 +402,13 @@ const create_review = async(letter_id) => {
     }
 }
 // 리뷰를 삭제하는 api
+const delete_check_modal_wrapper = document.querySelector('.delete_check_modal_wrapper');
 const delete_ready = (letter_review_id) => {
-    const delete_check_modal_wrapper = document.querySelector('.delete_check_modal_wrapper');
+    
     delete_check_modal_wrapper.style.display = 'flex';
     const dcm_btn_box = document.querySelector('.dcm_btn_box');
     dcm_btn_box.innerHTML = `<div class="dcm_bb_btn" onclick="delete_review(${letter_review_id})">확인</div>
-    <div class="dcm_bb_btn cancel">취소</div>`
+    <div onclick="cancel_delete_review()" class="dcm_bb_btn cancel">취소</div>`
 }
 const delete_review = async(letter_review_id) => {
     let url = new URL(BASE_URL + `my_page/letter_review?letter_review_id=`+letter_review_id);
@@ -444,3 +445,7 @@ drawer_wrapper.addEventListener('click',function(e){
         drawer_wrapper.classList.toggle("drawer_wrapper_after")
     }
 })
+
+const cancel_delete_review = () => {
+    delete_check_modal_wrapper.style.display = 'none';
+}
