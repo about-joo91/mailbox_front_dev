@@ -73,7 +73,6 @@ async function get_request_messages() {
             }
 
             pagenation(res.total_count, 10, 10, url_page_num)
-            console.log(res)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
@@ -84,7 +83,6 @@ async function get_request_messages() {
             for (let i = 0; i < res.request_message.length; i++){
                 request_status_list = ["","", "고민글", "수락됨", "반려됨"]
                 request_message = res.request_message[i]
-                console.log(request_message)
                 tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board">
                     <div class="md_bb_bl_board_box">

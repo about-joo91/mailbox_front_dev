@@ -537,6 +537,10 @@ body{
     color: rgba(80, 80, 80, 1);
     background-color: rgba(176, 170, 109, 0.3);
 }
+.mc_bt_title_empty_box{
+    width: 63%;
+}
+
 
 
 @media (max-width: 780px) {
