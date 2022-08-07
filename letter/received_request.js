@@ -25,7 +25,7 @@ function get_cookie(name) {
 const csrftoken = get_cookie('csrftoken')
 
 // request 모달을 여는 함수
-function open_request_modal(worry_board_content, request_message_id){
+function open_request_modal(request_message, request_message_id){
     document.getElementById('modal_background').style.display="block"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
@@ -36,7 +36,7 @@ function open_request_modal(worry_board_content, request_message_id){
     small_modal.style.top = modal_top_now + "px";
 
     const modal_text = document.querySelector(".sm_bd_ct_text")
-    modal_text.innerText = worry_board_content
+    modal_text.innerText = request_message
     document.getElementById('sm_bd_button').innerHTML = `
     <div class="sm_bd_bt_accept" onclick ="accept_request_message(${request_message_id})">수락</div>
     <div class="sm_bd_bt_disaccept" onclick ="disaccept_request_message('${request_message_id}')">거절</div>
@@ -84,6 +84,7 @@ async function get_request_messages() {
             for (let i = 0; i < res.request_message.length; i++){
                 request_status_list = ["","", "고민글", "수락됨", "반려됨"]
                 request_message = res.request_message[i]
+                console.log(request_message)
                 tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board">
                     <div class="md_bb_bl_board_box">
@@ -96,15 +97,15 @@ async function get_request_messages() {
                         </div>
                         <div class="md_bb_bl_bd_content">
                             <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
-                                ${request_message.request_message}
+                                ${request_message.worry_board_content}
                             </p>
                             <div class="md_bb_bl_bd_ct_right">
                                 <div class="md_bb_bl_bd_ct_rg_border"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">${request_status_list[request_message.request_status]}</button>
+                    <div class="md_bb_bl_bd_request">    
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.request_message}','${request_message.id}')">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
 
