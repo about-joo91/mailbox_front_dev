@@ -538,9 +538,22 @@ body{
     background-color: rgba(176, 170, 109, 0.3);
 }
 .mc_bt_title_empty_box{
-    width: 63%;
+    width: 60%;
 }
-
+.mc_by_title_link{
+    width: 14%;
+    text-decoration: none;
+}
+.mc_bt_my_board_button{
+    background-color: white;
+    font-size: 20px;
+    display: flex;
+    border-radius: 15px;
+    width: 100%;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+}
 
 
 @media (max-width: 780px) {
@@ -614,6 +627,12 @@ body{
     .md_bb_bl_bd_desc_ed_delete{
         width: 40%;
     }
+    .mc_by_title_link{
+        width: 18.5%;
+    }
+    .mc_bt_title_empty_box{
+        width: 51%;
+    }
 }
 
 @media (max-width: 1550px) {
@@ -629,7 +648,12 @@ body{
     .md_bb_bl_bd_ct_rg_border {
         width: 75%;
     }
-
+    .mc_by_title_link{
+        width: 24%;
+    }
+    .mc_bt_title_empty_box{
+        width: 42%;
+    }
 }
 
 
@@ -637,11 +661,22 @@ body{
     .md_bb_bl_bd_desc_edit_delete {
         width: 23%;
     }
+    .mc_by_title_link{
+        width: 24%;
+    }
+    .mc_bt_title_empty_box{
+        width: 32%;
+    }
 }
 
 
 @media (max-width: 1040px) {
-
+    .mc_by_title_link{
+        width: 28%;
+    }
+    .mc_bt_title_empty_box{
+        width: 20%;
+    }
 }
 
 @media (max-width: 961px) {
@@ -651,6 +686,7 @@ body{
     .md_bb_bl_bd_desc_edit_delete{
         width: 25%;
     }
+    
 }
 
 
@@ -688,7 +724,12 @@ body{
     .sm_bd_submit_button {
         width: 13%;
     }
-}
+    .mc_by_title_link{
+        width: 21%;
+    }
+    .mc_bt_title_empty_box{
+        width: 36%;
+    }
 
 @media (max-width: 850px) {
     .report_close_button {
@@ -706,6 +747,9 @@ body{
     }
     .sm_tt_title_input {
         margin-left: 11px;
+    }
+    .mc_by_title_link{
+        width: 25%;
     }
 }
 

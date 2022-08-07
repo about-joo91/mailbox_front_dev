@@ -83,7 +83,7 @@ async function get_request_messages() {
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_message = res.request_message[i]
-                request_status_list = ["", "요청", "수락대기", "수락함", "반려함"]
+                request_status_list = ["", "요청", "수락대기", "수락함", "반려됨", "작성완료"]
                 if (request_message.request_status == 3){
                     tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">

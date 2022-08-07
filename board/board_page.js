@@ -61,6 +61,7 @@ async function get_board(event) {
         for (let i = 0; i < res.boards.length; i++){
             // boards에 대한 제목, 내용 등등을 가져오는 코드
             board = res.boards[i]
+            console.log(board)
             if (board.is_liked) {
                 sun_icon = 'bi-brightness-high-fill'
                 color_class = 'img_heart_icon_red'
