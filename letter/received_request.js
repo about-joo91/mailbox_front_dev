@@ -76,9 +76,9 @@ async function get_request_messages() {
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.request_message[0].user_profile_data.grade}`
-            porfile_image.style.backgroundImage =`url(${res.request_message[0].user_profile_data.profile_img})`
-            mongle_image.style.backgroundImage = `url(${res.request_message[0].user_profile_data.mongle_img})`
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_status_list = ["","", "고민글", "수락됨", "반려됨"]
@@ -103,7 +103,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">${request_status_list[request_message.request_status]}</button>
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}','${request_message.id}')">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
 
