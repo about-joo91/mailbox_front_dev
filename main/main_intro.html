@@ -11,7 +11,7 @@
     <title>인트로페이지</title>
 </head>
 <body>
-    <div class="nc_sb_modal">
+    <div class="nc_sb_modal" id="modal_btn">
         <i onclick="main_modal()" class="fa-solid fa-bars"></i>
     </div>
     <div class="nav_container">
@@ -21,6 +21,7 @@
                     나의 몽글 점수: 000
                 </p>
                 <div id="mongle_img"class="nc_mongle">
+
                 </div>
                 <a href="/user/my_page.html" >
                     <div id="profile_image" class="nc_profile">
@@ -29,33 +30,78 @@
             </div>
         </div>
     </div>
-    
-    <div class="main_container">
-        <div class="drawer_wrapper">
-            <div id="drawer">
-                <div class="d_white_space">
-                </div>
-                <a href="/main/main.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
-                <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
-                <a href="/letter/worry_board_page.html?category=0&page_num=1" class="drawer_text"><i class="fa-solid fa-face-sad-tear"></i>&nbsp고민게시판</a>
-                <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 몽글</a>
-                <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 몽글</a>
-                <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
-                <a href="/letter/received_request.html" class="drawer_text"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp내가 받은 요청</a>
-                <a href="/letter/send_request.html" class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp내가 보낸 요청</a>
-                <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp로그아웃</a>
+    <div class="drawer_wrapper">
+        <div id="drawer">
+            <div class="d_white_space">
             </div>
+            <a href="/main/main.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp홈화면</a>
+            <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+            <a href="/letter/worry_board_page.html?category=0&page_num=1" class="drawer_text"><i class="fa-solid fa-face-sad-tear"></i>&nbsp고민게시판</a>
+            <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 몽글</a>
+            <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 몽글</a>
+            <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+            <a href="/letter/received_request.html" class="drawer_text"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp내가 받은 요청</a>
+            <a href="/letter/send_request.html" class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp내가 보낸 요청</a>
+            <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp로그아웃</a>
         </div>
+    </div>
+
     <div class="main_container">
         <div class ="mc_sub_container">
             <div class="mc_sb_text">
                 당신의 온기를 세상에 나눠주세요
             </div>
             <div class="mc_sb_letter">
-                <a href="/main/main.html"><img src="/image/letter.jpg" ></a>
+                <img src="/images/letter.jpg" >
             </div>
         </div>
+            <i id ="under_btn" class="fa-solid fa-arrow-down-long"></i>
+            <p class="intro_text">페이지 설명 보기!</p>
     </div>
+
+    <div class ="main_intro_con">
+        <div class= "mi_worry_text"> 
+            <p><i class="fa-solid fa-face-sad-tear"></i> 고민이 있으신가요?</p>
+            <img id="test" src="https://images.unsplash.com/photo-1617440168937-c6497eaa8db5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ycnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
+            <p>고민 게시판에 고민을 작성하면</p>
+            <span>몽글 이가 편지를 쓰기위해 당신에게 요청을 보낼거에요!<i class="fa-solid fa-envelope-circle-check"></i></span>
+        </div>
+        <div class= "mi_worry_img">
+            <img src="/images/worry.png">
+            <a href="/letter/worry_board_page.html?category=0&page_num=1"><p>고민게시판으로 이동하기</p></a>
+        </div>
+        <i id ="under_btn2" class="fa-solid fa-arrow-down-long"></i>
+    </div>
+
+
+    <div class ="main_intro_con2">
+        <div class= "mi_worry_text2"> 
+            고민을 작성 하셨나요?
+            <img src="https://images.unsplash.com/photo-1529251333259-d36cccaf22ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bGV0dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+            <p><i class="fa-solid fa-envelope-circle-check"></i> 내가 받은 요청에서</p>
+            <span>마음에 드는 몽글이의 요청을 받아 주세요 !</span>
+        </div>
+        <div class= "mi_worry_img">
+            <img src="/images/receive.png">
+            <a href="/letter/received_request.html"><p>내가 받은 요청 으로 이동하기</p></a>
+        </div>
+        <i id ="under_btn3" class="fa-solid fa-arrow-down-long"></i>
+    </div>
+
+
+    <div class ="main_intro_con3">
+        <div class= "mi_worry_text3"> 
+            이제 몽글이가 당신에게 진심이 담긴 편지를 써줄겁니다!
+            <img src="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
+            <p><i class="fa-solid fa-envelope"></i> 혹시 편지가 부담스러우신 가요?</p>
+            <span><i class="fa-solid fa-chalkboard-user drawer_icon"></i> 익명으로 자유롭게 소통할 수 있는 익명게시판을 이용해보세요 !</span>
+        </div>
+        <div class= "mi_worry_img">
+            <img src="/images/receive.png">
+            <a href="/board/board_page.html"><p>익명게시판 으로 이동하기</p></a>
+        </div>
+    </div>
+
 
     <script src="main_intro.js"></script>
     <script src="/user/sign_page.js"></script>

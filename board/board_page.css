@@ -18,7 +18,6 @@ body{
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: #F0F0E6;
 }
 
 .nc_sub_container{
@@ -32,52 +31,41 @@ body{
     align-items: center;
     display: flex;
     margin-right: 80px;
+    margin-top: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
 
 }
-
 .nc_mongle {
-    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
-    background-position: center;
-    background-size:100px;
-    border-radius: 100%;
-    width: 60px;
-    height:60px;
-    cursor: pointer;
-}
-
-.nc_profile {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height:100px;
     cursor: pointer;
 }
 
-.nc_sb_modal {
-    display: none;
-    font-size: 25px;
-    left: 8%;
+.nc_profile {
+    background-image: url("");
+    background-position: center;
+    background-size:cover;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
-    position: absolute;
-    align-items: center;
-    width: 30px;
-    height: 142px;
 }
+
 .drawer_text{
+    font-size: 22px;
     padding: 20px 0px;
     border-radius: 15px;
     text-align: center;
-    width: 96%;
-    margin-left: 5px;
+    width: 100%;
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
-
 }
 .drawer_text:hover{
     cursor: pointer;
@@ -99,7 +87,7 @@ body{
     display: flex;
 }
 .d_white_space{
-    margin-top: -500px;
+    margin-top: -300px;
 }
 .drawer_wrapper{
     display: flex;
@@ -108,21 +96,20 @@ body{
     left: 0;
     top: 0;
     height: 100vh;
-    width: 15%;
+    width: 12%;
     position: fixed;
-    font-size: 22px;
     flex-direction: column;
     background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
-    margin-top: 20rem;
     z-index: 5;
     display: flex;
+    position: fixed;
     height: 100vh;
     justify-content: center;
     position: fixed;
-    width: 15%;
+    width: 12%;
     min-width: 220px;
     left: 0;
     top: 0;
@@ -138,7 +125,16 @@ body{
     background-color: rgba(80, 80, 80, 1);
 }
 
+.my_letter_link{
+    text-decoration-line: none;
+}
+.fake_input{
+    display: none;
+}
 .nc_sb_modal {
+    transform: translateY(2);
+    opacity: 1;
+    transition: all 0.s;
     display: none;
     font-size: 25px;
     left: 8%;
@@ -253,9 +249,8 @@ body{
     height: 40px;
     background-position: center;
     background-size: cover;
-    background-image: url("/images/mongle.jpeg");
+    background-image: url("/images/mongle.png");
     border-radius: 50%;
-    border: 3px solid yellowgreen;
 }
 .md_bb_bl_bd_middle{
     width: 70%;
@@ -427,8 +422,8 @@ body{
     width: 100%;
     height: 9rem;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     background-color: rgba(176, 170, 109, 1);
     border-radius: 15px;
 }
@@ -465,6 +460,7 @@ body{
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
+    color: white;
 }
 .sm_body{
     margin-top: 1.4rem;
@@ -482,17 +478,18 @@ body{
     height: 5.5rem;
     font-size: 2.6rem;
     color: white;
-    margin-left: 13rem;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 .reqort_empty_box{
     width: 77%;
 }
 .report_close_button{
-    color: black;
+    color: white;
     font-size: 40px;
     cursor: pointer;
+    margin-left: 250px;
 }
 .sm_bd_content{
     width: 91%;
@@ -546,7 +543,7 @@ body{
 }
 @media (max-width: 560px) {
     .nc_sb_nav {
-        margin-right: 10px;
+        margin-right: 20px;
     }
     .nc_sb_modal {
         margin-left: 30px;
@@ -671,11 +668,7 @@ body{
     .mc_board_body{
         width: 99%;
     }
-    .nc_sb_nav {
-        margin-right: 30px;
-        margin-bottom: 0px;
-        height: 113px;
-    }
+
     .nc_sb_modal {
         height: 113px;
     }
@@ -690,6 +683,12 @@ body{
     }
 }
 
+@media (max-width: 850px) {
+    .report_close_button {
+        margin-left: 170px;
+    }
+
+}
 
 @media (max-width: 730px) {
     .small_modal{
@@ -834,11 +833,25 @@ body{
         margin-top: 0px;
     }
     .sm_bd_text{
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
     .mc_board_title{
         height: 6rem;
     }
+    .md_bb_bl_bd_ct_left {
+        font-size: 1.7rem;
+    }
+    .md_bb_bl_bd_tt_text{
+        font-size: 2rem;
+    }
+    .report_btn {
+        width: 70%;
+        font-size: 15px;
+    }
+    .md_bb_bl_bd_hidden_name{
+        font-size: 1.9rem;
+    }
+
 }
 
 @media (max-height: 844px) {
@@ -854,4 +867,29 @@ body{
     #drawer{
         top: 35%;
     }
+    .md_bb_bl_bd_hidden_name{
+        font-size: 17.5px;
+    }
 }
+
+@media (max-height: 896px) {
+    #drawer{
+        top: 15%;
+    }
+    .x_button {
+        width: 36%;
+    }
+    .bi-brightness-high-fill {
+        font-size: 1.7rem;
+    }
+    .bi-brightness-high, .bi-brightness-high-fill{
+        margin-right: 0.5rem;
+    }
+    
+}
+@media (max-height: 667px) {
+    #drawer{
+        top: 22%;
+    }
+}
+

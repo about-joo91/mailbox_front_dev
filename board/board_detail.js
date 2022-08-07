@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 
 const urlParams = new URLSearchParams(window.location.search);
 const url_board_id = urlParams.get('board_id');

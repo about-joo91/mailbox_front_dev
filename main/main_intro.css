@@ -1,6 +1,7 @@
 body{
     margin: 0;
-    background: linear-gradient(90deg, #F0F0E6 55%, #FFFFFF 45%);
+    background: linear-gradient(90deg, #F0F0E6 60%, #FFFFFF 45%);
+    overflow-y: hidden
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -12,6 +13,7 @@ body{
 .nav_container {
     z-index: 0;
     display: flex;
+    position: fixed;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -38,44 +40,32 @@ body{
 .nc_mongle {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;
-    background-size:100px;
+    background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height:60px;
+    width: 100px;
+    height:100px;
     cursor: pointer;
 }
 
 .nc_profile {
-    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-image: url("");
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
 }
 
-
-.nc_sb_modal {
-    display: none;
-    font-size: 25px;
-    left: 8%;
-    cursor: pointer;
-    position: absolute;
-    align-items: center;
-    width: 30px;
-    height: 142px;
-}
 .drawer_text{
+    font-size: 22px;
     padding: 20px 0px;
     border-radius: 15px;
     text-align: center;
-    width: 96%;
-    margin-left: 5px;
+    width: 100%;
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
-
 }
 .drawer_text:hover{
     cursor: pointer;
@@ -97,7 +87,7 @@ body{
     display: flex;
 }
 .d_white_space{
-    margin-top: -500px;
+    margin-top: -300px;
 }
 .drawer_wrapper{
     display: flex;
@@ -106,20 +96,19 @@ body{
     left: 0;
     top: 0;
     height: 100vh;
-    width: 15%;
+    width: 12%;
     position: fixed;
-    font-size: 22px;
     flex-direction: column;
-    background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
     z-index: 5;
     display: flex;
+    position: fixed;
     height: 100vh;
     justify-content: center;
     position: fixed;
-    width: 15%;
+    width: 12%;
     min-width: 220px;
     left: 0;
     top: 0;
@@ -135,7 +124,16 @@ body{
     background-color: rgba(80, 80, 80, 1);
 }
 
+.my_letter_link{
+    text-decoration-line: none;
+}
+.fake_input{
+    display: none;
+}
 .nc_sb_modal {
+    transform: translateY(2);
+    opacity: 1;
+    transition: all 0.s;
     display: none;
     font-size: 25px;
     left: 8%;
@@ -152,7 +150,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 1229px;
+    height: 100vh;
 }
 
 
@@ -173,7 +171,6 @@ body{
 }
 
 .mc_sb_letter {
-    margin-left: 100px;
     width: 100%;
     height: 620px;
 }
@@ -183,8 +180,76 @@ body{
 }
 
 
+.main_intro_con,.main_intro_con2, .main_intro_con3{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    
+}
+.icon_box{
+    position: absolute;
+    top: 90%;
+}
 
-@media (max-width: 1250px) {
+#under_btn{
+    position: absolute;
+    top: 90%;
+    font-size: 30px;
+    color: gray;
+}
+.intro_text{
+    position: absolute;
+    top: 80%;
+    font-size: 30px;
+    color: gray;
+}
+#under_btn2{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    font-size: 30px;
+    color: gray;
+}
+
+
+.mi_worry_text{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    margin-right: 100px;
+}
+.mi_worry_text img{
+    margin-top: 50px;
+}
+.mi_worry_text p {
+    font-size: 50px;
+}
+.mi_worry_text span{
+    font-size: 35px;
+}
+
+.mi_worry_img{
+    border-radius: 10px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.mi_worry_img img{
+    border-radius: 10px;
+}
+.mi_worry_img p, a{
+    
+    font-size: 30px;
+    color: black;
+}
+@media (max-width: 1500px) {
     .drawer_wrapper{
         display: none;
     }
@@ -192,9 +257,6 @@ body{
         display: flex;
         height: 130px;
         left: 7%;
-    }
-    .drawer_wrapper{
-        background: rgb(235 233 215);
     }
     .nc_mongle, .nc_profile{
         width: 70px;
@@ -208,8 +270,181 @@ body{
     .mc_sb_letter{
         margin-left: 0px;
     }
+    .drawer_wrapper{
+        background: rgb(235 233 215);
+    }
+    .mi_worry_img p, a{
+        font-size: 25px;
+    }
+    .drawer_text {
+        font-size: 23px;
+        margin-left: 0px;
+    }
+
+}
+.mi_worry_text2{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.mi_worry_text2 img{
+    width: 40%;
+
+    margin-top: 70px;
+}
+.mi_worry_text2 p {
+    font-size: 40px;
+}
+.mi_worry_text2 span{
+    font-size: 40px;
 }
 
+.mi_worry_text3{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+.mi_worry_text3 img{
+    width: 20%;
+}
+.mi_worry_text3 p {
+    font-size: 35px;
+}
+.mi_worry_text3 span{
+    font-size: 30px;
+}
+
+#under_btn3 {
+    position: absolute;
+    font-size: 30px;
+    top: 90%;
+    left: 50%;
+    color: gray;
+}
+
+@media (max-width: 2000px) {
+    .mi_worry_text3{
+        font-size: 30px;
+        margin-right: 100px;
+    }
+    .mi_worry_text3 p{
+        font-size: 30px;
+    }
+    .mi_worry_text3 span{
+        font-size: 25px;
+    }
+    .mi_worry_img img{
+        width: 300px;
+    }
+
+
+}
+
+@media (max-width: 1600px) {
+    .mi_worry_text p, .mi_worry_text2 {
+        font-size: 40px;
+        margin-right: 50px;
+    }
+    .mi_worry_text span,.mi_worry_text2 span{
+        font-size: 25px;
+    }
+    .mi_worry_text img, .mi_worry_text2 img {
+        width: 360px;
+    }
+    .mi_worry_img img{
+        width: 270px;
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .mi_worry_text p, .mi_worry_text2,.mi_worry_text2 p{
+        font-size: 30px;
+    }
+    .mi_worry_text span, .mi_worry_text2 span{
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 870px) {
+
+    .mi_worry_text span{
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .main_intro_con,.main_intro_con2,.main_intro_con3{
+        flex-direction: column;
+    }
+    .mi_worry_text{
+        margin-right: 0px;
+        width: 80%;
+    }
+    .mi_worry_text2{
+        margin-top: 50px;
+        margin-right: 0px;
+        width: 80%;
+    }
+    .mi_worry_text3{
+        margin-top: 50px;
+        margin-right: 0px;
+        width: 80%;
+        font-size: 20px;
+    }
+    .mi_worry_text img{
+        margin-top: 0px;
+    }
+    .mi_worry_text2 img{
+        margin-top: 10px;
+    }
+    .mi_worry_img img{
+        margin-top: 0px;
+        width: 200px;
+    }
+    .mi_worry_text3 p{
+        font-size: 25px;
+    }
+    .mi_worry_text3 span{
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 490px) {
+
+    .mi_worry_text span, .mi_worry_text2 span{
+        font-size: 14px;
+    }
+    .mi_worry_text p, .mi_worry_text2 p{
+        font-size: 25px;
+        margin-right: 0px;
+    }
+    .mi_worry_text img{
+        margin-top: 0px;
+        width: 300px;
+    }
+    .mi_worry_text2 img{
+        width: 300px;
+    }
+    .mi_worry_text,.mi_worry_text2{
+        margin-top: 0px;
+    }
+    .mi_worry_img img{
+        width: 250px;
+    }
+
+}
 
 @media (max-width: 560px) {
     .nc_sb_nav {
@@ -226,19 +461,7 @@ body{
 }
 
 @media (max-width: 450px) {
-    .drawer_wrapper{
-        position: absolute;
-        min-width: 250px;
-        height: 500px;
-        left: 10%;
-        top: 7%;
-        border-radius: 20px;
-    }
-    #drawer{
-        position: absolute;
-        top: -21.5%;
-        min-width: 250px;
-    }
+
     .nc_sb_nav{
         margin-right: 20px;
     }
@@ -249,12 +472,9 @@ body{
 }
 
 
-@media (max-width: 780px) {
+@media (max-width: 800px) {
     body {
         background: #F0F0E6
-    }
-    .main_container{
-        height: 1000px;
     }
     .mc_sub_container{
         margin-bottom: 100px;
@@ -284,9 +504,6 @@ body{
         height: 130px;
         left: 7%;
     }
-    .drawer_wrapper{
-        background: rgb(235 233 215);
-    }
 
     .nc_mongle, .nc_profile{
         width: 70px;
@@ -298,6 +515,21 @@ body{
         margin-right: 40px;
     }
 }
+
+@media (max-width: 600px) {
+    .mi_worry_text3 span{
+        font-size: 18px;
+        text-align: center;
+    }
+    .mi_worry_text3 p{
+        font-size: 20px;
+        text-align: center;
+    }
+    .mi_worry_text3{
+        text-align: center;
+    }
+}
+
 
 @media (max-width: 570px) {
     .mc_sb_text {
@@ -314,20 +546,9 @@ body{
         width: 90%;
         height: 200px;
     }
-    .main_container {
-        height: 50%;
-    }
     .drawer_wrapper{
-        position: absolute;
-        min-width: 250px;
-        height: 500px;
-        left: 10%;
-        top: 8%;
-        border-radius: 20px;
+
         z-index: 5;
-    }
-    #drawer{
-        top: 1.5%;
     }
 
 }
@@ -342,28 +563,64 @@ body{
         height: 60px;
     }
 }
+
 @media (max-height: 896px) {
-    .drawer_wrapper {
-        top: 11.5%;
+
+    #under_btn,.intro_text {
+        font-size: 25px;
     }
-    #drawer{
-        top: 10.5%;
+    .mi_worry_text {
+        margin-top: 300px;
+    }
+    .mi_worry_text2, .mi_worry_text3{
+        margin-top: 330px;
+    }
+    .main_intro_con, .main_intro_con2, .main_intro_con3{
+        overflow-y: auto;
+    }
+    .mi_worry_img {
+        margin-top: 0px;
+        margin-bottom: 80px;
+    }
+    #under_btn2,#under_btn3,#under_btn4{
+        position: relative;
+        left: 0%;
+        top: -55px;
+    }
+    
+}
+
+@media (max-height: 844px) {
+    .mi_worry_text {
+        margin-top: 350px;
+    }
+
+}
+
+
+
+@media (max-height: 667px) {
+
+    .mi_worry_text,.mi_worry_text2,.mi_worry_text3 {
+        margin-top: 550px;
+    }
+    .mi_worry_text span {
+        font-size: 13px;
     }
 }
-@media (max-height: 844px) {
-    .drawer_wrapper {
-        top: 11.5%;
-    }
+@media (max-height: 667px) {
     #drawer{
-        top: 13.5%;
+        top: 0%;
     }
 }
 
-@media (max-height: 670px) {
-    .drawer_wrapper {
-        top: 14.5%;
-    }
+@media (max-height: 896px) {
     #drawer{
-        top: 33.5%;
+        top: 15%;
+    }
+}
+@media (max-height: 667px) {
+    #drawer{
+        top: 22%;
     }
 }

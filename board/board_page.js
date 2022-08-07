@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 
@@ -311,7 +311,7 @@ function open_report_modal(author_id){
     document.getElementById('sm_title').style.display= "none"
     document.querySelector('.sm_bd_submit_button').setAttribute("onClick",`report_post(${author_id})`)
     document.querySelector('.sm_bd_text').textContent ="신고하기"
-    document.querySelector('.sm_bd_text').innerHTML += '<div class = "reqort_empty_box"></div><div class="report_close_button" onclick="close_modal()">x</div>'
+    document.querySelector('.sm_bd_text').innerHTML += '<div class="report_close_button" onclick="close_modal()">x</div>'
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)

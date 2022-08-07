@@ -17,7 +17,6 @@ body{
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: #F0F0E6;
 }
 
 .nc_sub_container{
@@ -40,20 +39,20 @@ body{
 .nc_mongle {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;
-    background-size:100px;
+    background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height:60px;
+    width: 100px;
+    height:100px;
     cursor: pointer;
 }
 
 .nc_profile {
-    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-image: url("");
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
 }
 .mb_sb_rb_text_box{
@@ -173,7 +172,7 @@ display: none;
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 25%;
+    width: 35%;
     height: 100%;
 }
 
@@ -216,7 +215,7 @@ display: none;
     justify-content: center;
 }
 .mb_sb_rb_textbox{
-    width: 100%;
+    width: 90%;
     height: 50px;
 }
 
@@ -284,6 +283,7 @@ display: none;
     width: 70%;
     height: 160px;
     overflow-y: auto;
+    align-items: center;
     margin-bottom: 20px;
 
 }
@@ -444,15 +444,14 @@ display: none;
 }
 
 .drawer_text{
+    font-size: 22px;
     padding: 20px 0px;
     border-radius: 15px;
     text-align: center;
-    width: 96%;
-    margin-left: 5px;
+    width: 100%;
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
-
 }
 .drawer_text:hover{
     cursor: pointer;
@@ -474,30 +473,34 @@ display: none;
     display: flex;
 }
 .d_white_space{
-    margin-top: -500px;
+    margin-top: -300px;
 }
 .drawer_wrapper{
-    left: 0%;
-    top: 0;
-    position: absolute;
     display: flex;
+    position: fixed;
     min-width: 220px;
+    left: 0;
+    top: 0;
     height: 100vh;
-    width: 15%;
-    font-size: 22px;
+    width: 12%;
+    position: fixed;
     flex-direction: column;
+    background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
     z-index: 5;
     display: flex;
+    position: fixed;
+    height: 100vh;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    width: 12%;
     min-width: 220px;
+    left: 0;
+    top: 0;
     font-size: 22px;
     flex-direction: column;
-    background-color: rgb(235 233 215 / 80%);
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -527,6 +530,7 @@ display: none;
     width: 30px;
     height: 142px;
 }
+
 @media (max-width: 560px) {
     .nc_sb_nav {
         margin-right: 25px;
@@ -679,27 +683,20 @@ display: none;
         margin-bottom: 9px;
     }
     .nc_mongle, .nc_profile {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
     }
 }
+
 
 @media (max-height: 896px) {
     #drawer{
-        position: relative;
         top: 15%;
     }
 }
-
-@media (max-height: 845px) {
-    #drawer{
-        top: 19%;
-    }
-}
-
 @media (max-height: 667px) {
     #drawer{
-        top: 35%;
+        top: 22%;
     }
 }
 
