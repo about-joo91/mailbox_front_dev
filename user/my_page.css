@@ -135,20 +135,20 @@ body {
 .nc_mongle {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;
-    background-size:100px;
+    background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height:60px;
+    width: 100px;
+    height:100px;
     cursor: pointer;
 }
 
 .nc_profile {
-    background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
+    background-image: url("");
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
 }
 
@@ -446,8 +446,9 @@ body {
     padding: 20px 0px;
     border-radius: .4em;
     text-align: center;
-    width: 100%;
+    width: 88%;
     margin-left: 5px;
+    font-size: 22px;
     /* margin-bottom: 30px; */
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
@@ -491,6 +492,7 @@ body {
 }
 
 #drawer {
+    top: 8%;
     z-index: 5;
     display: flex;
     height: 100vh;

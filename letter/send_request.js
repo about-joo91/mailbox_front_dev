@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -70,7 +70,7 @@ async function get_request_messages() {
         case 200:
             if(res.request_message == 0){
                 alert("보낸 요청이 없네요. 요청을 작성하러 가볼까요?")
-                location.href = "/board/board_page.html"
+                location.href = "/letter/worry_board_page.html"
             }
 
             pagenation(res.total_count, 10, 10, url_page_num)

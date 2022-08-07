@@ -1,8 +1,8 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 
 window.onload = async function(){
     if (!localStorage.hasOwnProperty('access')) {
-        location.replace('/user/signin.html')
+        location.replace('../index.html')
     }
 
     token = localStorage.getItem('access');
@@ -28,23 +28,70 @@ window.onload = async function(){
 function main_modal(){
     document.getElementById('drawer').style.display ='flex';
     document.querySelector('.drawer_wrapper').style.display ='flex';
+    document.getElementById('modal_btn').style.zIndex = "0";
 }
 
 
 
 document.querySelector('.main_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 1414){
+    if (window.innerWidth <= 1500){
     document.getElementById('drawer').style.display ='none';
     document.querySelector('.drawer_wrapper').style.display ='none';
+    document.getElementById('modal_btn').style.zIndex = "1";
     }
 })
 
+document.querySelector('.main_intro_con').addEventListener('click', function (e) {
+    if (window.innerWidth <= 1500){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    document.getElementById('modal_btn').style.zIndex = "1";
+    }
+})
+
+document.querySelector('.main_intro_con2').addEventListener('click', function (e) {
+    if (window.innerWidth <= 1500){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    document.getElementById('modal_btn').style.zIndex = "1";
+    }
+})
+document.querySelector('.main_intro_con3').addEventListener('click', function (e) {
+    if (window.innerWidth <= 1500){
+    document.getElementById('drawer').style.display ='none';
+    document.querySelector('.drawer_wrapper').style.display ='none';
+    document.getElementById('modal_btn').style.zIndex = "1";
+    }
+})
+
+
+
 document.querySelector('.nav_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 1414){
+    if (window.innerWidth <= 1500){
         document.getElementById('drawer').style.display ='none';
         document.querySelector('.drawer_wrapper').style.display ='none';
+        document.getElementById('modal_btn').style.zIndex = "1";
         }
 })
 
 
+document.getElementById("under_btn").addEventListener("click",function(){
+    document.querySelector('.main_intro_con').scrollIntoView();
+    document.querySelector('.main_container').style.display = "none";
+    document.querySelector('.main_intro_con').style.display = "flex";
+    
+});
 
+
+document.getElementById("under_btn2").addEventListener("click",function(){
+    document.querySelector('.main_intro_con2').scrollIntoView();
+    document.querySelector('.main_intro_con').style.display = "none";
+    document.querySelector('.main_intro_con2').style.display = "flex";
+
+});
+
+document.getElementById("under_btn3").addEventListener("click",function(){
+    document.querySelector('.main_intro_con3').scrollIntoView();
+    document.querySelector('.main_intro_con2').style.display = "none";
+    document.querySelector('.main_intro_con3').style.display = "flex";
+});

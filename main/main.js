@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 const DAILY_CATEGORY_NUM = 1;
 const FAMILY_CATEGORY_NUM = 2;
 const LOVE_CATEGORY_NUM = 3;
@@ -37,7 +37,7 @@ window.onload = async () => {
     
 const unauthorized = (response) => {
     alert(response.detail)
-    location.replace('/user/signin.html');
+    location.replace('../index.html');
 }
 const main_page_data = (response) =>{
         const profile_grade = document.getElementById('profile_grade')

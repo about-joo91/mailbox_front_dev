@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:8000/";
+const BASE_URL = "https://www.api-mongle.shop/";
 const urlParams = new URL(document.location).searchParams;
 let page_name = "my_letter"
 page_name = urlParams.get('page_name');

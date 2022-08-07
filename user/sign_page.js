@@ -1,5 +1,5 @@
 
-const backend_base_url = "http://127.0.0.1:8000"
+const backend_base_url = "https://www.api-mongle.shop"
 
 // 회원가입
 async function SignUp(){
@@ -24,7 +24,7 @@ async function SignUp(){
     switch(response.status){
         case 200:
             alert(response_json.detail);
-            window.location.replace(`signin.html`);
+            window.location.replace(`../index.html`);
             break;
         case 400:
             alert(response_json.detail);
@@ -75,5 +75,5 @@ async function SignIn(){
 function logout() {
     alert("로그아웃 되었습니다");
     localStorage.clear();
-    location.replace('/user/signin.html');
+    location.replace('../index.html');
 }

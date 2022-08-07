@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 
 const get_cookie = (name) => {
     let cookie_value = null;
@@ -18,11 +18,11 @@ const csrftoken = get_cookie('csrftoken')
 
 window.onload = async () => {
     if (!localStorage.hasOwnProperty('access')) {
-        location.replace('/user/signin.html')
+        location.replace('../index.html')
     }
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams == ""){
-        location.replace('/main/main2.html')
+        location.replace('/main/main.html')
     }
     token = localStorage.getItem('access');
     const result = await fetch(BASE_URL + "/main_page/" +"main/",{
@@ -43,7 +43,7 @@ window.onload = async () => {
     }
     const unauthorized = (response) => {
         alert(response.detail)
-        location.replace('/user/signin.html');
+        location.replace('../index.html');
     }
     switch(result.status){
         case 200:
