@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 
 const urlParams = new URLSearchParams(window.location.search);
 const DEFAULT_NUMBER = 1
@@ -73,12 +73,13 @@ async function get_request_messages() {
             }
 
             pagenation(res.total_count, 10, 10, url_page_num)
+            console.log(res)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
-            porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
-            mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
+            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+            porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
+            mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
                 request_status_list = ["","", "고민글", "수락됨", "반려됨"]

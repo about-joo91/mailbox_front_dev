@@ -139,6 +139,10 @@ body,html{
 .nc_sb_nav p{
     font-size: 23px;
 }
+.nc_a_tag{
+    text-decoration: none !important;
+    color: black !important;
+}
 .nc_mongle {
     background-image: url("https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png");
     background-position: center;

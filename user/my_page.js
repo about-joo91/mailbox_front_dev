@@ -1,4 +1,4 @@
-const BASE_URL = "https://www.api-mongle.shop/";
+const BASE_URL = 'http://127.0.0.1:8000/';
 
 const get_cookie = (name) => {
     let cookie_value = null;
@@ -51,16 +51,16 @@ const my_profile_exist = (response) =>{
     my_profile_name = response.fullname;
     let cate_html = ``
     let cate_array = response.categories
-    let mongle = response.mongle_grade
+    let mongle_grade = response.mongle_grade
     cate_array.forEach(element =>
         cate_html += `<div id="cate_${element.id}" class="category_style">${element.cate_name}</div>`
     )
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
     nc_sb_nav.innerHTML += `
     <p>
-    나의 몽글 점수: ${mongle.grade}
+    나의 몽글 점수: ${mongle_grade.grade}
     </p>
-    <div class ="nc_mongle" style="background-image:url(`+ mongle.mongle +`)"></div>
+    <div class ="nc_mongle" style="background-image:url(`+ mongle_grade.mongle_image +`)"></div>
     <a href="/user/my_page.html"><div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"></div></a>`
 
     const mpc_c_header = document.querySelector('.mpc_c_header');
