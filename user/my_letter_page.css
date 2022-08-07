@@ -3,6 +3,7 @@ body,html{
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    background: rgb(235 233 215 / 80%);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -111,7 +112,6 @@ body,html{
     align-items: center;
     width: 100%;
     height: 100px;
-    background-color: white;
 }
 
 .nc_sub_container{
@@ -148,8 +148,9 @@ body,html{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 100px;
-    height:100px;
+    width: 50px;
+    height:50px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -158,8 +159,9 @@ body,html{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
