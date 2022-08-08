@@ -106,6 +106,7 @@ body,html{
     margin-top: -300px;
 }
 #drawer {
+    top: 2.8%;
     z-index: 5;
     display: flex;
     height: 100vh;
