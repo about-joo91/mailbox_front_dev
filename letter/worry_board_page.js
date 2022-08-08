@@ -126,7 +126,7 @@ function open_request_modal_do_request(id, content){
     content_box.innerHTML = worry_board_content.innerText
     const sm_bd_content = document.getElementById('sm_bd_content')
     sm_bd_content.innerHTML = `<textarea class="sm_bd_ct_textarea" id="request_sm_bd_ct_textarea_${id}"></textarea>`
-    document.getElementById('request_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="request_message(${id})">작성</button>`
+    document.getElementById('request_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="request_message(${id})" this.onclick=null>작성</button>`
 }
 
 // request 모달을 통해서 게시물에 대한 요청을 작성하는 로직
@@ -288,7 +288,6 @@ async function get_worry_board() {
     })
     let res = await result.json()
     var check_recommended = (res.recommended_cnt > 0)
-    console.log(res)
     switch (result.status){
         case 200:
             pagenation(res.total_count, 10, 10, url_page_num)

@@ -431,6 +431,15 @@ body{
 .md_bb_bl_bd_request_button:hover{
     cursor: pointer;
 }
+.md_bb_bl_bd_request_button_already_accepted{
+    border-radius: 10px;
+    background: rgb(240, 240, 230);
+    border: none;
+    width: 70%;
+    height: 4rem;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
 .open_modal_button{
     width: 8rem;
     height: 8rem;
@@ -546,7 +555,7 @@ body{
 }
 .sm_bd_ct_text{
     width: 93%;
-    height: 40rem;
+    height: 18rem;
     resize: none;
     border-radius: 15px;
     font-size: 2rem;
@@ -614,7 +623,20 @@ body{
     border: 1px solid gray;
     padding: 2rem 0 0 3rem;
 }
-
+.sm_bd_textarea_box{
+    width: 91%;
+}
+.xm_bd_textarea{
+    width: 93%;
+    height: 20rem;
+    resize: none;
+    border-radius: 15px;
+    font-size: 2rem;
+    color: rgb(164, 164, 87);
+    padding: 3%;
+    margin-bottom: 2rem;
+    background-color: white;
+}
 
 
 
@@ -657,6 +679,9 @@ body{
     .md_bb_bl_bd_request_button {
         font-size: 1.5rem;
     }
+    .md_bb_bl_bd_request_button_already_accepted {
+        font-size: 1.5rem;
+    }
 }
 
 
@@ -664,6 +689,10 @@ body{
     .md_bb_bl_bd_request_button {
         font-size: 1.2rem;
     }
+    .md_bb_bl_bd_request_button_already_accepted {
+        font-size: 1.2rem;
+    }
+    
 }
 
 @media (max-width: 950px) {
@@ -721,6 +750,9 @@ body{
 
 @media (max-width: 450px) {
     .md_bb_bl_bd_request_button  {
+        height: 3rem;
+    }
+    .md_bb_bl_bd_request_button_already_accepted  {
         height: 3rem;
     }
     .md_bb_bl_bd_request  {

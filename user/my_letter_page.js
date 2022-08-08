@@ -14,7 +14,6 @@ if (urlParams.get('letter_num')) {
 
 
 const onload_page = async () => {
-    console.log(page_name)
     let url = new URL(BASE_URL + "my_page/"+page_name+"?letter_num=" + letter_num);
     let token = localStorage.getItem('access');
     const result = await fetch(url ,{
@@ -101,7 +100,6 @@ const push_before_button = () => {
     lm_whole_letter_box.innerHTML = `<i class="fa-solid fa-arrow-left whole_letter_icon" onclick="get_letter_by_params('my_received_letter')"></i>`
 }
 const letters_exist = (response) => {
-    console.log(response)
     page_name = urlParams.get("page_name");
     const lm_header = document.querySelector('.lm_header');
     const lm_body = document.querySelector('.lm_body');
