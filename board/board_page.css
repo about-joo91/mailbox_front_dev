@@ -667,6 +667,9 @@ body{
     .mc_bt_title_empty_box{
         width: 32%;
     }
+    .sm_tt_title_input{
+        width: 60%;
+    }
 }
 
 

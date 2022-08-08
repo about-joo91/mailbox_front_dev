@@ -61,7 +61,6 @@ async function get_board(event) {
         for (let i = 0; i < res.boards.length; i++){
             // boards에 대한 제목, 내용 등등을 가져오는 코드
             board = res.boards[i]
-            console.log(board)
             if (board.is_liked) {
                 sun_icon = 'bi-brightness-high-fill'
                 color_class = 'img_heart_icon_red'
@@ -411,13 +410,14 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
 // 하단의 page_num 버튼을 누를 시 링크
 function click_page_num(url_page_num, total_page_num){
+    let is_mine = urlParams.get('is_mine');
     if (url_page_num > total_page_num){
         url_page_num=total_page_num
     }
     else if (url_page_num < ZERO){
         url_page_num = DEFAULT_NUMBER
     }
-    location.href = 'board_page.html?page_num=' + url_page_num
+    location.href = 'board_page.html?page_num=' + url_page_num + "&is_mine=" + is_mine
 }
 // 메세지 버튼을 누를 시 디테일 페이지로 링크
 function href_board_detail(board_id){

@@ -678,7 +678,10 @@ body{
         width: 23%;
     }
     .sm_tt_text{
-        width: 20%;
+        width: 43%;
+    }
+    .edit_modal_empty_box{
+        width: 32%;
     }
 }
 
@@ -707,6 +710,12 @@ body{
     }
     .md_bb_bl_board_box{
         width: 80%;
+    }
+    .sm_tt_text{
+        width: 51%;
+    }
+    .edit_modal_empty_box{
+        width: 21%;
     }
     
 }
@@ -798,11 +807,15 @@ body{
     }
     .sm_bd_text {
         font-size: 22px;
+        margin-left: 2.2rem;
     }
     .open_modal_button{
         width: 7rem;
         height: 7rem;
         line-height: 7rem;
+    }
+    .sm_bd_submit_button{
+        width: 17.5%;
     }
 }
 
@@ -828,7 +841,9 @@ body{
     .md_bb_bl_bd_desc_ed_delete{
         width: 35%;
     }
-
+    .sm_bd_submit_button{
+        width: 20%;
+    }
 
 }
 
@@ -920,6 +935,13 @@ body{
     }
     .cr_sm_bd_yes_button{
         width: 25%;
+    }
+    .sm_tt_text{
+        width: 80%;
+        margin-left: 1rem;
+    }
+    .sm_tt_category{
+        width: 72%;
     }
 }
 

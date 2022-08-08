@@ -472,11 +472,12 @@ body{
     height: 100%;
     z-index: 2;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 .small_modal{
     width: 40%;
     height: 83rem;
-    position: absolute;
 }
 .sm_title{
     width: 100%;

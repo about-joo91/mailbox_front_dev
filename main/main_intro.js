@@ -16,7 +16,6 @@ window.onload = async function(){
 
     let response = await myposts.json()
     if (myposts.status==200){
-        console.log(response)
         const profile_grade = document.getElementById('profile_grade')
         const porfile_image = document.getElementById('profile_image')
         const mongle_image = document.getElementById('mongle_img')

@@ -24,6 +24,27 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
+function open_detail_message_modal(detail_worry_message){
+    document.getElementById('detail_message_modal_background').style.display="block"
+    const small_modal = document.getElementById('detail_message_small_modal');
+    document.body.style.overflow = 'hidden';
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
+
+    const modal_text = document.getElementById("detail_message_sm_bd_ct_text")
+    modal_text.innerText = detail_worry_message
+}
+//  모달의 외부를 클릭 시
+detail_message_modal_background.addEventListener('click', function (e) {
+if (e.target.classList.contains('modal_background')) {
+    close_modal()
+}
+})
+
+
 function open_request_modal(worry_board_content){
     document.getElementById('modal_background').style.display="block"
     const small_modal = document.getElementById('small_modal');
@@ -47,6 +68,7 @@ if (e.target.classList.contains('modal_background')) {
 function close_modal(){
     document.querySelector('.modal_background').style.display="none"
     document.getElementById('edit_modal_background').style.display="none"
+    document.getElementById('detail_message_modal_background').style.display="none"
     document.body.style.overflow = 'auto';
 }
 
@@ -86,7 +108,7 @@ async function get_request_messages() {
                 request_status_list = ["", "요청", "수락대기", "수락함", "반려됨", "작성완료"]
                 if (request_message.request_status == 3){
                     tmp_request_message += `
-                <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
+                <div class="md_bb_bl_board" id="md_bb_bl_board" >
                     <div class="md_bb_bl_board_box">
                         <div class="md_bb_bl_bd_description">
                             
@@ -109,14 +131,14 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <a href="/letter/letter.html?board_id=${request_message.worry_board}" class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}">편지 쓰기</a>
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
+                        <div class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}" onclick="open_detail_message_modal('${request_message.detail_worry_message}')">편지 쓰기</div>
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}')">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
                 }
                 else {
                     tmp_request_message += `
-                <div class="md_bb_bl_board" id="md_bb_bl_board" onclick="open_request_modal('${request_message.worry_board_content}')">
+                <div class="md_bb_bl_board" id="md_bb_bl_board" >
                     <div class="md_bb_bl_board_box">
                         <div class="md_bb_bl_bd_description">
                             
@@ -139,7 +161,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}">${request_status_list[request_message.request_status]}</button>
+                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}')">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
                 }
@@ -155,7 +177,7 @@ async function get_request_messages() {
 }
 
 function open_edit_modal(content,request_message_id){
-    document.getElementById('edit_modal_background').style.display="block"
+    document.getElementById('edit_modal_background').style.display="flex"
     const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
