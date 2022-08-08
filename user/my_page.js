@@ -296,14 +296,17 @@ const call_edit_desc = async() => {
 // 메뉴바 오픈 
 const open_drawer = document.querySelector('.open_drawer');
 const drawer_wrapper = document.querySelector('.drawer_wrapper');
-open_drawer.addEventListener('click', function(){
-    drawer_wrapper.classList.toggle("drawer_wrapper_after")
+const drawer = document.getElementById('drawer');
+const main_card_container = document.querySelector('.main_card_container');
+open_drawer.addEventListener('click', () => {
+    drawer.style.display = "flex"
+    drawer_wrapper.style.display = "flex"
 })
-drawer_wrapper.addEventListener('click',function(e){
-    if(e.target.classList.contains('drawer_wrapper')){
-        drawer_wrapper.classList.toggle("drawer_wrapper_after")
-    }
-})
+main_card_container.addEventListener('click', () => {
+    if (window.innerWidth <= 930){
+        drawer.style.display = "none"
+        drawer_wrapper.style.display ='none';
+}})
 
 const image_edit_btn = document.querySelector('.image_edit_btn');
 const pem_icon = document.querySelector('.pem_icon');

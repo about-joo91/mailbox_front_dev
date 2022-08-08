@@ -220,7 +220,9 @@ const letter_modal_in = () => {
 letter_modal_wrapper.addEventListener('click', (e) => {
     if(e.target.classList.contains('letter_modal_wrapper')){
         letter_modal_wrapper.style.display = 'none';
+        if (window.innerWidth > 950){
         drawer_wrapper.style.display = 'block';
+    }
     }
 })
 
@@ -437,14 +439,18 @@ const delete_review = async(letter_review_id) => {
 // 메뉴바 오픈 
 const open_drawer = document.querySelector('.open_drawer');
 const drawer_wrapper = document.querySelector('.drawer_wrapper');
-open_drawer.addEventListener('click', function(){
-    drawer_wrapper.classList.toggle("drawer_wrapper_after")
+const drawer = document.getElementById('drawer');
+const letter_container = document.querySelector('.letter_container');
+open_drawer.addEventListener('click', () => {
+    drawer.style.display = "flex"
+    drawer_wrapper.style.display = "flex"
 })
-drawer_wrapper.addEventListener('click',function(e){
-    if(e.target.classList.contains('drawer_wrapper')){
-        drawer_wrapper.classList.toggle("drawer_wrapper_after")
-    }
-})
+letter_container.addEventListener('click', () => {
+    if (window.innerWidth <= 930){
+        drawer.style.display = "none"
+        drawer_wrapper.style.display ='none';
+}})
+
 
 const cancel_delete_review = () => {
     delete_check_modal_wrapper.style.display = 'none';

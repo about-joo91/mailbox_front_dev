@@ -1,4 +1,4 @@
-body{
+body, html{
     margin: 0;
     background: rgb(235 233 215 / 80%);
 }
@@ -455,6 +455,10 @@ display: none;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
 }
+.open_drawer{
+    display: none;
+    font-size: 20px;
+}
 .drawer_text:hover{
     cursor: pointer;
 }
@@ -485,7 +489,6 @@ display: none;
     top: 0;
     height: 100vh;
     width: 12%;
-    position: fixed;
     flex-direction: column;
     background: rgb(235 233 215 / 80%);
 }
@@ -605,6 +608,14 @@ display: none;
         margin-left: 0px;
         width: 100%;
     }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
     .mc_sb_letter_bar, .mc_sb_menu{
         width: 99%;
     }
@@ -649,6 +660,32 @@ display: none;
     }
 }
 @media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    .nav_container{
+        height: 40px !important;
+    }
+    .nc_sub_container{
+        height: 40px !important;
+        align-items: baseline !important;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 ;
+        width: 40px;
+        height: 40px;
+    }
+    .d_white_space {
+        margin-top:18px !important
+    }
     .mc_sb_letter_bar span{
         font-size: 25px;
         margin-left: 42px;
@@ -678,29 +715,20 @@ display: none;
         font-size: 15px;
         margin-right: 25px;
     }
-    .nc_sb_nav{
-        margin-right: 20px;
-    }
     .mb_sc_cb_cate, .mb_sc_cb_cate2{
         margin-bottom: 9px;
     }
-    .nc_mongle, .nc_profile {
-        width: 40px;
-        height: 40px;
+    .drawer_wrapper{
+        min-width: 0 !important;
+        width: 45%;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
     }
 }
 
 
-@media (max-height: 896px) {
-    #drawer{
-        top: 15%;
-    }
-}
-@media (max-height: 667px) {
-    #drawer{
-        top: 22%;
-    }
-}
 
 .bi-brightness-high-fill{
     color : #FEAA4B;

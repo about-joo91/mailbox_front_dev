@@ -533,11 +533,13 @@ const best_review = async() => {
         }
     ;
 }
-
 const main_modal= () => {
     document.getElementById('drawer').style.display ='flex';
     document.querySelector('.drawer_wrapper').style.display ='flex';
 }
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
+
 
 
 
@@ -548,10 +550,4 @@ document.querySelector('.main_container').addEventListener('click', function (e)
     }
 })
 
-document.querySelector('.nav_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 930){
-        document.getElementById('drawer').style.display ='none';
-        document.querySelector('.drawer_wrapper').style.display ='none';
-        }
-})
 
