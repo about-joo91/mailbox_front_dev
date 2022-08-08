@@ -459,6 +459,9 @@ display: none;
     display: none;
     font-size: 20px;
 }
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_text:hover{
     cursor: pointer;
 }

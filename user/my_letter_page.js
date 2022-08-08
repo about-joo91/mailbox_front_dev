@@ -164,7 +164,7 @@ const letters_exist = (response) => {
             <div class="lm_rm_btn" onclick="delete_ready(${review_data.review.id})">삭제</div>
         </div>`
         lm_review_modal.innerHTML = lm_review_modal_html;
-    }else{
+    }else if (!review_data.is_reviewed && page_name != "my_letter"){
         lm_b_under_html = `<div class="lm_b_review_btn" onclick="write_ready(${letter.id})">리뷰쓰기</div>`
     }
     lm_b_under.innerHTML += lm_b_under_html
