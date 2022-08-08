@@ -162,7 +162,7 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 63.7%;
+    width: 50%;
     height: 10rem;
     border: 1px solid black;
     border-radius: 1.5rem;
@@ -195,7 +195,7 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
-    width: 63.7%;
+    width: 50%;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -472,11 +472,12 @@ body{
     height: 100%;
     z-index: 2;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 .small_modal{
     width: 40%;
     height: 83rem;
-    position: absolute;
 }
 .sm_title{
     width: 100%;

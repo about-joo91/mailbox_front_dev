@@ -677,6 +677,12 @@ body{
     .cancle_request_small_modal{
         width: 23%;
     }
+    .sm_tt_text{
+        width: 43%;
+    }
+    .edit_modal_empty_box{
+        width: 32%;
+    }
 }
 
 @media (max-width: 1530px) {
@@ -705,6 +711,12 @@ body{
     .md_bb_bl_board_box{
         width: 80%;
     }
+    .sm_tt_text{
+        width: 51%;
+    }
+    .edit_modal_empty_box{
+        width: 21%;
+    }
     
 }
 
@@ -722,6 +734,12 @@ body{
     .cancle_request_small_modal{
         width: 36%;
     }
+    .sm_tt_text{
+        width: 40%;
+    }
+    .sm_tt_category{
+        width: 35%;
+    }
 }
 
 @media (max-width: 1120px) {
@@ -730,6 +748,12 @@ body{
     }
     .md_bb_bl_bd_request_button {
         width: 100%;
+    }
+    .sm_tt_text{
+        width: 45%;
+    }
+    .sm_tt_category{
+        width: 50%;
     }
 }
 
@@ -745,6 +769,12 @@ body{
     }
     .md_bb_bl_board_box {
         width: 80%;
+    }
+    .sm_tt_text{
+        width: 60%;
+    }
+    .sm_tt_category{
+        width: 60%;
     }
 }
 
@@ -777,11 +807,15 @@ body{
     }
     .sm_bd_text {
         font-size: 22px;
+        margin-left: 2.2rem;
     }
     .open_modal_button{
         width: 7rem;
         height: 7rem;
         line-height: 7rem;
+    }
+    .sm_bd_submit_button{
+        width: 17.5%;
     }
 }
 
@@ -807,7 +841,9 @@ body{
     .md_bb_bl_bd_desc_ed_delete{
         width: 35%;
     }
-
+    .sm_bd_submit_button{
+        width: 20%;
+    }
 
 }
 
@@ -878,6 +914,12 @@ body{
     .md_bb_bl_bd_request{
         width: 17.5%;
     }
+    .sm_tt_text{
+        width: 80%;
+    }
+    .sm_tt_category{
+        width: 80%;
+    }
 }
 
 
@@ -893,6 +935,13 @@ body{
     }
     .cr_sm_bd_yes_button{
         width: 25%;
+    }
+    .sm_tt_text{
+        width: 80%;
+        margin-left: 1rem;
+    }
+    .sm_tt_category{
+        width: 72%;
     }
 }
 

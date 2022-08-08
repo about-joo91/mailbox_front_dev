@@ -4,6 +4,7 @@ const ZERO = 0
 
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
+
 // 쿠키 할당
 function get_cookie(name) {
     let cookie_value = null;
@@ -28,10 +29,14 @@ window.onload = get_board
 async function get_board(event) {
     const urlParams = new URLSearchParams(window.location.search);
     let url_page_num = urlParams.get('page_num');
+    let is_mine = urlParams.get('is_mine');
     if (!url_page_num){
         url_page_num = 1
     }
-    const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num,{
+    if (!is_mine){
+        is_mine = "False"
+    }
+    const result = await fetch(BASE_URL + '/board/'+ '?page_num=' + url_page_num + "&is_mine=" + is_mine,{
         method: 'GET',
         mode: 'cors',
         headers: {
@@ -45,7 +50,6 @@ async function get_board(event) {
     let res = await result.json()
     switch(result.status){
         case 200:
-            console.log(res)
             pagenation(res.total_count, 10, 10, url_page_num)
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
@@ -135,7 +139,7 @@ async function get_board(event) {
             break;
         default:
             alert("세션이 만료 되었습니다.")
-            location.replace('/index.html')
+            // location.replace('/index.html')
     }
 }
 
@@ -406,13 +410,14 @@ function pagenation(total_count, bottomSize, listSize, page_num ){
 
 // 하단의 page_num 버튼을 누를 시 링크
 function click_page_num(url_page_num, total_page_num){
+    let is_mine = urlParams.get('is_mine');
     if (url_page_num > total_page_num){
         url_page_num=total_page_num
     }
     else if (url_page_num < ZERO){
         url_page_num = DEFAULT_NUMBER
     }
-    location.href = 'board_page.html?page_num=' + url_page_num
+    location.href = 'board_page.html?page_num=' + url_page_num + "&is_mine=" + is_mine
 }
 // 메세지 버튼을 누를 시 디테일 페이지로 링크
 function href_board_detail(board_id){
