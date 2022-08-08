@@ -212,12 +212,13 @@ body{
     color: gray;
     cursor: pointer;
 }
-.intro_text{
+.intro_text,.intro_text2,.intro_text3,.intro_text4{
     position: absolute;
     top: 88%;
     font-size: 30px;
     color: gray;
 }
+
 #under_btn2{
     position: absolute;
     top: 95%;
@@ -405,7 +406,7 @@ body{
     .mc_sub_container{
         width: 80%;
     }
-    .mc_sb_text, .intro_text{
+    .mc_sb_text, .intro_text,.intro_text2,.intro_text3,.intro_text4{
         font-size: 25px;
     }
     .mi_worry_text2 img{
@@ -620,8 +621,7 @@ body{
 
 
 @media (max-height: 896px) {
-
-    #under_btn,.intro_text {
+    #under_btn,.intro_text,.intro_text2,.intro_text3,.intro_text4 {
         font-size: 20px;
     }
 
@@ -632,10 +632,12 @@ body{
         margin-top: 0px;
         margin-bottom: 80px;
     }
+    .intro_text2, .intro_text3, .intro_text4{
+        top: 91%;
+    }
     #under_btn2,#under_btn3,#under_btn4{
-        position: relative;
-        left: 0%;
-        top: -55px;
+        font-size: 20px;
+        top: 96%;
     }
     .mc_sb_letter img{
         height: 80%;
