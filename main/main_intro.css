@@ -579,7 +579,7 @@ body{
         min-width: 0 !important;
         width: 45% !important;
     }
-    .d_white_space {
-        margin-top:18px !important
+    .d_white_space{
+        margin-top: -60px;
     }
 }

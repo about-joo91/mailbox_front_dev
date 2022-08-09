@@ -63,6 +63,9 @@ body{
     display: none;
     font-size: 20px;
 }
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_text{
     font-size: 22px;
     padding: 20px 0px;
@@ -121,7 +124,6 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
-    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -167,7 +169,8 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
+    width: 80%;
+    max-width: 1260px;
     height: 10rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
@@ -200,8 +203,9 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
+    max-width: 1260px;
     border: 1px solid gray;
-    width: 50%;
+    width: 80%;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -218,7 +222,7 @@ body{
     margin-left: 6.2rem;
     cursor: pointer;
 }
-.mc_bb_board_lists{  
+.mc_bb_board_lists{ 
     width: 90.9%;
     /* height: 70rem; */
     display: flex;
@@ -482,7 +486,8 @@ body{
     align-items: center;
 }
 .small_modal{
-    width: 40%;
+    max-width: 800px;
+    width: 80%;
     height: 83rem;
 }
 .sm_title{
@@ -621,9 +626,7 @@ body{
 }
 
 
-
 @media (max-width: 950px) {
-
 
     .drawer_wrapper{
         width: 100%;
@@ -663,10 +666,12 @@ body{
     }
     .mc_board_title,.mc_board_body{
         width: 99%;
+        
     }
     .md_bb_bl_bd_request_button {
         height: 4rem;
         width: 38%;
+        margin-left: 5px;
     }
     .md_bb_bl_bd_post_button{
         width: 38%;
@@ -679,6 +684,9 @@ body{
     }
     .sm_bd_submit_button {
         width: 22%;
+    }
+    .small_modal{
+        width: 99%;
     }
 }
 
@@ -731,11 +739,11 @@ body{
         height: 3rem;
     }
     .md_bb_bl_bd_post_button{
-       width: 78%;
+       width: 45%;
        height: 3rem;
     }
     .sm_body {
-        height: 59%;
+        height: 53%;
     }
     .sm_bd_ct_text{
         margin-bottom: 0;
@@ -747,8 +755,7 @@ body{
         margin-left: 1.6rem;
     }
     .md_bb_bl_bd_request{
-        width: 42%;
-        margin-left: 1.5rem;
+        width: 46%;
         margin-top : 1.5rem;
     }
     .md_bb_bl_bd_desc_create_date{
@@ -786,7 +793,7 @@ body{
         padding-top: 2rem;
     }
     .mc_board_title{
-        height: 6rem;
+        height: 5rem;
     }
     .md_bb_bl_board{
         height: 10rem;
@@ -798,8 +805,11 @@ body{
         width: 95%;
     }
     .small_modal{
-        margin-top: 100px;
-        width: 100%;
+        width: 99%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .sm_title {
         height: 6rem;
@@ -808,11 +818,21 @@ body{
         height: 3rem;
         margin-bottom: 5px;
         font-size: 22px;
+        margin-left : 5rem;
 
     }
     .sm_bd_ct_text {
         height: 32rem;
         font-size: 1.8rem;
     }
+    .d_white_space{
+        margin-top: -60px;
+    }
+    .mc_bb_board_lists{ 
+        margin-top: 3rem; 
+    }
+    .sm_bd_submit_button{
+        height: 3rem !important;
+       }
 
 }

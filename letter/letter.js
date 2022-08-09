@@ -106,25 +106,21 @@ const letter_post = async() => {
         }
 }    
 
-const main_modal= () =>{
-    document.querySelector('.drawer_wrapper').style.display ='flex';
-    document.getElementById('drawer').style.display ='flex';
+
+const drawer = document.getElementById('drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
 }
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
 
-document.querySelector('.main_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 850){
-    document.getElementById('drawer').style.display ='none';
-    document.querySelector('.drawer_wrapper').style.display ='none';
+
+
+drawer_wrapper.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
+        drawer_wrapper.style.display ='none';
     }
-})
-
-document.querySelector('.nav_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 850){
-        document.getElementById('drawer').style.display ='none';
-        document.querySelector('.drawer_wrapper').style.display ='none';
-        }
-})
-
-
-
-
+} )

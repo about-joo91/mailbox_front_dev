@@ -618,7 +618,7 @@ display: none;
     
     }
     .nc_sb_nav{
-        margin-top: 31px;
+        margin-top: 10px;
         margin-right: 40px;
     }
     .mc_sb_letter_bar span{
@@ -659,8 +659,8 @@ display: none;
         width: 40px;
         height: 40px;
     }
-    .d_white_space {
-        margin-top:18px !important
+    .d_white_space{
+        margin-top: -60px;
     }
     .mc_sb_letter_bar span{
         font-size: 25px;

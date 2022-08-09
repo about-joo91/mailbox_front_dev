@@ -594,8 +594,8 @@ body, html {
         width: 40px !important;
         height: 40px !important;
     }
-    .d_white_space {
-        margin-top:18px !important
+    .d_white_space{
+        margin-top: -60px;
     }
     .mpc_c_b_u_rcb_category_box {
         width: 100% !important;

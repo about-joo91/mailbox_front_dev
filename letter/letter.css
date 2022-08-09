@@ -259,8 +259,26 @@ input::placeholder {
 
 @media (max-width: 950px) {
     .drawer_wrapper{
-        display: none;
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    }
+    #drawer{
         background: rgb(235 233 215 / 100%);
+        display: none;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
     }
     .main_container{
         width: 100%;
@@ -268,13 +286,11 @@ input::placeholder {
     }
     .nc_sb_modal{
         display: flex;
-        height: 130px;
         left: 7%;
     }
     .nc_sb_nav {
         margin-right: 30px;
         margin-bottom: 0px;
-        height: 113px;
     }
     .nc_sb_modal {
         height: 113px;
@@ -304,16 +320,35 @@ input::placeholder {
 }
 
 @media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nav_container{
+        height: 60px !important;
+        margin-bottom: 30px;
+    }
+    .nc_sub_container{
+        height: 60px !important;
+        align-items: baseline !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .d_white_space {
+        margin-top: -60px !important;
+    }
     body{
         overflow: hidden;
-    }
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-    }
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
     }
     .nc_sb_nav p {
         font-size: 20px;
@@ -350,16 +385,19 @@ input::placeholder {
     .mb_sb_content {
         font-size: 17px;
     }
-    #drawer{
-        top: 15%;
-    }
     .mc_sb_letter_box {
         height: 36%;
     }
     .mc_sb_title_box {
         height: 5%;
     }
-
+    .d_white_space{
+        margin-top: -60px;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
 }
 
 

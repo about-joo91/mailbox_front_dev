@@ -167,7 +167,8 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
+    max-width: 1260px;
+    width: 80%;
     height: 10rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
@@ -201,7 +202,8 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
-    width: 50%;
+    width: 80%;
+    max-width: 1260px;
     border: 1px solid gray;
     /* height: 80rem; */
     margin-top: 1.4rem;
@@ -763,33 +765,30 @@ body{
         margin-top: 0px;
     }
 
-    .md_bb_bl_board{
-        height: 17rem;
-        margin-bottom: 0px;
-    }
     .md_bb_bl_bd_ct_left{
         font-size: 15px;
     }
     .mc_board_body{
-        height: 25rem;
+        height: 28rem;
     }
     .md_bb_bl_bd_description{
         height: 1.6rem;
     }
     .mc_board_title{
-        height: 6rem;
+        height: 5rem;
     }
     .md_bb_bl_board{
         height: 10rem;
     }
-    .d_white_space {
-        margin-top:18px !important
+    .d_white_space{
+        margin-top: -60px;
     }
     .nc_mongle, .nc_profile{
         
         width: 40px !important;
         height: 40px !important;
     }
+
 }
 
 
