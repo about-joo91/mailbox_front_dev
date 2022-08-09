@@ -3,7 +3,6 @@ body{
     background: linear-gradient(90deg, #F0F0E6 60%, #FFFFFF 45%);
     overflow-y: hidden;
 }
-
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
 * {
@@ -214,20 +213,21 @@ body{
 
 #under_btn{
     position: absolute;
-    top: 95%;
+    top: 96%;
     font-size: 30px;
     color: gray;
     cursor: pointer;
 }
-.intro_text{
+.intro_text,.intro_text2,.intro_text3,.intro_text4{
     position: absolute;
-    top: 88%;
+    top: 90%;
     font-size: 30px;
     color: gray;
 }
+
 #under_btn2{
     position: absolute;
-    top: 95%;
+    top: 96%;
     left: 50%;
     font-size: 30px;
     color: gray;
@@ -340,7 +340,7 @@ body{
 #under_btn3 {
     position: absolute;
     font-size: 30px;
-    top: 95%;
+    top: 96%;
     left: 50%;
     color: gray;
     cursor: pointer;
@@ -372,7 +372,11 @@ body{
 
 
 
-@media (max-width: 1500px) {
+
+@media (max-width: 950px) {
+    body{
+        background: linear-gradient(90deg, #F0F0E6 100%, #FFFFFF 45%); 
+    }
     .drawer_wrapper{
         display: none;
     }
@@ -380,6 +384,9 @@ body{
         display: flex;
         height: 130px;
         left: 7%;
+    }
+    .mi_worry_text p{
+        font-size: 25px;
     }
     .nc_mongle, .nc_profile{
         width: 70px;
@@ -445,190 +452,6 @@ body{
         width: 20%;
         display: none;
     }
-
-}
-
-
-@media (max-width: 1300px) {
-    .mi_worry_text3 p,.mi_worry_text3 span,.mi_worry_text3,
-    .mi_worry_text4 p,.mi_worry_text4 span,.mi_worry_text4{
-        font-size: 22px;
-    }
-    .open_drawer{
-        font-size: 25px;
-        display: block!important;
-        margin: 40px 0 0 40px;
-    }
-    .nc_sub_container{
-        justify-content: space-between;
-    }
-
-
-}
-
-
-@media (max-width: 950px) {
-
-    .mi_worry_text p{
-        font-size: 25px;
-    }
-
-}
-
-
-@media (max-width: 800px) {
-    .main_intro_con,.main_intro_con2,.main_intro_con3{
-        flex-direction: column;
-        background: rgb(235 233 215 / 80%);
-        overflow-y: scroll;
-        justify-content: unset;
-
-    }
-    .main_intro_con4{
-        background: rgb(235 233 215 / 80%);
-    }
-    .mi_worry_text{
-        width: 80%;
-        margin-bottom: 100px;
-    }
-    .mi_worry_text2{
-        margin-right: 0px;
-        margin-bottom: 100px;
-        width: 80%;
-    }
-    .mi_worry_text3{
-        margin-top: 50px;
-        margin-right: 0px;
-        width: 80%;
-        font-size: 20px;
-    }
-    .mi_worry_text4{
-        margin-right: 0px;
-        width: 80%;
-        font-size: 20px;
-        margin-bottom: 150px;
-
-    }
-    .mi_worry_text img{
-        width: 80%;
-        margin-top: 0px;
-    }
-    
-    .mi_worry_text2 img{
-        width: 80%;
-    }
-    .mi_worry_img img{
-        margin-top: 30px;
-
-    }
-    .worry_board_png{
-        width: 123%!important;
-    }
-    .mi_worry_text3 p{
-        font-size: 25px;
-    }
-    .mi_worry_text3 span{
-        font-size: 20px;
-    }
-    .mc_sb_letter{
-        width: 100%;
-        height: 50%;
-    }
-    .mc_sb_text{
-        font-size: 20px;
-    }
-    .nav_container{
-        position: unset;
-    }
-    .request_png{
-        width: 120%!important;
-    }
-    .letter_png{
-        width: 80%!important;
-    }
-
-}
-
-@media (max-width: 490px) {
-
-    .mi_worry_text p, .mi_worry_text2 p{
-        font-size: 22px;
-        margin-right: 0px;
-    }
-    .mi_worry_text img{
-        margin-top: 30px;
-        width: 370px;
-    }
-    .mi_worry_text2 img{
-        width: 300px;
-    }
-    .mi_worry_text,.mi_worry_text2{
-        margin-top: 0px;
-    }
-    .mi_worry_img img{
-        width: 250px;
-    }
-
-}
-
-@media (max-width: 560px) {
-    .nc_s1_nav {
-        margin-right: 25px;
-    }
-}
-
-@media (max-width: 450px) {
-    *{
-        font-size: 14px !important;
-    }
-    .nc_sb_nav{
-        margin-right: 10px !important;
-        margin-top: 0 !important;
-    }
-    .nav_container{
-        height: 40px !important;
-        margin-bottom: 30px;
-    }
-    .nc_sub_container{
-        height: 40px !important;
-        align-items: baseline !important;
-    }
-    .nc_mongle, .nc_profile{
-        margin: 0;
-        width: 40px !important;
-        height: 40px !important;
-    }
-    .mi_worry_text2 span{
-        font-size: 20px;
-    }
-    .open_drawer{
-        font-size: 18px !important;
-        margin: 20px 0 0 20px !important;
-    }
-    #drawer{
-        min-width: 0 !important;
-        width: 45% !important;
-    }
-    .d_white_space {
-        margin-top:18px !important
-    }
-}
-
-
-@media (max-width: 800px) {
-    body {
-        background: #F0F0E6
-    }
-    .mc_sub_container{
-        margin-bottom: 100px;
-    }
-    .mc_sb_text{
-        margin-bottom: 25px;
-    }
-}
-
-
-@media (max-width: 950px) {
     .open_drawer{
         display: block!important;
         margin: 40px 0 0 40px;
@@ -651,60 +474,52 @@ body{
         margin-top: 31px;
         margin-right: 40px;
     }
-}
 
-@media (max-width: 600px) {
-    .mi_worry_text3 span,.mi_worry_text4 span{
-        font-size: 18px;
-        text-align: center;
-    }
-    .mi_worry_text3 p,.mi_worry_text4 p{
-        font-size: 18px;
-        text-align: center;
-    }
-    .mi_worry_text3{
-        text-align: center;
-    }
 }
 
 
-@media (max-height: 896px) {
 
-    #under_btn,.intro_text {
+
+@media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+
+    .nc_sb_nav{
+        margin-right: 20px;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nav_container{
+        height: 40px !important;
+        margin-bottom: 30px;
+    }
+    .nc_sub_container{
+        height: 40px !important;
+        align-items: baseline !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .mc_sb_letter{
+        height: 40%;
+    }
+    .mi_worry_text2 span{
         font-size: 20px;
     }
-
-    .main_intro_con, .main_intro_con2, .main_intro_con3{
-        overflow-y: auto;
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
     }
-    .mi_worry_img {
-        margin-top: 0px;
-        margin-bottom: 80px;
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
     }
-    #under_btn2,#under_btn3,#under_btn4{
-        position: relative;
-        left: 0%;
-        top: -55px;
+    .d_white_space {
+        margin-top:18px !important
     }
-    .mc_sb_letter img{
-        height: 80%;
-    }
-    .mi_worry_text,.mi_worry_text2{
-        margin-bottom: 0px;
-        margin-top: 0px;
-    }
-    .worry_board_png {
-        width: 123%!important;
-    }
-    .mi_worry_text span {
-        font-size: 19px;
-        margin-bottom: 10px;
-    }
-    .mi_worry_text3 p, .mi_worry_text4 p{
-        font-size: 16px;
-    }
-    .intro_text_main{
-        top: 250%;
-    }
-
 }

@@ -26,7 +26,7 @@ const csrftoken = get_cookie('csrftoken')
 
 // request 모달을 여는 함수
 function open_request_modal(request_message, request_message_id){
-    document.getElementById('modal_background').style.display="block"
+    document.getElementById('modal_background').style.display="flex"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)

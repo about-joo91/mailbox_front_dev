@@ -160,6 +160,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 150px;
 }
 
 
@@ -167,7 +168,7 @@ body{
 .mc_board_title{
     width: 50%;
     height: 10rem;
-    border: 1px solid black;
+    border: 1px solid gray;
     border-radius: 1.5rem;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
@@ -198,6 +199,7 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
+    border: 1px solid gray;
     width: 50%;
     /* height: 80rem; */
     margin-top: 1.4rem;
@@ -248,7 +250,7 @@ body{
     font-weight: 700;
 }
 .cur_page{
-    color: blue;
+    color: white;
     font-weight: 600;
     cursor: pointer;
 }
@@ -640,6 +642,10 @@ body{
         justify-content: space-between;
         align-items: baseline !important;
     }
+    .drawer_wrapper{
+        display: none;
+        background: rgb(235 233 215 / 100%);
+    }
     .nc_sb_modal{
         display: flex;
         height: 130px;
@@ -656,6 +662,11 @@ body{
     .nc_sb_modal {
         height: 113px;
     }
+
+    .nc_sb_modal {
+        height: 113px;
+    }
+
     .main_container{
         margin-left: 0px;
 
@@ -663,35 +674,40 @@ body{
     .mc_board_title,.mc_board_body{
         width: 99%;
     }
+    .md_bb_bl_bd_request_button {
+        height: 3rem;
+        width: 50%;
+    }
+    .mc_bt_title_text{
+        font-size: 30px;
+    }
 
 }
 
 
 @media (max-width: 450px) {
-    *{
-        font-size: 14px !important;
-    }
-    #drawer{
-        min-width: 0 !important;
-        width: 45% !important;
-    }
-    .nav_container{
-        height: 40px !important;
-        margin-bottom: 30px;
-    }
-    .open_drawer{
-        font-size: 18px !important;
-        margin: 20px 0 0 20px !important;
-    }
-    .main_container{
-        margin-top: 0px;
-    }
+*{
+    font-size: 14px !important;
+}
+#drawer{
+    min-width: 0 !important;
+    width: 45% !important;
+}
+.nav_container{
+    height: 40px !important;
+    margin-bottom: 30px;
+}
+.open_drawer{
+    font-size: 18px !important;
+    margin: 20px 0 0 20px !important;
+}
     .md_bb_bl_bd_request_button  {
         height: 3rem;
     }
-    .md_bb_bl_bd_request  {
-        width: 30%;
+    .md_bb_bl_bd_request_button_already_accepted  {
+        height: 3rem;
     }
+
     .mc_bt_title_text {
         font-size: 25px;
     }
@@ -704,19 +720,34 @@ body{
         height: 40px !important;
     }
     .md_bb_bl_bd_hidden_name {
-        font-size: 2rme;
+        font-size: 2rem;
     }
-    .md_bb_bl_bd_request_button{
-        font-size: 1rem;
+    .main_container{
+        margin-top: 0px;
+    }
+
+    .md_bb_bl_board{
+        height: 17rem;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        align-items: unset;
+    }
+
+    .mc_board_body{
+        height: 25rem;
+    }
+    .md_bb_bl_bd_description{
+        height: 1.6rem;
+        padding-top: 2rem;
     }
     .mc_board_title{
         height: 6rem;
     }
-    .md_bb_bl_board{
-        height: 10rem;
+    .md_bb_bl_bd_request_button {
+        width: 75%;
     }
-    .md_bb_bl_bd_hidden_name{
-        font-size: 2rem;
+    .md_bb_bl_bd_desc_edit_delete{
+        width: 70%;
     }
     .d_white_space {
         margin-top:18px !important
@@ -729,5 +760,28 @@ body{
     .nc_sb_nav{
         margin-right: 10px !important;
         margin-top: 0 !important;
+    }
+    .md_bb_bl_board_box{
+        width: 95%;
+    }
+    .small_modal{
+        margin-top: 100px;
+        width: 100%;
+    }
+    .sm_title {
+        height: 6rem;
+    }
+    .sm_bd_text{
+        height: 3rem;
+        margin-bottom: 5px;
+        font-size: 22px;
+
+    }
+    .sm_body{
+        height: 50%;
+    }
+    .sm_bd_ct_text {
+        height: 32rem;
+        font-size: 1.8rem;
     }
 }
