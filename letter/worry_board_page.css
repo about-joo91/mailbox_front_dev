@@ -794,18 +794,6 @@ body{
     .nc_sb_modal{
         height: 100px;
     }
-    #drawer{
-        min-width: 0 !important;
-        width: 45% !important;
-    }
-    .open_drawer{
-        font-size: 18px !important;
-        margin: 20px 0 0 20px !important;
-    }
-    .nc_mongle, .nc_profile{
-        
-        width: 40px !important;
-        height: 40px !important;
-    }
 
 }
+

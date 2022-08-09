@@ -121,6 +121,7 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
+    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -589,11 +590,15 @@ body{
 .sm_bd_submit_button{
     cursor: pointer;
     background-color: rgba(176, 170, 109, 0.8);
-    width: 10%;
+    width: 16%;
     height: 5rem;
     color: white;
     font-size: 2rem;
     border-radius: 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* request 모달 */
 .sm_bd_target_text{
@@ -619,32 +624,6 @@ body{
 
 @media (max-width: 950px) {
 
-    .drawer_wrapper{
-        width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 10;
-    display: none;
-    }
-    #drawer{
-        background: rgb(235 233 215 / 100%);
-    }
-    .open_drawer{
-        display: block!important;
-        margin: 40px 0 0 40px;
-    }
-
-    .nc_sb_modal {
-        height: 113px;
-    }
-}
-
-
-
-@media (max-width: 950px) {
 
     .drawer_wrapper{
         width: 100%;
@@ -685,7 +664,22 @@ body{
     .mc_board_title,.mc_board_body{
         width: 99%;
     }
-
+    .md_bb_bl_bd_request_button {
+        height: 4rem;
+        width: 38%;
+    }
+    .md_bb_bl_bd_post_button{
+        width: 38%;
+    }
+    .mc_bt_title_text{
+        font-size: 30px;
+    }
+    .small_modal{
+        width: 60%;
+    }
+    .sm_bd_submit_button {
+        width: 22%;
+    }
 }
 
 
@@ -736,7 +730,30 @@ body{
     .md_bb_bl_bd_request_button_already_accepted  {
         height: 3rem;
     }
-
+    .md_bb_bl_bd_post_button{
+       width: 78%;
+       height: 3rem;
+    }
+    .sm_body {
+        height: 59%;
+    }
+    .sm_bd_ct_text{
+        margin-bottom: 0;
+    }
+    .sm_bd_submit_button{
+        width: 27%;
+    }
+    .md_bb_bl_bd_description{
+        margin-left: 1.6rem;
+    }
+    .md_bb_bl_bd_request{
+        width: 42%;
+        margin-left: 1.5rem;
+        margin-top : 1.5rem;
+    }
+    .md_bb_bl_bd_desc_create_date{
+        margin-left: 1rem;
+    }
     .mc_bt_title_text {
         font-size: 25px;
     }
@@ -754,6 +771,20 @@ body{
     .md_bb_bl_bd_request_button{
         font-size: 1rem;
     }
+    .main_container{
+        margin-top: 0px;
+    }
+
+    .md_bb_bl_board{
+        margin-top: 0px;
+        margin-bottom: 10px;
+        align-items: unset;
+    }
+
+    .md_bb_bl_bd_description{
+        height: 1.6rem;
+        padding-top: 2rem;
+    }
     .mc_board_title{
         height: 6rem;
     }
@@ -763,4 +794,25 @@ body{
     .md_bb_bl_bd_hidden_name{
         font-size: 2rem;
     }
+    .md_bb_bl_board_box{
+        width: 95%;
+    }
+    .small_modal{
+        margin-top: 100px;
+        width: 100%;
+    }
+    .sm_title {
+        height: 6rem;
+    }
+    .sm_bd_text{
+        height: 3rem;
+        margin-bottom: 5px;
+        font-size: 22px;
+
+    }
+    .sm_bd_ct_text {
+        height: 32rem;
+        font-size: 1.8rem;
+    }
+
 }

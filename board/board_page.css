@@ -120,6 +120,7 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
+    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -177,6 +178,7 @@ body{
 }
 .mc_bt_title_text{
     font-size: 35px;
+    width: 22%;
     color: white;
     margin-left: 6.2rem;
     cursor: pointer;
@@ -268,7 +270,7 @@ body{
 .mc_bb_bl_bd_im_writer{
     display: flex;
     flex-wrap: nowrap;
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-style: italic;
     font-weight: 600;
 }
@@ -541,10 +543,10 @@ body{
     background-color: rgba(176, 170, 109, 0.3);
 }
 .mc_bt_title_empty_box{
-    width: 60%;
+    width: 50%;
 }
 .mc_by_title_link{
-    width: 14%;
+    width: 17%;
     text-decoration: none;
 }
 .mc_bt_my_board_button{
@@ -557,7 +559,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 
 @media (max-width: 950px) {
     .nc_sub_container{
@@ -584,7 +585,7 @@ body{
         margin: 40px 0 0 40px;
     }
     .main_container{
-        width: 100%;
+        width: 99%;
         margin-left: 0px;
     }
     .nc_sb_modal{
@@ -592,9 +593,7 @@ body{
         height: 130px;
         left: 7%;
     }
-    .mc_board_title{
-        width: 99%;
-    }
+
     .mc_board_body{
         width: 99%;
     }
@@ -604,6 +603,7 @@ body{
     }
     .mc_board_title{
         justify-content: center;
+        width: 99%;
     }
     .mc_bt_title_text{
         margin-left: 0px;
@@ -626,10 +626,18 @@ body{
         width: 70px !important;
         height: 70px !important;
     }
+
+    .md_bb_bl_bd_middle{
+        width: 55%;
+    }
+    .sm_tt_text{
+        margin-left: 2rem;
+        width: 16%;
+    }
+    .sm_tt_title_input{
+        margin-left: 1rem;
+    }
 }
-
-
-
 
 @media (max-width: 450px) {
     *{
@@ -666,14 +674,14 @@ body{
     .sm_title{
         height: 7rem;
     }
+    .sm_body{
+        height: 69rem;
+    }
     .sm_tt_title_input {
         height: 2rem;
     }
     .small_modal{
         width: 99%;
-    }
-    .main_container {
-        margin-top: 20px;
     }
     .md_bb_bl_bd_desc_image_icon {
         width: 30px;
@@ -682,5 +690,53 @@ body{
     .md_bb_bl_bd_ct_right {
         width: 30%;
     }
-
-}
+    .main_container {
+        width: 96%;
+        margin-left: 1rem;
+        margin-top: 20px;
+    }
+    .mc_bt_title_text{
+        margin-left: 2rem;
+        width: 50%;
+    }
+    .mc_bt_title_empty_box{
+        width: 3%;
+    }
+    .mc_by_title_link{
+        width: 36%;
+    }
+    .md_bb_bl_bd_description{
+        margin-left: 0.6rem;
+    }
+    .md_bb_bl_bd_desc_create_date{
+        margin-left: 1rem;
+    }
+    .md_bb_bl_bd_middle{
+        width: 50%;
+        margin-left: 0;
+    }
+    .md_bb_bl_bd_desc_comment_icon{
+        width: 13.5%;
+    }
+    .bi-brightness-high{
+        margin-right: 0.5rem;
+    }
+    .md_bb_bl_bd_desc_edit_delete{
+        width: 28%;
+        margin-right: 4%;
+        margin-left: 2%;
+    }
+    .md_bb_bl_bd_desc_ed_edit{
+        margin-right: 0.5rem;
+    }
+    .sm_bd_content{
+        height: 59rem;
+        margin-top: 3rem;
+    }
+    .sm_bd_submit_button{
+        margin-top: 0;
+    }
+    .sm_bd_ct_textarea{
+        height: 96%;
+    }
+}   
