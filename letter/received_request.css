@@ -123,7 +123,6 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
-    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -695,9 +694,7 @@ body{
     .md_bb_bl_bd_request_button{
         font-size: 15px;
     }
-    .md_bb_bl_bd_request_button_already_accepted{
-        font-size: 15px;
-    }
+
 }
 
 
@@ -721,6 +718,10 @@ body{
     }
     .nc_sub_container{
         height: 40px !important;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
     }
     .nc_sb_nav{
         margin-right: 10px !important;
@@ -763,10 +764,14 @@ body{
     }
 
     .md_bb_bl_board{
-        margin-bottom: 10px;
+        height: 17rem;
+        margin-bottom: 0px;
     }
     .md_bb_bl_bd_ct_left{
         font-size: 15px;
+    }
+    .mc_board_body{
+        height: 25rem;
     }
     .md_bb_bl_bd_description{
         height: 1.6rem;
