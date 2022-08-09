@@ -49,6 +49,7 @@ const colse_modal = (main_con,drawer,drawer_wrapper,modal_btn) => {
         drawer.style.display ='none';
         drawer_wrapper.style.display ='none';
         modal_btn.style.zIndex = "1";
+
         }
     })
     }
@@ -63,23 +64,61 @@ let under_btn = document.getElementById("under_btn")
 let under_btn2 = document.getElementById("under_btn2")
 let under_btn3  = document.getElementById("under_btn3")
 let under_btn4  = document.getElementById("under_btn4")
-const next_btn = (under_btn,next_con,before_con) => {
+let intro_text = document.querySelector(".intro_text2")
+let intro_text2 = document.querySelector(".intro_text3")
+let intro_text3 = document.querySelector(".intro_text4")
+const next_btn = (under_btn,next_con,before_con,next_text) => {
     under_btn.addEventListener("click",function(){
         next_con.scrollIntoView();
         next_con.style.display = "flex";
         before_con.style.display = "none";
+        if (innerHeight <= 1000) {
+            next_text.innerText ="스크롤 을 내려주세요!"
+        }
     })
 }
+
 
 next_btn(under_btn,main_intro,main_con)
 next_btn(under_btn2,main_intro2,main_intro)
 next_btn(under_btn3,main_intro3,main_intro2)
-next_btn(main_con,main_intro,main_con)
-next_btn(main_intro,main_intro2,main_intro)
-next_btn(main_intro2,main_intro3,main_intro2)
+next_btn(main_con,main_intro,main_con,intro_text)
+next_btn(main_intro,main_intro2,main_intro,intro_text2)
+next_btn(main_intro2,main_intro3,main_intro2,intro_text3)
 next_btn(main_intro3,main_intro4,main_intro3)
 
 
 
+const scroll_event = () => {
+
+    if (window.innerHeight <= 700){
+        if (document.querySelector('.main_intro_con').scrollTop >= 1300)  {
+            intro_text.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
+        }
+    }
+    else {
+        if (document.querySelector('.main_intro_con').scrollTop >= 860)  {
+            intro_text.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
+        }
+    }
+
+}
+
+const scroll_event2 = () => {
+
+    if (document.querySelector('.main_intro_con2').scrollTop >= 700)  {
+        intro_text2.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
+    }
+    
+}
+
+const scroll_event3 = () => {
+    if (document.querySelector('.main_intro_con3').scrollTop >= 700 )  {
+        intro_text3.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
+    }
+}
 
 
+document.querySelector('.main_intro_con').onscroll = scroll_event
+document.querySelector('.main_intro_con2').onscroll = scroll_event2
+document.querySelector('.main_intro_con3').onscroll = scroll_event3

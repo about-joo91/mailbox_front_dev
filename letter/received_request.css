@@ -464,11 +464,13 @@ body{
     height: 100%;
     z-index: 2;
     display: none;
+    justify-content: center;
+    align-items: center;
 }
 .small_modal{
     width: 40%;
     height: 83rem;
-    position: absolute;
+
 }
 .sm_title{
     width: 100%;
@@ -627,9 +629,11 @@ body{
     width: 91%;
 }
 .xm_bd_textarea{
+    outline: none;
     width: 93%;
     height: 20rem;
     resize: none;
+    border: none;
     border-radius: 15px;
     font-size: 2rem;
     color: rgb(164, 164, 87);
@@ -638,13 +642,6 @@ body{
     background-color: white;
 }
 
-
-
-
-
-
-
-
 @media (max-width: 950px) {
     .drawer_wrapper{
         display: none;
@@ -659,56 +656,7 @@ body{
     .nc_sb_modal {
         height: 113px;
     }
-}
 
-
-@media (max-width: 2300px) {
-    .main_container {
-        margin-left: 130px;
-    }
-}
-
-@media (max-width: 1600px) {
-    .main_container {
-        margin-left: 100px;
-    }
-}
-
-
-@media (max-width: 1570px) {
-    .md_bb_bl_bd_request_button {
-        font-size: 1.5rem;
-    }
-    .md_bb_bl_bd_request_button_already_accepted {
-        font-size: 1.5rem;
-    }
-}
-
-
-@media (max-width: 1200px) {
-    .md_bb_bl_bd_request_button {
-        font-size: 1.2rem;
-    }
-    .md_bb_bl_bd_request_button_already_accepted {
-        font-size: 1.2rem;
-    }
-    
-}
-
-@media (max-width: 950px) {
-
-    .drawer_wrapper{
-        display: none;
-        background: rgb(235 233 215 / 100%);
-    }
-    .nc_sb_modal{
-        display: flex;
-        height: 130px;
-        left: 7%;
-    }
-    .nc_sb_modal {
-        height: 113px;
-    }
     .main_container{
         margin-left: 0px;
 
@@ -716,36 +664,13 @@ body{
     .mc_board_title,.mc_board_body{
         width: 99%;
     }
+    .md_bb_bl_bd_request_button{
+        font-size: 15px;
+    }
 
 }
 
 
-
-
-
-@media (max-width: 560px) {
-    .nc_sb_nav {
-        margin-right: 10px;
-    }
-    .nc_sb_modal {
-        margin-left: 30px;
-    }
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-    }
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 500px) {
-    .md_bb_bl_bd_request  {
-        width: 18%;
-        height: 3.5rem;
-    }
-}
 
 
 @media (max-width: 450px) {
@@ -767,95 +692,57 @@ body{
         
     }
     .md_bb_bl_bd_hidden_name {
-        font-size: 2rme;
+        font-size: 2rem;
     }
     .main_container{
         margin-top: 0px;
     }
-    .mc_board_title {
+
+    .md_bb_bl_board{
+        height: 17rem;
+        margin-bottom: 0px;
+    }
+    .md_bb_bl_bd_ct_left{
+        font-size: 15px;
+    }
+    .mc_board_body{
+        height: 25rem;
+    }
+    .md_bb_bl_bd_description{
+        height: 1.6rem;
+    }
+    .mc_board_title{
         height: 6rem;
     }
-    .md_bb_bl_board{
-        height: 10rem;
-    }
-    
-}
-
-
-@media (max-width: 480px) {
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-        margin-left: 1px;
-    }
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-
-    }
-    .nc_sb_nav p {
-        font-size: 20px;
-    }
-    .nc_sb_modal {
-        margin-left: 30px;
-
-    }
-
-}
-
-@media (max-height: 896px) {
     #drawer{
         position: relative;
         top: 15%;
     }
     .small_modal{
-        left: 0px!important;
-        top: 100px!important;
+        height: unset;
         width: 99%;
     }
     .sm_tt_text {
         width: 85%;
     }
     .sm_title {
-        height: 7rem;
+        height: 5rem;
     }
     .sm_body {
-        height: 55rem;
-    }
-
-}
-
-@media (max-height: 845px) {
-    #drawer{
-        top: 19%;
-    }
-}
-
-@media (max-height: 667px) {
-    #drawer{
-        top: 35%;
-    }
-    .small_modal{
-        top: 50px!important;
-    }
-    .sm_title {
-        height: 6rem;
-    }
-    .sm_body{
         height: 50rem;
     }
-    .sm_bd_ct_text{
-        height: 34rem;
+    .md_bb_bl_bd_request_button{
+        width: 75%;
     }
+    .sm_bd_ct_text {
+        height: 6rem;
+    }
+    .sm_bd_bt_accept,.sm_bd_bt_disaccept {
+        height: 4rem;
+    }
+
 }
 
-@media (max-height: 896px) {
-    #drawer{
-        top: 15%;
-    }
-}
-@media (max-height: 667px) {
-    #drawer{
-        top: 22%;
-    }
-}
+
+
+
