@@ -6,7 +6,7 @@ const RELATION_CATEGORY_NUM = 4;
 const WORK_CATEGORY_NUM = 5;
 const PARENTING_CATEGORY_NUM = 6;
 
-const REG = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 
 const  get_cookie = (name)  => {
     let cookie_value = null;

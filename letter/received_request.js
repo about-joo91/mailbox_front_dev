@@ -1,5 +1,5 @@
 const BASE_URL = 'http://127.0.0.1:8000';
-
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 const urlParams = new URLSearchParams(window.location.search);
 const DEFAULT_NUMBER = 1
 const ZERO = 0
@@ -185,7 +185,7 @@ async function accept_with_detail_request_message(request_message_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "content" : detail_message
+            "content" : detail_message.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -240,7 +240,7 @@ async function edit_request_message(request_message_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "request_message" : edit_message
+            "request_message" : edit_message.replace(REG,"")
         })
     })
     let res = await result.json()

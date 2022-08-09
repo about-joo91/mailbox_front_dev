@@ -1,4 +1,5 @@
 const BASE_URL = 'http://127.0.0.1:8000/';
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 const urlParams = new URL(document.location).searchParams;
 let page_name = "my_letter"
 page_name = urlParams.get('page_name');
@@ -134,7 +135,7 @@ const letters_exist = (response) => {
     let letter = response.letter
     lm_header.innerText = letter.title
     let letter_content_html = `<div class="letter_content">
-        ${letter.content}
+        ${letter.content.replace(REG,"")}
     </div>`
     lm_body.innerHTML = letter_content_html
     if (page_name == "my_not_read_letter") {
@@ -155,7 +156,7 @@ const letters_exist = (response) => {
             lm_review_modal_html += `<div class="lm_rm_mongle"></div>`
         }
         lm_review_modal_html += `</div>
-        <p class="lm_rm_content">${review_data.review.content}</p>
+        <p class="lm_rm_content">${review_data.review.content.replace(REG,"")}</p>
         <div class="lm_rm_btn_box">
             <div class="lm_rm_btn" onclick="edit_ready(${review_data.review.id})">수정</div>
             <div class="lm_rm_bb_white_space"></div>
@@ -328,7 +329,7 @@ const edit_ready = (letter_review_id) =>{
         lm_review_modal_html += `<div id="lm_rm_mongle_${i}" class="lm_rm_mongle_edit" onclick="edit_mongle_grade(${i})"></div>`
     }
     lm_review_modal_html += `</div>
-    <textarea class="lm_rm_textarea">${currunt_content}</textarea>
+    <textarea class="lm_rm_textarea">${currunt_content.replace(REG,"")}</textarea>
     <div class="lm_rm_btn_box">
         <div class="lm_rm_btn" onclick="edit_review(${letter_review_id})">확인</div>
         <div class="lm_rm_bb_white_space"></div>
@@ -355,7 +356,7 @@ const edit_review = async(letter_review_id) => {
         },
         body:JSON.stringify({
             'grade' : parseInt(MONGLE_LIMIT - uncolored_mongle_len),
-            'content' : edit_content
+            'content' : edit_content.replace(REG,"")
         })
     });
     const response = await result.json()
@@ -386,7 +387,7 @@ const create_review = async(letter_id) => {
         },
         body:JSON.stringify({
             'grade' : parseInt(MONGLE_LIMIT - uncolored_mongle_len),
-            'content' : review_content
+            'content' : review_content.replace(REG,"")
         })
     });
     const response = await result.json()

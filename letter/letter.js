@@ -1,5 +1,5 @@
 const BASE_URL = 'http://127.0.0.1:8000';
-
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 const get_cookie = (name) => {
     let cookie_value = null;
     if (document.cookie && document.cookie !== '') {
@@ -77,8 +77,8 @@ const letter_post = async() => {
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "title": title,
-            "content" : content,
+            "title": title.replace(REG,""),
+            "content" : content.replace(REG,""),
             "worry_board_id" : worry_board_id
         })
     })

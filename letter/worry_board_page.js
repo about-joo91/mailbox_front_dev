@@ -4,7 +4,7 @@ const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
 let url_category = urlParams.get('category');
-const REG = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 // 쿠키 할당
 
 function get_cookie(name) {
@@ -48,7 +48,7 @@ async function post_board(){
         },
         body: JSON.stringify({
             "category": parseInt(boards_category),
-            "content" : boards_content
+            "content" : boards_content.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -96,7 +96,7 @@ async function edit_worry_board(worry_board_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "content": edit_worry_board_new_text
+            "content": edit_worry_board_new_text.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -145,6 +145,7 @@ async function request_message(worry_board_id){
         },
         body: JSON.stringify({
             "request_message": request_message_text
+            
         })
     })
     let res = await result.json()

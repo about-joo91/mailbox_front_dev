@@ -3,6 +3,7 @@ const BASE_URL = 'http://127.0.0.1:8000';
 const urlParams = new URLSearchParams(window.location.search);
 const url_board_id = urlParams.get('board_id');
 
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 // 쿠키 할당
 function get_cookie(name) {
     let cookie_value = null;
@@ -36,7 +37,7 @@ async function post_board_comment(){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "content" : comment_content
+            "content" : comment_content.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -119,7 +120,7 @@ window.onload =
                     </div>
                     <div class="md_bb_bl_bd_content">
                         <p class="md_bb_bl_bd_ct_left">
-                            ${board.content}
+                            ${board.content.replace(REG,"")}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
                             <div class="md_bb_bl_bd_ct_rg_border"></div>
@@ -148,7 +149,7 @@ window.onload =
                     </div>
                     <div class="md_bb_bl_bd_content">
                         <p class="md_bb_bl_bd_ct_left">
-                            ${board.content}
+                            ${board.content.replace(REG,"")}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
                             <div class="md_bb_bl_bd_ct_rg_border"></div>
@@ -183,7 +184,7 @@ window.onload =
                         </div>
                         <div class="mc_bb_cl_cm_content">
                             <p class="mc_bb_cl_cm_ct_left">
-                                ${comment.content}
+                                ${comment.content.replace(REG,"")}
                             </p>
                             <div class="mc_bb_cl_cm_ct_right">
                                 <div class="mc_bb_cl_cm_ct_rg_border"></div>
@@ -216,7 +217,7 @@ window.onload =
                         </div>
                         <div class="mc_bb_cl_cm_content">
                             <p class="mc_bb_cl_cm_ct_left">
-                                ${comment.content}
+                                ${comment.content.replace(REG,"")}
                             </p>
                             <div class="mc_bb_cl_cm_ct_right">
                                 <div class="mc_bb_cl_cm_ct_rg_border"></div>
@@ -318,7 +319,7 @@ async function edit_board_comment(comment_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "content" : edit_comment_content
+            "content" : edit_comment_content.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -423,8 +424,8 @@ async function edit_board(board_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "title" : edit_title,
-            "content" : edit_content
+            "title" : edit_title.replace(REG,""),
+            "content" : edit_content.replace(REG,"")
         })
     })
     let res = await result.json()
