@@ -389,7 +389,7 @@ body{
     width: 80%;
     font-size: 2rem;
     color: #A4A457;
-    margin-left: 3.6rem;
+    margin-left: 1.6rem;
 }
 .md_bb_bl_bd_ct_right{
     width: 20%;
@@ -689,8 +689,9 @@ body{
     }
     .md_bb_bl_bd_request_button {
         height: 4rem;
-        width: 38%;
+        width: 50%;
         margin-left: 5px;
+
     }
     .md_bb_bl_bd_post_button{
         width: 38%;
@@ -752,23 +753,22 @@ body{
         margin-top: 0px;
     }
     .md_bb_bl_bd_request_button  {
-        height: 3rem;
+        height: 2rem;
+        margin-right: 5px;
     }
     .md_bb_bl_bd_request_button_already_accepted  {
         height: 3rem;
     }
     .md_bb_bl_bd_post_button{
-       width: 45%;
-       height: 3rem;
+        width: 45%;
+        height: 2rem;
+        font-size: 10px!important;
     }
     .sm_body {
         height: 53%;
     }
     .edit_sm_body {
         height: 40%;
-    }
-    .sm_bd_ct_text{
-        margin-bottom: 0;
     }
     .sm_bd_submit_button{
         width: 27%;
@@ -812,14 +812,11 @@ body{
 
     .md_bb_bl_bd_description{
         height: 1.6rem;
-        padding-top: 2rem;
     }
     .mc_board_title{
         height: 5rem;
     }
-    .md_bb_bl_board{
-        height: 10rem;
-    }
+
     .md_bb_bl_bd_hidden_name{
         font-size: 2rem;
     }
@@ -844,7 +841,7 @@ body{
 
     }
     .sm_bd_ct_text {
-        height: 32rem;
+        height: 87%;
         font-size: 1.8rem;
     }
     .d_white_space{
@@ -855,11 +852,19 @@ body{
     }
     .sm_bd_submit_button{
         height: 3rem !important;
-       }
+    }
     .sm_tt_text_empty_box {
         width: 45%;
     }
     .sm_tt_text_close{
         font-size: 30px !important;
+    }
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 25%;
+        position: absolute;
+        left: 45%;
+    }
+    .sm_bd_content{
+        height: 100%;
     }
 }

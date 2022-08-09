@@ -41,6 +41,7 @@ window.onload = async () => {
         porfile_image.style.backgroundImage =`url(${response.main_page_data_and_user_profile.user_profile_data.profile_img})`
         mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.mongle_image})`
     }
+    
     const unauthorized = (response) => {
         alert(response.detail)
         location.replace('../index.html');
@@ -123,4 +124,10 @@ drawer_wrapper.addEventListener('click', (e) =>{
         drawer.style.display ='none';
         drawer_wrapper.style.display ='none';
     }
-} )
+})
+
+
+const close_btn = () => {
+    location.replace('/letter/received_request.html')
+
+}

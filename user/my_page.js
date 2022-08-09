@@ -78,7 +78,7 @@ const my_profile_exist = (response) =>{
     mpc_c_b_u_rcb_category_box.innerHTML += cate_html + `<div class="category_plus_btn" ontouchstart="add_my_cate_ready()" onclick="add_my_cate_ready()"> + </div>`
     const mpc_c_body_down = document.querySelector('.mpc_c_body_down');
     mpc_c_body_down.innerHTML = response.description +`<span onclick="desc_edit_ready()" class="mpc_c_bd_edit_button">
-    수정하기
+    프로필 수정
 </span>`
 }
 

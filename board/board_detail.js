@@ -110,7 +110,7 @@ window.onload =
                             <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                         </div> 
                         <div class="md_bb_bl_bd_desc_edit_delete">
-                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal(` + '\`' + `${board.title}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
+                        <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal(` + '\`' + `${board.title}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
                             <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${board.id}', '${url_board_id}')">삭제</div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@ window.onload =
                     </div>
                     <div class="edit_comment" id="edit_comment_${comment.id}">
                         <div class="pc_comment_icon">
-                            <i class="bi bi-chat-dots-fill"></i>
+                            <i class="fa-solid fa-comment"></i>
                         </div>
                         <div class="pc_input_comment">
                             <input class="pc_ic_input" id="pc_ic_input_${comment.id}">
@@ -394,7 +394,7 @@ function open_modal(title,content,id){
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
     let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
-    
+
     small_modal.style.left = modal_left_now + "px";
     small_modal.style.top = modal_top_now + "px";
     document.getElementById('edit_sm_tt_title_input').value = title
@@ -437,5 +437,3 @@ async function edit_board(board_id){
             alert(res['detail'])
     }
 }
-
-
