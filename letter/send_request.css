@@ -110,7 +110,14 @@ body{
     flex-direction: column;
     background: rgb(235 233 215 / 80%);
 }
-
+.sm_tt_text_empty_box{
+    width: 60%;
+}
+.sm_tt_text_close{
+    font-size: 40px;
+    cursor: pointer;
+    color: white;
+}
 #drawer {
     z-index: 5;
     display: flex;
@@ -553,6 +560,17 @@ body{
     align-items: center;
     justify-content: center;
 }
+.edit_sm_body{
+    margin-top: 1.4rem;
+    width: 100%;
+    /* height: 50rem; */
+    background-color: #E2CA9B;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .sm_bd_text{
     width: 100%;
     height: 5.5rem;
@@ -581,7 +599,8 @@ body{
     font-size: 2rem;
     color: #A4A457;
     padding: 3%;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     background-color: white;
 }
 .sm_bd_button {
@@ -745,6 +764,9 @@ body{
     .sm_body {
         height: 53%;
     }
+    .edit_sm_body {
+        height: 40%;
+    }
     .sm_bd_ct_text{
         margin-bottom: 0;
     }
@@ -834,5 +856,10 @@ body{
     .sm_bd_submit_button{
         height: 3rem !important;
        }
-
+    .sm_tt_text_empty_box {
+        width: 45%;
+    }
+    .sm_tt_text_close{
+        font-size: 30px !important;
+    }
 }

@@ -39,13 +39,6 @@ function open_detail_message_modal(detail_worry_message){
     document.getElementById('detail_message_modal_button').innerHTML = `<a href="/letter/letter.html?board_id=${request_message.worry_board}" class="sm_bd_submit_button">작성하러 가기</a>`
 
 }
-//  모달의 외부를 클릭 시
-detail_message_modal_background.addEventListener('click', function (e) {
-if (e.target.classList.contains('modal_background')) {
-    close_modal()
-}
-})
-
 
 function open_request_modal(worry_board_content){
     document.getElementById('modal_background').style.display="flex"
@@ -133,8 +126,8 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <div class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}" onclick="open_detail_message_modal('${request_message.detail_worry_message}')">편지 쓰기</div>
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}')">${request_status_list[request_message.request_status]}</button>
+                    <div class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}" onclick="open_detail_message_modal(` + '\`' + `${request_message.detail_worry_message}` + '\`' +',' + `${request_message.id}` + `)">편지 쓰기</div>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal(` + '\`' + `${request_message.worry_board_content}` + '\`' +',' + `${request_message.id}` + `)">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
                 }
@@ -163,7 +156,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                        <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal('${request_message.worry_board_content}')">${request_status_list[request_message.request_status]}</button>
+                    <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal(` + '\`' + `${request_message.worry_board_content}` + '\`' +',' + `${request_message.id}` + `)">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`
                 }
