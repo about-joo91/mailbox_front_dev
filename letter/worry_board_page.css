@@ -886,6 +886,14 @@ body{
     .small_modal {
         width: 99%;
     }
+    .sm_bd_content{
+        height: 75%;
+    }
+    .sm_bd_target_text{
+        margin-left: 4.5rem;
+        height: 3.5rem;
+        padding-top: 1rem;
+    }
 }
 
 
