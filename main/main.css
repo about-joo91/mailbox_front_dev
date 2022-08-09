@@ -639,10 +639,11 @@ display: none;
         font-size: 14px !important;
     }
     .nav_container{
-        height: 40px !important;
+        height: 60px !important;
+        margin-bottom: 30px;
     }
     .nc_sub_container{
-        height: 40px !important;
+        height: 60px !important;
         align-items: baseline !important;
     }
     .open_drawer{
