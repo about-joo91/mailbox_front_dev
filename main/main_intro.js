@@ -88,13 +88,6 @@ next_btn(main_intro2,main_intro3,main_intro2,intro_text3)
 next_btn(main_intro3,main_intro4,main_intro3)
 
 
-// document.querySelector('.main_intro_con').addEventListener('scroll', function(){
-//     console.log(window.scrollX, window.scrollY);
-//     console.log("개같은거")
-// });
-
-
-console.log(window.innerHeight)
 
 const scroll_event = () => {
 
