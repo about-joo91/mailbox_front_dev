@@ -631,17 +631,86 @@ body{
     }
     #drawer{
         background: rgb(235 233 215 / 100%);
-        display: none;
     }
     .open_drawer{
         display: block!important;
         margin: 40px 0 0 40px;
     }
-    .nc_sub_container{
-        background-color: #F0F0E6;
-        justify-content: space-between;
-        align-items: baseline !important;
+
+    .nc_sb_modal {
+        height: 113px;
     }
+}
+
+
+@media (max-width: 780px) {
+    .nc_sb_nav {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 10px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (max-width: 480px) {
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+        margin-left: 1px;
+    }
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
+
+    }
+    .nc_sb_nav p {
+        font-size: 20px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+
+    }
+
+}
+
+
+
+
+@media (max-width: 2300px) {
+    .main_container {
+        margin-left: 130px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .main_container {
+        margin-left: 100px;
+    }
+}
+
+
+
+@media (max-width: 1500px) {
+    .md_bb_bl_bd_post_button, .md_bb_bl_bd_request_button {
+        font-size: 1.2rem;
+        width: 35%;
+    }
+}
+
+@media (max-width: 950px) {
+
     .drawer_wrapper{
         display: none;
         background: rgb(235 233 215 / 100%);
@@ -651,22 +720,10 @@ body{
         height: 130px;
         left: 7%;
     }
-    .nc_sb_modal{
-        display: flex;
-        height: 130px;
-        left: 7%;
-    }
-    .mc_bt_cb_category   {
-        font-size: 2.3rem;
-    }
-    .nc_sb_modal {
-        height: 113px;
-    }
 
     .nc_sb_modal {
         height: 113px;
     }
-
     .main_container{
         margin-left: 0px;
 
@@ -674,33 +731,58 @@ body{
     .mc_board_title,.mc_board_body{
         width: 99%;
     }
-    .md_bb_bl_bd_request_button {
-        height: 3rem;
-        width: 50%;
-    }
-    .mc_bt_title_text{
-        font-size: 30px;
-    }
 
+}
+
+
+@media (max-width: 780px) {
+    .md_bb_bl_bd_post_button,.md_bb_bl_bd_request_button {
+        height: 3rem;
+        width: 60px;
+    }
+    .md_bb_bl_bd_request,.md_bb_bl_bd_desc_ed_delete  {
+        width: 40%;
+    }
+    .md_bb_bl_bd_desc_ed_edit {
+        width: 45%;
+    }
+}
+
+
+
+
+@media (max-width: 560px) {
+    .nc_sb_nav {
+        margin-right: 10px;
+    }
+    .nc_sb_modal {
+        margin-left: 30px;
+    }
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+    }
+    .nc_mongle {
+        width: 35px;
+        height: 40px;
+    }
+    .md_bb_bl_bd_request{
+        margin-top: 40px;
+        margin-right: 30px;
+    }
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 40%;
+    }
+    .md_bb_bl_bd_description{
+        width: 140%;
+    }
 }
 
 
 @media (max-width: 450px) {
-*{
-    font-size: 14px !important;
-}
-#drawer{
-    min-width: 0 !important;
-    width: 45% !important;
-}
-.nav_container{
-    height: 40px !important;
-    margin-bottom: 30px;
-}
-.open_drawer{
-    font-size: 18px !important;
-    margin: 20px 0 0 20px !important;
-}
+    .main_container{
+        margin-top: 0px;
+    }
     .md_bb_bl_bd_request_button  {
         height: 3rem;
     }
@@ -720,68 +802,73 @@ body{
         height: 40px !important;
     }
     .md_bb_bl_bd_hidden_name {
-        font-size: 2rem;
+        font-size: 2rme;
     }
-    .main_container{
-        margin-top: 0px;
-    }
-
-    .md_bb_bl_board{
-        height: 17rem;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        align-items: unset;
-    }
-
-    .mc_board_body{
-        height: 25rem;
-    }
-    .md_bb_bl_bd_description{
-        height: 1.6rem;
-        padding-top: 2rem;
+    .md_bb_bl_bd_request_button{
+        font-size: 1rem;
     }
     .mc_board_title{
         height: 6rem;
     }
-    .md_bb_bl_bd_request_button {
-        width: 75%;
+    .md_bb_bl_board{
+        height: 10rem;
     }
-    .md_bb_bl_bd_desc_edit_delete{
-        width: 70%;
+    .md_bb_bl_bd_hidden_name{
+        font-size: 2rem;
     }
-    .d_white_space {
-        margin-top:18px !important
+}
+
+
+@media (max-width: 480px) {
+    .nc_profile {
+        width: 40px;
+        height: 40px;
+        margin-left: 1px;
     }
-    .nc_mongle, .nc_profile{
-        
-        width: 40px !important;
-        height: 40px !important;
-    }
-    .nc_sb_nav{
-        margin-right: 10px !important;
-        margin-top: 0 !important;
-    }
-    .md_bb_bl_board_box{
-        width: 95%;
-    }
-    .small_modal{
-        margin-top: 100px;
-        width: 100%;
-    }
-    .sm_title {
-        height: 6rem;
-    }
-    .sm_bd_text{
-        height: 3rem;
-        margin-bottom: 5px;
-        font-size: 22px;
+    .nc_mongle {
+        width: 40px;
+        height: 40px;
 
     }
-    .sm_body{
-        height: 50%;
+    .nc_sb_nav p {
+        font-size: 20px;
     }
-    .sm_bd_ct_text {
-        height: 32rem;
+    .nc_sb_modal {
+        margin-left: 30px;
+
+    }
+
+}
+
+@media (max-height: 896px) {
+    #drawer{
+        position: relative;
+        top: 15%;
+    }
+    .md_bb_bl_bd_request, .md_bb_bl_bd_desc_ed_delete{
+        width: 40%;
+    }
+    .md_bb_bl_bd_ct_left{
+        margin-left: 1.6rem;
+    }
+    .md_bb_bl_bd_hidden_name {
         font-size: 1.8rem;
+    }
+    .small_modal{
+        left: 0px!important;
+        top: 30px!important;
+        width: 99%;
+    }
+}
+
+@media (max-height: 845px) {
+    #drawer{
+        top: 19%;
+    }
+}
+
+@media (max-height: 667px) {
+    #drawer{
+        top: 35%;
     }
 }
