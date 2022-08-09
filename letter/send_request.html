@@ -66,6 +66,8 @@
         <div class="small_modal" id="small_modal">
             <div class="sm_title">
                 <div class="sm_tt_text">내가 요청을 보낸 글</div>
+                <div class="sm_tt_text_empty_box"></div>
+                <div class="sm_tt_text_close" onclick="close_modal()">x</div>
             </div>
 
             <div class="sm_body">
@@ -79,6 +81,8 @@
         <div class="small_modal" id="detail_message_small_modal">
             <div class="sm_title">
                 <div class="sm_tt_text">도착한 요청의 상세글</div>
+                <div class="sm_tt_text_empty_box"></div>
+                <div class="sm_tt_text_close" onclick="close_modal()">x</div>
             </div>
             <div class="sm_body">
                 <div class="sm_bd_content">
@@ -94,8 +98,10 @@
         <div class="small_modal" id="edit_small_modal">
             <div class="sm_title">
                 <div class="sm_tt_text">요청 메세지 수정하기</div>
+                <div class="sm_tt_text_empty_box"></div>
+                <div class="sm_tt_text_close" onclick="close_modal()">x</div>
             </div>
-            <div class="sm_body">
+            <div class="edit_sm_body">
                 <div class="sm_bd_text">수정 할 내용</div>
                 <div class="sm_bd_content">
                     <textarea class="sm_bd_ct_textarea" id="edit_sm_bd_ct_textarea"></textarea>
