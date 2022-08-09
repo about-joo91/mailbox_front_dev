@@ -116,6 +116,7 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
+    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -477,6 +478,7 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 5.5rem;
+    width: 80%;
 }
 .sm_tt_category{
     width: 20%;
@@ -632,6 +634,7 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 5.5rem;
+
 }
 .cr_sm_bd_button{
     width: 100%;
@@ -666,118 +669,6 @@ body{
     border-radius: 15px;
 }
 
-@media (max-width: 1750px) {
-    .my_worry_board  {
-        font-size: 17px;
-    }
-    .md_bb_bl_bd_desc_image_icon{
-        width: 40px;
-        height: 30px;
-    }
-    .cancle_request_small_modal{
-        width: 23%;
-    }
-    .sm_tt_text{
-        width: 43%;
-    }
-    .edit_modal_empty_box{
-        width: 32%;
-    }
-}
-
-@media (max-width: 1530px) {
-    .mc_bt_cb_category   {
-        font-size: 2.4rem;
-    }
-    .md_bb_bl_bd_desc_image_icon{
-        width: 40px;
-        height: 30px;
-    }
-    .md_bb_bl_bd_request_button {
-        width: 95%;
-    }
-    .mc_bt_title_text {
-        font-size: 30px;
-    }
-    .cr_sm_bd_yes_button{
-        width: 22%;
-    }
-    .cr_sm_bd_no_button{
-        width: 22%;
-    }
-    .cancle_request_small_modal{
-        width: 25%;
-    }
-    .md_bb_bl_board_box{
-        width: 80%;
-    }
-    .sm_tt_text{
-        width: 51%;
-    }
-    .edit_modal_empty_box{
-        width: 21%;
-    }
-    
-}
-
-
-@media (max-width: 1380px) {
-    .mc_board_title, .mc_board_body   {
-        width: 60%;
-    }
-    .main_container {
-        left: 29%;
-    }
-    .sm_bd_text {
-        font-size: 18px;
-    }
-    .cancle_request_small_modal{
-        width: 36%;
-    }
-    .sm_tt_text{
-        width: 40%;
-    }
-    .sm_tt_category{
-        width: 35%;
-    }
-}
-
-@media (max-width: 1120px) {
-    .md_bb_bl_board_box{
-        width: 75%;
-    }
-    .md_bb_bl_bd_request_button {
-        width: 100%;
-    }
-    .sm_tt_text{
-        width: 45%;
-    }
-    .sm_tt_category{
-        width: 50%;
-    }
-}
-
-@media (max-width: 980px) {
-    .mc_bt_cb_category   {
-        font-size: 2.3rem;
-    }
-    .cr_sm_bd_no_button{
-        width : 23.5%
-    }
-    .cr_sm_bd_yes_button{
-        width : 23.5%
-    }
-    .md_bb_bl_board_box {
-        width: 80%;
-    }
-    .sm_tt_text{
-        width: 60%;
-    }
-    .sm_tt_category{
-        width: 60%;
-    }
-}
-
 
 @media (max-width: 950px) {
     .drawer_wrapper{
@@ -803,7 +694,7 @@ body{
         top: unset;
     }
     .mc_board_title,.mc_board_body{
-        width: 70%;
+        width: 95%;
     }
     .sm_bd_text {
         font-size: 22px;
@@ -817,53 +708,21 @@ body{
     .sm_bd_submit_button{
         width: 17.5%;
     }
-}
-
-@media (max-width: 650px) {
-    .mc_bt_title_text    {
-        font-size: 27px;
+    .sm_tt_text{
+        width: 45%;
+        margin-left: 4.2rem;
     }
-    .mc_bt_cb_category {
-        font-size: 2rem;
+    .sm_tt_category{
+        width: 40%;
     }
-    .md_bb_bl_bd_request_button {
-        font-size: 16px;
+    .sm_bd_text{
+        margin-left:0.2rem;
     }
-    .my_worry_board{
-        font-size: 14px;
-    }
-    .open_modal_button{
-        left: 80%;
-    }
-    .md_bb_bl_bd_desc_ed_edit{
-        width: 35%;
-    }
-    .md_bb_bl_bd_desc_ed_delete{
-        width: 35%;
-    }
-    .sm_bd_submit_button{
-        width: 20%;
-    }
-
-}
-
-@media (max-width: 500px) {
-    .mc_bt_title_text    {
-        font-size: 20px;
-    }
-    .mc_bt_cb_category {
-        font-size: 1.7rem;
-    }
-    .md_bb_bl_bd_request_button {
-        width: 90%;
-    }
-    .my_worry_board{
-        font-size: 13px;
-    }
-    .md_bb_bl_bd_desc_edit_delete{
-        width: 44%;
+    .small_modal{
+        width: 67%;
     }
 }
+
 
 @media (max-width: 450px) {
     .main_container{
@@ -899,68 +758,6 @@ body{
     .nc_sb_modal{
         height: 100px;
     }
-
-}
-
-
-@media (max-width: 780px) {
-
-    .md_bb_bl_bd_desc_ed_delete{
-        width: 40%;
-    }
-    .md_bb_bl_bd_desc_ed_edit{
-        width: 40%;
-    }
-    .md_bb_bl_bd_request{
-        width: 17.5%;
-    }
-    .sm_tt_text{
-        width: 80%;
-    }
-    .sm_tt_category{
-        width: 80%;
-    }
-}
-
-
-
-
-
-@media (max-width: 780px) {
-    .cancle_request_small_modal{
-        width: 41%;
-    }
-    .cr_sm_bd_no_button {
-        width: 25%;
-    }
-    .cr_sm_bd_yes_button{
-        width: 25%;
-    }
-    .sm_tt_text{
-        width: 80%;
-        margin-left: 1rem;
-    }
-    .sm_tt_category{
-        width: 72%;
-    }
-}
-
-
-@media (max-width: 560px) {
-
-    .nc_sb_modal {
-        margin-left: 30px;
-    }
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-    }
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-    }
-}
-@media (max-width: 480px) {
     .nc_profile {
         width: 40px;
         height: 40px;
@@ -980,113 +777,19 @@ body{
     .md_bb_bl_bd_description{
         width: 110%;
     }
-
-}
-
-
-@media (max-height: 896px) {
-    .open_modal_button {
-        width: 5rem;
-        height: 5rem;
-        line-height: 5rem;
-        top: 90%;
-    }
-    .small_modal {
-        height: 59rem;
-    }
-    .sm_bd_text {
-        font-size: 19px;
-    }
-    .sm_tt_category{
-        width: 55%;
-        font-size: 1.5rem;
-    }
-    .sm_bd_submit_button {
-        width: 20%;
-        height: 4rem;
-    }
-    .sm_tt_text{
-        font-size: 2.3rem;
-
-    }
-    #drawer{
-        top: 129px;
-    }
     .small_modal{
-        width: 43%;
+        width: 92%;
     }
-    .md_bb_bl_bd_request_button{
-        font-size: 15px;
+    .mc_bt_title_text{
+        font-size: 32px;
     }
-    .small_modal {
-        width: 99%;
-    }
-    .sm_title {
-        height: 6rem;
-    }
-    .sm_body{
-        height: 50rem;
-    }
-    .sm_bd_target_content{
-        font-size: 1.8rem;
-    }
-    .sm_bd_target_text {
+    .mc_bt_cb_category{
         font-size: 2rem;
     }
-    
-    
-
-}
-@media (max-height: 896px) {
-    #drawer{
-        position: relative;
-        top: 15%;
+    .md_bb_bl_board_box{
+        width: 80%;
     }
-}
-
-@media (max-height: 845px) {
-    #drawer{
-        top: 19%;
-    }
-    .md_bb_bl_bd_desc_ed_edit{
-        width: 39%;
-        font-size: 16.5px;
-    }
-    .md_bb_bl_bd_desc_ed_delete{
-        width: 39%;
-        font-size: 16.5px;
-    }
-}
-
-@media (max-height: 667px) {
-    #drawer{
-        top: 35%;
-    }
-    .small_modal{
-        width: 99%;
-    }
-
-}
-
-@media (max-height: 896px) {
-    #drawer{
-        top: 15%;
-    }
-    .mc_board_title, .mc_board_body{
-        width: 99%;
-    }
-    .sm_tt_text {
-        width: 300px;
-    }
-}
-@media (max-height: 667px) {
-    #drawer{
-        top: 22%;
-    }
-}
-
-@media (max-width: 1050px) {
-    .sm_tt_text{
-        font-size: 20px;
+    .md_bb_bl_bd_request_button{
+        width: 84%;
     }
 }
