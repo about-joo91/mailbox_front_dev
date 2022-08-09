@@ -118,6 +118,7 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
+    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -640,13 +641,21 @@ body{
         width: 99%;
     }
     .md_bb_bl_bd_request_button {
-        height: 3rem;
-        width: 50%;
+        height: 4rem;
+        width: 38%;
+    }
+    .md_bb_bl_bd_post_button{
+        width: 38%;
     }
     .mc_bt_title_text{
         font-size: 30px;
     }
-
+    .small_modal{
+        width: 60%;
+    }
+    .sm_bd_submit_button {
+        width: 22%;
+    }
 }
 
 
@@ -659,7 +668,30 @@ body{
     .md_bb_bl_bd_request_button_already_accepted  {
         height: 3rem;
     }
-
+    .md_bb_bl_bd_post_button{
+       width: 78%;
+       height: 3rem;
+    }
+    .sm_body {
+        height: 59%;
+    }
+    .sm_bd_ct_text{
+        margin-bottom: 0;
+    }
+    .sm_bd_submit_button{
+        width: 27%;
+    }
+    .md_bb_bl_bd_description{
+        margin-left: 1.6rem;
+    }
+    .md_bb_bl_bd_request{
+        width: 42%;
+        margin-left: 1.5rem;
+        margin-top : 1.5rem;
+    }
+    .md_bb_bl_bd_desc_create_date{
+        margin-left: 1rem;
+    }
     .mc_bt_title_text {
         font-size: 25px;
     }
@@ -676,15 +708,11 @@ body{
     }
 
     .md_bb_bl_board{
-        height: 17rem;
         margin-top: 0px;
-        margin-bottom: 0px;
+        margin-bottom: 10px;
         align-items: unset;
     }
 
-    .mc_board_body{
-        height: 25rem;
-    }
     .md_bb_bl_bd_description{
         height: 1.6rem;
         padding-top: 2rem;
@@ -713,9 +741,6 @@ body{
         margin-bottom: 5px;
         font-size: 22px;
 
-    }
-    .sm_body{
-        height: 50%;
     }
     .sm_bd_ct_text {
         height: 32rem;
