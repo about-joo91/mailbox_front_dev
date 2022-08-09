@@ -533,40 +533,10 @@ display: none;
     height: 142px;
 }
 
-@media (max-width: 560px) {
-    .nc_sb_nav {
-        margin-right: 25px;
-    }
-    .nc_profile {
-        width: 80px;
-        height: 80px;
-    }
-    .nc_mongle {
-        width: 80px;
-        height: 80px;
-    }
-}
 
 
-@media (max-width: 780px) {
-    body {
-        background: #F0F0E6
-    }
-}
 
-@media (max-width: 2150px) {
-    .mc_sb_rankbox{
-        width: 12%;
-    }
-}
-@media (max-width: 1850px) {
-    .mc_sb_rankbox{
-        width: 14%;
-    }
-    .mc_sb_letter_bar span{
-        margin-left: 60px;
-    }
-}
+
 
 @media (max-width: 1600px) {
     .mc_sb_rankbox{
@@ -585,15 +555,7 @@ display: none;
 
 }
 
-@media (max-width: 1130px) {
-    .mc_sb_letter_bar span{
-        font-size: 35px;
-    }
-    .mb_sb_rb_rank {
-        width: 85%;
-        height: 153px;
-    }
-}
+
 @media (max-width: 950px) {
     .drawer_wrapper{
         display: none;
@@ -637,17 +599,19 @@ display: none;
         margin-top: 31px;
         margin-right: 40px;
     }
-}
-
-@media (max-width: 650px) {
     .mc_sb_letter_bar span{
-        font-size: 25px;
-        margin-left: 42px;
+        font-size: 30px;
+        margin-left: 50px;
     }
-    .mc_sb_letter_bar p {
+    .mc_sb_letter_bar p{
         font-size: 20px;
     }
+    .mb_sb_cb_title p {
+        font-size: 22px;
+    }
 }
+
+
 @media (max-width: 450px) {
     .mc_sb_letter_bar span{
         font-size: 25px;
@@ -688,19 +652,13 @@ display: none;
         width: 40px;
         height: 40px;
     }
+    .mb_sb_cb_item {
+        width: 80%;
+        height: 80%;
+    }
 }
 
 
-@media (max-height: 896px) {
-    #drawer{
-        top: 15%;
-    }
-}
-@media (max-height: 667px) {
-    #drawer{
-        top: 22%;
-    }
-}
 
 .bi-brightness-high-fill{
     color : #FEAA4B;

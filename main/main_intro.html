@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/main/main_intro.css">
     <link rel="icon" href="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <title>인트로페이지</title>
 </head>
 <body>
@@ -49,58 +50,116 @@
 
     <div class="main_container">
         <div class ="mc_sub_container">
-            <div class="mc_sb_text">
-                당신의 온기를 세상에 나눠주세요
-            </div>
             <div class="mc_sb_letter">
                 <img src="/images/letter.jpg" >
             </div>
+
+            <div class="mc_sb_text">
+                <p>누구나 일상을 살아가다보면 넘어지고 다치는 순간들이 생깁니다.<p>
+                <p>그 때, 몽글이 밴드 정도만 되어줘도 좋을 것 같습니다.</p>
+            </div>
         </div>
             <i id ="under_btn" class="fa-solid fa-arrow-down-long"></i>
-            <p class="intro_text">페이지 설명 보기!</p>
+            <p class="intro_text">화면을 클릭하면 다음페이지로 이동합니다!</p>
     </div>
 
     <div class ="main_intro_con">
         <div class= "mi_worry_text"> 
-            <p><i class="fa-solid fa-face-sad-tear"></i> 고민이 있으신가요?</p>
+            <p>고민을 쓴 사람 = 새잎 <i class="fa-brands fa-envira"></i></p>
+            <p> <i class="fa-brands fa-envira"></i> 새잎님 고민이 있으신가요?</p>
             <img id="test" src="https://images.unsplash.com/photo-1617440168937-c6497eaa8db5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ycnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
             <p>고민 게시판에 고민을 작성하면</p>
-            <span>몽글 이가 편지를 쓰기위해 당신에게 요청을 보낼거에요!<i class="fa-solid fa-envelope-circle-check"></i></span>
+            <p>몽글 이가 편지를 쓰기위해</p>
+            <p>당신에게 요청을 보낼거에요 ! <i class="fa-solid fa-envelope-circle-check"></i></p>
+
+            <div class= "mi_worry_img">
+                <img class="worry_board_png" src="/images/worry_board.png">
+                <a href="/letter/worry_board_page.html?category=0&page_num=1"><p>고민게시판으로 이동하기</p></a>
+            </div>
         </div>
-        <div class= "mi_worry_img">
-            <img src="/images/worry.png">
-            <a href="/letter/worry_board_page.html?category=0&page_num=1"><p>고민게시판으로 이동하기</p></a>
+
+        <div class= "mi_worry_text"> 
+            <p>편지를 쓴 사람 = 햇살 <i class="bi bi-brightness-high-fill"></i></p>
+            <p><i class="bi bi-brightness-high-fill"></i> 햇살님 고민을 들어주실 건가요 !?</p>
+            <img id="test" src="/images/worry_receive.png">
+            <p>고민 게시판에 고민을 고르시고</p>
+            <span>몽글을 보내기 위한 요청을 보내보세요 ! <i class="fa-solid fa-arrow-trend-up"></i></span>
+
+            <div class= "mi_worry_img">
+                <img  src="/images/worry.png">
+                <a href="/letter/worry_board_page.html?category=0&page_num=1"><p>고민게시판으로 이동하기</p></a>
+            </div>
         </div>
         <i id ="under_btn2" class="fa-solid fa-arrow-down-long"></i>
+        <p class="intro_text2">화면을 클릭하면 다음페이지로 이동합니다!</p>
     </div>
 
 
     <div class ="main_intro_con2">
         <div class= "mi_worry_text2"> 
-            고민을 작성 하셨나요?
-            <img src="https://images.unsplash.com/photo-1529251333259-d36cccaf22ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bGV0dGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+            <p>고민을 쓴 사람 = 새잎 <i class="fa-brands fa-envira"></i></p>
+            <p> <i class="fa-brands fa-envira"></i> 새잎님 고민을 작성 하셨나요 ?</p>
+            <img src="/images/revceive_modal.png">
             <p><i class="fa-solid fa-envelope-circle-check"></i> 내가 받은 요청에서</p>
             <span>마음에 드는 몽글이의 요청을 받아 주세요 !</span>
+            <div class= "mi_worry_img">
+                <a href="/letter/received_request.html"><p>내가 받은 요청 으로 이동하기</p></a>
+            </div>
         </div>
-        <div class= "mi_worry_img">
-            <img src="/images/receive.png">
-            <a href="/letter/received_request.html"><p>내가 받은 요청 으로 이동하기</p></a>
+
+        <div class= "mi_worry_text2"> 
+            <p>편지를 쓴 사람 = 햇살 <i class="bi bi-brightness-high-fill"></i></p>
+            <p><i class="bi bi-brightness-high-fill"></i> 햇살님 요청을 보내셨나요 !?</p>
+            <img class="request_png" src="/images/send_request.png">
+            <p><i class="fa-solid fa-arrow-trend-up"></i> 내가 보낸 요청에서</p>
+            <span>편지 쓰기 버튼을 눌러 편지를 작성하세요!</span>
+            <div class= "mi_worry_img">
+                <img class="letter_png" src="/images/letter.png">
+                <a href="/letter/send_request.html"><p>내가 보낸 요청 으로 이동하기</p></a>
+            </div>
         </div>
+        <p class="intro_text3">화면을 클릭하면 다음페이지로 이동합니다!</p>
         <i id ="under_btn3" class="fa-solid fa-arrow-down-long"></i>
     </div>
 
 
     <div class ="main_intro_con3">
         <div class= "mi_worry_text3"> 
-            이제 몽글이가 당신에게 진심이 담긴 편지를 써줄겁니다!
-            <img src="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
+            <p><i class="bi bi-brightness-high-fill"></i> 이제 햇살님이 진심의 편지(몽글)를 써줄겁니다!</p>
+            <img class ="mi_wr_img" src="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
             <p><i class="fa-solid fa-envelope"></i> 혹시 편지가 부담스러우신 가요?</p>
-            <span><i class="fa-solid fa-chalkboard-user drawer_icon"></i> 익명으로 자유롭게 소통할 수 있는 익명게시판을 이용해보세요 !</span>
+            <span><i class="fa-solid fa-chalkboard-user drawer_icon"></i> 익명으로 자유롭게 소통할 수 있는</span>
+            <p>익명게시판을 이용해보세요 !</p>
+            <div class= "mi_worry_img">
+                <img class="receive_img" src="/images/receive.png">
+                <a href="/board/board_page.html"><p>익명게시판 으로 이동하기</p></a>
+            </div>
         </div>
-        <div class= "mi_worry_img">
-            <img src="/images/receive.png">
-            <a href="/board/board_page.html"><p>익명게시판 으로 이동하기</p></a>
+
+
+        <div class= "mi_worry_text4"> 
+            몽글 점수에 대해 설명 해드리겠습니다!
+            <img class ="mi_wr_img" src="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
+            <p><i class="fa-solid fa-paper-plane drawer_icon"></i> 편지를 작성할 경우 100점이 올라갑니다!</p>
+            <p><i class="fa-solid fa-envelope"></i> 편지를 받은 사람이 리뷰를 작성해주면</p>
+            <p>10~50점이 올라갑니다 !</p>
+            <p><i class="fa-solid fa-chalkboard-user drawer_icon"></i> 익명게시판 작성시 5점씩 점수가 올라갑니다 !</p>
+            <div class= "mi_worry_img">
+                <img src="/images/mongle_level.jpg">
+            </div>
         </div>
+        <i id ="under_btn2" class="fa-solid fa-arrow-down-long"></i>
+        <p class="intro_text4">화면을 클릭하면 다음페이지로 이동합니다!</p>
+    </div>
+
+    
+    <div class ="main_intro_con4">
+        <div class= "mi_worry_text3"> 
+            <p>새잎님, 솔직한 마음을 나누세요. </p>
+            <p>햇살님, 따뜻한 마음으로 편지하세요.</p>
+            <p>그 순간, 서로의 마음이 몽글몽글 피어날거에요.</p>
+        </div>
+        <a href="/main/main.html"><p class="intro_text_main">메인페이지로 이동하기!</p></a>
     </div>
 
 

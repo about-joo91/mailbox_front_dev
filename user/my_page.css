@@ -80,7 +80,7 @@ body {
     }
     .image_edit_btn{
         left: 31% !important;
-        top: 34% !important;
+        top: 38% !important;
     }
     .mpc_c_b_upper{
         padding: 15px 0 0 0 !important;
@@ -383,7 +383,7 @@ body {
     position: absolute;
     width: 50px;
     left: 32%;
-    top: 36%;
+    top: 43%;
 }
 .image_edit_btn:hover{
     cursor: pointer;
@@ -495,7 +495,7 @@ body {
 }
 
 #drawer {
-    top: 2.8%;
+    top: 5.7%;
     z-index: 5;
     display: flex;
     height: 100vh;
