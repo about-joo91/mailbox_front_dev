@@ -57,6 +57,13 @@ body{
     margin-left: 10px;
     cursor: pointer;
 }
+.open_drawer{
+    display: none;
+    font-size: 20px;
+}
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_text{
     font-size: 22px;
     padding: 20px 0px;
@@ -97,8 +104,8 @@ body{
     top: 0;
     height: 100vh;
     width: 12%;
-    position: fixed;
     flex-direction: column;
+    background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
@@ -367,22 +374,50 @@ body{
 
 
 @media (max-width: 950px) {
+
+  
+    .nc_mongle, .nc_profile{
+        width: 70px;
+        height: 70px;
+    
+    }
+    .nc_sb_nav{
+        margin-top: 31px;
+        margin-right: 40px;
+    }
+    .open_drawer{
+        display: block;
+    }
     body{
         background: linear-gradient(90deg, #F0F0E6 100%, #FFFFFF 45%); 
     }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
+        align-items: baseline !important;
+    }
     .drawer_wrapper{
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    }
+    #drawer{
+        background: rgb(235 233 215 / 100%);
         display: none;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
     }
     .nc_sb_modal{
         display: flex;
         height: 130px;
         left: 7%;
-    }
-
-    .nc_mongle, .nc_profile{
-        width: 70px;
-        height: 70px;
-    
     }
     .nc_sb_nav{
         margin-top: 31px;
@@ -460,17 +495,41 @@ body{
     .letter_png{
         width: 80%!important;
     }
+    .nc_mongle, .nc_profile{
+        
+        width: 70px !important;
+        height: 70px !important;
+    }
+    .nc_sb_nav{
+        margin-top: 0 !important;
+        margin-right: 40px !important;
+    }
+
 }
 
 
-
 @media (max-width: 450px) {
-    .nc_sb_nav{
-        margin-right: 20px;
+    *{
+        font-size: 14px !important;
     }
-    .nc_mongle, .nc_profile {
-        width: 60px;
-        height: 60px;
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nc_mongle, .nc_profile{
+        
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nav_container{
+        height: 60px !important;
+    }
+    .nc_sub_container{
+        height: 60px !important;
     }
     .mc_sb_letter{
         height: 40%;
@@ -508,11 +567,19 @@ body{
     }
     .mi_worry_text3 span,.mi_worry_text4 p{
         font-size: 17px;
+    }ㄴ
+    .nc_mongle, .nc_profile {
+        width: 60px;
+        height: 60px;
+    }
+    .mi_worry_text2 span{
+        font-size: 20px;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
+    .d_white_space{
+        margin-top: -60px;
     }
 }
-
-
-
-
-
-

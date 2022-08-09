@@ -59,7 +59,13 @@ body{
     margin-left: 10px;
     cursor: pointer;
 }
-
+.open_drawer {
+    display: none;
+    font-size: 20px;
+}
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_text{
     font-size: 22px;
     padding: 20px 0px;
@@ -118,7 +124,6 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
-    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -164,7 +169,8 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
+    width: 80%;
+    max-width: 1260px;
     height: 10rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
@@ -197,8 +203,9 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
+    max-width: 1260px;
     border: 1px solid gray;
-    width: 50%;
+    width: 80%;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -215,7 +222,7 @@ body{
     margin-left: 6.2rem;
     cursor: pointer;
 }
-.mc_bb_board_lists{  
+.mc_bb_board_lists{ 
     width: 90.9%;
     /* height: 70rem; */
     display: flex;
@@ -479,7 +486,8 @@ body{
     align-items: center;
 }
 .small_modal{
-    width: 40%;
+    max-width: 800px;
+    width: 80%;
     height: 83rem;
 }
 .sm_title{
@@ -619,30 +627,51 @@ body{
 
 
 @media (max-width: 950px) {
+
     .drawer_wrapper{
-        display: none;
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    }
+    #drawer{
         background: rgb(235 233 215 / 100%);
+        display: none;
     }
-    .nc_sb_modal{
-        display: flex;
-        height: 130px;
-        left: 7%;
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
     }
-
-    .nc_sb_modal {
-        height: 113px;
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
+        align-items: baseline !important;
     }
-
+    .nc_sb_nav{
+        margin-top: 0 !important;
+        margin-right: 40px !important;
+    }
+    .nc_mongle, .nc_profile{
+        
+        width: 70px !important;
+        height: 70px !important;
+    }
     .main_container{
         margin-left: 0px;
 
     }
     .mc_board_title,.mc_board_body{
         width: 99%;
+        
     }
     .md_bb_bl_bd_request_button {
         height: 4rem;
         width: 38%;
+        margin-left: 5px;
     }
     .md_bb_bl_bd_post_button{
         width: 38%;
@@ -656,12 +685,53 @@ body{
     .sm_bd_submit_button {
         width: 22%;
     }
+    .small_modal{
+        width: 99%;
+    }
 }
 
 
 
 
+
 @media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
+    .nav_container{
+        height: 40px !important;
+        margin-bottom: 30px;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nc_sub_container{
+        height: 40px !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 ;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .d_white_space {
+        margin-top:18px !important
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .main_container{
+        margin-top: 0px;
+    }
     .md_bb_bl_bd_request_button  {
         height: 3rem;
     }
@@ -669,11 +739,11 @@ body{
         height: 3rem;
     }
     .md_bb_bl_bd_post_button{
-       width: 78%;
+       width: 45%;
        height: 3rem;
     }
     .sm_body {
-        height: 59%;
+        height: 53%;
     }
     .sm_bd_ct_text{
         margin-bottom: 0;
@@ -685,8 +755,7 @@ body{
         margin-left: 1.6rem;
     }
     .md_bb_bl_bd_request{
-        width: 42%;
-        margin-left: 1.5rem;
+        width: 46%;
         margin-top : 1.5rem;
     }
     .md_bb_bl_bd_desc_create_date{
@@ -700,8 +769,14 @@ body{
         align-items: center;
         
     }
+    .nc_sub_container{
+        height: 40px !important;
+    }
     .md_bb_bl_bd_hidden_name {
-        font-size: 2rem;
+        font-size: 2rme;
+    }
+    .md_bb_bl_bd_request_button{
+        font-size: 1rem;
     }
     .main_container{
         margin-top: 0px;
@@ -718,20 +793,23 @@ body{
         padding-top: 2rem;
     }
     .mc_board_title{
-        height: 6rem;
+        height: 5rem;
     }
-    .md_bb_bl_bd_request_button {
-        width: 75%;
+    .md_bb_bl_board{
+        height: 10rem;
     }
-    .md_bb_bl_bd_desc_edit_delete{
-        width: 70%;
+    .md_bb_bl_bd_hidden_name{
+        font-size: 2rem;
     }
     .md_bb_bl_board_box{
         width: 95%;
     }
     .small_modal{
-        margin-top: 100px;
-        width: 100%;
+        width: 99%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .sm_title {
         height: 6rem;
@@ -740,11 +818,21 @@ body{
         height: 3rem;
         margin-bottom: 5px;
         font-size: 22px;
+        margin-left : 5rem;
 
     }
     .sm_bd_ct_text {
         height: 32rem;
         font-size: 1.8rem;
     }
+    .d_white_space{
+        margin-top: -60px;
+    }
+    .mc_bb_board_lists{ 
+        margin-top: 3rem; 
+    }
+    .sm_bd_submit_button{
+        height: 3rem !important;
+       }
 
 }

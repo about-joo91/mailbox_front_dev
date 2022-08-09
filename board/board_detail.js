@@ -81,9 +81,9 @@ window.onload =
                 const profile_grade = document.getElementById('profile_grade')
                 const porfile_image = document.getElementById('profile_image')
                 const mongle_image = document.getElementById('mongle_img')
-                profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data[0]}`
-                porfile_image.style.backgroundImage =`url(${res.user_profile_data[1]})`
-                mongle_image.style.backgroundImage = `url(${res.user_profile_data[2]})`
+                profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+                porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
+                mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
                 board = res.board_comments[0]   
                 if (board.is_liked) {
                     sun_icon = 'bi-brightness-high-fill'
@@ -370,22 +370,20 @@ function href_main(){
     location.href = '../../main/main_intro.html'
 }
 
-function main_modal(){
-    document.querySelector('.drawer_wrapper').style.display ='flex';
-    document.getElementById('drawer').style.display ='flex';
+const drawer = document.getElementById('drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
 }
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
 
-document.querySelector('.main_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 950){
-    document.getElementById('drawer').style.display ='none';
-    document.querySelector('.drawer_wrapper').style.display ='none';
+
+
+drawer_wrapper.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
+        drawer_wrapper.style.display ='none';
     }
-})
-
-document.querySelector('.nav_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 950){
-        document.getElementById('drawer').style.display ='none';
-        document.querySelector('.drawer_wrapper').style.display ='none';
-        }
-})
-
+} )

@@ -72,7 +72,13 @@ body{
 .drawer_text:hover{
     cursor: pointer;
 }
-
+.open_drawer {
+    display: none;
+    font-size: 20px;
+}
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_icon{
     color: rgba(80, 80, 80, 1);
 }
@@ -117,7 +123,6 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
-    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -162,7 +167,8 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
+    max-width: 1260px;
+    width: 80%;
     height: 10rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
@@ -196,7 +202,8 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
-    width: 50%;
+    width: 80%;
+    max-width: 1260px;
     border: 1px solid gray;
     /* height: 80rem; */
     margin-top: 1.4rem;
@@ -644,19 +651,31 @@ body{
 }
 
 @media (max-width: 950px) {
+
     .drawer_wrapper{
-        display: none;
-        background: rgb(235 233 215 / 100%);
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
     }
-    .nc_sb_modal{
-        display: flex;
-        height: 130px;
-        left: 7%;
+    #drawer{
+        background: rgb(235 233 215 / 100%);
+        display: none;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
+        align-items: baseline !important;
     }
 
-    .nc_sb_modal {
-        height: 113px;
-    }
 
     .main_container{
         margin-left: 0px;
@@ -665,18 +684,63 @@ body{
     .mc_board_title,.mc_board_body{
         width: 99%;
     }
+    .nc_sb_nav{
+        margin-top: 0 !important;
+        margin-right: 40px !important;
+    }
+    .nc_mongle, .nc_profile{
+        
+        width: 70px !important;
+        height: 70px !important;
+    }
     .md_bb_bl_bd_request_button{
         font-size: 15px;
     }
-    .md_bb_bl_bd_request_button_already_accepted{
-        font-size: 15px;
-    }
+
 }
 
 
 
 
 @media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
+    .nav_container{
+        height: 40px !important;
+        margin-bottom: 30px;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nc_sub_container{
+        height: 40px !important;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 ;
+        width: 40px;
+        height: 40px;
+    }
+    .d_white_space {
+        margin-top:18px !important
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
     .md_bb_bl_bd_request_button  {
         height: 3rem;
     }
@@ -701,47 +765,31 @@ body{
         margin-top: 0px;
     }
 
-    .md_bb_bl_board{
-        margin-bottom: 10px;
-    }
     .md_bb_bl_bd_ct_left{
         font-size: 15px;
+    }
+    .mc_board_body{
+        height: 28rem;
     }
     .md_bb_bl_bd_description{
         height: 1.6rem;
     }
     .mc_board_title{
-        height: 6rem;
-    }
-    #drawer{
-        position: relative;
-        top: 15%;
-    }
-    .small_modal{
-        height: unset;
-        width: 99%;
-    }
-    .sm_tt_text {
-        width: 85%;
-    }
-    .sm_title {
         height: 5rem;
     }
-    .sm_body {
-        height: 50rem;
+    .md_bb_bl_board{
+        height: 10rem;
     }
-    .md_bb_bl_bd_request_button{
-        width: 75%;
+    .d_white_space{
+        margin-top: -60px;
     }
-    .sm_bd_ct_text {
-        height: 6rem;
-    }
-    .sm_bd_bt_accept,.sm_bd_bt_disaccept {
-        height: 4rem;
+    .nc_mongle, .nc_profile{
+        
+        width: 40px !important;
+        height: 40px !important;
     }
 
 }
-
 
 
 

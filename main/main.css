@@ -1,4 +1,4 @@
-body{
+body, html{
     margin: 0;
     background: rgb(235 233 215 / 80%);
 }
@@ -455,6 +455,13 @@ display: none;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
 }
+.open_drawer{
+    display: none;
+    font-size: 20px;
+}
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_text:hover{
     cursor: pointer;
 }
@@ -485,7 +492,6 @@ display: none;
     top: 0;
     height: 100vh;
     width: 12%;
-    position: fixed;
     flex-direction: column;
     background: rgb(235 233 215 / 80%);
 }
@@ -558,6 +564,17 @@ display: none;
 
 @media (max-width: 950px) {
     .drawer_wrapper{
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    }
+    #drawer{
+        background: rgb(235 233 215 / 100%);
         display: none;
     }
     .main_container{
@@ -566,6 +583,14 @@ display: none;
     .mc_sub_container{
         margin-left: 0px;
         width: 100%;
+    }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
     }
     .mc_sb_letter_bar, .mc_sb_menu{
         width: 99%;
@@ -584,9 +609,6 @@ display: none;
         height: 130px;
         left: 7%;
     }
-    .drawer_wrapper{
-        background: rgb(235 233 215);
-    }
     .main_container{
         margin-top: 30px;
     }
@@ -596,7 +618,7 @@ display: none;
     
     }
     .nc_sb_nav{
-        margin-top: 31px;
+        margin-top: 10px;
         margin-right: 40px;
     }
     .mc_sb_letter_bar span{
@@ -613,6 +635,33 @@ display: none;
 
 
 @media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    .nav_container{
+        height: 60px !important;
+        margin-bottom: 30px;
+    }
+    .nc_sub_container{
+        height: 60px !important;
+        align-items: baseline !important;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 ;
+        width: 40px;
+        height: 40px;
+    }
+    .d_white_space{
+        margin-top: -60px;
+    }
     .mc_sb_letter_bar span{
         font-size: 25px;
         margin-left: 42px;
@@ -642,15 +691,12 @@ display: none;
         font-size: 15px;
         margin-right: 25px;
     }
-    .nc_sb_nav{
-        margin-right: 20px;
-    }
     .mb_sc_cb_cate, .mb_sc_cb_cate2{
         margin-bottom: 9px;
     }
-    .nc_mongle, .nc_profile {
-        width: 40px;
-        height: 40px;
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
     }
     .mb_sb_cb_item {
         width: 80%;

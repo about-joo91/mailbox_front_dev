@@ -162,7 +162,7 @@ const letters_exist = (response) => {
             <div class="lm_rm_btn" onclick="delete_ready(${review_data.review.id})">삭제</div>
         </div>`
         lm_review_modal.innerHTML = lm_review_modal_html;
-    }else{
+    }else if (!review_data.is_reviewed && page_name != "my_letter"){
         lm_b_under_html = `<div class="lm_b_review_btn" onclick="write_ready(${letter.id})">리뷰쓰기</div>`
     }
     lm_b_under.innerHTML += lm_b_under_html
@@ -218,7 +218,9 @@ const letter_modal_in = () => {
 letter_modal_wrapper.addEventListener('click', (e) => {
     if(e.target.classList.contains('letter_modal_wrapper')){
         letter_modal_wrapper.style.display = 'none';
+        if (window.innerWidth > 950){
         drawer_wrapper.style.display = 'block';
+    }
     }
 })
 
@@ -433,16 +435,25 @@ const delete_review = async(letter_review_id) => {
     }
 }
 // 메뉴바 오픈 
-const open_drawer = document.querySelector('.open_drawer');
+const drawer = document.getElementById('drawer');
 const drawer_wrapper = document.querySelector('.drawer_wrapper');
-open_drawer.addEventListener('click', function(){
-    drawer_wrapper.classList.toggle("drawer_wrapper_after")
-})
-drawer_wrapper.addEventListener('click',function(e){
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
+}
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
+
+
+
+drawer_wrapper.addEventListener('click', (e) =>{
     if(e.target.classList.contains('drawer_wrapper')){
-        drawer_wrapper.classList.toggle("drawer_wrapper_after")
+        drawer.style.display ='none';
+        drawer_wrapper.style.display ='none';
     }
-})
+} )
+
+
 
 const cancel_delete_review = () => {
     delete_check_modal_wrapper.style.display = 'none';

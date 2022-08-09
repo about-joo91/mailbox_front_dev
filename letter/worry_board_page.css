@@ -90,6 +90,13 @@ body{
 .d_white_space{
     margin-top: -300px;
 }
+.open_drawer {
+    display: none;
+    font-size: 20px;
+}
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_wrapper{
     display: flex;
     position: fixed;
@@ -116,7 +123,6 @@ body{
     top: 0;
     font-size: 22px;
     flex-direction: column;
-    margin-top: 15rem;
 }
 .drawer_text:hover{
     color: #F0F0E6;
@@ -216,7 +222,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -225,7 +231,7 @@ body{
     align-items: center;
     font-size: 2.6rem;
     padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 .page_number{
     margin: 0 0.6rem 0 0.6rem;
@@ -248,8 +254,8 @@ body{
 .md_bb_bl_board{
     width: 100%;
     /* height: 10.5rem; */
-    margin-bottom: 1.4rem;
-    border-radius: 1.5rem;
+    margin-bottom: 0.7rem;
+    border-radius: .8em;
     display: flex;
     background-color: white;
     justify-items: center;
@@ -421,7 +427,7 @@ body{
 }
 .md_bb_bl_bd_request_button{
     width: 70%;
-    height: 4rem;
+    height: 2.5rem;
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.8);
     color: white;
@@ -478,7 +484,6 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 5.5rem;
-    width: 80%;
 }
 .sm_tt_category{
     width: 20%;
@@ -634,7 +639,6 @@ body{
     font-size: 2.6rem;
     color: white;
     margin-left: 5.5rem;
-
 }
 .cr_sm_bd_button{
     width: 100%;
@@ -672,8 +676,26 @@ body{
 
 @media (max-width: 950px) {
     .drawer_wrapper{
-        display: none;
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    }
+    #drawer{
         background: rgb(235 233 215 / 100%);
+        display: none;
+    }
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
+    .nc_sub_container{
+        background-color: #F0F0E6;
+        justify-content: space-between;
     }
     .nc_sb_modal{
         display: flex;
@@ -694,7 +716,7 @@ body{
         top: unset;
     }
     .mc_board_title,.mc_board_body{
-        width: 95%;
+        width: 99%;
     }
     .sm_bd_text {
         font-size: 22px;
@@ -708,23 +730,43 @@ body{
     .sm_bd_submit_button{
         width: 17.5%;
     }
-    .sm_tt_text{
-        width: 45%;
-        margin-left: 4.2rem;
-    }
-    .sm_tt_category{
-        width: 40%;
-    }
-    .sm_bd_text{
-        margin-left:0.2rem;
-    }
-    .small_modal{
-        width: 67%;
-    }
 }
 
 
 @media (max-width: 450px) {
+    *{
+        font-size: 14px !important;
+    }
+    .mc_board_title{
+        height: 6rem;
+    }
+    .md_bb_bl_board{
+        height: 8rem;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    .nav_container{
+        height: 40px !important;
+        margin-bottom: 30px;
+    }
+    .nc_sub_container{
+        height: 40px !important;
+        align-items: baseline !important;
+    }
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .d_white_space {
+        margin-top: -60px !important;
+    }
     .main_container{
         margin-top: 0px;
     }
@@ -758,38 +800,11 @@ body{
     .nc_sb_modal{
         height: 100px;
     }
-    .nc_profile {
-        width: 40px;
-        height: 40px;
-        margin-left: 1px;
+    .mc_bb_page_number{
+        padding : 0.5rem 0 0.5rem 0;
     }
-    .nc_mongle {
-        width: 40px;
-        height: 40px;
-    }
-    .nc_sb_nav p {
-        font-size: 20px;
-    }
-    .nc_sb_modal {
-        margin-left: 30px;
-
-    }
-    .md_bb_bl_bd_description{
-        width: 110%;
-    }
-    .small_modal{
-        width: 92%;
-    }
-    .mc_bt_title_text{
-        font-size: 32px;
-    }
-    .mc_bt_cb_category{
-        font-size: 2rem;
-    }
-    .md_bb_bl_board_box{
-        width: 80%;
-    }
-    .md_bb_bl_bd_request_button{
-        width: 84%;
+    .d_white_space{
+        margin-top: -60px;
     }
 }
+

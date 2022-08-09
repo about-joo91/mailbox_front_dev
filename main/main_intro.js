@@ -24,42 +24,33 @@ window.onload = async () => {
         mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.mongle_image})`
 }};
 
-const main_modal = () => {
-    document.getElementById('drawer').style.display ='flex';
-    document.querySelector('.drawer_wrapper').style.display ='flex';
-    document.getElementById('modal_btn').style.zIndex = "0";
+const drawer = document.getElementById('drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
 }
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
+
+
+
+drawer_wrapper.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
+        drawer_wrapper.style.display ='none';
+    }
+} )
 
 
 
 let modal_btn = document.getElementById('modal_btn')
-let drawer = document.getElementById('drawer')
-let drawer_wrapper = document.querySelector('.drawer_wrapper')
 let nav_con = document.querySelector('.nav_container')
 let main_con = document.querySelector('.main_container')
 let main_intro = document.querySelector('.main_intro_con')
 let main_intro2 = document.querySelector('.main_intro_con2')
 let main_intro3 = document.querySelector('.main_intro_con3')
 let main_intro4 = document.querySelector('.main_intro_con4')
-
-
-const colse_modal = (main_con,drawer,drawer_wrapper,modal_btn) => {
-    (main_con).addEventListener('click', function (e) {
-        if (window.innerWidth <= 1500){
-        drawer.style.display ='none';
-        drawer_wrapper.style.display ='none';
-        modal_btn.style.zIndex = "1";
-
-        }
-    })
-    }
-colse_modal(main_con,drawer,drawer_wrapper,modal_btn)
-colse_modal(main_intro,drawer,drawer_wrapper,modal_btn)
-colse_modal(main_intro2,drawer,drawer_wrapper,modal_btn)
-colse_modal(main_intro3,drawer,drawer_wrapper,modal_btn)
-colse_modal(nav_con,drawer,drawer_wrapper,modal_btn)
-
-
 let under_btn = document.getElementById("under_btn")
 let under_btn2 = document.getElementById("under_btn2")
 let under_btn3  = document.getElementById("under_btn3")
@@ -73,7 +64,7 @@ const next_btn = (under_btn,next_con,before_con,next_text) => {
         next_con.style.display = "flex";
         before_con.style.display = "none";
         if (innerHeight <= 1000) {
-            next_text.innerText ="스크롤 을 내려주세요!"
+            next_text.innerText ="스크롤 을 내려주세요!";
         }
     })
 }
@@ -87,33 +78,22 @@ next_btn(main_intro,main_intro2,main_intro,intro_text2)
 next_btn(main_intro2,main_intro3,main_intro2,intro_text3)
 next_btn(main_intro3,main_intro4,main_intro3)
 
-
-
 const scroll_event = () => {
-
-    if (window.innerHeight <= 700){
-        if (document.querySelector('.main_intro_con').scrollTop >= 1300)  {
-            intro_text.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
-        }
+    if (document.querySelector('.main_intro_con').scrollTop >= 680)  {
+        intro_text.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
     }
-    else {
-        if (document.querySelector('.main_intro_con').scrollTop >= 860)  {
-            intro_text.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
-        }
-    }
-
+    
 }
-
 const scroll_event2 = () => {
-
-    if (document.querySelector('.main_intro_con2').scrollTop >= 700)  {
+    console.log(document.querySelector('.main_intro_con2').scrollTop)
+    if (document.querySelector('.main_intro_con2').scrollTop >= 680)  {
         intro_text2.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
     }
     
 }
 
 const scroll_event3 = () => {
-    if (document.querySelector('.main_intro_con3').scrollTop >= 700 )  {
+    if (document.querySelector('.main_intro_con3').scrollTop >= 350 )  {
         intro_text3.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
     }
 }
