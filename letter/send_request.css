@@ -584,11 +584,15 @@ body{
 .sm_bd_submit_button{
     cursor: pointer;
     background-color: rgba(176, 170, 109, 0.8);
-    width: 10%;
+    width: 16%;
     height: 5rem;
     color: white;
     font-size: 2rem;
     border-radius: 15px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* request 모달 */
 .sm_bd_target_text{

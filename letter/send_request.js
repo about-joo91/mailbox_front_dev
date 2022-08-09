@@ -25,17 +25,19 @@ function get_cookie(name) {
 const csrftoken = get_cookie('csrftoken')
 
 function open_detail_message_modal(detail_worry_message){
-    document.getElementById('detail_message_modal_background').style.display="block"
-    const small_modal = document.getElementById('detail_message_small_modal');
+    document.getElementById('detail_message_modal_background').style.display="flex"
+    const detail_small_modal = document.getElementById('detail_message_small_modal');
     document.body.style.overflow = 'hidden';
-    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
-    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    let modal_top_now = parseInt((window.innerHeight - detail_small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - detail_small_modal.clientWidth) / 2)
     
-    small_modal.style.left = modal_left_now + "px";
-    small_modal.style.top = modal_top_now + "px";
+    detail_small_modal.style.left = modal_left_now + "px";
+    detail_small_modal.style.top = modal_top_now + "px";
 
     const modal_text = document.getElementById("detail_message_sm_bd_ct_text")
     modal_text.innerText = detail_worry_message
+    document.getElementById('detail_message_modal_button').innerHTML = `<a href="/letter/letter.html?board_id=${request_message.worry_board}" class="sm_bd_submit_button">작성하러 가기</a>`
+
 }
 //  모달의 외부를 클릭 시
 detail_message_modal_background.addEventListener('click', function (e) {
@@ -46,7 +48,7 @@ if (e.target.classList.contains('modal_background')) {
 
 
 function open_request_modal(worry_board_content){
-    document.getElementById('modal_background').style.display="block"
+    document.getElementById('modal_background').style.display="flex"
     const small_modal = document.getElementById('small_modal');
     document.body.style.overflow = 'hidden';
     let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
