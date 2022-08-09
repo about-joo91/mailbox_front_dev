@@ -28,7 +28,6 @@ async function SignUp(){
             break;
         case 400:
             alert(response_json.detail);
-            location.reload()
             break;
     }
 
@@ -60,11 +59,9 @@ async function SignIn(){
             break;
         case 401:
             alert(response_json.detail);
-            location.reload();
             break;
         case 400:
             alert("로그인을 실패하였습니다. 다시 입력해주세요");
-            location.reload();
             break;
     }
 

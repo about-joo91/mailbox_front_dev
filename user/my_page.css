@@ -295,8 +295,8 @@ body, html {
     font-size: 20px;
     color: white;
     position: absolute;
-    width: 50px;
-    left: 35%;
+    width: 88px;
+    left: 30%;
     top: 90%;
 }
 .image_edit_btn:hover{
@@ -328,8 +328,8 @@ body, html {
 }
 .category_plus_btn{
     border-radius: 100%;
-    background-color: #F0F0E6;
-    color : black;
+    background-color: #FEAA4B;
+    color : white;
     display: flex;
     justify-content: center;
     align-items: center;

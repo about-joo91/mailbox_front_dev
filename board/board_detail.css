@@ -323,7 +323,7 @@ body{
     margin-left: 3%;
 }
 .md_bb_bl_bd_tt_text{
-    margin-left: 3.6rem;
+    left: 1%;
     font-size: 2.2rem;
     color: #8b8862;
 }
@@ -426,6 +426,7 @@ body{
     background-color: #F0F0E6;
     font-size: 2.4rem;
     color: #8b8862;
+    outline: none;
 }
 .pc_comment_button_box{
     width: 7%;
@@ -495,7 +496,6 @@ body{
     background-size: cover;
     background-image: url("/images/mongle.png");
     border-radius: 50%;
-    border: 3px solid yellowgreen;
 }
 .mc_bb_cl_cm_middle{
     width: 70%;
@@ -617,6 +617,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .modal_background{
     background : rgba(0, 0, 0, 0.7);
     position: fixed;
@@ -730,6 +731,11 @@ body{
     border-radius: 15px;
 }
 
+#detail_comment_icon{
+    font-size: 20px;
+}
+
+
 @media (max-width: 950px) {
     .nc_sub_container{
         background-color: #F0F0E6;
@@ -773,6 +779,8 @@ body{
     .mc_board_body,.mc_board_title{
         width: 99%;
     }
+
+    /*  */
     .sm_tt_text{
         margin-left: 2rem;
         width: 16%;
@@ -787,6 +795,7 @@ body{
         margin-bottom: 4rem;
         height: 7rem;
     }
+
 }
 
 
@@ -836,11 +845,12 @@ body{
         font-size: 15px;
     }
     .md_bb_bl_bd_tt_text {
+        top: 32%;
+        left: 5%;
         font-size: 2rem;
+        margin-left: 40px;
     }
-    .md_bb_bl_bd_ct_left{
-        font-size: 1.8rem;
-    }
+
     .mc_bt_title_text{
         font-size: 25px;
     }
@@ -864,25 +874,64 @@ body{
         margin-left: 5px;
     }
     .pc_ic_input{
-        height: 40%;
-        width: 85%;
+        position: absolute;
+        left: 10%;
+        height: 30%;
+        width: 72%;
     }
     .pc_comment_button_box{
         width: 15%;
     }
     .pc_cbb_button{
-        width: 100%;
+        position: absolute;
+        left: 86.5%;
+        width: 10%;
+        height: 30%;
         border-radius: .4em;
         margin-right: 0;
     }
     .mc_bb_cl_cm_description{
+        margin-top: 0px;
         margin-left: 10px;
     }
     .mc_bb_cl_cm_desc_create_date{
         margin-left: 2px;
     }
+    .md_bb_bl_bd_desc_ed_edit{
+        position: absolute;
+        left: 80%;
+        width: 7%;
+    }
+    .md_bb_bl_bd_desc_ed_delete{
+        margin-right: 10px;
+    }
+    .md_bb_bl_bd_title{
+        margin-top: 0px;
+    }
+    .post_comment{
+        position: relative;
+    }
+    #detail_comment_icon{
+        position: absolute;
+        left: 2.2%;
+        top: 39%;
+        font-size: 20px!important;
+        color: rgba(80, 80, 80, 1)
+    }
+    .md_bb_bl_bd_description{
+        padding-top: 0px;
+    }
+    .md_bb_bl_board{
+        position: relative;
+    }
+    .mc_bb_cl_cm_ct_left{
+        margin-left: 70px;
+        margin-top: -30px;
+    }
+    /*  */
+
     .sm_bd_content{
-        height: 45rem
+        height: 45rem;
         margin-top: 3rem;
     }
     .sm_body{
@@ -905,6 +954,8 @@ body{
     .sm_tt_title_input {
         height: 2rem;
     }
+    .md_bb_bl_bd_desc_ed_delete {
+        width: 33%;
+    }
+
 }
-
-

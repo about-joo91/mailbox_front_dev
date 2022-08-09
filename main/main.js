@@ -6,6 +6,7 @@ const RELATION_CATEGORY_NUM = 4;
 const WORK_CATEGORY_NUM = 5;
 const PARENTING_CATEGORY_NUM = 6;
 
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 
 const  get_cookie = (name)  => {
     let cookie_value = null;
@@ -54,7 +55,7 @@ const main_page_data = (response) =>{
             `
             <div id="user_rank" class="mb_sb_rk_user">
             <img src="${response.main_page_data_and_user_profile.rank_list[rank].profile_img}">
-            ${response.main_page_data_and_user_profile.rank_list[rank].username}님</p>
+            ${response.main_page_data_and_user_profile.rank_list[rank].nickname}님</p>
             </div>
             `     
         };
@@ -103,7 +104,7 @@ const main_page_data = (response) =>{
                 <div class="mb_sb_cb_item_title">
                     <p>${worry_board.create_date}</p>
                 </div>
-                <p class="mb_sb_cb_item_text">${worry_board.content}</p>
+                <p class="mb_sb_cb_item_text">${worry_board.content.replace(REG,"")}</p>
                 </a>
             </div>
             <div class="mb_sb_cb_item_space"> </div>

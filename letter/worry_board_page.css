@@ -426,7 +426,8 @@ body{
     display: flex;
 }
 .md_bb_bl_bd_request_button{
-    width: 70%;
+    width: 78%;
+    font-size: 12px!important;
     height: 2.5rem;
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.8);
@@ -464,8 +465,13 @@ body{
     align-items: center;
 }
 .small_modal{
-    width: 40%;
-    height: 83rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1260px;
+    max-height: 80rem;
 }
 
 .sm_title{
@@ -534,7 +540,8 @@ body{
 .sm_body{
     margin-top: 1.4rem;
     width: 100%;
-    /* height: 50rem; */
+    height: 80rem;
+    max-height: 70%;
     background-color: #E2CA9B;
     border-radius: 15px;
     display: flex;
@@ -553,7 +560,9 @@ body{
 }
 .sm_bd_content{
     width: 91%;
-    height: 30rem;
+
+    height: 60%;
+    max-height: 60rem;
 }
 .sm_bd_ct_textarea{
     width: 93%;
@@ -583,6 +592,7 @@ body{
     font-size: 2rem;
     border-radius: 15px;
     border: none;
+    margin-top: 30px;
 }
 
 /* request 모달 */
@@ -795,7 +805,18 @@ body{
         font-size: 2.05rem;    
     }
     .md_bb_bl_bd_ct_left {
+        position: absolute;
         font-size: 1.5rem;
+        margin-left: 0px;
+        word-break:break-all;
+        word-wrap:break-word;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        width: 70%;
+        left: 10%;
     }
     .nc_sb_modal{
         height: 100px;
@@ -806,5 +827,67 @@ body{
     .d_white_space{
         margin-top: -60px;
     }
+    .md_bb_bl_board{
+        position: relative;
+    }
+    .md_bb_bl_board_box{
+        position: absolute;
+        top: 30%;
+    }
+    .md_bb_bl_bd_description{
+        position: absolute;
+        top: -91%;
+        left: -9%;
+    }
+    .md_bb_bl_bd_request{
+        position: absolute;
+        left: 77%;
+    }
+    .open_modal_button{
+        position: fixed;
+        top: 90%;
+        left: 80%;
+        width: 4.5rem;
+        height: 4.5rem;
+        line-height: 4.5rem;
+        font-size: 40px!important;
+    }
+    .sm_title {
+        height: 5rem;
+    }
+    .sm_tt_category{
+        width: 55%;
+    }
+    .sm_tt_text {
+        margin-left: 2.5rem;
+        width: 50%;
+    }
+    .x_button{
+        font-size: 25px!important;
+    }
+    .sm_bd_text{
+        height: 4.5rem;
+        margin-left: unset;
+    }
+    .sm_bd_submit_button {
+        height: 3rem;
+        margin: 20px 0;
+    }
+    .sm_bd_button {
+        height: 5rem;
+        margin-top: unset;
+    }
+    .sm_body{
+        height: 40rem;
+    }
+    .sm_bd_target_content {
+        width: 77%;
+    }
+    .small_modal {
+        width: 99%;
+    }
 }
+
+
+
 

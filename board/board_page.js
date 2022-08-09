@@ -4,6 +4,7 @@ const ZERO = 0
 
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 
 // 쿠키 할당
 function get_cookie(name) {
@@ -93,7 +94,7 @@ async function get_board(event) {
                     </div>
                     <div class="md_bb_bl_bd_content">
                         <p class="md_bb_bl_bd_ct_left">
-                            ${board.content}
+                            ${board.content.replace(REG,"")}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
                         <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
@@ -124,7 +125,7 @@ async function get_board(event) {
                     </div>
                     <div class="md_bb_bl_bd_content">
                         <p class="md_bb_bl_bd_ct_left">
-                            ${board.content}
+                            ${board.content.replace(REG,"")}
                         </p>
                         <div class="md_bb_bl_bd_ct_right">
                         <i class="bi bi-chat-dots" onclick="href_board_detail(${board.id})"></i>
@@ -162,8 +163,8 @@ async function post_board(){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "title": boards_title,
-            "content" : boards_content
+            "title": boards_title.replace(REG,""),
+            "content" : boards_content.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -226,8 +227,8 @@ async function edit_board(board_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "title" : edit_title,
-            "content" : edit_content
+            "title" : edit_title.replace(REG,""),
+            "content" : edit_content.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -344,7 +345,7 @@ async function report_post(author_id){
         },
         body: JSON.stringify({
             "target_user_id": target_user_id,
-            "report_reason" : report_reason
+            "report_reason" : report_reason.replace(REG,"")
         })
     })
 

@@ -63,7 +63,7 @@ const next_btn = (under_btn,next_con,before_con,next_text) => {
         next_con.scrollIntoView();
         next_con.style.display = "flex";
         before_con.style.display = "none";
-        if (innerHeight <= 1000) {
+        if (innerWidth<= 450) {
             next_text.innerText ="스크롤 을 내려주세요!";
         }
     })

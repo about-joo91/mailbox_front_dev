@@ -4,7 +4,7 @@ const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
 let url_category = urlParams.get('category');
-
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 // 쿠키 할당
 
 function get_cookie(name) {
@@ -48,7 +48,7 @@ async function post_board(){
         },
         body: JSON.stringify({
             "category": parseInt(boards_category),
-            "content" : boards_content
+            "content" : boards_content.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -96,7 +96,7 @@ async function edit_worry_board(worry_board_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "content": edit_worry_board_new_text
+            "content": edit_worry_board_new_text.replace(REG,"")
         })
     })
     let res = await result.json()
@@ -145,6 +145,7 @@ async function request_message(worry_board_id){
         },
         body: JSON.stringify({
             "request_message": request_message_text
+            
         })
     })
     let res = await result.json()
@@ -322,18 +323,24 @@ function worry_board_list(boards){
         board.category_list = ['모두보기', '일상', "가족", "연애", "인간 관계", "학업", "육아"]
 
         let request_button_type = ""
+        let request_button_name = "" 
+        let board_content = board.content.replace(REG,"")
         switch (board.request_status){
             case "요청":
                 request_button_type = "do_request"
+                request_button_name = "편지 쓸게요!"
                 break;
             case "요청취소":
                 request_button_type = "cancle_request"
+                request_button_name = board.request_status
                 break;
             case "수락됨":
                 request_button_type = "accepted_request"
+                request_button_name = board.request_status
                 break;
             default:
                 request_button_type = "disaccepted_request"
+                request_button_name = board.request_status
         } 
         category_name = board.category_list[board.category]
 
@@ -354,7 +361,7 @@ function worry_board_list(boards){
                 </div>
                 <div class="md_bb_bl_bd_content">
                     <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                        ${board.content}
+                        ${board_content}
                     </p>
                     <div class="md_bb_bl_bd_ct_right">
                         <div class="md_bb_bl_bd_ct_rg_border"></div>
@@ -362,7 +369,8 @@ function worry_board_list(boards){
                 </div>
             </div>
             <div class="md_bb_bl_bd_request">
-                <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${board.request_status}</button>
+
+                <button class="md_bb_bl_bd_request_button my_worry_board" id="md_bb_bl_bd_request_button_${board.id}" onclick="request_to_my_worry_board()">${request_button_name}</button>
             </div>
         </div>`
         }
@@ -379,7 +387,7 @@ function worry_board_list(boards){
                 </div>
                 <div class="md_bb_bl_bd_content">
                     <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
-                        ${board.content}
+                    ${board_content}
                     </p>
                     <div class="md_bb_bl_bd_ct_right">
                         <div class="md_bb_bl_bd_ct_rg_border"></div>
@@ -388,7 +396,7 @@ function worry_board_list(boards){
             </div>
             <div class="md_bb_bl_bd_request">
                 
-                <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal_${request_button_type}(` + '\`' + `${board.id}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.request_message_id}` + `)">${board.request_status}</button>
+                <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${board.id}" onclick="open_request_modal_${request_button_type}(` + '\`' + `${board.id}` + '\`' + ',' + '\`' + `${board_content}` + '\`' +',' + `${board.request_message_id}` + `)">${request_button_name}</button>
             </div>
         </div>`
     }

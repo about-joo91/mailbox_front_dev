@@ -1,7 +1,9 @@
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
+const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
+
 let url_page_num = urlParams.get('page_num');
 if (!url_page_num){
     url_page_num = DEFAULT_NUMBER
@@ -207,7 +209,7 @@ async function edit_request_message(request_message_id){
             'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
-            "request_message" : edit_message
+            "request_message" : edit_message.replace(REG,"")
         })
     })
     let res = await result.json()

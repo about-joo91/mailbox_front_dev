@@ -207,6 +207,7 @@ input::placeholder {
     color: white;
 
 }
+.open_drawer{ display: none; font-size: 20px; }
 .mb_sb_content{
     text-align: left;
     border: none;
