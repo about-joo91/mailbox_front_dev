@@ -110,7 +110,7 @@ window.onload =
                             <div class="md_bb_bl_bd_ct_right_sun_count" id="md_bb_bl_bd_ct_right_sun_count_${board.id}">${board.like_count}</div>
                         </div> 
                         <div class="md_bb_bl_bd_desc_edit_delete">
-                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal('edit_','${board.title}','${board.content}','${board.id}', '${url_board_id}')">수정</div>
+                            <div class="md_bb_bl_bd_desc_ed_edit" id="md_bb_bl_bd_desc_ed_edit_${board.id}" onclick="open_modal(` + '\`' + `${board.title}` + '\`' + ',' + '\`' + `${board.content}` + '\`' +',' + `${board.id}` + `)">수정</div>
                             <div class="md_bb_bl_bd_desc_ed_delete" id="md_bb_bl_bd_desc_ed_delete_${board.id}" onclick="delete_board('${board.id}', '${url_board_id}')">삭제</div>
                         </div>
                     </div>
@@ -387,3 +387,55 @@ drawer_wrapper.addEventListener('click', (e) =>{
         drawer_wrapper.style.display ='none';
     }
 } )
+
+function open_modal(title,content,id){
+    document.getElementById('edit_modal_background').style.display="flex"
+    const small_modal = document.getElementById('edit_small_modal');
+    document.body.style.overflow = 'hidden';
+    let modal_top_now = parseInt((window.innerHeight - small_modal.clientHeight) / 2)
+    let modal_left_now = parseInt((window.innerWidth - small_modal.clientWidth) / 2)
+    
+    small_modal.style.left = modal_left_now + "px";
+    small_modal.style.top = modal_top_now + "px";
+    document.getElementById('edit_sm_tt_title_input').value = title
+    document.getElementById('edit_sm_bd_ct_textarea').innerText =  content
+    document.getElementById('edit_sm_bd_button').innerHTML = `<button class="sm_bd_submit_button" onclick="edit_board(${id})">작성</button>`
+}
+
+function close_modal(){
+    document.getElementById('edit_modal_background').style.display="none"
+    document.body.style.overflow = 'auto';
+}
+
+// 모달을 통해서 글을 수정하는 로직
+async function edit_board(board_id){
+    const token = localStorage.getItem('access')
+    const edit_title = document.getElementById('edit_sm_tt_title_input').value;
+    const edit_content = document.getElementById('edit_sm_bd_ct_textarea').value;
+    const result = await fetch(BASE_URL + '/board/' + board_id , {
+        method: 'PUT',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "title" : edit_title,
+            "content" : edit_content
+        })
+    })
+    let res = await result.json()
+    switch (result.status) {
+        case 200:
+            alert(res['detail'])
+            location.reload()
+            break;
+        default:
+            alert(res['detail'])
+    }
+}
+
+
