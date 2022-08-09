@@ -24,41 +24,31 @@ window.onload = async () => {
         mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.mongle_image})`
 }};
 
-const main_modal = () => {
-    document.getElementById('drawer').style.display ='flex';
-    document.querySelector('.drawer_wrapper').style.display ='flex';
-    document.getElementById('modal_btn').style.zIndex = "0";
+const drawer = document.getElementById('drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
 }
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
 
 
 
-let modal_btn = document.getElementById('modal_btn')
-let drawer = document.getElementById('drawer')
-let drawer_wrapper = document.querySelector('.drawer_wrapper')
-let nav_con = document.querySelector('.nav_container')
+drawer_wrapper.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
+        drawer_wrapper.style.display ='none';
+    }
+} )
+
+
+
 let main_con = document.querySelector('.main_container')
 let main_intro = document.querySelector('.main_intro_con')
 let main_intro2 = document.querySelector('.main_intro_con2')
 let main_intro3 = document.querySelector('.main_intro_con3')
 let main_intro4 = document.querySelector('.main_intro_con4')
-
-
-const colse_modal = (main_con,drawer,drawer_wrapper,modal_btn) => {
-    (main_con).addEventListener('click', function (e) {
-        if (window.innerWidth <= 1500){
-        drawer.style.display ='none';
-        drawer_wrapper.style.display ='none';
-        modal_btn.style.zIndex = "1";
-        }
-    })
-    }
-colse_modal(main_con,drawer,drawer_wrapper,modal_btn)
-colse_modal(main_intro,drawer,drawer_wrapper,modal_btn)
-colse_modal(main_intro2,drawer,drawer_wrapper,modal_btn)
-colse_modal(main_intro3,drawer,drawer_wrapper,modal_btn)
-colse_modal(nav_con,drawer,drawer_wrapper,modal_btn)
-
-
 let under_btn = document.getElementById("under_btn")
 let under_btn2 = document.getElementById("under_btn2")
 let under_btn3  = document.getElementById("under_btn3")
@@ -78,8 +68,4 @@ next_btn(main_con,main_intro,main_con)
 next_btn(main_intro,main_intro2,main_intro)
 next_btn(main_intro2,main_intro3,main_intro2)
 next_btn(main_intro3,main_intro4,main_intro3)
-
-
-
-
 

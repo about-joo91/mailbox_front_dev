@@ -85,7 +85,6 @@ const my_profile_exist = (response) =>{
 const category_box = document.querySelector('.mpc_c_b_u_rcb_category_box');
 let second_cnt = 0
 category_box.addEventListener('mousedown', (e) => {
-    e.preventDefault();
     sec_cnt_interval = setInterval(() => {
         second_cnt++
     }, 10);
@@ -294,19 +293,25 @@ const call_edit_desc = async() => {
     }
 }
 // 메뉴바 오픈 
-const open_drawer = document.querySelector('.open_drawer');
-const drawer_wrapper = document.querySelector('.drawer_wrapper');
 const drawer = document.getElementById('drawer');
-const main_card_container = document.querySelector('.main_card_container');
-open_drawer.addEventListener('click', () => {
-    drawer.style.display = "flex"
-    drawer_wrapper.style.display = "flex"
-})
-main_card_container.addEventListener('click', () => {
-    if (window.innerWidth <= 930){
-        drawer.style.display = "none"
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
+}
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
+
+
+
+drawer_wrapper.addEventListener('click', (e) =>{
+    console.log('?')
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
         drawer_wrapper.style.display ='none';
-}})
+    }
+} )
+
 
 const image_edit_btn = document.querySelector('.image_edit_btn');
 const pem_icon = document.querySelector('.pem_icon');

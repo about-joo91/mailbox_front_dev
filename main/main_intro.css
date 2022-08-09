@@ -58,6 +58,13 @@ body{
     margin-left: 10px;
     cursor: pointer;
 }
+.open_drawer{
+    display: none;
+    font-size: 20px;
+}
+.open_drawer:hover {
+    cursor: pointer;
+}
 .drawer_text{
     font-size: 22px;
     padding: 20px 0px;
@@ -98,8 +105,8 @@ body{
     top: 0;
     height: 100vh;
     width: 12%;
-    position: fixed;
     flex-direction: column;
+    background: rgb(235 233 215 / 80%);
 }
 
 #drawer {
@@ -414,7 +421,30 @@ body{
     .mi_worry_text2 span{
         font-size: 25px;
     }
-    
+    .open_drawer{
+        font-size: 25px;
+        display: block!important;
+        margin: 40px 0 0 40px;
+        display: block;
+    }
+    .nc_sub_container{
+        justify-content: space-between;
+    }
+    .drawer_wrapper{
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
+    }
+    #drawer{
+        background: rgb(235 233 215 / 100%);
+        width: 20%;
+        display: none;
+    }
 
 }
 
@@ -424,11 +454,21 @@ body{
     .mi_worry_text4 p,.mi_worry_text4 span,.mi_worry_text4{
         font-size: 22px;
     }
+    .open_drawer{
+        font-size: 25px;
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
+    .nc_sub_container{
+        justify-content: space-between;
+    }
+
 
 }
 
 
 @media (max-width: 950px) {
+
     .mi_worry_text p{
         font-size: 25px;
     }
@@ -535,27 +575,42 @@ body{
     .nc_s1_nav {
         margin-right: 25px;
     }
-    .nc_profile {
-        width: 80px;
-        height: 80px;
-    }
-    .nc_mongle {
-        width: 80px;
-        height: 80px;
-    }
 }
 
 @media (max-width: 450px) {
-
-    .nc_sb_nav{
-        margin-right: 20px;
+    *{
+        font-size: 14px !important;
     }
-    .nc_mongle, .nc_profile {
-        width: 60px;
-        height: 60px;
+    .nc_sb_nav{
+        margin-right: 10px !important;
+        margin-top: 0 !important;
+    }
+    .nav_container{
+        height: 40px !important;
+        margin-bottom: 30px;
+    }
+    .nc_sub_container{
+        height: 40px !important;
+        align-items: baseline !important;
+    }
+    .nc_mongle, .nc_profile{
+        margin: 0;
+        width: 40px !important;
+        height: 40px !important;
     }
     .mi_worry_text2 span{
         font-size: 20px;
+    }
+    .open_drawer{
+        font-size: 18px !important;
+        margin: 20px 0 0 20px !important;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
+    .d_white_space {
+        margin-top:18px !important
     }
 }
 
@@ -574,6 +629,10 @@ body{
 
 
 @media (max-width: 950px) {
+    .open_drawer{
+        display: block!important;
+        margin: 40px 0 0 40px;
+    }
     .drawer_wrapper{
         display: none;
     }
@@ -606,16 +665,6 @@ body{
     .mi_worry_text3{
         text-align: center;
     }
-}
-
-
-@media (max-width: 570px) {
-
-    .drawer_wrapper{
-
-        z-index: 5;
-    }
-
 }
 
 
@@ -658,28 +707,4 @@ body{
         top: 250%;
     }
 
-}
-
-
-
-
-
-@media (max-height: 667px) {
-    #drawer{
-        top: 0%;
-    }
-}
-
-@media (max-height: 896px) {
-    #drawer{
-        top: 15%;
-    }
-}
-@media (max-height: 667px) {
-    #drawer{
-        top: 22%;
-    }
-    .intro_text_main{
-        top: 100%;
-    }
 }

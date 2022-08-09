@@ -435,19 +435,24 @@ const delete_review = async(letter_review_id) => {
     }
 }
 // 메뉴바 오픈 
-const open_drawer = document.querySelector('.open_drawer');
-const drawer_wrapper = document.querySelector('.drawer_wrapper');
 const drawer = document.getElementById('drawer');
-const letter_container = document.querySelector('.letter_container');
-open_drawer.addEventListener('click', () => {
-    drawer.style.display = "flex"
-    drawer_wrapper.style.display = "flex"
-})
-letter_container.addEventListener('click', () => {
-    if (window.innerWidth <= 930){
-        drawer.style.display = "none"
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
+const main_modal= () => {
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
+}
+const open_drawer = document.querySelector('.open_drawer');
+open_drawer.addEventListener('click', main_modal)
+
+
+
+drawer_wrapper.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
         drawer_wrapper.style.display ='none';
-}})
+    }
+} )
+
 
 
 const cancel_delete_review = () => {

@@ -525,10 +525,18 @@ body, html {
         justify-content: space-between;
     }
     .drawer_wrapper{
-        display: none;
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
     }
     #drawer{
         background: rgb(235 233 215 / 100%);
+        display: none;
     }
     .open_drawer{
         display: block!important;
@@ -561,7 +569,6 @@ body, html {
         left: 30%;
     }
 
-
 }
 @media (max-width: 450px) {
     *{
@@ -575,7 +582,6 @@ body, html {
         height: 40px !important;
     }
     .nc_sub_container{
-        align-items: flex-start !important;
         height: 40px !important;
         align-items: baseline !important;
     }
@@ -604,10 +610,6 @@ body, html {
     }
     .pem_btn_box{
         margin-top: 50% !important;
-    }
-    .drawer_wrapper{
-        min-width: 0 !important;
-        width: 45%;
     }
     #drawer{
         min-width: 0 !important;

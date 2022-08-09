@@ -533,21 +533,26 @@ const best_review = async() => {
         }
     ;
 }
+const drawer = document.getElementById('drawer');
+const drawer_wrapper = document.querySelector('.drawer_wrapper');
 const main_modal= () => {
-    document.getElementById('drawer').style.display ='flex';
-    document.querySelector('.drawer_wrapper').style.display ='flex';
+    drawer.style.display ='flex';
+    drawer_wrapper.style.display ='flex';
 }
 const open_drawer = document.querySelector('.open_drawer');
 open_drawer.addEventListener('click', main_modal)
 
 
 
-
-document.querySelector('.main_container').addEventListener('click', function (e) {
-    if (window.innerWidth <= 930){
-    document.getElementById('drawer').style.display ='none';
-    document.querySelector('.drawer_wrapper').style.display ='none';
+drawer_wrapper.addEventListener('click', (e) =>{
+    if(e.target.classList.contains('drawer_wrapper')){
+        drawer.style.display ='none';
+        drawer_wrapper.style.display ='none';
     }
-})
+} )
 
 
+
+const cancel_delete_review = () => {
+    delete_check_modal_wrapper.style.display = 'none';
+}

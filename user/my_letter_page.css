@@ -100,7 +100,6 @@ body,html{
     top: 0;
     height: 100vh;
     width: 12%;
-    z-index: 5;
     flex-direction: column;
     background: rgb(235 233 215 / 80%);
 }
@@ -108,7 +107,6 @@ body,html{
     margin-top: -300px;
 }
 #drawer {
-    top: 2.8%;
     z-index: 5;
     display: flex;
     height: 100vh;
@@ -519,7 +517,14 @@ body,html{
         align-items: baseline !important;
     }
     .drawer_wrapper{
-        display: none;
+        width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    display: none;
     }
     #drawer{
         background: rgb(235 233 215 / 100%);
@@ -600,10 +605,6 @@ body,html{
 .lm_rm_mongle_edit{
     width: 30px !important;
     height: 30px !important;
-}
-.drawer_wrapper{
-    min-width: 0 !important;
-    width: 45%;
 }
 #drawer{
     min-width: 0 !important;
