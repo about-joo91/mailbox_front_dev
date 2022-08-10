@@ -31,17 +31,18 @@
     </div>
     <div class="drawer_wrapper">
         <div id="drawer">
-            <div class="d_white_space"></div>
-            <a href="/main/main_intro.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp몽글 튜토리얼</a>
-            <a href="/main/main.html" class="drawer_text"><i class="fa-solid fa-rectangle-list drawer_icon"></i>&nbsp메인페이지</a>
-            <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
-            <a href="/letter/worry_board_page.html?category=0&page_num=1" class="drawer_text"><i class="fa-solid fa-face-sad-tear"></i>&nbsp고민게시판</a>
-            <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 편지함</a>
-            <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지함</a>
-            <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
-            <a href="/letter/received_request.html" class="drawer_text"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp편지 받기</a>
-            <a href="/letter/send_request.html" class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp편지 쓰기</a>
-            <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp로그아웃</a>
+                <div class="drawer_container">
+                <a href="/main/main_intro.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp몽글 튜토리얼</a>
+                <a href="/main/main.html" class="drawer_text"><i class="fa-solid fa-rectangle-list drawer_icon"></i>&nbsp메인페이지</a>
+                <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+                <a href="/letter/worry_board_page.html?category=0&page_num=1" class="drawer_text"><i class="fa-solid fa-face-sad-tear"></i>&nbsp고민게시판</a>
+                <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 편지함</a>
+                <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지함</a>
+                <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+                <a href="/letter/received_request.html" class="drawer_text"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp편지 받기</a>
+                <a href="/letter/send_request.html" class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp편지 쓰기</a>
+                <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp로그아웃</a>
+            </div>
         </div>
     </div>
     <div class="main_container">
@@ -61,33 +62,33 @@
 
     <div class ="main_intro_con">
         <div class= "mi_worry_text"> 
-            <p>고민을 쓰는 사람 = 새잎 <i class="fa-brands fa-envira"></i></p>
-            <p> <i class="fa-brands fa-envira"></i> 새잎님 고민이 있으신가요?</p>
+            <span>고민을 쓰는 사람 = 새잎 <i class="fa-brands fa-envira"></i></span>
+            <span> <i class="fa-brands fa-envira"></i> 새잎님 고민이 있으신가요?</span>
             <img id="test" src="https://images.unsplash.com/photo-1617440168937-c6497eaa8db5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29ycnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
-            <p>고민 게시판에 고민을 작성하면</p>
-            <p>몽글 이가 편지를 쓰기위해</p>
-            <p>당신에게 요청을 보낼거에요 ! <i class="fa-solid fa-envelope-circle-check"></i></p>
+            <span>고민 게시판에 고민을 작성하면</span>
+            <span>몽글 이가 편지를 쓰기위해</span>
+            <span>당신에게 요청을 보낼거에요 ! <i class="fa-solid fa-envelope-circle-check"></i></span>
 
             <div class= "mi_worry_img">
                 <img class="worry_board_png" src="/images/worry_board.png">
-                <a href="/letter/worry_board_page.html?category=0&page_num=1"><p>고민게시판으로 이동하기</p></a>
+                <a href="/letter/worry_board_page.html?category=0&page_num=1"><span>고민게시판으로 이동하기</span></a>
             </div>
         </div>
 
         <div class= "mi_worry_text"> 
-            <p>편지를 쓰는 사람 = 햇살 <i class="bi bi-brightness-high-fill"></i></p>
-            <p><i class="bi bi-brightness-high-fill"></i> 햇살님 고민을 들어주실 건가요 !?</p>
+            <span>편지를 쓰는 사람 = 햇살 <i class="bi bi-brightness-high-fill"></i></span>
+            <span><i class="bi bi-brightness-high-fill"></i> 햇살님 고민을 들어주실 건가요 !?</span>
             <img id="test" src="/images/worry_receive.png">
-            <p>고민 게시판에 고민을 고르시고</p>
+            <span>고민 게시판에 고민을 고르시고</span>
             <span>몽글을 보내기 위한 요청을 보내보세요 ! <i class="fa-solid fa-arrow-trend-up"></i></span>
 
             <div class= "mi_worry_img">
                 <img  src="/images/worry.png">
-                <a href="/letter/worry_board_page.html?category=0&page_num=1"><p>고민게시판으로 이동하기</p></a>
+                <a href="/letter/worry_board_page.html?category=0&page_num=1"><span>고민게시판으로 이동하기</span></a>
             </div>
         </div>
         <i id ="under_btn2" class="fa-solid fa-arrow-down-long"></i>
-        <p class="intro_text2">화면을 클릭하면 다음페이지로 이동합니다!</p>
+        <span class="intro_text2">화면을 클릭하면 다음페이지로 이동합니다!</span>
     </div>
 
 

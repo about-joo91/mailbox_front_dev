@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://www.api-mongle.shop';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -145,7 +145,7 @@ async function request_message(worry_board_id){
         },
         body: JSON.stringify({
             "request_message": request_message_text
-            
+
         })
     })
     let res = await result.json()
