@@ -74,3 +74,17 @@ function logout() {
     localStorage.clear();
     location.replace('../index.html');
 }
+
+
+
+function login_enterkey(){
+    if (window.event.keyCode == 13){
+        SignIn();
+    }
+}
+
+function signup_enterkey(){
+    if (window.event.keyCode == 13){
+        SignUp();
+    }
+}
