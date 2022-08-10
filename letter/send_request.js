@@ -26,7 +26,7 @@ function get_cookie(name) {
 }
 const csrftoken = get_cookie('csrftoken')
 
-function open_detail_message_modal(detail_worry_message){
+function open_detail_message_modal(detail_worry_message, worry_board_id){
     document.getElementById('detail_message_modal_background').style.display="flex"
     const detail_small_modal = document.getElementById('detail_message_small_modal');
     document.body.style.overflow = 'hidden';
@@ -38,7 +38,7 @@ function open_detail_message_modal(detail_worry_message){
 
     const modal_text = document.getElementById("detail_message_sm_bd_ct_text")
     modal_text.innerText = detail_worry_message
-    document.getElementById('detail_message_modal_button').innerHTML = `<a href="/letter/letter.html?board_id=${request_message.worry_board}" class="sm_bd_submit_button">작성하러 가기</a>`
+    document.getElementById('detail_message_modal_button').innerHTML = `<a href="/letter/letter.html?board_id=${worry_board_id}" class="sm_bd_submit_button">작성하러 가기</a>`
 
 }
 
@@ -128,7 +128,7 @@ async function get_request_messages() {
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">
-                    <div class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}" onclick="open_detail_message_modal(` + '\`' + `${request_message.detail_worry_message}` + '\`' +',' + `${request_message.id}` + `)">편지 쓰기</div>
+                    <div class="md_bb_bl_bd_post_button" id="md_bb_bl_bd_post_button_${request_message.id}" onclick="open_detail_message_modal(` + '\`' + `${request_message.detail_worry_message}` + '\`' +',' + `${request_message.worry_board}` + `)">편지 쓰기</div>
                     <button class="md_bb_bl_bd_request_button" id="md_bb_bl_bd_request_button_${request_message.id}" onclick="open_request_modal(` + '\`' + `${request_message.worry_board_content}` + '\`' +',' + `${request_message.id}` + `)">${request_status_list[request_message.request_status]}</button>
                     </div>
                 </div>`

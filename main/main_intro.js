@@ -79,14 +79,14 @@ next_btn(main_intro2,main_intro3,main_intro2,intro_text3)
 next_btn(main_intro3,main_intro4,main_intro3)
 
 const scroll_event = () => {
-    if (document.querySelector('.main_intro_con').scrollTop >= 680)  {
+    if (document.querySelector('.main_intro_con').scrollTop >= 500)  {
         intro_text.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
     }
     
 }
 const scroll_event2 = () => {
     console.log(document.querySelector('.main_intro_con2').scrollTop)
-    if (document.querySelector('.main_intro_con2').scrollTop >= 680)  {
+    if (document.querySelector('.main_intro_con2').scrollTop >= 300)  {
         intro_text2.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
     }
     

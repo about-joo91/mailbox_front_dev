@@ -18,13 +18,13 @@ body, html {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container {
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 100%;
     justify-content: end;
 }
 
@@ -42,8 +42,7 @@ body, html {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 
 .nc_sb_nav p {
@@ -55,8 +54,8 @@ body, html {
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -66,8 +65,8 @@ body, html {
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -232,8 +231,8 @@ body, html {
     color:#F0F0E6;
 }
 .main_card_container{
-    margin-left: 100px;
-    width: 100%;
+    margin-left: 12%;
+    width: 88%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -241,10 +240,10 @@ body, html {
 }
 
 .mpc_card {
-    max-width: 830px;
-    position: relative;
-    width: 75%;
-    height: 70%;
+    max-width: 760px;
+    width: 65%;
+    height: 95%;
+    max-height: 960px;
 }
 
 .mpc_c_header {
@@ -265,13 +264,13 @@ body, html {
 }
 
 .mpc_c_b_upper {
-    padding: 60px;
+    padding: 5%;
     display: flex;
     height: 45%;
     position: relative;
 }
 .mpc_c_b_u_profile_img_wrapper{
-    width: 45%;
+    width: 40%;
     border-radius: .4em;
 }
 .mpc_c_b_u_profile_img {
@@ -298,6 +297,7 @@ body, html {
     width: 88px;
     left: 30%;
     top: 90%;
+    color: rgb(150, 0, 0)
 }
 .image_edit_btn:hover{
     cursor: pointer;
@@ -386,7 +386,7 @@ body, html {
     color: rgba(80, 80, 80, 1);
 }
 .mpc_c_bd_edit_button{
-    color: #F0F0E6;
+    color: rgb(150, 0, 0);
     font-size: 18px;
 }
 .mpc_c_bd_edit_button:hover{
@@ -426,6 +426,21 @@ body, html {
     font-size: 22px;
     flex-direction: column;
 }
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
 .drawer_text:hover{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
@@ -433,13 +448,6 @@ body, html {
 .drawer_text:hover i{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
-}
-.mpc_c_bd_edit_button{
-    color: #F0F0E6;
-    font-size: 18px;
-}
-.mpc_c_bd_edit_button:hover{
-    cursor: pointer;
 }
 
 /* 프로필 수정 모달 */
@@ -513,12 +521,13 @@ body, html {
     border-radius: .4em;
 }
 
+
 @media (max-width: 950px) {
     body{
         background: #F0F0E6
     }
     .main_card_container{
-        margin-left: 0;
+        margin: auto;
     }
     .nc_sub_container{
         background-color: #F0F0E6;
@@ -540,7 +549,7 @@ body, html {
     }
     .open_drawer{
         display: block!important;
-        margin: 40px 0 0 40px;
+        margin: 20px 0 0 40px;
     }
     .letter_modal{
         width: 100% !important;
@@ -552,7 +561,7 @@ body, html {
     }
     .nc_sb_nav{
         margin-top: 0 !important;
-        margin-right: 40px !important;
+        margin-right: 20px !important;
     }
     .mpc_c_b_upper{
         padding: 20px 0 20px 20px;
@@ -562,11 +571,35 @@ body, html {
     }
     .mpc_c_body_down {
         margin-top: 30px;
-        padding: 0;
+        padding: 0 5%;
     }
     .image_edit_btn{
         top: 102%;
         left: 30%;
+    }
+    .nav_container{
+        height: 10%;
+    }
+    .nc_mongle, .nc_profile{
+        width: 60px;
+        height: 60px;
+    }
+    .mpc_c_b_u_profile_img_wrapper{
+        width: 60%;
+    }
+    .mpc_c_b_u_right_content_box{
+        margin: 5% 5% 0 0;
+    }
+    .add_cate_modal{
+        width: 50%;
+        height: 40%;
+    }
+    .edit_desc_modal{
+        width: 95%;
+        height: 80%;
+    }
+    .edm_name, .edm_textarea{
+        width: 80%;
     }
 
 }
@@ -606,7 +639,7 @@ body, html {
         margin-bottom: 5px !important;
     }
     .mpc_c_b_upper{
-        padding: 15px 0 0 15px !important;
+        padding: 0;
     }
     .pem_btn_box{
         margin-top: 50% !important;
@@ -615,4 +648,10 @@ body, html {
         min-width: 0 !important;
         width: 45% !important;
     }
+    .main_card_container{
+        margin: unset;
+        width: 100%;
+    }
+    
+
 }

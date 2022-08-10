@@ -3,7 +3,9 @@ html{
 }
 body{
     margin: 0;
-    background: #F0F0E6;
+    width: 100%;
+    height: 100vh;
+    background: rgb(235 233 215 / 80%);
 }
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
@@ -17,21 +19,20 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -42,8 +43,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -53,8 +54,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -70,6 +71,21 @@ body{
 }
 .drawer_text:hover{
     cursor: pointer;
+}
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
 }
 
 .drawer_icon{
@@ -158,18 +174,18 @@ body{
 .main_container{
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
     flex-direction: column;
-    justify-content: center;
-    margin-top: 100px;
-    position: relative;
-    left: 32%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 3%;
 }
 
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
+    width: 55%;
+    max-width: 1260px;
     height: 10rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
@@ -202,27 +218,26 @@ body{
     font-weight: 600;
 }
 .mc_board_body{
-    width: 50%;
-    /* height: 80rem; */
+    width: 55%;
+    max-width: 1260px;
     margin-top: 1.4rem;
+    height: auto;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #E2CA9B;
-    margin-bottom: 8rem;
+    background-color: rgb(226, 202, 155);
     border: 1px solid gray;
 }
 
 .mc_bb_board_lists{  
     width: 90.9%;
-    /* height: 70rem; */
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    margin-top: 2rem;
+    margin: 3% 0px;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -253,16 +268,17 @@ body{
 }
 .md_bb_bl_board{
     width: 100%;
-    /* height: 10.5rem; */
+    height: 14rem;
     margin-bottom: 0.7rem;
-    border-radius: .8em;
+    border-radius: 0.8em;
     display: flex;
     background-color: white;
-    justify-items: center;
-    align-items: center;
 }
 .md_bb_bl_board_box{
-    width: 90%;
+    width: 83%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .md_bb_bl_bd_request_button {
     border: none;
@@ -270,11 +286,10 @@ body{
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
     width: 100%;
-    height: 4.65rem;
+    height: 5rem;
     margin-left: 3.6rem;
     display: flex;
     flex-wrap: nowrap;
-    padding-top: 1rem;
     align-items: center;
 
 }
@@ -389,7 +404,7 @@ body{
 }
 .md_bb_bl_bd_ct_rg_border{
     width: 50%;
-    height: 4.6rem;
+    height: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -426,13 +441,12 @@ body{
     display: flex;
 }
 .md_bb_bl_bd_request_button{
-    width: 78%;
-    font-size: 12px!important;
-    height: 2.5rem;
+    width: 96%;
+    height: 4rem;
     border-radius: 10px;
     background-color: rgba(176, 170, 109, 0.8);
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
 
 }
@@ -469,15 +483,16 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 55%;
+    height: 90%;
     max-width: 1260px;
-    max-height: 80rem;
+    max-height: 1100px;
 }
 
 .sm_title{
     width: 100%;
     text-align: center;
-    height: 9rem;
+    height: 7%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -487,9 +502,9 @@ body{
 
 
 .sm_tt_text{
-    font-size: 2.6rem;
+    font-size: 1.5vw;
     color: white;
-    margin-left: 5.5rem;
+    width: 48%;
 }
 .sm_tt_category{
     width: 20%;
@@ -515,7 +530,7 @@ body{
     width: 50%;
 }
 .request_modal_empty_box{
-    width: 39%;
+    width: 42%;
 }
 .edit_modal_empty_box{
     width: 43%;
@@ -560,9 +575,9 @@ body{
 }
 .sm_bd_content{
     width: 91%;
-
     height: 60%;
     max-height: 60rem;
+    padding-bottom: 4%;
 }
 .sm_bd_ct_textarea{
     width: 93%;
@@ -570,7 +585,7 @@ body{
     resize: none;
     outline: none;
     border-radius: 15px;
-    font-size: 2rem;
+    font-size: 1vw;
     color: rgba(80, 80, 80, 1);
     padding: 3%;
 }
@@ -587,19 +602,18 @@ body{
     cursor: pointer;
     background-color: rgba(176, 170, 109, 0.8);
     width: 14%;
-    height: 5rem;
+    height: 4rem;
     color: white;
-    font-size: 2rem;
+    font-size: 1.5vw;
     border-radius: 15px;
     border: none;
-    margin-top: 30px;
 }
 
 /* request 모달 */
 .sm_bd_target_text{
     width: 100%;
     height: 5.5rem;
-    font-size: 2.6rem;
+    font-size: 1.5vw;
     color: white;
     margin-left: 13rem;
     padding-top: 2.5rem;
@@ -609,7 +623,7 @@ body{
     height: 15rem;
     background-color: white;
     border-radius: 15px;
-    font-size: 2rem;
+    font-size: 1vw;
     color: #A4A457;
     border: 1px solid gray;
     padding: 20px
@@ -729,7 +743,7 @@ body{
         width: 99%;
     }
     .sm_bd_text {
-        font-size: 22px;
+        font-size: 1.5vw;
         margin-left: 2.2rem;
     }
     .open_modal_button{
@@ -740,7 +754,27 @@ body{
     .sm_bd_submit_button{
         width: 17.5%;
     }
+    .sm_tt_text{
+        font-size: 2.5vw;
+    }
+    .sm_tt_category {
+        width: 32%;
+        border-radius: 0.4em;
+    }
+    .sm_bd_button{
+        height: 10%;
+    }
+    .sm_body{
+        height: 66%;
+    }
+    .sm_bd_text{
+        height: 10%;
+    }
+    .sm_bd_button{
+        margin-top: unset;
+    }
 }
+
 
 
 @media (max-width: 450px) {
@@ -749,9 +783,6 @@ body{
     }
     .mc_board_title{
         height: 6rem;
-    }
-    .md_bb_bl_board{
-        height: 8rem;
     }
     .open_drawer{
         font-size: 18px !important;
@@ -808,14 +839,15 @@ body{
         position: absolute;
         font-size: 1.5rem;
         margin-left: 0px;
-        word-break:break-all;
-        word-wrap:break-word;
+        word-break: break-all;
+        word-wrap: break-word;
         text-overflow: ellipsis;
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         width: 70%;
+        top: 2vh;
         left: 10%;
     }
     .nc_sb_modal{
@@ -829,6 +861,7 @@ body{
     }
     .md_bb_bl_board{
         position: relative;
+        height: 17vh;
     }
     .md_bb_bl_board_box{
         position: absolute;
@@ -836,12 +869,13 @@ body{
     }
     .md_bb_bl_bd_description{
         position: absolute;
-        top: -91%;
         left: -9%;
+        height: 0;
+        margin-top: -2vh;
     }
     .md_bb_bl_bd_request{
         position: absolute;
-        left: 77%;
+        left: 73%;
     }
     .open_modal_button{
         position: fixed;
@@ -885,6 +919,17 @@ body{
     }
     .small_modal {
         width: 99%;
+    }
+    .sm_bd_content{
+        height: 75%;
+    }
+    .sm_bd_target_text{
+        margin-left: 4.5rem;
+        height: 3.5rem;
+        padding-top: 1rem;
+    }
+    .md_bb_bl_bd_request_button{
+        height: 22%;
     }
 }
 
