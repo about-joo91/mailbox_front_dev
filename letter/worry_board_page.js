@@ -360,12 +360,10 @@ function worry_board_list(boards){
                     </div>
                 </div>
                 <div class="md_bb_bl_bd_content">
-                    <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                    <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
                         ${board_content}
-                    </p>
-                    <div class="md_bb_bl_bd_ct_right">
-                        <div class="md_bb_bl_bd_ct_rg_border"></div>
-                    </div>
+                    </span>
+
                 </div>
             </div>
             <div class="md_bb_bl_bd_request">
@@ -386,12 +384,9 @@ function worry_board_list(boards){
                     </div>
                 </div>
                 <div class="md_bb_bl_bd_content">
-                    <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
+                    <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left_${board.id}">
                     ${board_content}
-                    </p>
-                    <div class="md_bb_bl_bd_ct_right">
-                        <div class="md_bb_bl_bd_ct_rg_border"></div>
-                    </div>
+                    </span>
                 </div>
             </div>
             <div class="md_bb_bl_bd_request">

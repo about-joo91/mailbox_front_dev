@@ -698,6 +698,16 @@ body{
     .md_bb_bl_bd_request_button{
         font-size: 15px;
     }
+    .small_modal{
+        width: 68%;
+        max-width: 55rem;
+    }
+    .sm_bd_submit_button {
+        width: 22%;
+    }
+    .sm_tt_text {
+        width: 50%;
+    }
 
 }
 

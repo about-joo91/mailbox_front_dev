@@ -700,13 +700,14 @@ body{
         font-size: 30px;
     }
     .small_modal{
-        width: 60%;
+        width: 68%;
+        max-width: 55rem;
     }
     .sm_bd_submit_button {
         width: 22%;
     }
-    .small_modal{
-        width: 99%;
+    .sm_tt_text {
+        width: 50%;
     }
 }
 

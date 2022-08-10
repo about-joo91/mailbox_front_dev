@@ -1,5 +1,7 @@
 body, html{
     margin: 0;
+    width: 100%;
+    height: 100vh;
     background: rgb(235 233 215 / 80%);
 }
 
@@ -16,21 +18,20 @@ body, html{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -41,8 +42,8 @@ body, html{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -52,8 +53,8 @@ body, html{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -80,12 +81,13 @@ body, html{
     background-color: rgba(80, 80, 80, 1);
 }
 .main_container{
-    margin-top: 50px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
-    width: 100%;
-    height: 1150px;
+    width: 88%;
+    height: 100%;
+    margin-left: 10%;
+    margin-top: 3%;
 }
 .mc_sub_container{
     display: flex;
@@ -93,9 +95,8 @@ body, html{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    height: 1000px;
-    margin-left: 300px;
+    width: 100%;
+    height: 100%;
 }
 
 .mc_sb_letter_bar{
@@ -455,6 +456,15 @@ display: none;
     color: rgba(80, 80, 80, 1);
     text-decoration: none;
 }
+
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
 .open_drawer{
     display: none;
     font-size: 20px;
@@ -462,8 +472,12 @@ display: none;
 .open_drawer:hover {
     cursor: pointer;
 }
-.drawer_text:hover{
-    cursor: pointer;
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
 }
 
 .drawer_icon{
@@ -512,6 +526,7 @@ display: none;
 }
 .drawer_text:hover{
     color: #F0F0E6;
+    cursor: pointer;
     background-color: rgba(80, 80, 80, 1);
 }
 .drawer_text:hover i{
@@ -555,8 +570,8 @@ display: none;
     .mb_sb_rb_rank{
         width: 78%;
     }
-    .mc_sub_container {
-        margin-left: 223px;
+    .main_container{
+        margin-left: 14%;
     }
 
 }
@@ -579,6 +594,8 @@ display: none;
     }
     .main_container{
         display: flex;
+        margin-left: 1%;
+        width: 98%;
     }
     .mc_sub_container{
         margin-left: 0px;

@@ -1,7 +1,9 @@
 body,html{
-    margin: 0;
+    margin: 0;   
     overflow: hidden;
-    background: rgb(235 233 215 / 80%);
+    width: 100%;
+    height: 100vh;
+    background: rgba(235, 233, 215, 0.8);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -16,21 +18,20 @@ body,html{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 100%;
     justify-content: space-between;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -44,8 +45,8 @@ body,html{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -55,8 +56,8 @@ body,html{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -80,6 +81,10 @@ body,html{
 }
 .drawer_text:hover{
     cursor: pointer;
+}
+.drawer_text:hover i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
 }
 
 .drawer_icon{
@@ -120,6 +125,21 @@ body,html{
     flex-direction: column;
 }
 .drawer_text:hover{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
 }
@@ -291,7 +311,7 @@ body,html{
     justify-content: center;
     align-items: center;
     max-width: 1100px;
-    width: 80%;
+    width: 55%;
     height: 80%;
     background-color: #E2CA9B;
     flex-direction: column;
@@ -331,7 +351,7 @@ body,html{
     align-items: center;
 }
 .letter_body{
-    width: 60%;
+    width: 50%;
     max-width: 800px;
     position: relative;
 }
@@ -535,7 +555,7 @@ body,html{
         margin: 40px 0 0 40px;
     }
     .letter_modal{
-        width: 100% !important;
+        width: 80% !important;
     }
     .nc_sb_nav{
         margin-top: 0 !important;
@@ -545,6 +565,12 @@ body,html{
         
         width: 70px !important;
         height: 70px !important;
+    }
+    .lm_review_modal{
+        height: 49%;
+        top: 33%;
+        width: 50%;
+        left: 45%;
     }
 
 }

@@ -18,14 +18,14 @@ body,html{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
@@ -73,7 +73,21 @@ body,html{
     text-decoration: none;
 }
 .drawer_text:hover{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
     cursor: pointer;
+}
+.drawer_text:hover i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
 }
 
 .drawer_icon{
@@ -117,14 +131,6 @@ body,html{
     left: 0;
     top: 0;
     flex-direction: column;
-}
-.drawer_text:hover{
-    color: #F0F0E6;
-    background-color: rgba(80, 80, 80, 1);
-}
-.drawer_text:hover i{
-    color: #F0F0E6;
-    background-color: rgba(80, 80, 80, 1);
 }
 
 .my_letter_link{
@@ -246,7 +252,7 @@ body,html{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 100%;
+    height: 90%;
 }
 
 
@@ -269,16 +275,21 @@ body,html{
 
 .mi_worry_text2{
     width: 50%;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+#mi_worry_text2_right{
+    height: 100%;
 }
 .mi_worry_text4{
     width: 50%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 .mi_worry_text4 img{
@@ -293,10 +304,14 @@ body,html{
 
 .mi_worry_text3{
     width: 50%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+}
+#mi_worry_text3_last{
+    height: 40%;
 }
 .mi_wr_img{
     width: 30%!important;
@@ -321,8 +336,7 @@ body,html{
 }
 
 .mi_worry_text img {
-    width: 45%;
-    border-radius: 10px;
+    width: 40%;
 }
 
 .worry_board_png{
@@ -330,8 +344,7 @@ body,html{
 }
 
 .letter_png{
-    width: 60%!important;
-    margin-top: 10px;
+    width: 55%!important;
 }
 
 .drawer_container{
@@ -411,21 +424,18 @@ body,html{
         margin-bottom: 100px;
     }
     .mi_worry_text2{
-        margin-right: 0px;
-        margin-bottom: 100px;
         width: 80%;
+        height: 100%;
+        margin: 10% 0;
     }
     .mi_worry_text3{
-        margin-top: 50px;
-        margin-right: 0px;
+        margin: 5% 0;
         width: 80%;
-
+        height: 100%;
     }
     .mi_worry_text4{
-        margin-right: 0px;
         width: 80%;
-        margin-bottom: 150px;
-
+        height: 100%;
     }
     .mi_worry_text img{
         width: 80%;
@@ -466,6 +476,17 @@ body,html{
         margin-top: 0 !important;
         margin-right: 40px !important;
     }
+    .mi_worry_text{
+        margin-bottom: 50%;
+    }
+    .main_container,.main_intro_con,.main_intro_con2,.main_intro_con3, .main_intro_con4{
+        width: 100%;
+        margin-left: unset;
+    }
+    #under_btn2, #under_btn3 {
+        left: 50%;
+    }
+
 
 }
 
@@ -501,7 +522,7 @@ body,html{
     }
 
     .mi_worry_text{
-        margin-bottom: 0px;
+        margin-bottom: 32%;
     }
 
     .nc_mongle, .nc_profile {
@@ -513,7 +534,6 @@ body,html{
         min-width: 0 !important;
         width: 45% !important;
     }
-    .d_white_space{
-        margin-top: -60px;
-    }
+
+
 }
