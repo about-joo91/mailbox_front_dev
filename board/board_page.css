@@ -2,8 +2,10 @@ html{
     font-size: 62.5%;
 }
 body{
-    margin: 0;
-    background: #F0F0E6;
+    margin: 0;   
+    width: 100%;
+    height: 100vh;
+    background: rgb(235 233 215 / 80%)
 }
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
@@ -17,21 +19,20 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -42,8 +43,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -53,8 +54,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -121,6 +122,23 @@ body{
     font-size: 22px;
     flex-direction: column;
 }
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+
+
 .drawer_text:hover{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
@@ -152,13 +170,10 @@ body{
 /* 메인시작 */
 .main_container{
     width: 100%;   
-    margin-top: 100px;
-    margin-left: 180px;
-    /* height: 110rem; */
-    background-color: #F0F0E6;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 3%;
 }
 
 
@@ -167,7 +182,7 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
+    width: 55%;
     height: 10rem;
     border: 1px solid gray;
     border-radius: 1.5rem;
@@ -176,15 +191,15 @@ body{
     align-items: center;
 }
 .mc_bt_title_text{
-    font-size: 35px;
+    font-size: 1.7vw;
     width: 22%;
     color: white;
-    margin-left: 6.2rem;
+    margin-left: 6%;
     cursor: pointer;
 }
 /* 익명게시판 몸체 */
 .mc_board_body{
-    width: 50%;
+    width: 55%;
     /* height: 80rem; */
     margin-top: 1.4rem;
     border-radius: 1.5rem;
@@ -284,7 +299,7 @@ body{
     margin-left: 3rem;
 }
 .md_bb_bl_bd_desc_comment_icon{
-    width: 12.5%;
+    width: 15.5%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -292,7 +307,7 @@ body{
     cursor: pointer;
 }
 .md_bb_bl_bd_desc_edit_delete{
-    width: 12%;
+    width: 15%;
     height: 80%;
     margin-right: 10%;
     font-size: 18px;
@@ -424,6 +439,7 @@ body{
 .small_modal{
     max-width: 1260px;
     width: 60%;
+    height: 80%;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -431,7 +447,7 @@ body{
 }
 .sm_title{
     width: 100%;
-    height: 9rem;
+    height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -474,15 +490,15 @@ body{
     color: white;
 }
 .sm_body{
-    margin-top: 1.4rem;
+    margin-top: 2%;
     width: 100%;
-    height: 73rem;
+    height: 85%;
     background-color: #E2CA9B;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .sm_bd_text{
     width: 100%;
@@ -504,7 +520,9 @@ body{
 }
 .sm_bd_content{
     width: 91%;
-    height: 54rem;
+    height: 76%;
+    display: flex;
+    justify-content: center;
 }
 .sm_bd_ct_textarea{
     outline: none;
@@ -514,11 +532,11 @@ body{
     border-radius: 15px;
     font-size: 2rem;
     color: rgba(80, 80, 80, 1);
-    padding: 3%;
+    padding: 1%;
 }
 .sm_bd_button{
     width: 100%;
-    height: 10rem;
+    height: 13%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -526,7 +544,6 @@ body{
 .sm_bd_submit_button{
     border: none;
     cursor: pointer;
-    margin-top: 5rem;
     background-color: rgba(176, 170, 109, 0.8);
     width: 10%;
     height: 5rem;
@@ -546,14 +563,14 @@ body{
     background-color: rgba(176, 170, 109, 0.3);
 }
 .mc_bt_title_empty_box{
-    width: 50%;
+    width: 49%;
 }
 .mc_by_title_link{
-    width: 17%;
+    width: 23%;
     text-decoration: none;
 }
 .mc_bt_my_board_button{
-    font-size: 16px;
+    font-size: 1.3vw;
     display: flex;
     border-radius: 0.4em;
     width: 69%;
@@ -645,6 +662,12 @@ body{
     .sm_tt_title_input{
         margin-left: 1rem;
     }
+    .mc_bt_title_text{
+        font-size: 3vw;
+    }
+    .mc_bt_my_board_button{
+        font-size: 2.3vw;
+    }
 }
 
 @media (max-width: 450px) {
@@ -735,14 +758,15 @@ body{
         margin-right: 0.5rem;
     }
     .sm_bd_content{
-        height: 59rem;
-        margin-top: 3rem;
+        height: 55vh;
+        padding: 1%;
     }
     .sm_bd_submit_button{
         margin-top: 0;
     }
     .sm_bd_ct_textarea{
-        height: 96%;
+        height: 94%;
+        padding: 2%;
     }
     .d_white_space{
         margin-top: -60px;
@@ -758,7 +782,7 @@ body{
     }
     .md_bb_bl_board{
         position: relative;
-        height: 11rem;
+        height: 19vh;
     }
     .md_bb_bl_bd_description{
         position: absolute;
@@ -838,6 +862,33 @@ body{
     .sm_bd_submit_button {
         height: 2rem;
     }
+    .sm_title{
+        height: 9vh;
+    }
+    .sm_body{
+        margin-top: 2%;
+        width: 100%;
+        height: 85%;
+        background-color: #E2CA9B;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .sm_bd_text{
+        width: 100%;
+        height: 10%;
+        font-size: 2.6rem;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .sm_bd_button{
+        height: 13%;
+    }
+
 }   
 
 

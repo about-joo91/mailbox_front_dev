@@ -425,13 +425,13 @@ body,html{
     position: relative;
 }
 .lm_review_modal{
-	position: absolute;
-	background: rgba(176, 170, 109, 0.8);
-	border-radius: .4em;
-    left: 50.5%;
-    top: 50%;
-    width: 45%;
-    height: 35%;
+    position: absolute;
+    background: rgba(176, 170, 109, 0.8);
+    border-radius: 0.4em;
+    left: 45.5%;
+    top: 33%;
+    width: 50%;
+    height: 50%;
     padding: 1em;
     display: none;
     flex-direction: column;
@@ -616,27 +616,39 @@ body,html{
     left: 20% !important;
     top: 33% !important;
     padding: .3em !important;
-}
-.lm_rm_btn{
-    padding: 0 !important;
-    border-radius: 0 !important;
-}
-.lm_b_review_btn{
-    width: 30% !important;
-}
-.lm_rm_mongle{
-    width: 30px !important;
-    height: 30px !important;
-}
-.lm_rm_mongle_edit{
-    width: 30px !important;
-    height: 30px !important;
-}
-#drawer{
-    min-width: 0 !important;
-    width: 45% !important;
-}
-.d_white_space{
-    margin-top: -60px;
-}
     }
+    .lm_rm_btn{
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+    .lm_b_review_btn{
+        width: 30% !important;
+    }
+    .lm_rm_mongle{
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .lm_rm_mongle_edit{
+        width: 30px !important;
+        height: 30px !important;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
+    .d_white_space{
+        margin-top: -60px;
+    }
+    .lm_bubble{
+        left: 75%;
+        width: 20%;
+    }
+    .new_letter_icon{
+        left: 90%;
+    }
+    .lm_bubble{
+        left: 77%;
+        top: 13%;
+        width: 20%;
+    }
+}

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 
 const urlParams = new URLSearchParams(window.location.search);
 const url_board_id = urlParams.get('board_id');
@@ -119,12 +119,9 @@ window.onload =
                         <div class="md_bb_bl_bd_tt_text">${board.title}</div>
                     </div>
                     <div class="md_bb_bl_bd_content">
-                        <p class="md_bb_bl_bd_ct_left">
+                        <span class="md_bb_bl_bd_ct_left">
                             ${board.content.replace(REG,"")}
-                        </p>
-                        <div class="md_bb_bl_bd_ct_right">
-                            <div class="md_bb_bl_bd_ct_rg_border"></div>
-                        </div>
+                        </span>
                     </div>
                 </div>`
                 }
@@ -148,9 +145,9 @@ window.onload =
                         <div class="md_bb_bl_bd_tt_text">${board.title}</div>
                     </div>
                     <div class="md_bb_bl_bd_content">
-                        <p class="md_bb_bl_bd_ct_left">
+                        <span class="md_bb_bl_bd_ct_left">
                             ${board.content.replace(REG,"")}
-                        </p>
+                        </span>
                         <div class="md_bb_bl_bd_ct_right">
                             <div class="md_bb_bl_bd_ct_rg_border"></div>
                         </div>

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DAILY_CATEGORY_NUM = 1;
 const FAMILY_CATEGORY_NUM = 2;
 const LOVE_CATEGORY_NUM = 3;

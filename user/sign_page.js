@@ -1,5 +1,5 @@
 
-const backend_base_url = 'https://www.api-mongle.shop';
+const backend_base_url = 'http://127.0.0.1:8000';
 
 // 회원가입
 async function SignUp(){

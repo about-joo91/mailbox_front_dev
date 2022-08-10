@@ -105,7 +105,7 @@ body, html{
     align-items: center;
     justify-content: space-between;
     width: 80%;
-    height: 70px;
+    height: 10%;
     margin-bottom: 15px;
     border-radius: 20px;
     background-color: rgba(176, 170, 109, 0.8);   
@@ -120,6 +120,7 @@ body, html{
     border: 1px solid gray;
     width: 80%;
     height: 1000px;
+    padding-top: 2%;
 }
 .mc_sb_letter_bar span{ 
     margin-left: 100px;

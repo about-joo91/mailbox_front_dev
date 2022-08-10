@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop/';
+const BASE_URL = 'http://127.0.0.1:8000/';
 const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 const urlParams = new URL(document.location).searchParams;
 let page_name = "my_letter"
@@ -113,12 +113,19 @@ const letters_exist = (response) => {
     switch(page_name){
         case "my_letter":
             user_info = response.letter.letter_author
+            document.querySelector('.recieve').removeAttribute("id")
+            document.querySelector('.my_letter').setAttribute("id", "cur_drawer_text")
+            
             break;
         case "my_not_read_letter":
+            document.querySelector('.my_letter').removeAttribute("id")
+            document.querySelector('.recieve').setAttribute("id", "cur_drawer_text")
             user_info = response.letter.received_user;
             push_before_button();
             break;
         case "my_received_letter":
+            document.querySelector('.my_letter').removeAttribute("id")
+            document.querySelector('.recieve').setAttribute("id", "cur_drawer_text")
             user_info = response.letter.received_user
             if (is_read_letter_exists) push_new_letter_button(response)
             break;
