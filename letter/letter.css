@@ -59,6 +59,7 @@ body{
 
 .drawer_text{
     margin: 0.5px 0;
+    font-size: 1.3vw;
     padding: 7% 0px;
     border-radius: 0.8em;
     text-align: center;

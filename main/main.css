@@ -449,6 +449,7 @@ display: none;
 .drawer_text{
     padding: 7% 0px;
     margin: 0.5px 0;
+    font-size: 1.3vw;
     border-radius: 0.8em;
     text-align: center;
     width: 100%;
