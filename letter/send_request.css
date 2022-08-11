@@ -3,12 +3,15 @@ html{
 }
 body{
     margin: 0;
+    width: 100%;
+    height: 100vh;
     background: #F0F0E6;
 }
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
 * {
     font-family: 'Gamja Flower', cursive;
+    font-size: 1vw
     ;
 }
 .nav_container {
@@ -17,21 +20,20 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -43,8 +45,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -54,8 +56,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -67,9 +69,10 @@ body{
     cursor: pointer;
 }
 .drawer_text{
-    font-size: 22px;
-    padding: 20px 0px;
-    border-radius: 15px;
+    padding: 7% 0px;
+    font-size: 1.3vw;
+    margin: 0.5px 0;
+    border-radius: 0.8em;
     text-align: center;
     width: 100%;
     letter-spacing: 1.5px;
@@ -121,7 +124,6 @@ body{
 #drawer {
     z-index: 5;
     display: flex;
-    position: fixed;
     height: 100vh;
     justify-content: center;
     position: fixed;
@@ -129,9 +131,24 @@ body{
     min-width: 220px;
     left: 0;
     top: 0;
-    font-size: 22px;
     flex-direction: column;
 }
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+
 .drawer_text:hover{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
@@ -163,22 +180,21 @@ body{
 
 /* 메인시작 */
 .main_container{
-    width: 100%;
-    /* height: 110rem; */
+    width: 88%;
     background-color: #F0F0E6;
-    margin-top: 100px;
+    margin-top: 3%;
+    margin-left: 12%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 150px;
 }
 
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 80%;
+    width: 55%;
     max-width: 1260px;
-    height: 10rem;
+    height: 10vh;
     border: 1px solid gray;
     border-radius: 1.5rem;
     display: flex;
@@ -212,16 +228,15 @@ body{
 .mc_board_body{
     max-width: 1260px;
     border: 1px solid gray;
-    width: 80%;
+    width: 55%;
     /* height: 80rem; */
-    margin-top: 1.4rem;
+    margin-top: 1vh;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #E2CA9B;
-    margin-bottom: 8rem;
 }
 .mc_bt_title_text{
     font-size: 35px;
@@ -384,12 +399,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    word-break: break-all;
 }
 .md_bb_bl_bd_ct_left{
-    width: 80%;
+    width: 100%;
     font-size: 2rem;
     color: #A4A457;
-    margin-left: 1.6rem;
+    margin-left: 5.5%;
 }
 .md_bb_bl_bd_ct_right{
     width: 20%;
@@ -436,9 +452,9 @@ body{
     display: flex;
 }
 .md_bb_bl_bd_request_button{
-    width: 30%;
-    height: 4rem;
-    border-radius: 10px;
+    width: 42%;
+    height: 3.5vh;
+    border-radius: 0.6em;
     background-color: rgba(176, 170, 109, 0.5);
     color: white;
     font-size: 1.5rem;
@@ -452,9 +468,9 @@ body{
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    width: 30%;
-    height: 4rem;
-    border-radius: 10px;
+    width: 40%;
+    height: 3.5vh;
+    border-radius: 0.6em;
     background-color: rgba(176, 170, 109, 0.8);
     color: white;
     font-size: 1.5rem;
@@ -493,13 +509,13 @@ body{
     align-items: center;
 }
 .small_modal{
-    max-width: 800px;
-    width: 80%;
-    height: 83rem;
+    max-width: 1000px;
+    width: 55%;
+    height: 62vh;
 }
 .sm_title{
     width: 100%;
-    height: 9rem;
+    height: 7vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -507,9 +523,9 @@ body{
     border-radius: 15px;
 }
 .sm_tt_text{
-    font-size: 2.6rem;
+    font-size: 1.5vw;
     color: white;
-    margin-left: 5.5rem;
+    margin-left: 7%;
 }
 .sm_tt_category{
     width: 14%;
@@ -561,10 +577,10 @@ body{
     justify-content: center;
 }
 .edit_sm_body{
-    margin-top: 1.4rem;
+    margin-top: 1.5%;
     width: 100%;
-    /* height: 50rem; */
-    background-color: #E2CA9B;
+    height: 60vh;
+    background-color: rgb(226, 202, 155);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -573,30 +589,33 @@ body{
 }
 .sm_bd_text{
     width: 100%;
-    height: 5.5rem;
-    font-size: 2.6rem;
+    height: 4vh;
+    font-size: 1.4vw;
     color: white;
-    margin-left: 13rem;
-    padding-top: 2.5rem;
+    margin-left: 13%;
+    padding-top: 1%;
+    margin-bottom: 0.4%;
 }
 .sm_bd_content{
     width: 91%;
 }
 .sm_bd_ct_textarea{
     width: 93%;
-    height: 20rem;
+    height: 39vh;
     resize: none;
     border-radius: 15px;
-    font-size: 2rem;
-    color: #A4A457;
-    padding: 3%;
+    font-size: 1.2vw;
+    color: rgb(164, 164, 87);
+    padding: 2%;
+    outline: none;
+    border: none;
 }
 .sm_bd_ct_text{
     width: 93%;
-    height: 40rem;
+    height: 39vh;
     resize: none;
     border-radius: 15px;
-    font-size: 2rem;
+    font-size: 2vw;
     color: #A4A457;
     padding: 3%;
     margin-bottom: 2rem;
@@ -605,19 +624,20 @@ body{
 }
 .sm_bd_button {
     width: 100%;
-    height: 7rem;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 0.5rem;
+    margin-top: 1%;
 }
 .sm_bd_submit_button{
     cursor: pointer;
     background-color: rgba(176, 170, 109, 0.8);
     width: 16%;
-    height: 5rem;
+    height: 5vh;
     color: white;
-    font-size: 2rem;
+    font-size: 1.4vw;
     border-radius: 15px;
     text-decoration: none;
     display: flex;
@@ -680,7 +700,7 @@ body{
         height: 70px !important;
     }
     .main_container{
-        margin-left: 0px;
+        margin: auto;
 
     }
     .mc_board_title,.mc_board_body{
@@ -689,12 +709,13 @@ body{
     }
     .md_bb_bl_bd_request_button {
         height: 4rem;
-        width: 50%;
+        width: 45%;
         margin-left: 5px;
 
     }
     .md_bb_bl_bd_post_button{
-        width: 38%;
+        height: 4rem;
+        width: 45%;
     }
     .mc_bt_title_text{
         font-size: 30px;
@@ -709,6 +730,13 @@ body{
     .sm_tt_text {
         width: 50%;
     }
+    .sm_tt_text_empty_box{
+        width: 33%;
+    }
+    .sm_bd_ct_textarea{
+        font-size: 1.7vw;
+        padding: 2%;
+    }
 }
 
 
@@ -717,7 +745,7 @@ body{
 
 @media (max-width: 450px) {
     *{
-        font-size: 14px !important;
+        font-size: 3.6vw !important;
     }
     #drawer{
         min-width: 0 !important;
@@ -761,15 +789,10 @@ body{
         height: 3rem;
     }
     .md_bb_bl_bd_post_button{
-        width: 45%;
-        height: 2rem;
-        font-size: 10px!important;
-    }
-    .sm_body {
-        height: 53%;
-    }
-    .edit_sm_body {
-        height: 40%;
+        width: 70%;
+        height: 4vh;
+        font-size: 10px !important;
+        margin-top: 15%;
     }
     .sm_bd_submit_button{
         width: 27%;
@@ -799,7 +822,9 @@ body{
         font-size: 2rme;
     }
     .md_bb_bl_bd_request_button{
-        font-size: 1rem;
+        height: 4vh;
+        width: 70%;
+        margin-top: 15%;
     }
     .main_container{
         margin-top: 0px;
@@ -831,19 +856,9 @@ body{
         justify-content: center;
         align-items: center;
     }
-    .sm_title {
-        height: 6rem;
-    }
     .sm_bd_text{
-        height: 3rem;
-        margin-bottom: 5px;
-        font-size: 22px;
-        margin-left : 5rem;
+        margin-left : 13%;
 
-    }
-    .sm_bd_ct_text {
-        height: 87%;
-        font-size: 1.8rem;
     }
     .d_white_space{
         margin-top: -60px;
@@ -851,11 +866,8 @@ body{
     .mc_bb_board_lists{ 
         margin-top: 3rem; 
     }
-    .sm_bd_submit_button{
-        height: 3rem !important;
-    }
     .sm_tt_text_empty_box {
-        width: 45%;
+        width: 34%;
     }
     .sm_tt_text_close{
         font-size: 30px !important;
@@ -864,8 +876,5 @@ body{
         width: 25%;
         position: absolute;
         left: 45%;
-    }
-    .sm_bd_content{
-        height: 100%;
     }
 }

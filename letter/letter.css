@@ -15,21 +15,20 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -41,8 +40,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -52,16 +51,17 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
 
 .drawer_text{
-    font-size: 22px;
-    padding: 20px 0px;
-    border-radius: 15px;
+    margin: 0.5px 0;
+    font-size: 1.3vw;
+    padding: 7% 0px;
+    border-radius: 0.8em;
     text-align: center;
     width: 100%;
     letter-spacing: 1.5px;
@@ -114,9 +114,24 @@ body{
     min-width: 220px;
     left: 0;
     top: 0;
-    font-size: 22px;
     flex-direction: column;
 }
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+
 .drawer_text:hover{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
