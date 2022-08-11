@@ -69,14 +69,28 @@ async function SignIn(){
 
 
 // 로그아웃
-function logout() {
-    alert("로그아웃 되었습니다");
-    localStorage.clear();
-    location.replace('../index.html');
+const logout = async() => {
+    const token = localStorage.getItem('access')
+    const response = await fetch(`${backend_base_url}/main_page/cachedelete`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+            'Authorization': `Bearer ${token}`
+        },
+    })
+    switch(response.status){
+        case 200:
+            alert("로그아웃 되었습니다");
+            localStorage.clear();
+            location.replace('../index.html');
+            break;
+    }
+
 }
-
-
-
 function login_enterkey(){
     if (window.event.keyCode == 13){
         SignIn();
