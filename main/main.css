@@ -91,12 +91,13 @@ body, html{
 }
 .mc_sub_container{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     height: 100%;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
 }
 
 .mc_sb_letter_bar{
@@ -104,12 +105,12 @@ body, html{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
-    height: 10%;
-    margin-bottom: 15px;
-    border-radius: 20px;
-    background-color: rgba(176, 170, 109, 0.8);   
-    border: 1px solid gray; 
+    width: 70%;
+    height: 8%;
+    border-radius: 0.8em;
+    background-color: rgba(176, 170, 109, 0.8);
+    border: 1px solid gray;
+    margin-bottom: 2vh;
 }
 .mc_sb_menu{
     display: flex;
@@ -118,7 +119,7 @@ body, html{
     background-color: rgba(226, 202, 155, 1);
     border-radius: 20px;
     border: 1px solid gray;
-    width: 80%;
+    width: 70%;
     height: 1000px;
     padding-top: 2%;
 }
@@ -197,7 +198,7 @@ display: none;
     justify-content: center;
     align-items: center;
     border: 1px solid gray;
-    width: 100%;
+    width: 23vh;
     border-radius: 20px;
 }
 
@@ -335,7 +336,8 @@ display: none;
     align-items: center;
     margin-bottom: 10px;
     font-size: 25px;
-    min-width: 83%;
+    min-width: 140px;
+    max-width: 80%;
     height: 40px;
     border-radius: 10px;
     padding: 10px 0px 10px 30px;
@@ -578,8 +580,8 @@ display: none;
 
 
 @media (max-width: 950px) {
-    * {
-        font-size: 2.5vw !important;
+    *{
+        font-size: 2.3vw!important;
     }
     .drawer_wrapper{
         width: 100%;
@@ -709,6 +711,9 @@ display: none;
     .mb_sb_cb_item {
         width: 80%;
         height: 80%;
+    }
+    .mb_sb_cb_item_text{
+        height: 93px;
     }
 }
 

@@ -98,9 +98,6 @@ async function get_request_messages() {
                             <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
                                 ${request_message.worry_board_content}
                             </span>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">    
@@ -123,9 +120,6 @@ async function get_request_messages() {
                             <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
                                 ${request_message.worry_board_content}
                             </span>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">    
