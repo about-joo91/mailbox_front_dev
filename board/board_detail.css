@@ -65,9 +65,9 @@ body{
     font-size: 20px;
 }
 .drawer_text{
-    font-size: 22px;
-    padding: 20px 0px;
-    border-radius: 15px;
+    padding: 7% 0px;
+    margin: 0.5px 0;
+    border-radius: 0.8em;
     text-align: center;
     width: 100%;
     letter-spacing: 1.5px;

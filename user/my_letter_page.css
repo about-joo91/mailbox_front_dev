@@ -11,6 +11,7 @@ body,html{
 
 * {
     font-family: 'Gamja Flower', cursive;
+    font-size: 1vw;
     ;
 }
 .nav_container {
@@ -70,9 +71,9 @@ body,html{
     cursor: pointer;
 }
 .drawer_text{
-    font-size: 22px;
-    padding: 20px 0px;
-    border-radius: 15px;
+    padding: 7% 0px;
+    margin: 0.5px 0;
+    border-radius: 0.8em;
     text-align: center;
     width: 100%;
     letter-spacing: 1.5px;
@@ -121,7 +122,6 @@ body,html{
     min-width: 220px;
     left: 0;
     top: 0;
-    font-size: 22px;
     flex-direction: column;
 }
 .drawer_text:hover{

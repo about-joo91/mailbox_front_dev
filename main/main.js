@@ -84,7 +84,7 @@ const main_page_data = (response) =>{
                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
             </div>
             <div class="mb_sb_rb_textbox">
-                <p>${content}</p>
+                <span>${content}</span>
             </div
             `
         })
