@@ -187,9 +187,9 @@ body{
 .mc_board_title{
     max-width: 1260px;
     width: 55%;
-    height: 10rem;
+    height: 8vh;
     border: 1px solid gray;
-    border-radius: 1.5rem;
+    border-radius: 0.8em;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
@@ -223,14 +223,14 @@ body{
     width: 55%;
     max-width: 1260px;
     border: 1px solid gray;
-    margin-top: 1.4rem;
-    border-radius: 1.5rem;
+    margin-top: 1vh;
+    border-radius: .8em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgb(226, 202, 155);
-    margin-bottom: 8rem;
+    margin-bottom: 1vh;
 }
 .mc_bt_title_text{
     font-size: 35px;
@@ -245,7 +245,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 3vh;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -253,8 +253,8 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 2.6rem;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 
 }
 .page_number{
@@ -277,12 +277,12 @@ body{
 }
 .md_bb_bl_board{
     width: 100%;
-    margin-bottom: 1.4rem;
-    border-radius: 1.5rem;
+    margin-bottom: 2vh;
+    border-radius: .8em;
     display: flex;
     background-color: white;
     justify-items: center;
-    align-items: center;
+    height: 18vh;
 }
 .md_bb_bl_board_box{
     width: 90%;
@@ -290,11 +290,9 @@ body{
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
     width: 100%;
-    height: 4.65rem;
-    margin-left: 3.6rem;
+    height: 2.65rem;
     display: flex;
     flex-wrap: nowrap;
-    padding-top: 1rem;
 
 }
 .md_bb_bl_bd_desc_image_icon{
@@ -308,11 +306,12 @@ body{
 }
 .md_bb_bl_bd_middle{
     width: 80%;
-    height: 100%;
+    height: 5vh;
     display: flex;
-    margin-left: 1rem;
+    margin-left: 3.5vw;
     flex-wrap: nowrap;
     align-items: center;
+    margin-top: 1vh;
 }
 .mc_bb_bl_bd_im_writer{
     display: flex;
@@ -388,16 +387,17 @@ body{
     color: #8b8862;
 }
 .md_bb_bl_bd_content{
+    margin-top: 3vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .md_bb_bl_bd_ct_left{
-    width: 80%;
+    width: 90%;
     font-size: 2rem;
     color: #A4A457;
-    margin-left: 3.6rem;
+    height: 10vh;
 }
 .md_bb_bl_bd_ct_right{
     width: 20%;
@@ -546,9 +546,10 @@ body{
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
+    color: white;
 }
 .sm_body{
-    margin-top: 2.5%;
+    margin-top: 1%;
     width: 100%;
     background-color: #E2CA9B;
     border-radius: 15px;
@@ -569,6 +570,7 @@ body{
 }
 .sm_bd_content{
     width: 91%;
+    height: 22vh;
 }
 .sm_bd_ct_textarea{
     width: 93%;
@@ -595,7 +597,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    margin-bottom: 1.5%;
+    margin-bottom: 2vh;
 }
 .sm_bd_bt_accept{
     cursor: pointer;
@@ -667,7 +669,9 @@ body{
 }
 
 @media (max-width: 950px) {
-
+    *{
+        font-size: 2.3vw!important;
+    }
     .drawer_wrapper{
         width: 100%;
     height: 100vh;
@@ -728,6 +732,9 @@ body{
     }
     .sm_bd_text{
         font-size: 1.8vw;
+    }
+    .md_bb_bl_bd_content{
+        margin-top: 1vh;
     }
 
 }
@@ -805,10 +812,10 @@ body{
         height: 1.6rem;
     }
     .mc_board_title{
-        height: 5rem;
+        height: 3rem;
     }
     .md_bb_bl_board{
-        height: 17vh;
+        height: 13vh;
         margin-bottom: 4%;
     }
     .d_white_space{
@@ -856,7 +863,7 @@ body{
         margin-bottom: 1rem;
     }
     .x_button{
-        font-size: 25px !important;
+        font-size: 21px !important;
     }
     .md_bb_bl_bd_description{
         margin-left: 1.6rem;
@@ -870,6 +877,12 @@ body{
     .md_bb_bl_bd_request_button, .md_bb_bl_bd_request_button_already_accepted{
         height: 4vh;
         font-size: 1.5vw !important;
+    }
+    .md_bb_bl_bd_content {
+        margin-top: 3vh;
+    }
+    .sm_bd_content{
+        height: 18vh;
     }
 
 }
