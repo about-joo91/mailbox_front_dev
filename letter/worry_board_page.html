@@ -12,7 +12,6 @@
     <title>고민페이지</title>
 </head>
 <body>
-    <!-- 하진이형의 상단 nav -->
     <div class="nav_container">
         <div class="nc_sub_container">
             <i class="fa-solid fa-bars open_drawer"></i>
@@ -71,25 +70,27 @@
     <div class="modal_background" id="modal_background">
         <div class="small_modal" id="small_modal">
             <div class="sm_title">
-                <div class="sm_tt_text">카테고리</div>
-                <select class="sm_tt_category">
-                    <option value="1">일상</option>
-                    <option value="2">가족</option>
-                    <option value="3">연애</option>
-                    <option value="4">인간 관계</option>
-                    <option value="5">학업</option>
-                    <option value="6">육아</option>
-                </select>
-                <div class="empty_box"></div>
+                    <div class="sm_tt_title">
+                        <div class="sm_tt_text">카테고리</div>
+                        <select class="sm_tt_category">
+                            <option value="1">일상</option>
+                            <option value="2">가족</option>
+                            <option value="3">연애</option>
+                            <option value="4">인간 관계</option>
+                            <option value="5">학업</option>
+                            <option value="6">육아</option>
+                        </select>
+                    </div>
+
                 <div class="close_button_div">
                     <div class="x_button" onclick="close_modal()">x</div>
                 </div>
             </div>
 
             <div class="sm_body">
-                <div class="sm_bd_text">글 작성하기 (간단하게 3줄로 작성해주세요!)</div>
+                <div class="sm_bd_text">글 작성하기 (간단하게 90자 이하로 작성해주세요!)</div>
                 <div class="sm_bd_content">
-                    <textarea class="sm_bd_ct_textarea"></textarea>
+                    <textarea class="small_modal_3"></textarea>
                 </div>
                 <div class="sm_bd_button">
                     <button class="sm_bd_submit_button" onclick="post_board()" >작성</button>
@@ -101,15 +102,18 @@
     <div class="modal_background" id="request_modal_background">
         <div class="small_modal" id="request_small_modal">
             <div class="sm_title">
-                <div class="sm_tt_text">편지를 보내기 위해서 요청을 작성해주세요.</div>
-                <div class="request_modal_empty_box"></div>
+                <div class="sm_tt_text_letter">편지를 보내기 위해서 요청을 작성해주세요.</div>
                 <div class="close_button_div">
                     <div class="x_button" onclick="close_modal()">x</div>
                 </div>
             </div>
             <div class="sm_body">
                 <div class="sm_bd_target_text">고민 상담해줄 글</div>
-                <div class="sm_bd_target_content"></div>
+                    <div class="sb_bd_tt_text">
+                        <div class="sm_bd_target_content"></div>
+                
+                    </div>
+
                 <div class="sm_bd_text">나의 어필</div>
                 <div class="sm_bd_content" id="sm_bd_content">
                     
@@ -124,8 +128,8 @@
     <div class="modal_background" id="edit_modal_background">
         <div class="small_modal" id="edit_small_modal">
             <div class="sm_title">
-                <div class="sm_tt_text">내 WorryBoard 글 수정하기</div>
-                <div class="edit_modal_empty_box"></div>
+                <div class="sm_tt_text_edit">내 WorryBoard 글 수정하기</div>
+
                 <div class="close_button_div">
                     <div class="x_button" onclick="close_modal()">x</div>
                 </div>

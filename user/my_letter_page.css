@@ -11,6 +11,7 @@ body,html{
 
 * {
     font-family: 'Gamja Flower', cursive;
+    font-size: 1vw;
     ;
 }
 .nav_container {
@@ -70,9 +71,10 @@ body,html{
     cursor: pointer;
 }
 .drawer_text{
-    font-size: 22px;
-    padding: 20px 0px;
-    border-radius: 15px;
+    font-size: 1.3vw;
+    padding: 7% 0px;
+    margin: 0.5px 0;
+    border-radius: 0.8em;
     text-align: center;
     width: 100%;
     letter-spacing: 1.5px;
@@ -121,7 +123,6 @@ body,html{
     min-width: 220px;
     left: 0;
     top: 0;
-    font-size: 22px;
     flex-direction: column;
 }
 .drawer_text:hover{
@@ -360,8 +361,12 @@ body,html{
 }
 
 .letter_content{
+    font-size: 1.5vh;
+    color: black;
+    font-family: 'Gamja Flower', cursive;
     padding: 20px 40px;
 }
+
 .lb_letter_img{
     background-image: url("/images/Group 55.png");
     background-position: center;
@@ -425,13 +430,13 @@ body,html{
     position: relative;
 }
 .lm_review_modal{
-	position: absolute;
-	background: rgba(176, 170, 109, 0.8);
-	border-radius: .4em;
-    left: 50.5%;
-    top: 50%;
-    width: 45%;
-    height: 35%;
+    position: absolute;
+    background: rgba(176, 170, 109, 0.8);
+    border-radius: 0.4em;
+    left: 45.5%;
+    top: 33%;
+    width: 50%;
+    height: 50%;
     padding: 1em;
     display: none;
     flex-direction: column;
@@ -524,6 +529,9 @@ body,html{
 }
 
 @media (max-width: 950px) {
+    *{
+        font-size: 2.3vw!important;
+    }
 
     body{
         background: #F0F0E6
@@ -616,27 +624,39 @@ body,html{
     left: 20% !important;
     top: 33% !important;
     padding: .3em !important;
-}
-.lm_rm_btn{
-    padding: 0 !important;
-    border-radius: 0 !important;
-}
-.lm_b_review_btn{
-    width: 30% !important;
-}
-.lm_rm_mongle{
-    width: 30px !important;
-    height: 30px !important;
-}
-.lm_rm_mongle_edit{
-    width: 30px !important;
-    height: 30px !important;
-}
-#drawer{
-    min-width: 0 !important;
-    width: 45% !important;
-}
-.d_white_space{
-    margin-top: -60px;
-}
     }
+    .lm_rm_btn{
+        padding: 0 !important;
+        border-radius: 0 !important;
+    }
+    .lm_b_review_btn{
+        width: 30% !important;
+    }
+    .lm_rm_mongle{
+        width: 30px !important;
+        height: 30px !important;
+    }
+    .lm_rm_mongle_edit{
+        width: 30px !important;
+        height: 30px !important;
+    }
+    #drawer{
+        min-width: 0 !important;
+        width: 45% !important;
+    }
+    .d_white_space{
+        margin-top: -60px;
+    }
+    .lm_bubble{
+        left: 75%;
+        width: 20%;
+    }
+    .new_letter_icon{
+        left: 90%;
+    }
+    .lm_bubble{
+        left: 77%;
+        top: 13%;
+        width: 20%;
+    }
+}

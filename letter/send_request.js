@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -119,9 +119,9 @@ async function get_request_messages() {
                             </div>                           
                         </div>
                         <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                            <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
                                 ${request_message.request_message}
-                            </p>
+                            </span>
                             <div class="md_bb_bl_bd_ct_right">
                                 <div class="md_bb_bl_bd_ct_rg_border"></div>
                             </div>
@@ -149,9 +149,9 @@ async function get_request_messages() {
                             </div>                           
                         </div>
                         <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                            <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
                                 ${request_message.request_message}
-                            </p>
+                            </span>
                             <div class="md_bb_bl_bd_ct_right">
                                 <div class="md_bb_bl_bd_ct_rg_border"></div>
                             </div>
@@ -303,7 +303,6 @@ open_drawer.addEventListener('click', main_modal)
 
 
 drawer_wrapper.addEventListener('click', (e) =>{
-    console.log(e)
     if(e.target.classList.contains('drawer_wrapper')){
         drawer.style.display ='none';
         drawer_wrapper.style.display ='none';

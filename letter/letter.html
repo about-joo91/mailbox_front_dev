@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/letter/letter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" href="https://user-images.githubusercontent.com/55477835/181283419-20705c71-a20a-46ab-a30e-bb4edece1670.png">
     <title>편지함</title>
 </head>
@@ -30,17 +31,18 @@
     </div>
     <div class="drawer_wrapper">
         <div id="drawer">
-            <div class="d_white_space"></div>
+            <div class="drawer_container">
             <a href="/main/main_intro.html" class="drawer_text"><i class="fa-solid fa-house drawer_icon"></i>&nbsp몽글 튜토리얼</a>
             <a href="/main/main.html" class="drawer_text"><i class="fa-solid fa-rectangle-list drawer_icon"></i>&nbsp메인페이지</a>
-            <a href="/user/my_page.html" class="drawer_text"><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
+            <a href="/user/my_page.html" class="drawer_text" ><i class="fa-solid fa-user drawer_icon"></i>&nbsp내 프로필</a>
             <a href="/letter/worry_board_page.html?category=0&page_num=1" class="drawer_text"><i class="fa-solid fa-face-sad-tear"></i>&nbsp고민게시판</a>
             <a href="/user/my_letter_page.html?page_name=my_received_letter" class="drawer_text"><i class="fa-solid fa-envelope"></i>&nbsp내가 받은 편지함</a>
             <a href="/user/my_letter_page.html?page_name=my_letter" class="drawer_text"><i class="fa-solid fa-paper-plane drawer_icon"></i>&nbsp내가 보낸 편지함</a>
-            <a href="/board/board_page.html" class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
+            <a href="/board/board_page.html"  class="drawer_text"><i class="fa-solid fa-chalkboard-user drawer_icon"></i>&nbsp익명게시판</a>
             <a href="/letter/received_request.html" class="drawer_text"><i class="fa-solid fa-envelope-circle-check"></i>&nbsp편지 받기</a>
-            <a href="/letter/send_request.html" class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp편지 쓰기</a>
+            <a href="/letter/send_request.html" id="cur_drawer_text"class="drawer_text"><i class="fa-solid fa-arrow-trend-up"></i>&nbsp편지 쓰기</a>
             <a onclick="logout();" class="drawer_text"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp로그아웃</a>
+            </div>
         </div>
     </div>
     <div class="main_container">
@@ -49,6 +51,21 @@
                 <input class="mb_sb_title"  type="txtt" id="title_text" placeholder="제목을 입력 해주세요."></input>
             </diV>
             <div class="mc_sb_letter_box">
+                <div class="mc_sb_text_edirtor">
+                    <span>Text Editor</span> 
+                    <div class="te_color">
+                        <li class="te_black">Block</li>
+                        <li class="te_gray">gray</li>
+                    </div>
+                    <div class="te_size">
+                        <li class="te_L">Font-size L</li>
+                        <li class="te_M">Font-size M</li>
+                    </div>
+                    <div class="te_font">
+                        <li class="te_gamja">Font: GamjaFlow</li>
+                        <li class="te_nomal">Font: Nomal</li>
+                    </div>
+                </div>
                 <textarea class="mb_sb_content" type="text" id="content_text" placeholder="예시) 새잎님 안녕하세요! 저는 햇살입니다. 제 편지가 당신에게 조금이나마 위로가 되었으면 좋겠습니다!"></textarea>
             </div>
             <div class="mc_sb_btn_box">

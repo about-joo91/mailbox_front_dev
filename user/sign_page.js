@@ -55,8 +55,12 @@ async function SignIn(){
             alert("로그인이 완료되었습니다!");
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
+<<<<<<< HEAD
             window.location.replace(`../main/main_intro.html`);
             check_login();
+=======
+            window.location.replace(`../main/main.html`);
+>>>>>>> 4902398bd3e85d7dbdc187da8752bc2495896d30
             break;
         case 401:
             alert(response_json.detail);
@@ -70,13 +74,17 @@ async function SignIn(){
 
 
 // 로그아웃
-function logout() {
-    alert("로그아웃 되었습니다");
+const logout = () => {
+    alert("로그아웃이 완료 되었습니다.")
     localStorage.clear();
     location.replace('../index.html');
+
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 4902398bd3e85d7dbdc187da8752bc2495896d30
 function login_enterkey(){
     if (window.event.keyCode == 13){
         SignIn();

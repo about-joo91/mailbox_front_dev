@@ -3,6 +3,8 @@ html{
 }
 body{
     margin: 0;
+    width: 100%;
+    height: 100vh;
     background: #F0F0E6;
 }
 @import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
@@ -17,21 +19,20 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 9%;
 }
 
 .nc_sub_container{
     display: flex;
     justify-content: end;
     width: 100%;
-    height: 100px;
+    height: 100%;
 }
 .nc_sb_nav {
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-right: 80px;
-    margin-top: 40px;
+    margin-right: 40px;
 }
 .nc_sb_nav p{
     font-size: 23px;
@@ -43,8 +44,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 50px;
-    height:50px;
+    width: 80px;
+    height:80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -54,8 +55,8 @@ body{
     background-position: center;
     background-size:cover;
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin-left: 10px;
     cursor: pointer;
 }
@@ -64,10 +65,11 @@ body{
     font-size: 20px;
 }
 .drawer_text{
-    font-size: 22px;
-    padding: 20px 0px;
-    border-radius: 15px;
+    padding: 7% 0px;
+    margin: 0.5px 0;
+    border-radius: 0.8em;
     text-align: center;
+    font-size: 1.3vw;
     width: 100%;
     letter-spacing: 1.5px;
     color: rgba(80, 80, 80, 1);
@@ -122,6 +124,22 @@ body{
     font-size: 22px;
     flex-direction: column;
 }
+.drawer_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+}
+#cur_drawer_text{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+#cur_drawer_text i{
+    color: #F0F0E6;
+    background-color: rgba(80, 80, 80, 1);
+}
+
 .drawer_text:hover{
     color: #F0F0E6;
     background-color: rgba(80, 80, 80, 1);
@@ -154,12 +172,11 @@ body{
 
 /* 메인시작 */
 .main_container{
-    width: 100%;
+    width: 88%;
     left: 7.5%;
-    margin-left: 150px;
-    /* height: 110rem; */
-    background-color: #F0F0E6;
-    margin-top: 100px;
+    margin-top: 3%;
+    margin-left: 12%;
+    background-color: rgb(240, 240, 230);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,43 +185,41 @@ body{
 
 /* 익명게시판 타이틀 */
 .mc_board_title{
-    width: 50%;
-    height: 10rem;
+    width: 55%;
+    height: 10vh;
     border: 1px solid gray;
-    border-radius: 1.5rem;
+    border-radius: 0.8em;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
 }
 .mc_bt_title_text{
-    font-size: 35px;
+    font-size: 1.8vw;
     color: white;
-    margin-left: 6.2rem;
+    margin-left: 7.2%;
     cursor: pointer;
 }
 
 /* 게시판 몸체 */
 .mc_board_body{
     border: 1px solid gray;
-    width: 50%;
-    /* height: 80rem; */
-    margin-top: 1.4rem;
-    border-radius: 1.5rem;
+    width: 55%;
+    margin-top: 1.5%;
+    border-radius: 0.8em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #E2CA9B;
-    margin-bottom: 8rem;
+    background-color: rgb(226, 202, 155);
+    margin-bottom: 5%;
 }
 .mc_bb_board_lists{  
     width: 90.9%;
-    /* height: 70rem; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 5%;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -236,13 +251,13 @@ body{
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
     width: 100%;
-    height: 4.65rem;
+    height: 5%;
     display: flex;
     flex-wrap: nowrap;
     padding-top: 1rem;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin-left: 4rem;
+    margin-left: 1vh;
 }
 .md_bb_bl_bd_desc_image_icon{
     width: 50px;
@@ -253,12 +268,13 @@ body{
     border-radius: 50%;
 }
 .md_bb_bl_bd_middle{
-    width: 70%;
+    width: 55%;
     height: 100%;
     display: flex;
-    margin-left: 1rem;
+    margin-left: 1%;
     flex-wrap: nowrap;
     align-items: center;
+    margin-right: 14vh;
 }
 .md_bb_bl_bd_hidden_name{
     font-size: 2.2rem;
@@ -271,12 +287,12 @@ body{
     margin-left: 3rem;
 }
 .md_bb_bl_bd_desc_comment_icon{
-    width: 12.5%;
+    width: 16.5%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 10%;
+    margin-right: 8%;
 }
 .md_bb_bl_bd_desc_edit_delete{
     width: 30%;
@@ -304,14 +320,14 @@ body{
 }
 .bi-chat-dots{
     font-size: 2rem;
-    margin: auto;
+    margin-right: 1vh;
     cursor: pointer;
 }
 .md_bb_bl_bd_desc_ci_comment_count{
     font-size: 2.4rem;
     width: 10%;
     height: 100%;
-    margin: auto;
+    margin-right: 1vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -326,16 +342,18 @@ body{
     left: 1%;
     font-size: 2.2rem;
     color: #8b8862;
+    margin-left: 3%;
 }
 .md_bb_bl_bd_content{
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 3%;
+    margin-top: 1%;
 }
 .md_bb_bl_bd_ct_left{
-    width: 80%;
+    width: 100%;
     font-size: 2rem;
     color: #A4A457;
     margin-left: 3.6rem;
@@ -363,11 +381,13 @@ body{
 }
 .bi-brightness-high{
     font-size: 2rem;
-    margin: auto;
+    margin-right: 1vh;
+    margin-left: 1vh;
 }
 .bi-brightness-high-fill{
     font-size: 2rem;
-    margin: auto;
+    margin-right: 1vh;
+    margin-left: 1vh;
     color: #FEAA4B;
 
 }
@@ -382,7 +402,7 @@ body{
 /* 댓글의 수정창 */
 .edit_comment{
     width: 90.9%;
-    height: 7rem;
+    height: 7vh;
     background-color: white;
     display: none;
     border-radius: 1.5rem;
@@ -402,6 +422,7 @@ body{
 }
 .pc_comment_icon{
     width: 7%;
+    font-size: 20px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -427,9 +448,10 @@ body{
     font-size: 2.4rem;
     color: #8b8862;
     outline: none;
+    padding-left: 2%;
 }
 .pc_comment_button_box{
-    width: 7%;
+    width: 8%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -452,7 +474,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 3rem;
+    margin-top: 3%;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -474,15 +496,15 @@ body{
 }
 .mc_bb_cl_comment{
     width: 100%;
-    margin-bottom: 0.5rem;
-    border-radius: 1.5rem;
+    margin-bottom: 2vh;
+    border-radius: 0.8em;
     background-color: white;
 }
 /* 익명, 날짜, 코멘트 */
 .mc_bb_cl_cm_description{
     align-items: center;
     width: 100%;
-    height: 4.65rem;
+    height: 4.5vh;
     margin-left: 4.2rem;
     display: flex;
     flex-wrap: nowrap;
@@ -553,10 +575,7 @@ body{
     align-items: center;
     justify-content: center;
 }
-.bi-chat-dots{
-    font-size: 2rem;
-    margin: auto;
-}
+
 .mc_bb_cl_cm_desc_ci_comment_count{
     font-size: 2.4rem;
     width: 10%;
@@ -577,8 +596,9 @@ body{
     width: 80%;
     font-size: 2rem;
     color: #A4A457;
-    margin-left: 7.2rem;
-    margin-top: 2.5rem;
+    margin-left: 7.2%;
+    margin-top: 2.5%;
+    word-break: break-all;
 }
 .mc_bb_cl_cm_ct_right{
     width: 20%;
@@ -601,14 +621,7 @@ body{
     align-items: center;
     border-right: 1px dotted #A4A457;
 }
-.bi-brightness-high{
-    font-size: 2rem;
-    margin: auto;
-}
-.bi-brightness-high-fill{
-    font-size: 2rem;
-    margin: auto;
-}
+
 .mc_bb_cl_cm_ct_right_sun_count{
     font-size: 2.4rem;
     width: 10%;
@@ -631,20 +644,20 @@ body{
     display: none;
 }
 .small_modal{
-    width: 50%;
-    height: 83rem;
+    width: 45%;
+    height: 60vh;
 }
 .sm_title{
     width: 100%;
-    height: 9rem;
+    height: 11vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(176, 170, 109, 1);
+    background-color: rgb(176, 170, 109);
     border-radius: 15px;
 }
 .sm_tt_text{
-    font-size: 2.6rem;
+    font-size: 2.5vh;
     color: white;
 }
 .sm_tt_title_input{
@@ -654,9 +667,9 @@ body{
     border-left: none;
     border-right: none;
     border-bottom: 1px solid white;
-    font-size: 2.4rem;
+    font-size: 2vh;
     width: 70%;
-    height: 4rem;
+    height: 2vh;
     padding: 10px;
     margin-left: 30px;
 }
@@ -681,8 +694,8 @@ body{
 .sm_body{
     margin-top: 1.4rem;
     width: 100%;
-    height: 73rem;
-    background-color: #E2CA9B;
+    height: 60vh;
+    background-color: rgb(226, 202, 155);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -691,7 +704,7 @@ body{
 }
 .sm_bd_text{
     width: 100%;
-    height: 5.5rem;
+    height: 10%;
     font-size: 2.6rem;
     color: white;
     display: flex;
@@ -699,22 +712,24 @@ body{
     justify-content: space-around;
 }
 .sm_bd_content{
-    width: 91%;
-    height: 54rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
 }
 .sm_bd_ct_textarea{
     outline: none;
-    width: 93%;
-    height: 93%;
+    width: 85%;
+    height: 96%;
     resize: none;
     border-radius: 15px;
     font-size: 2rem;
-    color: rgba(80, 80, 80, 1);
-    padding: 3%;
+    color: rgb(80, 80, 80);
+    padding: 1%;
 }
 .sm_bd_button{
     width: 100%;
-    height: 10rem;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -722,10 +737,9 @@ body{
 .sm_bd_submit_button{
     border: none;
     cursor: pointer;
-    margin-top: 5rem;
     background-color: rgba(176, 170, 109, 0.8);
     width: 10%;
-    height: 5rem;
+    height: 4vh;
     color: white;
     font-size: 2rem;
     border-radius: 15px;
@@ -737,6 +751,9 @@ body{
 
 
 @media (max-width: 950px) {
+    *{
+        font-size: 2.3vw!important;
+    }
     .nc_sub_container{
         background-color: #F0F0E6;
         justify-content: space-between;
@@ -783,17 +800,36 @@ body{
     /*  */
     .sm_tt_text{
         margin-left: 2rem;
-        width: 16%;
+        width: 19%;
     }
     .sm_tt_title_input{
         margin-left: 1rem;
-    }
-    .sm_body{
-        height: 55rem;
+        height: 2vh;
     }
     .sm_bd_button{
-        margin-bottom: 4rem;
-        height: 7rem;
+        margin-bottom: 4%;
+    }
+    .sm_bd_submit_button{
+        width: 15%;
+    }
+
+    .mc_bt_title_text{
+        font-size: 2.2vw;
+    }
+    .mc_bb_cl_cm_middle {
+        width: 49%;
+    }
+    .mc_bb_cl_comment,.md_bb_bl_bd_ct_left{
+        margin-bottom: 2vh;
+    }
+    .md_bb_bl_bd_title {
+        margin-top: 1vh;
+    }
+    .sm_title {
+        height: 7vh;
+    }
+    .bi-chat-dots{
+        margin-right: 1vh!important;
     }
 
 }
@@ -843,12 +879,11 @@ body{
     }
     .md_bb_bl_bd_desc_edit_delete {
         font-size: 15px;
+        width: 25%;
     }
     .md_bb_bl_bd_tt_text {
-        top: 32%;
-        left: 5%;
-        font-size: 2rem;
-        margin-left: 40px;
+
+        margin-left: 7%;
     }
 
     .mc_bt_title_text{
@@ -857,16 +892,7 @@ body{
     .d_white_space{
         margin-top: -60px;
     }
-    .mc_board_title{
-        height: 5rem;
-    }
-    .md_bb_bl_bd_desc_comment_icon{
-        margin-right: 38px;
-        
-    }
-    .mc_bb_board_lists{
-        margin-top: 3rem;
-    }
+
     .md_bb_bl_bd_desc_ci_comment_count{
         margin-left: 5px;
     }
@@ -874,28 +900,24 @@ body{
         margin-left: 5px;
     }
     .pc_ic_input{
-        position: absolute;
-        left: 10%;
-        height: 30%;
-        width: 72%;
+        height: 3vh;
+        width: 90%;
     }
     .pc_comment_button_box{
         width: 15%;
     }
     .pc_cbb_button{
-        position: absolute;
-        left: 86.5%;
-        width: 10%;
-        height: 30%;
-        border-radius: .4em;
-        margin-right: 0;
+        width: 100%;
+        height: 4vh;
+        border-radius: 0.4em;
+        margin-right: 15%;
     }
     .mc_bb_cl_cm_description{
         margin-top: 0px;
         margin-left: 10px;
     }
     .mc_bb_cl_cm_desc_create_date{
-        margin-left: 2px;
+        margin-left: 5vh;
     }
     .md_bb_bl_bd_desc_ed_edit{
         position: absolute;
@@ -906,56 +928,49 @@ body{
         margin-right: 10px;
     }
     .md_bb_bl_bd_title{
-        margin-top: 0px;
+        margin-top: 4%;
     }
     .post_comment{
-        position: relative;
+        height: 7vh;
     }
     #detail_comment_icon{
-        position: absolute;
-        left: 2.2%;
-        top: 39%;
         font-size: 20px!important;
+        margin-left: 1vw;
         color: rgba(80, 80, 80, 1)
-    }
-    .md_bb_bl_bd_description{
-        padding-top: 0px;
-    }
-    .md_bb_bl_board{
-        position: relative;
-    }
-    .mc_bb_cl_cm_ct_left{
-        margin-left: 70px;
-        margin-top: -30px;
-    }
-    /*  */
-
-    .sm_bd_content{
-        height: 45rem;
-        margin-top: 3rem;
-    }
-    .sm_body{
-        height: 41rem;
     }
     .sm_bd_button {
         height: 3rem;
     }
     .sm_bd_submit_button{
         width: 20%;
-        height: 3rem;
+        height: 2rem;
     }
     .small_modal {
-        height: 45rem;
         width: 70%;
     }
     .sm_title{
-        height: 5rem;
+        height: 6vh;
     }
     .sm_tt_title_input {
-        height: 2rem;
+        height: 1rem;
     }
     .md_bb_bl_bd_desc_ed_delete {
         width: 33%;
     }
-
+    .md_bb_bl_bd_ct_left{
+        margin-left: 8%;
+    }
+    .mc_bb_cl_cm_middle{
+        width: 43%;
+    }
+    .mc_board_title {
+        height: 5vh;
+    }
+    .sm_body {
+        margin-top: 0.4vh;
+        height: 55vh;
+    }
+    .md_bb_bl_bd_content,.mc_bb_cl_comment  {
+        margin-bottom: 2vh;
+    }
 }

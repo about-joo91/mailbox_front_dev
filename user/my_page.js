@@ -1,6 +1,6 @@
-const BASE_URL = 'https://www.api-mongle.shop/';
+const BASE_URL = 'http://127.0.0.1:8000/';
 const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
-
+const FILE_FORM = /(.*?)\.(jpg|jpeg|png|gif|bmp|pdf)$/;
 const get_cookie = (name) => {
     let cookie_value = null;
     if (document.cookie && document.cookie !== '') {
@@ -328,6 +328,22 @@ profile_edit_modal_wrapper.addEventListener('click', (e) => {
 pem_icon.addEventListener('click', () => {
     pem_image_input.click();
 })
+
+function isValid(data) {
+    let filesize = pem_image_input.files[0].size
+    if (data == "" && data == null){
+        alert("첨부파일은 필수입니다.")
+        return
+    }
+    else if (!data.match(FILE_FORM)) {
+        alert('이미지 파일만 업로드 가능합니다.')
+        return false;
+    }
+    else if (filesize >= 1024 * 1024 * 50) {
+        alert('50MB 이상인 파일은 업로드 할 수 없습니다.')
+    }
+    return true;
+}
 pem_image_input.addEventListener('change', () => {
     const pem_preview_img = document.querySelector('.pem_preview_img');
     const pem_row_box = document.querySelector('.pem_row_box');
@@ -336,6 +352,7 @@ pem_image_input.addEventListener('change', () => {
     const image_rect = mpc_c_b_u_profile_img.getClientRects()[0];
     const img_width = image_rect.width;
     const img_height = image_rect.height;
+    if (!isValid(pem_image_input.value)) return
     const reader = new FileReader();
     reader.onload = () => {
         pem_row_box.style.display = 'none';

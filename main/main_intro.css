@@ -9,7 +9,7 @@ body,html{
 
 * {
     font-family: 'Gamja Flower', cursive;
-    font-size: 23px;
+    font-size: 1vw;
 }
 .nav_container {
     z-index: 0;
@@ -65,7 +65,9 @@ body,html{
 }
 .drawer_text{
     padding: 7% 0;
-    border-radius: 15px;
+    margin: 0.5px 0;
+    font-size: 1.3vw;
+    border-radius: 0.8em;
     text-align: center;
     width: 100%;
     letter-spacing: 1.5px;
@@ -358,7 +360,7 @@ body,html{
 
 @media (max-width: 950px) {
     *{
-        font-size: 18px;   
+        font-size: 2.3vw!important;
     }
 
     .nc_mongle, .nc_profile{
@@ -421,12 +423,16 @@ body,html{
     }
     .mi_worry_text{
         width: 80%;
-        margin-bottom: 100px;
+
     }
     .mi_worry_text2{
         width: 80%;
         height: 100%;
-        margin: 10% 0;
+        margin: 5% 0;
+    }
+    .mi_worry_text2 span {
+        margin-top: 1vh;
+        margin-bottom: 2vh;
     }
     .mi_worry_text3{
         margin: 5% 0;
@@ -477,7 +483,7 @@ body,html{
         margin-right: 40px !important;
     }
     .mi_worry_text{
-        margin-bottom: 50%;
+        margin-bottom: 30%;
     }
     .main_container,.main_intro_con,.main_intro_con2,.main_intro_con3, .main_intro_con4{
         width: 100%;
@@ -486,14 +492,21 @@ body,html{
     #under_btn2, #under_btn3 {
         left: 50%;
     }
+    .mi_worry_text {
+        margin-top: 4vh;
+    }
+    .mi_worry_text span {
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
 
 
 }
 
 
 @media (max-width: 450px) {
-    *{
-        font-size: 15px !important;
+    * {
+        font-size: 4vw !important;
     }
     .open_drawer{
         margin: 20px 0 0 20px !important;
@@ -522,7 +535,7 @@ body,html{
     }
 
     .mi_worry_text{
-        margin-bottom: 32%;
+        margin-bottom: 10%;
     }
 
     .nc_mongle, .nc_profile {
@@ -534,6 +547,12 @@ body,html{
         min-width: 0 !important;
         width: 45% !important;
     }
-
+    .mi_worry_text2 span{
+        margin-bottom: 1vh;
+        margin-top: 1vh;
+    }
+    .mi_worry_text3 span,.mi_worry_text4 span{
+        margin-bottom: 1vh;
+    }
 
 }

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 
@@ -438,7 +438,6 @@ open_drawer.addEventListener('click', main_modal)
 
 
 drawer_wrapper.addEventListener('click', (e) =>{
-    console.log(e)
     if(e.target.classList.contains('drawer_wrapper')){
         drawer.style.display ='none';
         drawer_wrapper.style.display ='none';

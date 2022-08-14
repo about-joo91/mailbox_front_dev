@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const REG = /[\{\}\[\]\;:|\)*`^\-_+<>@\#$%&\\\=\(\'\"]/gi
 const urlParams = new URLSearchParams(window.location.search);
 const DEFAULT_NUMBER = 1
@@ -81,9 +81,9 @@ async function get_request_messages() {
             mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
             let tmp_request_message = ``
             for (let i = 0; i < res.request_message.length; i++){
-                request_status_list = ["","", "고민글", "수락됨", "반려됨"]
+                request_status_list = ["","", "고민글", "수락됨", "반려됨", "완료"]
                 request_message = res.request_message[i]
-                if (request_message.request_status == 3 || request_message.request_status == 4){
+                if (request_message.request_status == 3 || request_message.request_status == 4, request_message.request_status == 5){
                 tmp_request_message += `
                 <div class="md_bb_bl_board" id="md_bb_bl_board">
                     <div class="md_bb_bl_board_box">
@@ -95,12 +95,9 @@ async function get_request_messages() {
                             </div>    
                         </div>
                         <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                            <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
                                 ${request_message.worry_board_content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
+                            </span>
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">    
@@ -120,12 +117,9 @@ async function get_request_messages() {
                             </div>    
                         </div>
                         <div class="md_bb_bl_bd_content">
-                            <p class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
+                            <span class="md_bb_bl_bd_ct_left" id="md_bb_bl_bd_ct_left">
                                 ${request_message.worry_board_content}
-                            </p>
-                            <div class="md_bb_bl_bd_ct_right">
-                                <div class="md_bb_bl_bd_ct_rg_border"></div>
-                            </div>
+                            </span>
                         </div>
                     </div>
                     <div class="md_bb_bl_bd_request">    

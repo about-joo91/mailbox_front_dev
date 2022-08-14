@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DAILY_CATEGORY_NUM = 1;
 const FAMILY_CATEGORY_NUM = 2;
 const LOVE_CATEGORY_NUM = 3;
@@ -84,7 +84,7 @@ const main_page_data = (response) =>{
                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
             </div>
             <div class="mb_sb_rb_textbox">
-                <p>${content}</p>
+                <span>${content}</span>
             </div
             `
         })
@@ -217,7 +217,7 @@ const review_like = async(letter_review_like_id) =>{
                             <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                         </div>
                         <div class="mb_sb_rb_textbox">
-                            <p>${content}</p>
+                            <span>${content}</span>
                         </div
                         `
                 }
@@ -264,7 +264,7 @@ const review_like = async(letter_review_like_id) =>{
                             <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                         </div>
                         <div class="mb_sb_rb_textbox">
-                            <p>${content}</p>
+                            <span>${content}</span>
                         </div
                         `
                 })
@@ -345,7 +345,7 @@ const review_like_delete= async(letter_review_like_id) => {
                             <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                         </div>
                         <div class="mb_sb_rb_textbox">
-                            <p>${content}</p>
+                            <span>${content}</span>
                         </div
                         `
                     }
@@ -391,7 +391,7 @@ const review_like_delete= async(letter_review_like_id) => {
                                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                             </div>
                             <div class="mb_sb_rb_textbox">
-                                <p>${content}</p>
+                                <span>${content}</span>
                             </div
                             `
                     })
@@ -444,7 +444,7 @@ const live_review = async() => {
                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
             </div>
             <div class="mb_sb_rb_textbox">
-                <p>${content}</p>
+                <span>${content}</span>
             </div
             `
         }
@@ -511,7 +511,7 @@ const best_review = async() => {
                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
             </div>
             <div class="mb_sb_rb_textbox">
-                <p>${content}</p>
+                <span>${content}</span>
             </div
             `
         }

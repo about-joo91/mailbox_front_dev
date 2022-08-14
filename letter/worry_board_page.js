@@ -1,4 +1,4 @@
-const BASE_URL = 'https://www.api-mongle.shop';
+const BASE_URL = 'http://127.0.0.1:8000';
 const DEFAULT_NUMBER = 1
 const ZERO = 0
 const urlParams = new URLSearchParams(window.location.search);
@@ -34,7 +34,7 @@ function open_modal(){
 // 작성 모달을 통해서 간단 고민글 작성하는 로직
 async function post_board(){
     const boards_category = document.querySelector(".sm_tt_category").value;
-    const boards_content = document.querySelector(".sm_bd_ct_textarea").value;
+    const boards_content = document.querySelector(".small_modal_3").value;
     const token = localStorage.getItem('access')
     const result = await fetch(BASE_URL + '/worry_board/' ,{
         method: 'POST',
