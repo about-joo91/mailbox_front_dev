@@ -1,5 +1,5 @@
 
-const backend_base_url = 'https://www.api-mongle.shop';
+const backend_base_url = 'http://127.0.0.1:8000';
 
 // 회원가입
 async function SignUp(){
@@ -15,7 +15,7 @@ async function SignUp(){
             Accept: "application/json",
             "Content-type": "application/json"
         },
-        method: "POST",
+        method: "OPTIONS",
         mode: 'cors',
         body: JSON.stringify(SignupData)
     })
@@ -56,6 +56,7 @@ async function SignIn(){
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
             window.location.replace(`../main/main_intro.html`);
+            check_login();
             break;
         case 401:
             alert(response_json.detail);
@@ -76,7 +77,6 @@ function logout() {
 }
 
 
-
 function login_enterkey(){
     if (window.event.keyCode == 13){
         SignIn();
@@ -86,5 +86,55 @@ function login_enterkey(){
 function signup_enterkey(){
     if (window.event.keyCode == 13){
         SignUp();
+    }
+}
+
+
+
+// //쿠키 할당
+// const  get_cookie = (name)  => {
+//     let cookie_value = null;
+//     if (document.cookie && document.cookie !== '') {
+//         const cookies = document.cookie.split(';');
+//         for (let i = 0; i < cookies.length; i++) {
+//             const cookie = cookies[i].trim();
+//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
+//                 cookie_value = decodeURIComponent(cookie.substring(name.length + 1));
+//                 break;
+//             }
+//         }
+//     }
+//     return cookie_value;
+// }
+// const csrftoken = get_cookie('csrftoken')
+
+
+
+async function check_login(){
+
+    token = localStorage.getItem('access');
+    const response = await fetch(`${backend_base_url}/webpush/`, {
+        headers : {
+            "Access-Control-Allow-Origin": "*",
+            "Accept": "application/json",
+            "Content-type": "application/json",
+            // 'X-CSRFToken': csrftoken,
+            "Authorization": `Bearer ${token}`,
+        },
+        method: "GET",
+        mode: 'cors'
+    })
+
+    const response_json = await response.json();
+    console.log(response_json)
+    console.log("DDdd")
+    switch(response.status){
+        case 200:
+            console.log("DDdd")
+            alert(response_json.message);
+            window.location.replace(`../index.html`);
+            break;
+        default:
+            alert("!!")
     }
 }
