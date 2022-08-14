@@ -22,15 +22,24 @@
             <div class="mb_sub_1 mb_sub">
                 <input type="text" class="form-control" id="Username" placeholder="아이디를 입력하세요"/>
             </div>
-            
             <div class="mb_sub_2 mb_sub">
                 <input type="text" class="form-control" id="Nickname" placeholder="닉네임을 입력하세요"/>
             </div>
             <div class="mb_sub_3 mb_sub">
-                <input type="password" class="form-control" id="Password" placeholder="비밀번호를 입력하세요" onkeyup="signup_enterkey();"/>
+                <select class="form-control" id="Certification_Requestion">
+                    <option value="none">---본인 확인 질문을 골라주세요---</option>
+                </select>
             </div>
-            
             <div class="mb_sub_4 mb_sub">
+                <input type="text" class="form-control" id="Certification_Answer" placeholder="본인 확인 답변을 입력해주세요"/>
+            </div>
+            <div class="mb_sub_5 mb_sub">
+                <input type="password" class="form-control" id="Password" placeholder="비밀번호를 입력하세요"/>
+            </div>
+            <div class="mb_sub_5 mb_sub">
+                <input type="password" class="form-control" id="Check_Password" placeholder="비밀번호를 재입력해주세요" onkeyup="signup_enterkey();"/>
+            </div>
+            <div class="mb_sub_6 mb_sub">
                 <button class="w-100 btn btn-lg btn-primary" type="button" onclick="SignUp()">회원가입</button>
             </div>
             <a class="mb_page_link" href="../index.html">로그인하러 가기</a>

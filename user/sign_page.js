@@ -1,12 +1,50 @@
 
 const backend_base_url = 'http://127.0.0.1:8000';
 
+
+window.onload = get_certification_request_list
+
+// 본인인증 질문들 가져오기
+async function get_certification_request_list(){
+    const result = await fetch(`${backend_base_url}/user/question`, {
+        headers : {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': "application/json",
+            "Content-type": "application/json"
+        },
+        method: "GET",
+        mode: 'cors',
+    })
+    let res = await result.json()
+    switch(result.status){
+        case 200:
+            const select_question = document.getElementById('Certification_Requestion')
+            let tmp_html = ``
+            for (i=0; i<res.length; i++){
+                tmp_html+=`<option value="${i+1}">${res[i]}</option>`
+            }
+            select_question.innerHTML+=tmp_html
+            break;
+        case 401:
+            alert(res.detail);
+            break;
+        default:
+            alert(res['detail'])
+            break;
+    }
+
+}
+
+
 // 회원가입
 async function SignUp(){
     const SignupData = {
         username : document.getElementById("Username").value,
         nickname : document.getElementById("Nickname").value,
+        certification_question : document.getElementById("Certification_Requestion").value,
+        certification_answer : document.getElementById("Certification_Answer").value,
         password : document.getElementById("Password").value,
+        check_password : document.getElementById("Check_Password").value,
     }
 
     const response = await fetch(`${backend_base_url}/user/`, {
