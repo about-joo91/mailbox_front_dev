@@ -85,7 +85,6 @@ const scroll_event = () => {
     
 }
 const scroll_event2 = () => {
-    console.log(document.querySelector('.main_intro_con2').scrollTop)
     if (document.querySelector('.main_intro_con2').scrollTop >= 300)  {
         intro_text2.innerText ="화면을 클릭하면 다음페이지로 이동합니다!"
     }
