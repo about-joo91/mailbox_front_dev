@@ -1,6 +1,7 @@
 
 const backend_base_url = 'http://127.0.0.1:8000';
-
+const urlParams = new URLSearchParams(window.location.search);
+const url_page_num = urlParams.get('page_num');
 
 window.onload = get_certification_request_list
 
@@ -105,14 +106,6 @@ async function SignIn(){
 
 }
 
-
-// 로그아웃
-const logout = () => {
-    alert("로그아웃이 완료 되었습니다.")
-    localStorage.clear();
-    location.replace('../index.html');
-
-}
 function login_enterkey(){
     if (window.event.keyCode == 13){
         SignIn();
