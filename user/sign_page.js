@@ -21,7 +21,6 @@ async function get_certification_request_list(){
             const select_question = document.getElementById('Certification_Requestion')
             let tmp_html = ``
             for (i=0; i<res.length; i++){
-                console.log(i+1)
                 tmp_html+=`<option value="${i+1}">${res[i]}</option>`
             }
             select_question.innerHTML+=tmp_html
