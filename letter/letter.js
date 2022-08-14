@@ -59,12 +59,20 @@ window.onload = async () => {
     };
 
 
+
+
+
+    
 const letter_post = async() => {
     const token = localStorage.getItem('access')
     const title =document.getElementById('title_text').value
     const content = document.getElementById('content_text').value
     const urlParams = new URLSearchParams(window.location.search);
     const worry_board_id = urlParams.get('board_id');
+    const letter_text_style = window.getComputedStyle(document.querySelector(".mb_sb_content"))
+    const letter_font_size = letter_text_style.getPropertyValue('font-size')
+    const letter_font_family = letter_text_style.getPropertyValue('font-family')
+    const letter_color = letter_text_style.getPropertyValue('color')
 
     const result = await fetch(BASE_URL + '/main_page/letter/', {
         method: 'POST',
@@ -79,7 +87,10 @@ const letter_post = async() => {
         body: JSON.stringify({
             "title": title.replace(REG,""),
             "content" : content.replace(REG,""),
-            "worry_board_id" : worry_board_id
+            "worry_board_id" : worry_board_id,
+            "font_size" : letter_font_size,
+            "font_family" : letter_font_family.replace(/"/g,""),
+            "color": letter_color
         })
     })
 
@@ -103,7 +114,7 @@ const letter_post = async() => {
             overlap(response)
             break;
         default:
-            alert(response['detail'])
+            alert("제목과 내용을 입력해주세요.")
         }
 }    
 
@@ -131,3 +142,33 @@ const close_btn = () => {
     location.replace('/letter/received_request.html')
 
 }
+
+
+document.querySelector(".te_gray").addEventListener("click",function(){
+    document.querySelector(".mb_sb_content").style.color = "gray";
+})
+
+document.querySelector(".te_black").addEventListener("click",function(){
+    document.querySelector(".mb_sb_content").style.color = "black";
+})
+
+document.querySelector(".te_L").addEventListener("click",function(){
+    document.querySelector(".mb_sb_content").style.fontSize = "2.5vh";
+})
+
+document.querySelector(".te_M").addEventListener("click",function(){
+    document.querySelector(".mb_sb_content").style.fontSize = "2vh";
+})
+
+document.querySelector(".te_gamja").addEventListener("click",function(){
+    document.querySelector(".mb_sb_content").style.fontFamily = "Gamja Flower", cursive;
+})
+
+document.querySelector(".te_nomal").addEventListener("click",function(){
+    document.querySelector(".mb_sb_content").style.fontFamily = 'Noto Sans KR', sans-serif;
+})
+
+
+
+
+

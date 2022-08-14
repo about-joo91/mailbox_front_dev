@@ -217,7 +217,7 @@ const review_like = async(letter_review_like_id) =>{
                             <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                         </div>
                         <div class="mb_sb_rb_textbox">
-                            <p>${content}</p>
+                            <span>${content}</span>
                         </div
                         `
                 }
@@ -264,7 +264,7 @@ const review_like = async(letter_review_like_id) =>{
                             <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                         </div>
                         <div class="mb_sb_rb_textbox">
-                            <p>${content}</p>
+                            <span>${content}</span>
                         </div
                         `
                 })
@@ -345,7 +345,7 @@ const review_like_delete= async(letter_review_like_id) => {
                             <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                         </div>
                         <div class="mb_sb_rb_textbox">
-                            <p>${content}</p>
+                            <span>${content}</span>
                         </div
                         `
                     }
@@ -391,7 +391,7 @@ const review_like_delete= async(letter_review_like_id) => {
                                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
                             </div>
                             <div class="mb_sb_rb_textbox">
-                                <p>${content}</p>
+                                <span>${content}</span>
                             </div
                             `
                     })
@@ -444,7 +444,7 @@ const live_review = async() => {
                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
             </div>
             <div class="mb_sb_rb_textbox">
-                <p>${content}</p>
+                <span>${content}</span>
             </div
             `
         }
@@ -511,7 +511,7 @@ const best_review = async() => {
                 <input id="reveiw_status${review_or_like_id}" value="best" class="fake_input"></input>
             </div>
             <div class="mb_sb_rb_textbox">
-                <p>${content}</p>
+                <span>${content}</span>
             </div
             `
         }

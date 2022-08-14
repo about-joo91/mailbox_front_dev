@@ -361,8 +361,12 @@ body,html{
 }
 
 .letter_content{
+    font-size: 1.5vh;
+    color: black;
+    font-family: 'Gamja Flower', cursive;
     padding: 20px 40px;
 }
+
 .lb_letter_img{
     background-image: url("/images/Group 55.png");
     background-position: center;

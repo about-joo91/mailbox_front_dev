@@ -58,7 +58,7 @@ async function SignIn(){
             alert("로그인이 완료되었습니다!");
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
-            window.location.replace(`../main/main_intro.html`);
+            window.location.replace(`../main/main.html`);
             break;
         case 401:
             alert(response_json.detail);
@@ -72,26 +72,10 @@ async function SignIn(){
 
 
 // 로그아웃
-const logout = async() => {
-    const token = localStorage.getItem('access')
-    const response = await fetch(`${backend_base_url}/main_page/cachedelete`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken,
-            'Authorization': `Bearer ${token}`
-        },
-    })
-    switch(response.status){
-        case 200:
-            alert("로그아웃 되었습니다");
-            localStorage.clear();
-            location.replace('../index.html');
-            break;
-    }
+const logout = () => {
+    alert("로그아웃이 완료 되었습니다.")
+    localStorage.clear();
+    location.replace('../index.html');
 
 }
 function login_enterkey(){

@@ -101,6 +101,7 @@ const push_before_button = () => {
     lm_whole_letter_box.innerHTML = `<i class="fa-solid fa-arrow-left whole_letter_icon" onclick="get_letter_by_params('my_received_letter')"></i>`
 }
 const letters_exist = (response) => {
+    
     page_name = urlParams.get("page_name");
     const lm_header = document.querySelector('.lm_header');
     const lm_body = document.querySelector('.lm_body');
@@ -111,17 +112,19 @@ const letters_exist = (response) => {
     lm_whole_letter_box.innerHTML = ''
     let is_read_letter_exists = response.not_read_letter_cnt ? true : false
     switch(page_name){
+        
         case "my_letter":
             user_info = response.letter.letter_author
             document.querySelector('.recieve').removeAttribute("id")
             document.querySelector('.my_letter').setAttribute("id", "cur_drawer_text")
-            
+
             break;
         case "my_not_read_letter":
             document.querySelector('.my_letter').removeAttribute("id")
             document.querySelector('.recieve').setAttribute("id", "cur_drawer_text")
             user_info = response.letter.received_user;
             push_before_button();
+
             break;
         case "my_received_letter":
             document.querySelector('.my_letter').removeAttribute("id")
@@ -132,25 +135,29 @@ const letters_exist = (response) => {
         default:
             user_info = response.letter.received_user
             break;
+    
     }
+
+
     nc_sb_nav.innerHTML = `
     <p>
     나의 몽글 점수: ${user_info.mongle_grade.grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+user_info.mongle_grade.mongle_image +`)"></div>
     <div class="nc_profile" style="background-image:url(`+ user_info.profile_img +`)"></div>`
+
     let letter = response.letter
+
     lm_header.innerText = letter.title
-    let letter_content_html = `<div class="letter_content">
-        ${letter.content.replace(REG,"")}
-    </div>`
+    let letter_content_html = `<div class="letter_content" style="white-space:pre; font-size:${letter.font_size}; color:${letter.color}; font-family:${letter.font_family};">${letter.content.replace(REG,"")}</div>`
     lm_body.innerHTML = letter_content_html
     if (page_name == "my_not_read_letter") {
         make_page_num_for_new_letter(response.letter_cnt)
     }else{
         make_page_num(response.letter_cnt)
     }
-    
+
+
     let review_data = letter.review_data
     const lm_review_modal = document.querySelector('.lm_review_modal');
     let lm_b_under_html = ``
@@ -174,7 +181,11 @@ const letters_exist = (response) => {
         lm_b_under_html = `<div class="lm_b_review_btn" onclick="write_ready(${letter.id})">리뷰쓰기</div>`
     }
     lm_b_under.innerHTML += lm_b_under_html
+
 }
+
+
+
 
 const make_page_num_for_new_letter = (letter_cnt) => {
     const lm_b_paging_box = document.querySelector('.lm_b_paging_box');

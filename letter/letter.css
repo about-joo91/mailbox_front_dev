@@ -9,6 +9,8 @@ body{
     font-family: 'Gamja Flower', cursive;
     ;
 }
+
+
 .nav_container {
     z-index: 0;
     display: flex;
@@ -191,9 +193,10 @@ body{
 }
 
 .mc_sb_letter_box{
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-radius: 20px;
     background-color: #F0F0E6;
     width: 100%;
@@ -228,10 +231,11 @@ input::placeholder {
     border: none;
     outline: none;
     background: transparent;
-    font-size: 23px;
+    font-size: 1.5vh;
     width: 90%;
     height: 700px;
     size: 500px;
+    color: black;
 
 }
 .mc_sb_btn_box{
@@ -267,6 +271,37 @@ input::placeholder {
 .post_btn:hover{
     background-color: rgba(176, 170, 109, 0.8) ;
     color: white;
+}
+.mc_sb_text_edirtor{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 25px
+
+}
+
+.te_color,.te_size, .te_font{
+    margin-left: 2vh;
+    cursor: pointer;
+}
+
+.te_L{
+    font-size: 2vh;
+}
+
+.te_M {
+    font-size: 1.5vh;
+}
+
+.te_nomal{
+    font-size: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.te_gray{
+    color: gray;
 }
 
 

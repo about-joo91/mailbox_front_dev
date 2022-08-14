@@ -303,7 +303,6 @@ open_drawer.addEventListener('click', main_modal)
 
 
 drawer_wrapper.addEventListener('click', (e) =>{
-    console.log(e)
     if(e.target.classList.contains('drawer_wrapper')){
         drawer.style.display ='none';
         drawer_wrapper.style.display ='none';
