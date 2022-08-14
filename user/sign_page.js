@@ -1,4 +1,3 @@
-
 const backend_base_url = 'http://127.0.0.1:8000';
 const urlParams = new URLSearchParams(window.location.search);
 const url_page_num = urlParams.get('page_num');
@@ -94,8 +93,7 @@ async function SignIn(){
             alert("로그인이 완료되었습니다!");
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
-            window.location.replace(`../main/main.html`);
-            getInfo();
+            window.location.replace(`../main/main.html?after_login`);
             break;
         case 401:
             alert(response_json.detail);
