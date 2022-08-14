@@ -6,7 +6,10 @@ async function SignUp(){
     const SignupData = {
         username : document.getElementById("Username").value,
         nickname : document.getElementById("Nickname").value,
+        certification_requestion : document.getElementById("Certification_Requestion").value,
+        certification_answer : document.getElementById("Certification_Answer").value,
         password : document.getElementById("Password").value,
+        check_password : document.getElementById("Check_Password").value,
     }
 
     const response = await fetch(`${backend_base_url}/user/`, {

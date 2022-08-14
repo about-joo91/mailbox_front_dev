@@ -85,7 +85,7 @@ body {
     border-radius: 10px;
     text-align: center;
     outline: none;
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 input::placeholder{
@@ -95,7 +95,7 @@ input::placeholder{
 }
 
 
-.mb_sub_4{
+.mb_sub_6{
     margin-top: 10%;
     display: flex;
     flex-direction: row;
@@ -123,6 +123,16 @@ input::placeholder{
     color: rgb(63, 63, 63);
     margin-top: 20px;
     font-size: 1rem;
+}
+
+.mb_page_link_new_password{
+    color: rgb(63, 63, 63);
+    margin-top: 1vh;
+    font-size: 1rem;
+}
+#Certification_Answer{
+    font-size: 0.8vw;
+    color: gray;
 }
 
 @media (max-width: 950px){
