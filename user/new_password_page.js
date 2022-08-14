@@ -53,7 +53,6 @@ async function get_user_data(){
     let res = await result.json()
     switch(result.status){
         case 200:
-            console.log(res)
             document.querySelector('.page_1').style.display="none"
             document.querySelector('.page_2').style.display="flex"
             document.querySelector('.page_2-1').style.display="flex"
@@ -96,10 +95,12 @@ async function check_user_certification_answer(){
         case 200:
             alert(response_json.detail);
             const mb_sub_2 = document.querySelector('.mb_sub_2')
-            mb_sub_2.innerHTML = `<div class="form-control" id="cerfitication_question">"비밀번호 재설정"</div>`
             const mb_sub_2_1 = document.querySelector('.page_2-1')
-            mb_sub_2_1.innerHTML = `<input type="password" class="form-control" id="password" placeholder="새로운 비밀번호를 입력해주세요." onkeyup="signup_enterkey();"/>`
+            const mb_sub_2_2 = document.querySelector('.page_2-2')
             const mb_sub_4 = document.querySelector('.mb_sub_4')
+            mb_sub_2.innerHTML = `<div class="form-control" id="cerfitication_question">"비밀번호 재설정"</div>`
+            mb_sub_2_1.innerHTML = `<input type="password" class="form-control" id="password" placeholder="새로운 비밀번호를 입력해주세요."/>`
+            mb_sub_2_2.innerHTML = `<input type="password" class="form-control" id="check_password" placeholder="새로운 비밀번호를 재입력해주세요." onkeyup="set_new_password_enterkey();"/>`
             mb_sub_4.innerHTML = `<button class="w-100 btn btn-lg btn-primary" type="button" onclick="set_new_password()">재설정</button>`
             break;
         case 400:
@@ -112,13 +113,14 @@ async function check_user_certification_answer(){
 async function set_new_password(){
     const set_new_password_data = {
         username: url_username,
-        password : document.getElementById("password").value
+        password : document.getElementById("password").value,
+        check_password : document.getElementById("check_password").value,
     }
 
     const response = await fetch(`${backend_base_url}/user/`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
-            Accept: "application/json",
+            'Accept': "application/json",
             "Content-type": "application/json"
         },
         method: "PUT",
@@ -141,9 +143,19 @@ async function set_new_password(){
 
 
 
-function certification_answer_enterkey(){
+function check_user_certification_answer_enterkey(){
     if (window.event.keyCode == 13){
         check_user_certification_answer();
+    }
+}
+function is_user_data_enterkey(){
+    if (window.event.keyCode == 13){
+        is_user_data();
+    }
+}
+function set_new_password_enterkey(){
+    if (window.event.keyCode == 13){
+        set_new_password();
     }
 }
 
