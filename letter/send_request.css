@@ -289,6 +289,7 @@ body{
     background-color: white;
     justify-items: center;
     align-items: center;
+    margin-bottom: 2vh;
 }
 .md_bb_bl_board_box{
     width: 90%;
