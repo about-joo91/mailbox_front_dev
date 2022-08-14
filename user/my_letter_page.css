@@ -525,6 +525,9 @@ body,html{
 }
 
 @media (max-width: 950px) {
+    *{
+        font-size: 2.3vw!important;
+    }
 
     body{
         background: #F0F0E6

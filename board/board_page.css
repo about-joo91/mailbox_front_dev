@@ -186,7 +186,7 @@ body{
     width: 55%;
     height: 10rem;
     border: 1px solid gray;
-    border-radius: 1.5rem;
+    border-radius: 0.8em;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
@@ -202,8 +202,8 @@ body{
 .mc_board_body{
     width: 55%;
     /* height: 80rem; */
-    margin-top: 1.4rem;
-    border-radius: 1.5rem;
+    margin-top: 1vh;
+    border-radius: .8em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -219,7 +219,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 2vh;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -249,10 +249,9 @@ body{
     cursor: pointer;
 }
 .md_bb_bl_board{
+    margin-bottom: 1vh;
     width: 100%;
-    /* height: 10.5rem; */
-    margin-bottom: 1.4rem;
-    border-radius: 1.5rem;
+    border-radius: 0.8em;
     background-color: white;
 }
 /* 익명, 날짜, 코멘트 */
@@ -364,6 +363,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    word-break: break-all;
 }
 .md_bb_bl_bd_ct_left{
     width: 80%;
@@ -411,8 +411,8 @@ body{
     align-items: center;
 }
 .open_modal_button{
-    width: 8rem;
-    height: 8rem;
+    width: 8vh;
+    height: 8vh;
     position: fixed;
     top: 88%;
     left: 88%;
@@ -422,7 +422,7 @@ body{
     border-radius: 100%;
     color: white;
     font-size: 5rem;
-    line-height: 8rem;
+    line-height: 8vh;
 }
 /* 여기부터 모달 */
 .modal_background{
@@ -448,7 +448,7 @@ body{
 }
 .sm_title{
     width: 100%;
-    height: 15%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -520,15 +520,15 @@ body{
     margin-left: 250px;
 }
 .sm_bd_content{
-    width: 91%;
-    height: 76%;
+    width: 100%;
+    height: 55vh;
     display: flex;
     justify-content: center;
 }
 .sm_bd_ct_textarea{
     outline: none;
     width: 93%;
-    height: 93%;
+    height: 100%;
     resize: none;
     border-radius: 15px;
     font-size: 2rem;
@@ -537,17 +537,18 @@ body{
 }
 .sm_bd_button{
     width: 100%;
-    height: 13%;
+    height: 2vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .sm_bd_submit_button{
+    margin-top: 2vh;
     border: none;
     cursor: pointer;
     background-color: rgba(176, 170, 109, 0.8);
     width: 10%;
-    height: 5rem;
+    height: 3vh;
     color: white;
     font-size: 2rem;
     border-radius: 15px;
@@ -557,8 +558,8 @@ body{
     border: none;
     font-size: 14px;
     border-radius: 5px;
-    width: 100%;
-    height: 80%;
+    width: 70%;
+    height: 3vh;
     cursor: pointer;
     color: rgba(80, 80, 80, 1);
     background-color: rgba(176, 170, 109, 0.3);
@@ -587,6 +588,9 @@ body{
 
 
 @media (max-width: 950px) {
+    *{
+        font-size: 2.3vw!important;
+    }
     .nc_sub_container{
         background-color: #F0F0E6;
         justify-content: space-between;
@@ -669,6 +673,53 @@ body{
     .mc_bt_my_board_button{
         font-size: 2.3vw;
     }
+    .mc_board_title{
+        height: 4rem;
+    }
+    .mc_bb_board_lists {
+        width: 95%;
+        margin-top: 2vh;
+    }
+    .md_bb_bl_bd_description {
+        margin-left: 2vh;
+        padding-top: 0px;
+    }
+    .md_bb_bl_bd_desc_edit_delete {
+        width: 25%;
+    }
+    .md_bb_bl_bd_title{
+        margin-top: 0px;
+    }
+    .sm_title {
+        height: 6vh;
+    }
+    .sm_tt_title_input,.sm_bd_text {
+        height: 2vh;
+    }
+    .sm_bd_submit_button {
+        height: 4vh;
+        margin-top: 1vh;
+    }
+    .sm_bd_button {
+        height: 5%;
+    }
+    .bi-brightness-high,.bi-brightness-high-fill{
+        margin-right: 0.5vh;
+    }
+    .open_modal_button {
+        width: 5vh;
+        height: 5vh;
+        line-height: 5vh;
+    }
+    .report_btn {
+        width: 55%;
+        height: 3vh;
+    }
+    .bi-chat-dots{
+        margin-right: 1vh;
+    }
+
+    
 }
 
 @media (max-width: 450px) {
@@ -759,7 +810,7 @@ body{
         margin-right: 0.5rem;
     }
     .sm_bd_content{
-        height: 55vh;
+        height: 46vh;
         padding: 1%;
     }
     .sm_bd_submit_button{
@@ -786,8 +837,8 @@ body{
         height: 19vh;
     }
     .md_bb_bl_bd_description{
+        top: -4%;
         position: absolute;
-        top: -15%;
     }
 
     .md_bb_bl_bd_hidden_name{
@@ -797,14 +848,12 @@ body{
     .md_bb_bl_bd_desc_edit_delete{
         position: absolute;
         left: 70%;
-        top: 40%;
         width: 20%;
         height: 2.5rem;
 
     }
     .md_bb_bl_bd_middle{
         position: absolute;
-        top: 7%;
         left: 10%;
     }
     .md_bb_bl_bd_desc_comment_icon{
@@ -826,7 +875,7 @@ body{
     }
     .md_bb_bl_bd_ct_left{
         width: 75%;
-        left: 10%;
+        left: 9%;
         display: -webkit-box;
         position: absolute;
         margin-left: unset;
@@ -836,7 +885,7 @@ body{
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        top: 30%;
+        top: 33%;
     
     }
     .md_bb_bl_bd_desc_ci_comment_count{
@@ -845,6 +894,7 @@ body{
         left: 50%;
     }
     .md_bb_bl_bd_tt_text{
+        top: 30%;
         position: absolute;
         left: -5%;
     }
@@ -853,12 +903,9 @@ body{
 
     }
     .open_modal_button{
-        left: 75%;
-        top: 88%;
-        line-height : 5rem;
-        width: 5rem;
-        height: 5rem;
-        font-size: 40px!important;
+        left: 80%;
+        top: 90%;
+
     }
     .sm_bd_submit_button {
         height: 2rem;
@@ -869,7 +916,7 @@ body{
     .sm_body{
         margin-top: 2%;
         width: 100%;
-        height: 85%;
+        height: 70%;
         background-color: #E2CA9B;
         border-radius: 15px;
         display: flex;
@@ -887,8 +934,25 @@ body{
         justify-content: space-around;
     }
     .sm_bd_button{
-        height: 13%;
+        margin-bottom: 1vh;
     }
+    .mc_bb_page_number {
+        padding: 0px;
+        margin-bottom: 2vh;
+    }
+    .sm_title {
+        height: 7vh;
+    }
+    .sm_tt_title_input{
+        height: unset;
+    }
+    .report_btn{
+        width: 100%;
+    }
+    .bi-chat-dots{
+        margin-right: 2vh;
+    }
+
 
 }   
 

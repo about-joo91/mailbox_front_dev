@@ -119,6 +119,7 @@ body{
 .sm_tt_text_close{
     font-size: 40px;
     cursor: pointer;
+    margin-right: 3vh;
     color: white;
 }
 #drawer {
@@ -194,9 +195,9 @@ body{
 .mc_board_title{
     width: 55%;
     max-width: 1260px;
-    height: 10vh;
+    height: 8vh;
     border: 1px solid gray;
-    border-radius: 1.5rem;
+    border-radius: .8em;
     display: flex;
     background-color: rgba(176, 170, 109, 0.8);
     align-items: center;
@@ -229,9 +230,8 @@ body{
     max-width: 1260px;
     border: 1px solid gray;
     width: 55%;
-    /* height: 80rem; */
     margin-top: 1vh;
-    border-radius: 1.5rem;
+    border-radius: 0.8em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -251,7 +251,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 4vh;
 }
 .mc_bb_page_number{
     width: 60%;
@@ -259,8 +259,8 @@ body{
     justify-content: center;
     align-items: center;
     font-size: 2.6rem;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 
 }
 .page_number{
@@ -284,8 +284,7 @@ body{
 .md_bb_bl_board{
     width: 100%;
     /* height: 10.5rem; */
-    margin-bottom: 1.4rem;
-    border-radius: 1.5rem;
+    border-radius: 0.8em;
     display: flex;
     background-color: white;
     justify-items: center;
@@ -293,15 +292,14 @@ body{
 }
 .md_bb_bl_board_box{
     width: 90%;
+    height: 14vh;
 }
 /* 익명, 날짜, 코멘트 */
 .md_bb_bl_bd_description{
     width: 100%;
     height: 4.65rem;
-    margin-left: 3.6rem;
     display: flex;
     flex-wrap: nowrap;
-    padding-top: 1rem;
 
 }
 .md_bb_bl_bd_desc_image_icon{
@@ -317,7 +315,8 @@ body{
     width: 80%;
     height: 100%;
     display: flex;
-    margin-left: 1rem;
+    margin-top: 1vh;
+    margin-left: 2vh;
     flex-wrap: nowrap;
     align-items: center;
 }
@@ -329,7 +328,7 @@ body{
     font-weight: 600;
 }
 .md_bb_bl_bd_hidden_name{
-    font-size: 2.2rem;
+    font-size: 0.9vw;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -353,6 +352,7 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-top: 1.3vh;
 }
 .md_bb_bl_bd_desc_ed_edit{
     width: 30%;
@@ -453,7 +453,7 @@ body{
 }
 .md_bb_bl_bd_request_button{
     width: 42%;
-    height: 3.5vh;
+    height: 3vh;
     border-radius: 0.6em;
     background-color: rgba(176, 170, 109, 0.5);
     color: white;
@@ -515,7 +515,7 @@ body{
 }
 .sm_title{
     width: 100%;
-    height: 7vh;
+    height: 6vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -523,6 +523,7 @@ body{
     border-radius: 15px;
 }
 .sm_tt_text{
+    width: 50%;
     font-size: 1.5vw;
     color: white;
     margin-left: 7%;
@@ -566,7 +567,7 @@ body{
     cursor: pointer;
 }
 .sm_body{
-    margin-top: 1.4rem;
+    margin-top: 1vh;
     width: 100%;
     /* height: 50rem; */
     background-color: #E2CA9B;
@@ -577,7 +578,7 @@ body{
     justify-content: center;
 }
 .edit_sm_body{
-    margin-top: 1.5%;
+    margin-top: 1vh;
     width: 100%;
     height: 60vh;
     background-color: rgb(226, 202, 155);
@@ -589,7 +590,9 @@ body{
 }
 .sm_bd_text{
     width: 100%;
-    height: 4vh;
+    display: flex;
+    align-items: center;
+    height: 10%;
     font-size: 1.4vw;
     color: white;
     margin-left: 13%;
@@ -597,11 +600,14 @@ body{
     margin-bottom: 0.4%;
 }
 .sm_bd_content{
-    width: 91%;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
 }
 .sm_bd_ct_textarea{
-    width: 93%;
-    height: 39vh;
+    width: 90%;
+    height: 90%;
     resize: none;
     border-radius: 15px;
     font-size: 1.2vw;
@@ -611,20 +617,20 @@ body{
     border: none;
 }
 .sm_bd_ct_text{
-    width: 93%;
-    height: 39vh;
+    width: 90%;
+    height: 35vh;
     resize: none;
     border-radius: 15px;
-    font-size: 2vw;
+    font-size: 1.3vw;
     color: #A4A457;
     padding: 3%;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
     background-color: white;
 }
 .sm_bd_button {
     width: 100%;
-    height: 5vh;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -632,17 +638,19 @@ body{
     margin-top: 1%;
 }
 .sm_bd_submit_button{
+    border: none;
     cursor: pointer;
     background-color: rgba(176, 170, 109, 0.8);
     width: 16%;
-    height: 5vh;
+    height: 4vh;
     color: white;
-    font-size: 1.4vw;
+    font-size: 1.4vh;
     border-radius: 15px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2vh;
 }
 /* request 모달 */
 .sm_bd_target_text{
@@ -666,7 +674,18 @@ body{
 
 
 @media (max-width: 950px) {
-
+    *{
+        font-size: 2.3vw!important;
+    }
+    .main_container{
+        width: 99%;
+    }
+    .mc_bb_board_lists{
+        width: 100%;
+    }
+    .md_bb_bl_board{
+        width: 93%;
+    }
     .drawer_wrapper{
         width: 100%;
     height: 100vh;
@@ -708,14 +727,15 @@ body{
         
     }
     .md_bb_bl_bd_request_button {
-        height: 4rem;
-        width: 45%;
+        height: 3.5vh;
+        width: 48%;
         margin-left: 5px;
+        font-size: 1.5vh!important;
 
     }
     .md_bb_bl_bd_post_button{
-        height: 4rem;
         width: 45%;
+        font-size: 1.5vh!important;
     }
     .mc_bt_title_text{
         font-size: 30px;
@@ -736,6 +756,18 @@ body{
     .sm_bd_ct_textarea{
         font-size: 1.7vw;
         padding: 2%;
+    }
+    .mc_bb_board_lists{
+        margin-top: 3vh;
+    }
+    .md_bb_bl_bd_description{
+        height: 2.6vh;
+    }
+    .md_bb_bl_bd_middle{
+        margin-top: 2vh;
+    }
+    .md_bb_bl_bd_desc_edit_delete{
+        margin-top: 3vh;
     }
 }
 
@@ -781,18 +813,15 @@ body{
     .main_container{
         margin-top: 0px;
     }
-    .md_bb_bl_bd_request_button  {
-        height: 2rem;
-        margin-right: 5px;
-    }
+
     .md_bb_bl_bd_request_button_already_accepted  {
         height: 3rem;
     }
     .md_bb_bl_bd_post_button{
         width: 70%;
-        height: 4vh;
+        height: 3vh;
         font-size: 10px !important;
-        margin-top: 15%;
+        margin-top: 4vh;
     }
     .sm_bd_submit_button{
         width: 27%;
@@ -803,6 +832,7 @@ body{
     .md_bb_bl_bd_request{
         width: 46%;
         margin-top : 1.5rem;
+        margin-right: 1vh;
     }
     .md_bb_bl_bd_desc_create_date{
         margin-left: 1rem;
@@ -822,9 +852,10 @@ body{
         font-size: 2rme;
     }
     .md_bb_bl_bd_request_button{
-        height: 4vh;
+        height: 3vh;
         width: 70%;
-        margin-top: 15%;
+        margin-top: 4vh;
+        font-size: 10px !important
     }
     .main_container{
         margin-top: 0px;
@@ -840,7 +871,7 @@ body{
         height: 1.6rem;
     }
     .mc_board_title{
-        height: 5rem;
+        height: 3rem;
     }
 
     .md_bb_bl_bd_hidden_name{
@@ -864,7 +895,7 @@ body{
         margin-top: -60px;
     }
     .mc_bb_board_lists{ 
-        margin-top: 3rem; 
+        margin-top: 1.5vh 
     }
     .sm_tt_text_empty_box {
         width: 34%;
@@ -876,5 +907,19 @@ body{
         width: 25%;
         position: absolute;
         left: 45%;
+    }
+    .sm_bd_ct_text {
+        margin-top: 2vh;
+    }
+
+    .sm_bd_submit_button{
+        margin-top: 0px;
+    }
+    .mc_bb_page_number{
+        padding-top: unset;
+    }
+    .sm_bd_content {
+        height: 100%;
+        width: 95%;
     }
 }
