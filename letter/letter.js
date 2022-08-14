@@ -61,8 +61,6 @@ window.onload = async () => {
 
 
 
-
-    
 const letter_post = async() => {
     const token = localStorage.getItem('access')
     const title =document.getElementById('title_text').value
@@ -73,49 +71,57 @@ const letter_post = async() => {
     const letter_font_size = letter_text_style.getPropertyValue('font-size')
     const letter_font_family = letter_text_style.getPropertyValue('font-family')
     const letter_color = letter_text_style.getPropertyValue('color')
-
-    const result = await fetch(BASE_URL + '/main_page/letter/', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken,
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            "title": title.replace(REG,""),
-            "content" : content.replace(REG,""),
-            "worry_board_id" : worry_board_id,
-            "font_size" : letter_font_size,
-            "font_family" : letter_font_family.replace(/"/g,""),
-            "color": letter_color
+    if (title == ""){
+        alert("제목을 입력해주세요!")
+    }
+    else if (content == ""){
+        alert("내용을 입력해주세요!")
+    }
+    else{
+        const result = await fetch(BASE_URL + '/main_page/letter/', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                "title": title.replace(REG,""),
+                "content" : content.replace(REG,""),
+                "worry_board_id" : worry_board_id,
+                "font_size" : letter_font_size,
+                "font_family" : letter_font_family.replace(/"/g,""),
+                "color": letter_color
+            })
         })
-    })
-
-    const unauthorized = (response) => {
-        alert(response['detail'])
-        location.replace('../index.html');
-    }
-    const overlap = (response) =>{
-        alert(response['detail'])
-    }
-    const response = await result.json();
-    switch(result.status){
-        case 200:
+    
+        const unauthorized = (response) => {
             alert(response['detail'])
-            location.href='/main/main.html'
-            break;
-        case 401:
-            unauthorized(response)
-            break;
-        case 400:
-            overlap(response)
-            break;
-        default:
-            alert("제목과 내용을 입력해주세요.")
+            location.replace('../index.html');
         }
+        const overlap = (response) =>{
+            alert(response['detail'])
+        }
+        const response = await result.json();
+        switch(result.status){
+            case 200:
+                alert(response['detail'])
+                location.href='/main/main.html'
+                break;
+            case 401:
+                unauthorized(response)
+                break;
+            case 400:
+                overlap(response)
+                break;
+            default:
+                alert(response['detail'])
+            }
+    }
+
 }    
 
 
