@@ -1,5 +1,5 @@
 
-const backend_base_url = 'http://127.0.0.1:8000';
+const BASE_URL = 'http://127.0.0.1:8000';
 
 // 회원가입
 async function SignUp(){
@@ -9,7 +9,7 @@ async function SignUp(){
         password : document.getElementById("Password").value,
     }
 
-    const response = await fetch(`${backend_base_url}/user/`, {
+    const response = await fetch(`${BASE_URL}/user/`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
             Accept: "application/json",
@@ -39,7 +39,7 @@ async function SignIn(){
         username : document.getElementById("Username").value,
         password : document.getElementById("Password").value,
     }
-    const response = await fetch(`${backend_base_url}/user/login`, {
+    const response = await fetch(`${BASE_URL}/user/login`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
             Accept: "application/json",
@@ -56,6 +56,7 @@ async function SignIn(){
             localStorage.setItem("access", response_json.access);
             localStorage.setItem("refresh", response_json.refresh);
             window.location.replace(`../main/main.html`);
+            getInfo();
             break;
         case 401:
             alert(response_json.detail);
@@ -75,64 +76,18 @@ const logout = () => {
     location.replace('../index.html');
 
 }
+
+// 로그인 엔터키
 function login_enterkey(){
     if (window.event.keyCode == 13){
         SignIn();
     }
 }
 
+// 회원가입 엔터키
 function signup_enterkey(){
     if (window.event.keyCode == 13){
         SignUp();
     }
 }
 
-
-
-// //쿠키 할당
-// const  get_cookie = (name)  => {
-//     let cookie_value = null;
-//     if (document.cookie && document.cookie !== '') {
-//         const cookies = document.cookie.split(';');
-//         for (let i = 0; i < cookies.length; i++) {
-//             const cookie = cookies[i].trim();
-//             if (cookie.substring(0, name.length + 1) === (name + '=')) {
-//                 cookie_value = decodeURIComponent(cookie.substring(name.length + 1));
-//                 break;
-//             }
-//         }
-//     }
-//     return cookie_value;
-// }
-// const csrftoken = get_cookie('csrftoken')
-
-
-
-async function check_login(){
-
-    token = localStorage.getItem('access');
-    const response = await fetch(`${backend_base_url}/webpush/`, {
-        headers : {
-            "Access-Control-Allow-Origin": "*",
-            "Accept": "application/json",
-            "Content-type": "application/json",
-            // 'X-CSRFToken': csrftoken,
-            "Authorization": `Bearer ${token}`,
-        },
-        method: "GET",
-        mode: 'cors'
-    })
-
-    const response_json = await response.json();
-    console.log(response_json)
-    console.log("DDdd")
-    switch(response.status){
-        case 200:
-            console.log("DDdd")
-            alert(response_json.message);
-            window.location.replace(`../index.html`);
-            break;
-        default:
-            alert("!!")
-    }
-}

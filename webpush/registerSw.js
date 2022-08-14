@@ -1,7 +1,22 @@
-const BASE_URL = 'http://127.0.0.1:8000';
+// const BASE_URL = 'http://127.0.0.1:8000';
+
+const  get_cookie = (name)  => {
+    let cookie_value = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookie_value = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookie_value;
+}
+const csrftoken = get_cookie('csrftoken')
 
 async function getInfo(){
-    console.log("들어옴")
 
     token = localStorage.getItem('access');
     const response = await fetch(`${BASE_URL}/webpush_alarm/test/`, {
@@ -25,7 +40,7 @@ getInfo().then(response_json => {
     const registerSw = async () => {
         if ('serviceWorker' in navigator) {
             
-            const reg = await navigator.serviceWorker.register('sw.js');
+            const reg = await navigator.serviceWorker.register('../webpush/sw.js');
             console.log(reg)
             initialiseState(reg)
             
@@ -79,9 +94,6 @@ getInfo().then(response_json => {
         }
 
         const key = response_json.vapid_key
-
-        // const vapidMeta = document.querySelector('meta[name="vapid-key"]');
-        // const key = vapidMeta.content;
         const options = {
             userVisibleOnly: true,
             // if key exists, create applicationServerKey property
@@ -101,16 +113,22 @@ getInfo().then(response_json => {
         };
         console.log(data)
 
+        token = localStorage.getItem('access');
         const res = await fetch(`${BASE_URL}/webpush/save_information`, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'content-type': 'application/json',
+                "Authorization": `Bearer ${token}`,
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+                "x-csrftoken" : csrftoken,  
             },
             credentials: "include"
         });
 
         handleResponse(res);
+
     };
 
     const handleResponse = (res) => {
@@ -118,7 +136,29 @@ getInfo().then(response_json => {
     };
 
     registerSw();
+    sendWebpush();
 
 })
+
+
+async function sendWebpush() {
+
+    const res = await fetch(`${BASE_URL}/webpush_alarm/`, {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            "Authorization": `Bearer ${token}`,
+            'Accept': 'application/json',
+            "Access-Control-Allow-Origin": "*",
+            "x-csrftoken" : csrftoken,
+        }
+    });
+    if (res.status === 200) {
+        console.log(res)
+    } else {
+        console.log("ddd")
+    }
+}
+
 
 
