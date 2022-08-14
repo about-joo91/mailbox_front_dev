@@ -170,11 +170,11 @@ async function post_board(){
     let res = await result.json()
     switch(result.status){
         case 200:
-            alert("게시글을 작성 하였습니다!!")
+            alert(res['detail'])
             click_page_num(1)
             break;
         default:
-            alert("게시글 작성에 실패하였습니다.")
+            alert(res['detail'])
     }
 }
 

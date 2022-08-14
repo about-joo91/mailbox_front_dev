@@ -1,15 +1,54 @@
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const backend_base_url = 'http://127.0.0.1:8000';
+const urlParams = new URLSearchParams(window.location.search);
+const url_page_num = urlParams.get('page_num');
+
+window.onload = get_certification_request_list
+
+// 본인인증 질문들 가져오기
+async function get_certification_request_list(){
+    const result = await fetch(`${backend_base_url}/user/question`, {
+        headers : {
+            "Access-Control-Allow-Origin": "*",
+            'Accept': "application/json",
+            "Content-type": "application/json"
+        },
+        method: "GET",
+        mode: 'cors',
+    })
+    let res = await result.json()
+    switch(result.status){
+        case 200:
+            const select_question = document.getElementById('Certification_Requestion')
+            let tmp_html = ``
+            for (i=0; i<res.length; i++){
+                tmp_html+=`<option value="${i+1}">${res[i]}</option>`
+            }
+            select_question.innerHTML+=tmp_html
+            break;
+        case 401:
+            alert(res.detail);
+            break;
+        default:
+            alert(res['detail'])
+            break;
+    }
+
+}
+
 
 // 회원가입
 async function SignUp(){
     const SignupData = {
         username : document.getElementById("Username").value,
         nickname : document.getElementById("Nickname").value,
+        certification_question : document.getElementById("Certification_Requestion").value,
+        certification_answer : document.getElementById("Certification_Answer").value,
         password : document.getElementById("Password").value,
+        check_password : document.getElementById("Check_Password").value,
     }
 
-    const response = await fetch(`${BASE_URL}/user/`, {
+    const response = await fetch(`${backend_base_url}/user/`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
             Accept: "application/json",
@@ -39,7 +78,7 @@ async function SignIn(){
         username : document.getElementById("Username").value,
         password : document.getElementById("Password").value,
     }
-    const response = await fetch(`${BASE_URL}/user/login`, {
+    const response = await fetch(`${backend_base_url}/user/login`, {
         headers : {
             "Access-Control-Allow-Origin": "*",
             Accept: "application/json",
@@ -65,15 +104,6 @@ async function SignIn(){
             alert("로그인을 실패하였습니다. 다시 입력해주세요");
             break;
     }
-
-}
-
-
-// 로그아웃
-const logout = () => {
-    alert("로그아웃이 완료 되었습니다.")
-    localStorage.clear();
-    location.replace('../index.html');
 
 }
 
