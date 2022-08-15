@@ -221,6 +221,49 @@ body{
     align-items: center;
     margin-top: 2vh;
 }
+.mc_bb_search_box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 1vh 0;
+}
+.mc_bb_sb_input_box{
+    height: 100%;
+    width: 40%;
+}
+.mc_bb_sb_input{
+    outline: none;
+    border: 0;
+    width: 100%;
+    background-color: #E2CA9B;
+    border-bottom: 1px white solid;
+    font-size: 1.2vw;
+    text-align: center;
+}
+.mc_bb_sb_input::placeholder{
+    text-align: center;
+    font-size: 1.2vw;
+    color: white;
+}
+.mc_bb_sb_btn{
+    font-size: 1.2vw;
+    margin: 0 3vw 0 1vw;
+    background-color:rgba(176, 170, 109, 0.8);
+    padding: .4vw .8vw;
+    border-radius: .4em;
+    color: white;
+}
+#mc_bb_sb_select{
+    text-align: center;
+    outline: none;
+    border: 0;
+    border-radius: .4em;
+
+}
+.mc_bb_sb_btn:hover{
+    cursor: pointer;
+}
 .mc_bb_page_number{
     width: 60%;
     display: flex;
