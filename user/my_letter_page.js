@@ -149,7 +149,7 @@ const letters_exist = (response) => {
     let letter = response.letter
 
     lm_header.innerText = letter.title
-    let letter_content_html = `<div class="letter_content" style="white-space:pre; font-size:${letter.font_size}; color:${letter.color}; font-family:${letter.font_family};">${letter.content.replace(REG,"")}</div>`
+    let letter_content_html = `<div class="letter_content" style="white-space: break-spaces; font-size:${letter.font_size}; color:${letter.color}; font-family:${letter.font_family};">${letter.content.replace(REG,"")}</div>`
     lm_body.innerHTML = letter_content_html
     if (page_name == "my_not_read_letter") {
         make_page_num_for_new_letter(response.letter_cnt)
