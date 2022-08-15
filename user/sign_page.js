@@ -53,7 +53,7 @@ async function SignUp(){
             Accept: "application/json",
             "Content-type": "application/json"
         },
-        method: "OPTIONS",
+        method: "POST",
         mode: 'cors',
         body: JSON.stringify(SignupData)
     })
