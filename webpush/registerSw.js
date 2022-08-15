@@ -1,11 +1,9 @@
 
 let urlParams = window.location.search
-console.log(urlParams)
 
 if (urlParams == "?after_login"){
     
     const getinfo = async () => {
-        console.log("getInfo")
         token = localStorage.getItem('access');
         const response = await fetch(`${BASE_URL}/webpush_alarm/getinfo/`, {
             headers:{
@@ -14,38 +12,36 @@ if (urlParams == "?after_login"){
             method: "GET",
         })
         response_json = await response.json()
-        if(response.status == 200){
-            console.log(response_json)
-            return response_json
-        }else{
-            console.log("Ddd")
-            return "dd"
+        switch(response.status){
+            case 200:
+                return response_json
+                break;
+            default:
+                break;
         }
-    
     }
-    
+
     getinfo().then(response_json => {
-        console.log("registerSw")
         const registerSw = async () => {
             if ('serviceWorker' in navigator) {
                 const reg = await navigator.serviceWorker.register('../webpush/sw.js');
                 initialiseState(reg)
             } else {
-                alert("You can't send push notifications ☹️😢")
+                alert("푸시 알람을 받으실 수 없습니다. 다시 시도해주세요 😢")
             }
         };
     
         const initialiseState = (reg) => {
             if (!reg.showNotification) {
-                alert('Showing notifications isn\'t supported ☹️😢');
+                alert('이 브라우저에서 푸시알람은 지원하지 않습니다.😢');
                 return
             }
             if (Notification.permission === 'denied') {
-                alert('You prevented us from showing notifications ☹️🤔');
+                alert('푸시 알람을 받으시려면 로그인을 다시 해주세요');
                 return
             }
             if (!'PushManager' in window) {
-                alert("Push isn't allowed in your browser 🤔");
+                alert("브라우저에서 푸시알람 설정을 허용해주세요! 🤔");
                 return
             }
             subscribe(reg);
@@ -110,15 +106,12 @@ if (urlParams == "?after_login"){
             }
                 
         };
-        const handleResponse = (res) => {
-            console.log(res.status);
-        };
+
         registerSw();
     
     })
 
     async function sendWebpush() {
-        console.log("sendWebpush")
         const res = await fetch(`${BASE_URL}/webpush_alarm/sendpush/`, {
             method: 'GET',
             headers: {
@@ -128,9 +121,12 @@ if (urlParams == "?after_login"){
                 "Access-Control-Allow-Origin": "*",
                 "x-csrftoken" : csrftoken,
             }
-        });
-        if (res.status == 200){
-            console.log("성공")
+        })
+        switch (res.status){
+            case 200:
+                break;
+            default:
+                break;
         }
     }
     
