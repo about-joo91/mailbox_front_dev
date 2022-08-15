@@ -48,7 +48,7 @@ async function post_board_comment(){
             break;
         case 401:
             alert(response.detail)
-            location.replace('/user/signin.html');
+            location.replace('/index.html');
             break;
         default:
             alert(res['detail'])
@@ -82,7 +82,7 @@ window.onload =
                 const profile_grade = document.getElementById('profile_grade')
                 const porfile_image = document.getElementById('profile_image')
                 const mongle_image = document.getElementById('mongle_img')
-                profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+                profile_grade.innerText = `다음레벨까지 : ${res.user_profile_data.mongle_grade.left_grade}`
                 porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
                 mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
                 board = res.board_comments[0]   
@@ -229,7 +229,7 @@ window.onload =
                 break;
             default:
                 alert("세션이 만료 되었습니다.")
-                location.replace('/user/signin.html')
+                location.replace('/index.html')
         }
     }
 

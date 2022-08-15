@@ -44,7 +44,7 @@ const main_page_data = (response) =>{
         const profile_grade = document.getElementById('profile_grade')
         const porfile_image = document.getElementById('profile_image')
         const mongle_image = document.getElementById('mongle_img')
-        profile_grade.innerText = `나의 몽글 점수: ${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.grade}`
+        profile_grade.innerText = `다음레벨까지 : ${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.left_grade}`
         porfile_image.style.backgroundImage =`url(${response.main_page_data_and_user_profile.user_profile_data.profile_img})`
         mongle_image.style.backgroundImage = `url(${response.main_page_data_and_user_profile.user_profile_data.mongle_grade.mongle_image})`
         const letter_count = document.getElementById('letter_count')
@@ -452,7 +452,7 @@ const live_review = async() => {
     }
         const unauthorized = (response) => {
         alert(response.detail)
-        location.replace('/user/signin.html');
+        location.replace('/index.html');
     }
     switch(result.status){
         case 200:
@@ -520,7 +520,7 @@ const best_review = async() => {
     }
     const unauthorized = (response) => {
         alert(response.detail)
-        location.replace('/user/signin.html');
+        location.replace('/index.html');
     }
     switch(result.status){
         case 200:

@@ -57,7 +57,27 @@
                 <textarea class="edm_textarea"></textarea>
             <div class="edm_btn_box">
                 <div class="edm_btn" onclick="cancel_edit_desc()">취소</div>
-                <div class="edm_btn" onclick="call_edit_desc()">작성</div>
+                <div class="edm_btn" onclick="call_edit_desc()" >작성</div>
+            </div>
+        </div>
+    </div>
+    <!-- 본인확인질문을 수정하는 모달 -->
+    <div class="edit_certification_modal_wrapper">
+        <div class="edit_certification_modal">
+            <div class="ecm_announce">
+                본인확인질문을 수정합니다.
+            </div>
+            <div class="ecm_announce_white_space"></div>
+            <div class="ecm_name_header">이름</div>
+            <select class="ecm_name">
+                <option value="none">---본인 확인 질문을 골라주세요---</option>
+            </select>
+            <div class="ecm_name_white_space"></div>
+                <div class="ecm_textarea_header">자기소개</div>
+                <textarea class="ecm_textarea" onkeyup="call_edit_certifi_enterkey();"></textarea>
+            <div class="ecm_btn_box">
+                <div class="ecm_btn" onclick="cancel_edit_certifi()">취소</div>
+                <div class="ecm_btn" onclick="call_edit_certifi()" >작성</div>
             </div>
         </div>
     </div>

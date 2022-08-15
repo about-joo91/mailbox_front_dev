@@ -71,7 +71,6 @@ async function post_board(){
 // 수정버튼을 눌를 시 나오는 수정 모달
 function open_edit_modal(content,id){
     document.getElementById('edit_modal_background').style.display="flex"
-    const small_modal = document.getElementById('edit_small_modal');
     document.body.style.overflow = 'hidden';
 
     const edit_text_area = document.getElementById('sm_bd_edit_content');
@@ -119,7 +118,6 @@ async function edit_worry_board(worry_board_id){
 // request모달을 열어주는 함수
 function open_request_modal_do_request(id, content){
     document.getElementById('request_modal_background').style.display="flex"
-    const small_modal = document.getElementById('request_small_modal');
     document.body.style.overflow = 'hidden';
     const worry_board_content = document.getElementById('md_bb_bl_bd_ct_left_' + id);
     const content_box = document.querySelector('.sm_bd_target_content')
@@ -167,7 +165,6 @@ async function request_message(worry_board_id){
 // 요청 취소 버튼을 눌를 시 나오는 수정 모달
 function open_request_modal_cancle_request(none,worry_board_id, request_message_id){
     document.getElementById('cancle_request_modal_background').style.display="flex"
-    const small_modal = document.getElementById('cancle_request_small_modal');
     document.body.style.overflow = 'hidden';
 
     document.getElementById('cr_sm_bd_button').innerHTML = `
@@ -295,7 +292,7 @@ async function get_worry_board() {
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+            profile_grade.innerText = `다음레벨까지 : ${res.user_profile_data.mongle_grade.left_grade}`
             porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
             mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
             worry_board_list(res.boards)
