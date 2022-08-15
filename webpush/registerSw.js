@@ -7,7 +7,7 @@ if (urlParams == "?after_login"){
     const getinfo = async () => {
         console.log("getInfo")
         token = localStorage.getItem('access');
-        const response = await fetch(`${BASE_URL}/webpush_alarm/test/`, {
+        const response = await fetch(`${BASE_URL}/webpush_alarm/getinfo/`, {
             headers:{
                 "Authorization": `Bearer ${token}`,
             },
@@ -31,31 +31,26 @@ if (urlParams == "?after_login"){
                 const reg = await navigator.serviceWorker.register('../webpush/sw.js');
                 initialiseState(reg)
             } else {
-                showNotAllowed("You can't send push notifications ☹️😢")
+                alert("You can't send push notifications ☹️😢")
             }
         };
     
         const initialiseState = (reg) => {
             if (!reg.showNotification) {
-                showNotAllowed('Showing notifications isn\'t supported ☹️😢');
+                alert('Showing notifications isn\'t supported ☹️😢');
                 return
             }
             if (Notification.permission === 'denied') {
-                showNotAllowed('You prevented us from showing notifications ☹️🤔');
+                alert('You prevented us from showing notifications ☹️🤔');
                 return
             }
             if (!'PushManager' in window) {
-                showNotAllowed("Push isn't allowed in your browser 🤔");
+                alert("Push isn't allowed in your browser 🤔");
                 return
             }
             subscribe(reg);
         }
     
-        const showNotAllowed = (message) => {
-            const button = document.querySelector('form>button');
-            button.innerHTML = `${message}`;
-            button.setAttribute('disabled', 'true');
-        };
     
         function urlB64ToUint8Array(base64String) {
             const padding = '='.repeat((4 - base64String.length % 4) % 4);
@@ -124,7 +119,7 @@ if (urlParams == "?after_login"){
 
     async function sendWebpush() {
         console.log("sendWebpush")
-        const res = await fetch(`${BASE_URL}/webpush_alarm/`, {
+        const res = await fetch(`${BASE_URL}/webpush_alarm/sendpush/`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -140,13 +135,5 @@ if (urlParams == "?after_login"){
     }
     
 }
-
-
-
-
-
-
-
-
 
 
