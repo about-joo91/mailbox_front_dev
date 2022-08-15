@@ -356,7 +356,7 @@ const call_edit_certifi = async() => {
         alert(response['detail'])
         location.reload()
     }else{
-        alert(response)
+        alert(response['detail'])
     }
 }
 // 메뉴바 오픈 
