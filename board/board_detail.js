@@ -48,7 +48,7 @@ async function post_board_comment(){
             break;
         case 401:
             alert(response.detail)
-            location.replace('/user/signin.html');
+            location.replace('/index.html');
             break;
         default:
             alert(res['detail'])
@@ -229,7 +229,7 @@ window.onload =
                 break;
             default:
                 alert("세션이 만료 되었습니다.")
-                location.replace('/user/signin.html')
+                location.replace('/index.html')
         }
     }
 

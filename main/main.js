@@ -452,7 +452,7 @@ const live_review = async() => {
     }
         const unauthorized = (response) => {
         alert(response.detail)
-        location.replace('/user/signin.html');
+        location.replace('/index.html');
     }
     switch(result.status){
         case 200:
@@ -520,7 +520,7 @@ const best_review = async() => {
     }
     const unauthorized = (response) => {
         alert(response.detail)
-        location.replace('/user/signin.html');
+        location.replace('/index.html');
     }
     switch(result.status){
         case 200:

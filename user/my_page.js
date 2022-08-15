@@ -18,6 +18,10 @@ const get_cookie = (name) => {
 const csrftoken = get_cookie('csrftoken');
 let my_profile_desc = '';
 let my_profile_name = '';
+let certification_question_list = '';
+let user_certification_question_id = '';
+let user_certification_answer = '';
+
 
 window.onload = async () => {
     let url = new URL(BASE_URL + 'user/profile');
@@ -34,6 +38,7 @@ window.onload = async () => {
     const response = await result.json();
     switch(result.status){
         case 200:
+            console.log(response)
             my_profile_exist(response)
             break;
         case 401:
@@ -45,14 +50,18 @@ window.onload = async () => {
 }
 const unauthorized = (response) => {
     alert(response.detail)
-    location.replace('/user/signin.html');
+    location.replace('/index.html');
 }
 const my_profile_exist = (response) =>{
-    my_profile_desc = response.description;
-    my_profile_name = response.fullname;
+    my_profile_desc = response.profile_data.description;
+    my_profile_name = response.profile_data.fullname;
+    certification_question_list = response.certification_question_list;
+    user_certification_question_id = response.profile_data.certification_question_id
+    user_certification_answer = response.profile_data.certification_answer
+
     let cate_html = ``
-    let cate_array = response.categories
-    let mongle_grade = response.mongle_grade
+    let cate_array = response.profile_data.categories
+    let mongle_grade = response.profile_data.mongle_grade
     cate_array.forEach(element =>
         cate_html += `<div id="cate_${element.id}" class="category_style">${element.cate_name}</div>`
     )
@@ -62,25 +71,29 @@ const my_profile_exist = (response) =>{
     나의 몽글 점수: ${mongle_grade.grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+ mongle_grade.mongle_image +`)"></div>
-    <a href="/user/my_page.html"><div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"></div></a>`
+    <a href="/user/my_page.html"><div class="nc_profile" style="background-image:url(`+ response.profile_data.profile_img +`)"></div></a>`
 
     const mpc_c_header = document.querySelector('.mpc_c_header');
-    mpc_c_header.innerHTML += `${response.user}님의 프로필`
+    mpc_c_header.innerHTML += `${response.profile_data.user}님의 프로필`
 
     const mpc_c_b_u_profile_img_wrapper = document.querySelector('.mpc_c_b_u_profile_img_wrapper');
-    mpc_c_b_u_profile_img_wrapper.innerHTML = `<div class="mpc_c_b_u_profile_img" style="background-image:url(`+ response.profile_img +`)"></div>`
+    mpc_c_b_u_profile_img_wrapper.innerHTML = `<div class="mpc_c_b_u_profile_img" style="background-image:url(`+ response.profile_data.profile_img +`)"></div>`
 
     const mpc_c_b_u_rcb_name = document.querySelector('.mpc_c_b_u_rcb_name');
     mpc_c_b_u_rcb_name.innerHTML = `
-    <div>${response.fullname}</div>
+    <div>${response.profile_data.fullname}</div>
     <div>${mongle_grade.level}레벨</div>
     `
     const mpc_c_b_u_rcb_category_box = document.querySelector('.mpc_c_b_u_rcb_category_box');
     mpc_c_b_u_rcb_category_box.innerHTML += cate_html + `<div class="category_plus_btn" ontouchstart="add_my_cate_ready()" onclick="add_my_cate_ready()"> + </div>`
     const mpc_c_body_down = document.querySelector('.mpc_c_body_down');
-    mpc_c_body_down.innerHTML = response.description +`<span onclick="desc_edit_ready()" class="mpc_c_bd_edit_button">
-    프로필 수정
-</span>`
+    mpc_c_body_down.innerHTML = response.profile_data.description +`
+    <span onclick="desc_edit_ready()" class="mpc_c_bd_edit_button">
+        프로필 수정
+    </span> 
+    <span onclick="certicification_edit_ready()" class="mpc_c_bd_edit_certification_button">
+        본인 확인 질문 수정
+    </span>`
 }
 
 const category_box = document.querySelector('.mpc_c_b_u_rcb_category_box');
@@ -167,7 +180,7 @@ const delete_my_cate = async (cate_num) => {
             break;
         case 401:
             alert(response['detail'])
-            location.replace('/user/signin.html');
+            location.replace('/index.html');
             break;
         case 404:
             alert(response['detail'])
@@ -246,7 +259,7 @@ const add_my_cate = async() => {
     }
     
 }
-// 수정모달
+// 자기소개 수정모달
 const edit_desc_modal_wrapper = document.querySelector('.edit_desc_modal_wrapper');
 const edm_textarea = document.querySelector('.edm_textarea');
 const edm_name = document.querySelector('.edm_name');
@@ -283,6 +296,59 @@ const call_edit_desc = async() => {
         body: JSON.stringify({
             "fullname" : full_name.replace(REG,""),
             "description" : description.replace(REG,"")
+        })
+    });
+    let response = await result.json()
+    if (result.status == 200){
+        alert(response['detail'])
+        location.reload()
+    }else{
+        alert(response)
+    }
+}
+// 본인확인질문 수정모달
+const edit_certification_modal_wrapper = document.querySelector('.edit_certification_modal_wrapper');
+const ecm_textarea = document.querySelector('.ecm_textarea');
+const ecm_name = document.querySelector('.ecm_name');
+
+const certicification_edit_ready = () => {
+    let question_html = ``;
+    for(i=0; i<certification_question_list.length; i++){
+        question_html += `<option value="${i+1}">${certification_question_list[i]}</option>`
+    }
+    ecm_name.innerHTML = question_html;
+    ecm_name.value = user_certification_question_id;
+    ecm_textarea.innerText = user_certification_answer;
+
+    edit_certification_modal_wrapper.style.display = 'flex';
+}
+edit_certification_modal_wrapper.addEventListener('click', function(e){
+    if(e.target.classList.contains('edit_certification_modal_wrapper')){
+        edit_certification_modal_wrapper.style.display = 'none';
+    }
+})
+
+const cancel_edit_certifi = () => {
+    edit_certification_modal_wrapper.style.display = 'none';
+}
+
+const call_edit_certifi = async() => {
+    let certification_question = document.querySelector('.ecm_name').value
+    let certification_answer = document.querySelector('.ecm_textarea').value
+    let url = new URL(BASE_URL + 'user/question/update')
+    let token = localStorage.getItem('access');
+    const result = await fetch(url,{
+        method: 'put',
+        headers: {
+                "Access-Control-Allow-Origin": "*",
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+                'Authorization' : `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            "certification_question" : certification_question,
+            "certification_answer" : certification_answer
         })
     });
     let response = await result.json()
@@ -399,3 +465,9 @@ pem_cancel_btn.addEventListener('click', () => {
     pem_row_box.style.display = 'block';
     
 })
+
+function call_edit_certifi_enterkey(){
+    if (window.event.keyCode == 13){
+        call_edit_certifi();
+    }
+}

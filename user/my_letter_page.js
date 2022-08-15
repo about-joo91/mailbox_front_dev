@@ -79,7 +79,7 @@ const default_page = (response) => {
 }
 const unauthorized = (response) => {
     alert(response.detail)
-    location.replace('/user/signin.html');
+    location.replace('/index.html');
 }
 const letters_not_exist = (response) => {
     if (page_name === "my_not_read_letter"){
