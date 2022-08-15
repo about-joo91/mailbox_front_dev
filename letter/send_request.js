@@ -96,7 +96,7 @@ async function get_request_messages() {
             const profile_grade = document.getElementById('profile_grade')
             const porfile_image = document.getElementById('profile_image')
             const mongle_image = document.getElementById('mongle_img')
-            profile_grade.innerText = `나의 몽글 점수: ${res.user_profile_data.mongle_grade.grade}`
+            profile_grade.innerText = `다음레벨까지 : ${res.user_profile_data.mongle_grade.left_grade}`
             porfile_image.style.backgroundImage =`url(${res.user_profile_data.profile_img})`
             mongle_image.style.backgroundImage = `url(${res.user_profile_data.mongle_grade.mongle_image})`
             let tmp_request_message = ``

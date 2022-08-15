@@ -64,7 +64,7 @@ const default_page = (response) => {
     const lm_body = document.querySelector('.lm_body');
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
     nc_sb_nav.innerHTML += `<p>
-    나의 몽글 점수: ${response.mongle_grade.grade}
+    다음레벨까지 : ${response.mongle_grade.left_grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+response.mongle_grade.mongle_image +`)"></div>
     <div class="nc_profile" style="background-image:url(`+ response.profile_img +`)"><div>`

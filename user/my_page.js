@@ -38,7 +38,6 @@ window.onload = async () => {
     const response = await result.json();
     switch(result.status){
         case 200:
-            console.log(response)
             my_profile_exist(response)
             break;
         case 401:
@@ -68,7 +67,7 @@ const my_profile_exist = (response) =>{
     const nc_sb_nav = document.querySelector('.nc_sb_nav');
     nc_sb_nav.innerHTML += `
     <p>
-    나의 몽글 점수: ${mongle_grade.grade}
+    다음레벨까지 : ${mongle_grade.left_grade}
     </p>
     <div class ="nc_mongle" style="background-image:url(`+ mongle_grade.mongle_image +`)"></div>
     <a href="/user/my_page.html"><div class="nc_profile" style="background-image:url(`+ response.profile_data.profile_img +`)"></div></a>`
