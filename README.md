@@ -2,24 +2,28 @@
 
 
 ## 📝 기획의도 
-- 익명의 사용자가 고민을 게재하면 기명의 사용자가 그 고민에 대해서 편지를 보내준다.
-- 누구나 일상을 살아가다보면 넘어지고 다치는 순간이 생깁니다. 그 순간들에 이 페이지가 밴드 정도만 되도 괜찮을 것 같습니다.
-
+![20220822132858](https://user-images.githubusercontent.com/102797869/185839746-4c879cb4-b66d-4272-aca5-30035f1ba660.png)
+<br>
+<br>
 ## 👍 배포사이트
-www.mongle.site
+### www.mongle.site
+<br>
+<br>
 
 ## 🤔 팀원들이 생각한 웹페이지의 느낌
 
-![Group 30](https://user-images.githubusercontent.com/55477835/177790010-706e97b8-a65c-4009-aafc-d40aef1a8292.png)
+<p align="center">
+<img style="width:65%;" src="https://user-images.githubusercontent.com/55477835/177790010-706e97b8-a65c-4009-aafc-d40aef1a8292.png">
+</p>
 
 따뜻함과 편안함, 자연, 종이질감의 텍스쳐 괴로운 상황을 편안하게 만들어준다는 스토리텔링까지 담겨서 기획의도를 더 명확하게 가져가고 페이지의 테마를 정하는데 도움을 받을 수 있었습니다.
-
+<br>
+<br>
 ## 🌈 테마색상
 
 ![Group 31](https://user-images.githubusercontent.com/55477835/177790475-5b13c5f2-38d9-4801-8e50-ca58aa3c2594.png)
-
-## 🙏 페이지 목업
-![](https://velog.velcdn.com/images/aboutjoo/post/6456f187-1956-4b54-ba3e-d1b609052f4b/image.png)
+<br>
+<br>
 
 ## 🐥 메인 캐릭터 - 몽글이
 <p align="center">
@@ -29,36 +33,81 @@ www.mongle.site
 <img style="width:20%;" src="https://user-images.githubusercontent.com/55477835/185823478-5e186a08-db50-4da4-b644-b219bea6b653.png">
 <img style="width:20%;" src="https://user-images.githubusercontent.com/55477835/185823480-7ecf1449-8d22-4f99-b489-231a81ec1594.png">
 </p>
+<br>
+<br>
 
 ## 🔨 페이지 별 기능
 
 ![20220818152045](https://user-images.githubusercontent.com/102797869/185308909-658e2d00-4722-4e0f-80ab-bb812a15c9b1.png)
+<br>
+<br>
 
 ## 🏛 개발 아키텍처
 
 ![Web App Reference Architecture (2)](https://user-images.githubusercontent.com/55477835/185822526-93e791e1-bf37-4d5f-a225-1de87cc83fab.png)
+<br>
+<br>
+
+## 🤝 팀원 별 역할
+### 🧔🏻‍♀️ 주정한 : 팀장  
+- 백엔드 배포(https)  
+- 프로필 페이지  
+- 편지함 페이지  
+- CI / CD  
+- 검색기능(Elastic Search)  
+- 신고기능(APScheduler)  
+
+### 🍞 고현우  
+- 익명게시판 페이지  
+- 고민게시판 페이지  
+- 편지받기 페이지  
+- 편지쓰기 페이지  
+- 비밀번호 찾기 기능  
+
+### 👩‍🌾 김하진  
+- 프론트 배포(https)  
+- 메인페이지  
+- 편지 보내는 페이지  
+- 반응현 페이지  
+- 몽글 튜토리얼 페이지  
+- 텍스트 에디터(커스텀)  
+- Redis  
+
+### 🦥 최희원  
+- 로그인 페이지  
+- 회원가입 페이지  
+- 욕설감지 기능  
+- 게시글 추천 기능(APScheduler)  
+- 알림기능(Web Push)  
+
+<br>
+<br>
 
 ## 🛠 사용기술
-- cloudfront와 route53, s3를 활용한 https 프론트 배포
-- elb와 route53, ec2를 활용한 https 백엔드 배포
-- pre-commit hook(black, isort, flake8)을 통한 코드 포맷팅
-- 273개의 test코드를 통한 에러 핸들링
-- 별개의 fast-API 서버를 운용하여 추천기능 구현
-- APScheduler를 통해 4시간마다(fast-API서버에서) 추천 데이터가 담긴 csv파일 수신
-- redis 캐싱을 통한 서버 응답속도 향상
-- logstash를 활용하여 mysql 데이터 30분 마다 elastic-search로 업데이트
-- elastic-search를 활용하여 유사 검색어 기능 구현
-- 딥러닝을 활용한 비속어 필터링 기술
-페이지의 의도와 맞지않는 편지내용이 들어갈 수도 있으므로 비속어나 비방언어를 사용하면 편지를 쓰지 못하게 막는다.
-https://github.com/smilegate-ai/korean_unsmile_dataset
-- github actions과 도커를 통한 ci/cd 기능 구현
+- ### cloudfront와 route53, s3를 활용한 https 프론트 배포
+- ### elb와 route53, ec2를 활용한 https 백엔드 배포
+- ### pre-commit hook(black, isort, flake8)을 통한 코드 포맷팅
+- ### 273개의 test코드를 통한 에러 핸들링
+- ### 별개의 fast-API 서버를 운용하여 추천기능 구현
+- ### APScheduler를 통해 4시간마다(fast-API서버에서) 추천 데이터가 담긴 csv파일 수신
+- ### redis 캐싱을 통한 서버 응답속도 향상
+- ### logstash를 활용하여 mysql 데이터 30분 마다 elastic-search로 업데이트
+- ### elastic-search를 활용하여 유사 검색어 기능 구현
+- ### 딥러닝을 활용한 비속어 필터링 기술 페이지의 의도와 맞지않는 편지내용이 들어갈 수도 있으므로 비속어나 비방언어를 사용하면 편지를 쓰지 못하게 막는다. [기술 링크](https://github.com/smilegate-ai/korean_unsmile_dataset)
+- ### github actions과 도커를 통한 ci/cd 기능 구현
+<br>
+<br>
 
 ## 📚 ERD
 ![mongle_erd](https://user-images.githubusercontent.com/55477835/182724054-fd7394ac-121c-498a-8396-19e009e61685.png)
+<br>
+<br>
 
 ## 🏹 api명세서
-- post맨 mock server를 활용한 api명세서
+- Postman mock server를 활용한 api명세서
 - https://documenter.getpostman.com/view/9279033/Uzs9wMsa
+<br>
+<br>
 
 ## 🤙 컨벤션
 - feat/ : 새로운 기능 추가/수정/삭제
@@ -66,6 +115,8 @@ https://github.com/smilegate-ai/korean_unsmile_dataset
 - refac/ : 코드 리팩토링,버그 수정
 - test/ : 테스트 코드/기능 추가
 - edit/ : 파일을 수정한 경우(파일위치변경, 파일이름 변경, 삭제)
+<br>
+<br>
 
 ## 🙏 그라운드 룰
 1. 작업 단위로 팀원들에게 공유하기(매일 오후5시) and 하루 일정 공유하기(매일 오전 9시)
